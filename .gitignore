@@ -1,0 +1,26 @@
+# Logs and databases #
+######################
+*.log
+#*.sql
+#*.sqlite
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Thumbs.db# ignore OS X files
+
+# IDE stuff #
+#############
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+xcuserdata
+
+# Build Directory/File #
+########################
+build/*
+
+# ignore other files
