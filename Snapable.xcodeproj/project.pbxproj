@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		498513E915C7962600EB6A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513E515C7962600EB6A77 /* AppDelegate.m */; };
+		490985C415C834FB00EB1969 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 490985C215C834FB00EB1969 /* Default.png */; };
+		490985C515C834FB00EB1969 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 490985C315C834FB00EB1969 /* Default@2x.png */; };
+		498513E915C7962600EB6A77 /* SnapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513E515C7962600EB6A77 /* SnapAppDelegate.m */; };
 		498513F415C7966000EB6A77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 498513F115C7966000EB6A77 /* InfoPlist.strings */; };
 		498513F515C7966000EB6A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513F315C7966000EB6A77 /* main.m */; };
 		498513FD15C7977900EB6A77 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 498513F615C7977900EB6A77 /* Icon-72.png */; };
@@ -23,8 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		498513E415C7962600EB6A77 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		498513E515C7962600EB6A77 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		490985C215C834FB00EB1969 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		490985C315C834FB00EB1969 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		498513E415C7962600EB6A77 /* SnapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapAppDelegate.h; sourceTree = "<group>"; };
+		498513E515C7962600EB6A77 /* SnapAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapAppDelegate.m; sourceTree = "<group>"; };
 		498513EA15C7963800EB6A77 /* Snapable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Snapable-Info.plist"; sourceTree = "<group>"; };
 		498513EB15C7963800EB6A77 /* Snapable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snapable-Prefix.pch"; sourceTree = "<group>"; };
 		498513F215C7966000EB6A77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -36,7 +40,7 @@
 		498513FA15C7977900EB6A77 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		498513FB15C7977900EB6A77 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		498513FC15C7977900EB6A77 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
-		49BCC2A915C6F3C100E90CB4 /* Snapable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snapable.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49BCC2A915C6F3C100E90CB4 /* development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = development.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BCC2AD15C6F3C100E90CB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BCC2AF15C6F3C100E90CB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		49BCC2B115C6F3C100E90CB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -70,8 +74,8 @@
 		498513E315C7962600EB6A77 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				498513E415C7962600EB6A77 /* AppDelegate.h */,
-				498513E515C7962600EB6A77 /* AppDelegate.m */,
+				498513E415C7962600EB6A77 /* SnapAppDelegate.h */,
+				498513E515C7962600EB6A77 /* SnapAppDelegate.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -109,6 +113,8 @@
 		498513EE15C7964E00EB6A77 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				490985C215C834FB00EB1969 /* Default.png */,
+				490985C315C834FB00EB1969 /* Default@2x.png */,
 				498513F615C7977900EB6A77 /* Icon-72.png */,
 				498513F715C7977900EB6A77 /* Icon-Small-50.png */,
 				498513F815C7977900EB6A77 /* Icon-Small.png */,
@@ -148,7 +154,7 @@
 		49BCC2AA15C6F3C100E90CB4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49BCC2A915C6F3C100E90CB4 /* Snapable.app */,
+				49BCC2A915C6F3C100E90CB4 /* development.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -178,9 +184,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		49BCC2A815C6F3C100E90CB4 /* Snapable */ = {
+		49BCC2A815C6F3C100E90CB4 /* Snapable-dev */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 49BCC2C115C6F3C100E90CB4 /* Build configuration list for PBXNativeTarget "Snapable" */;
+			buildConfigurationList = 49BCC2C115C6F3C100E90CB4 /* Build configuration list for PBXNativeTarget "Snapable-dev" */;
 			buildPhases = (
 				49BCC2A515C6F3C100E90CB4 /* Sources */,
 				49BCC2A615C6F3C100E90CB4 /* Frameworks */,
@@ -190,9 +196,9 @@
 			);
 			dependencies = (
 			);
-			name = Snapable;
+			name = "Snapable-dev";
 			productName = Snapable;
-			productReference = 49BCC2A915C6F3C100E90CB4 /* Snapable.app */;
+			productReference = 49BCC2A915C6F3C100E90CB4 /* development.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -217,7 +223,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				49BCC2A815C6F3C100E90CB4 /* Snapable */,
+				49BCC2A815C6F3C100E90CB4 /* Snapable-dev */,
 			);
 		};
 /* End PBXProject section */
@@ -235,6 +241,8 @@
 				4985140115C7977900EB6A77 /* Icon.png in Resources */,
 				4985140215C7977900EB6A77 /* Icon@2x.png in Resources */,
 				4985140315C7977900EB6A77 /* iTunesArtwork in Resources */,
+				490985C415C834FB00EB1969 /* Default.png in Resources */,
+				490985C515C834FB00EB1969 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				498513E915C7962600EB6A77 /* AppDelegate.m in Sources */,
+				498513E915C7962600EB6A77 /* SnapAppDelegate.m in Sources */,
 				498513F515C7966000EB6A77 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,7 +329,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snapable/Snapable-Prefix.pch";
 				INFOPLIST_FILE = "Snapable/Snapable-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -332,7 +342,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snapable/Snapable-Prefix.pch";
 				INFOPLIST_FILE = "Snapable/Snapable-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -349,7 +361,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		49BCC2C115C6F3C100E90CB4 /* Build configuration list for PBXNativeTarget "Snapable" */ = {
+		49BCC2C115C6F3C100E90CB4 /* Build configuration list for PBXNativeTarget "Snapable-dev" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				49BCC2C215C6F3C100E90CB4 /* Debug */,

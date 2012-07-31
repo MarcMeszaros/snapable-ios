@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Snapable. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "SnapAppDelegate.h"
 
-@implementation AppDelegate
+@implementation SnapAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
