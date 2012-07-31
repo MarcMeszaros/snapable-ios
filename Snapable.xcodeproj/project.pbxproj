@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		490985C415C834FB00EB1969 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 490985C215C834FB00EB1969 /* Default.png */; };
 		490985C515C834FB00EB1969 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 490985C315C834FB00EB1969 /* Default@2x.png */; };
+		49516A4F15C8423700B9579A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49516A4E15C8423700B9579A /* MainStoryboard.storyboard */; };
 		498513E915C7962600EB6A77 /* SnapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513E515C7962600EB6A77 /* SnapAppDelegate.m */; };
 		498513F415C7966000EB6A77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 498513F115C7966000EB6A77 /* InfoPlist.strings */; };
 		498513F515C7966000EB6A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513F315C7966000EB6A77 /* main.m */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		490985C215C834FB00EB1969 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		490985C315C834FB00EB1969 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		49516A4E15C8423700B9579A /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		498513E415C7962600EB6A77 /* SnapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapAppDelegate.h; sourceTree = "<group>"; };
 		498513E515C7962600EB6A77 /* SnapAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapAppDelegate.m; sourceTree = "<group>"; };
 		498513EA15C7963800EB6A77 /* Snapable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Snapable-Info.plist"; sourceTree = "<group>"; };
@@ -40,7 +42,7 @@
 		498513FA15C7977900EB6A77 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		498513FB15C7977900EB6A77 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		498513FC15C7977900EB6A77 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
-		49BCC2A915C6F3C100E90CB4 /* development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = development.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49BCC2A915C6F3C100E90CB4 /* Snapable-dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snapable-dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BCC2AD15C6F3C100E90CB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BCC2AF15C6F3C100E90CB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		49BCC2B115C6F3C100E90CB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,9 +62,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		490985CD15C83E7200EB1969 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		49516A4D15C8423700B9579A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				49516A4E15C8423700B9579A /* MainStoryboard.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		498513E215C7962600EB6A77 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				49516A4D15C8423700B9579A /* Storyboards */,
+				490985CD15C83E7200EB1969 /* Views */,
 				498513E315C7962600EB6A77 /* AppDelegate */,
 				498513E615C7962600EB6A77 /* Controllers */,
 				498513E715C7962600EB6A77 /* Helpers */,
@@ -154,7 +173,7 @@
 		49BCC2AA15C6F3C100E90CB4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49BCC2A915C6F3C100E90CB4 /* development.app */,
+				49BCC2A915C6F3C100E90CB4 /* Snapable-dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,7 +217,7 @@
 			);
 			name = "Snapable-dev";
 			productName = Snapable;
-			productReference = 49BCC2A915C6F3C100E90CB4 /* development.app */;
+			productReference = 49BCC2A915C6F3C100E90CB4 /* Snapable-dev.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -243,6 +262,7 @@
 				4985140315C7977900EB6A77 /* iTunesArtwork in Resources */,
 				490985C415C834FB00EB1969 /* Default.png in Resources */,
 				490985C515C834FB00EB1969 /* Default@2x.png in Resources */,
+				49516A4F15C8423700B9579A /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
