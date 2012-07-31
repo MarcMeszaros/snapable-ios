@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		498513E915C7962600EB6A77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513E515C7962600EB6A77 /* AppDelegate.m */; };
+		498513F415C7966000EB6A77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 498513F115C7966000EB6A77 /* InfoPlist.strings */; };
+		498513F515C7966000EB6A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513F315C7966000EB6A77 /* main.m */; };
 		49BCC2AE15C6F3C100E90CB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2AD15C6F3C100E90CB4 /* UIKit.framework */; };
 		49BCC2B015C6F3C100E90CB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2AF15C6F3C100E90CB4 /* Foundation.framework */; };
 		49BCC2B215C6F3C100E90CB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2B115C6F3C100E90CB4 /* CoreGraphics.framework */; };
-		49BCC2B815C6F3C100E90CB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49BCC2B615C6F3C100E90CB4 /* InfoPlist.strings */; };
-		49BCC2BA15C6F3C100E90CB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BCC2B915C6F3C100E90CB4 /* main.m */; };
-		49BCC2BE15C6F3C100E90CB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BCC2BD15C6F3C100E90CB4 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		498513E415C7962600EB6A77 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		498513E515C7962600EB6A77 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		498513EA15C7963800EB6A77 /* Snapable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Snapable-Info.plist"; sourceTree = "<group>"; };
+		498513EB15C7963800EB6A77 /* Snapable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snapable-Prefix.pch"; sourceTree = "<group>"; };
+		498513F215C7966000EB6A77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		498513F315C7966000EB6A77 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49BCC2A915C6F3C100E90CB4 /* Snapable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snapable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BCC2AD15C6F3C100E90CB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BCC2AF15C6F3C100E90CB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		49BCC2B115C6F3C100E90CB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		49BCC2B515C6F3C100E90CB4 /* Snapable-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Snapable-Info.plist"; sourceTree = "<group>"; };
-		49BCC2B715C6F3C100E90CB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		49BCC2B915C6F3C100E90CB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		49BCC2BB15C6F3C100E90CB4 /* Snapable-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Snapable-Prefix.pch"; sourceTree = "<group>"; };
-		49BCC2BC15C6F3C100E90CB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		49BCC2BD15C6F3C100E90CB4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +42,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		498513E215C7962600EB6A77 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				498513E315C7962600EB6A77 /* AppDelegate */,
+				498513E615C7962600EB6A77 /* Controllers */,
+				498513E715C7962600EB6A77 /* Helpers */,
+				498513E815C7962600EB6A77 /* Models */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		498513E315C7962600EB6A77 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				498513E415C7962600EB6A77 /* AppDelegate.h */,
+				498513E515C7962600EB6A77 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		498513E615C7962600EB6A77 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		498513E715C7962600EB6A77 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		498513E815C7962600EB6A77 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		498513ED15C7964E00EB6A77 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				498513EE15C7964E00EB6A77 /* Images */,
+				498513EF15C7964E00EB6A77 /* NIBs */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		498513EE15C7964E00EB6A77 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		498513EF15C7964E00EB6A77 /* NIBs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NIBs;
+			sourceTree = "<group>";
+		};
+		498513F015C7966000EB6A77 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				498513F115C7966000EB6A77 /* InfoPlist.strings */,
+				498513F315C7966000EB6A77 /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		49BCC29E15C6F3C100E90CB4 = {
 			isa = PBXGroup;
 			children = (
@@ -72,22 +145,13 @@
 		49BCC2B315C6F3C100E90CB4 /* Snapable */ = {
 			isa = PBXGroup;
 			children = (
-				49BCC2BC15C6F3C100E90CB4 /* AppDelegate.h */,
-				49BCC2BD15C6F3C100E90CB4 /* AppDelegate.m */,
-				49BCC2B415C6F3C100E90CB4 /* Supporting Files */,
+				498513F015C7966000EB6A77 /* Supporting Files */,
+				498513ED15C7964E00EB6A77 /* Resources */,
+				498513EA15C7963800EB6A77 /* Snapable-Info.plist */,
+				498513EB15C7963800EB6A77 /* Snapable-Prefix.pch */,
+				498513E215C7962600EB6A77 /* Classes */,
 			);
 			path = Snapable;
-			sourceTree = "<group>";
-		};
-		49BCC2B415C6F3C100E90CB4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				49BCC2B515C6F3C100E90CB4 /* Snapable-Info.plist */,
-				49BCC2B615C6F3C100E90CB4 /* InfoPlist.strings */,
-				49BCC2B915C6F3C100E90CB4 /* main.m */,
-				49BCC2BB15C6F3C100E90CB4 /* Snapable-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49BCC2B815C6F3C100E90CB4 /* InfoPlist.strings in Resources */,
+				498513F415C7966000EB6A77 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,18 +216,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49BCC2BA15C6F3C100E90CB4 /* main.m in Sources */,
-				49BCC2BE15C6F3C100E90CB4 /* AppDelegate.m in Sources */,
+				498513E915C7962600EB6A77 /* AppDelegate.m in Sources */,
+				498513F515C7966000EB6A77 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		49BCC2B615C6F3C100E90CB4 /* InfoPlist.strings */ = {
+		498513F115C7966000EB6A77 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				49BCC2B715C6F3C100E90CB4 /* en */,
+				498513F215C7966000EB6A77 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
