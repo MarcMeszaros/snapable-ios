@@ -201,6 +201,7 @@
 		49BCC2A015C6F3C100E90CB4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = Snap;
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = Snapable;
 			};
