@@ -9,8 +9,17 @@
 /* Begin PBXBuildFile section */
 		490985C415C834FB00EB1969 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 490985C215C834FB00EB1969 /* Default.png */; };
 		490985C515C834FB00EB1969 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 490985C315C834FB00EB1969 /* Default@2x.png */; };
-		49516A4F15C8423700B9579A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49516A4E15C8423700B9579A /* MainStoryboard.storyboard */; };
-		498513E915C7962600EB6A77 /* SnapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513E515C7962600EB6A77 /* SnapAppDelegate.m */; };
+		4925163D15C8E14400A776C7 /* SnapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925163C15C8E14400A776C7 /* SnapAppDelegate.m */; };
+		4925164015C8E1AF00A776C7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925163F15C8E1AF00A776C7 /* MainViewController.m */; };
+		49516A6915C84A6B00B9579A /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A5C15C8495300B9579A /* libRestKit.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		49516A7415C84BA300B9579A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7215C84B2700B9579A /* CFNetwork.framework */; };
+		49516A7B15C84BA300B9579A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7515C84BA300B9579A /* CoreData.framework */; };
+		49516A7C15C84BA300B9579A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7615C84BA300B9579A /* libxml2.dylib */; };
+		49516A7D15C84BA300B9579A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7715C84BA300B9579A /* MobileCoreServices.framework */; };
+		49516A7E15C84BA300B9579A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7815C84BA300B9579A /* QuartzCore.framework */; };
+		49516A7F15C84BA300B9579A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7915C84BA300B9579A /* Security.framework */; };
+		49516A8015C84BA300B9579A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7A15C84BA300B9579A /* SystemConfiguration.framework */; };
+		49516A8215C8D34B00B9579A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49516A8115C8D34B00B9579A /* MainStoryboard.storyboard */; };
 		498513F415C7966000EB6A77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 498513F115C7966000EB6A77 /* InfoPlist.strings */; };
 		498513F515C7966000EB6A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513F315C7966000EB6A77 /* main.m */; };
 		498513FD15C7977900EB6A77 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 498513F615C7977900EB6A77 /* Icon-72.png */; };
@@ -25,12 +34,67 @@
 		49BCC2B215C6F3C100E90CB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2B115C6F3C100E90CB4 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		49516A5B15C8495300B9579A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		49516A5D15C8495300B9579A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		49516A5F15C8495300B9579A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		49516A6115C8495300B9579A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		49516A6315C8495300B9579A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 259C301615128079003066A2;
+			remoteInfo = RestKitResources;
+		};
+		49516A6715C84A4600B9579A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		490985C215C834FB00EB1969 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		490985C315C834FB00EB1969 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		49516A4E15C8423700B9579A /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		498513E415C7962600EB6A77 /* SnapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapAppDelegate.h; sourceTree = "<group>"; };
-		498513E515C7962600EB6A77 /* SnapAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapAppDelegate.m; sourceTree = "<group>"; };
+		4925163B15C8E14400A776C7 /* SnapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapAppDelegate.h; sourceTree = "<group>"; };
+		4925163C15C8E14400A776C7 /* SnapAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapAppDelegate.m; sourceTree = "<group>"; };
+		4925163E15C8E1AF00A776C7 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		4925163F15C8E1AF00A776C7 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		49516A5015C8495300B9579A /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		49516A7215C84B2700B9579A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		49516A7515C84BA300B9579A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		49516A7615C84BA300B9579A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		49516A7715C84BA300B9579A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		49516A7815C84BA300B9579A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		49516A7915C84BA300B9579A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		49516A7A15C84BA300B9579A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		49516A8115C8D34B00B9579A /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		498513EA15C7963800EB6A77 /* Snapable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Snapable-Info.plist"; sourceTree = "<group>"; };
 		498513EB15C7963800EB6A77 /* Snapable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snapable-Prefix.pch"; sourceTree = "<group>"; };
 		498513F215C7966000EB6A77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -53,6 +117,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49516A7B15C84BA300B9579A /* CoreData.framework in Frameworks */,
+				49516A7C15C84BA300B9579A /* libxml2.dylib in Frameworks */,
+				49516A7D15C84BA300B9579A /* MobileCoreServices.framework in Frameworks */,
+				49516A7E15C84BA300B9579A /* QuartzCore.framework in Frameworks */,
+				49516A7F15C84BA300B9579A /* Security.framework in Frameworks */,
+				49516A8015C84BA300B9579A /* SystemConfiguration.framework in Frameworks */,
+				49516A7415C84BA300B9579A /* CFNetwork.framework in Frameworks */,
+				49516A6915C84A6B00B9579A /* libRestKit.a in Frameworks */,
 				49BCC2AE15C6F3C100E90CB4 /* UIKit.framework in Frameworks */,
 				49BCC2B015C6F3C100E90CB4 /* Foundation.framework in Frameworks */,
 				49BCC2B215C6F3C100E90CB4 /* CoreGraphics.framework in Frameworks */,
@@ -72,9 +144,21 @@
 		49516A4D15C8423700B9579A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				49516A4E15C8423700B9579A /* MainStoryboard.storyboard */,
+				49516A8115C8D34B00B9579A /* MainStoryboard.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		49516A5115C8495300B9579A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49516A5C15C8495300B9579A /* libRestKit.a */,
+				49516A5E15C8495300B9579A /* RestKitTests.octest */,
+				49516A6015C8495300B9579A /* RestKit.framework */,
+				49516A6215C8495300B9579A /* RestKitFrameworkTests.octest */,
+				49516A6415C8495300B9579A /* RestKitResources.bundle */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		498513E215C7962600EB6A77 /* Classes */ = {
@@ -93,8 +177,8 @@
 		498513E315C7962600EB6A77 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				498513E415C7962600EB6A77 /* SnapAppDelegate.h */,
-				498513E515C7962600EB6A77 /* SnapAppDelegate.m */,
+				4925163B15C8E14400A776C7 /* SnapAppDelegate.h */,
+				4925163C15C8E14400A776C7 /* SnapAppDelegate.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -102,6 +186,8 @@
 		498513E615C7962600EB6A77 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4925163E15C8E1AF00A776C7 /* MainViewController.h */,
+				4925163F15C8E1AF00A776C7 /* MainViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -164,6 +250,14 @@
 		49BCC29E15C6F3C100E90CB4 = {
 			isa = PBXGroup;
 			children = (
+				49516A7515C84BA300B9579A /* CoreData.framework */,
+				49516A7615C84BA300B9579A /* libxml2.dylib */,
+				49516A7715C84BA300B9579A /* MobileCoreServices.framework */,
+				49516A7815C84BA300B9579A /* QuartzCore.framework */,
+				49516A7915C84BA300B9579A /* Security.framework */,
+				49516A7A15C84BA300B9579A /* SystemConfiguration.framework */,
+				49516A7215C84B2700B9579A /* CFNetwork.framework */,
+				49516A5015C8495300B9579A /* RestKit.xcodeproj */,
 				49BCC2B315C6F3C100E90CB4 /* Snapable */,
 				49BCC2AC15C6F3C100E90CB4 /* Frameworks */,
 				49BCC2AA15C6F3C100E90CB4 /* Products */,
@@ -214,6 +308,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				49516A6815C84A4600B9579A /* PBXTargetDependency */,
 			);
 			name = "Snapable-dev";
 			productName = Snapable;
@@ -240,12 +335,56 @@
 			mainGroup = 49BCC29E15C6F3C100E90CB4;
 			productRefGroup = 49BCC2AA15C6F3C100E90CB4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 49516A5115C8495300B9579A /* Products */;
+					ProjectRef = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				49BCC2A815C6F3C100E90CB4 /* Snapable-dev */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		49516A5C15C8495300B9579A /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 49516A5B15C8495300B9579A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		49516A5E15C8495300B9579A /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = 49516A5D15C8495300B9579A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		49516A6015C8495300B9579A /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 49516A5F15C8495300B9579A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		49516A6215C8495300B9579A /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = 49516A6115C8495300B9579A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		49516A6415C8495300B9579A /* RestKitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitResources.bundle;
+			remoteRef = 49516A6315C8495300B9579A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		49BCC2A715C6F3C100E90CB4 /* Resources */ = {
@@ -262,7 +401,7 @@
 				4985140315C7977900EB6A77 /* iTunesArtwork in Resources */,
 				490985C415C834FB00EB1969 /* Default.png in Resources */,
 				490985C515C834FB00EB1969 /* Default@2x.png in Resources */,
-				49516A4F15C8423700B9579A /* MainStoryboard.storyboard in Resources */,
+				49516A8215C8D34B00B9579A /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,12 +412,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				498513E915C7962600EB6A77 /* SnapAppDelegate.m in Sources */,
 				498513F515C7966000EB6A77 /* main.m in Sources */,
+				4925163D15C8E14400A776C7 /* SnapAppDelegate.m in Sources */,
+				4925164015C8E1AF00A776C7 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49516A6815C84A4600B9579A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 49516A6715C84A4600B9579A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		498513F115C7966000EB6A77 /* InfoPlist.strings */ = {
@@ -348,10 +496,16 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snapable/Snapable-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "Snapable/Snapable-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -361,10 +515,16 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snapable/Snapable-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "Snapable/Snapable-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
