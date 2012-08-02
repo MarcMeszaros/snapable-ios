@@ -32,6 +32,8 @@
 		49BCC2AE15C6F3C100E90CB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2AD15C6F3C100E90CB4 /* UIKit.framework */; };
 		49BCC2B015C6F3C100E90CB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2AF15C6F3C100E90CB4 /* Foundation.framework */; };
 		49BCC2B215C6F3C100E90CB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2B115C6F3C100E90CB4 /* CoreGraphics.framework */; };
+		9802184315C98A2B000728EA /* screen1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9802184215C98A2B000728EA /* screen1.png */; };
+		9802184515CABC53000728EA /* navigationBarBackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9802184415CABC53000728EA /* navigationBarBackgroundImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		49BCC2AD15C6F3C100E90CB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BCC2AF15C6F3C100E90CB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		49BCC2B115C6F3C100E90CB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9802184215C98A2B000728EA /* screen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen1.png; sourceTree = "<group>"; };
+		9802184415CABC53000728EA /* navigationBarBackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackgroundImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +289,7 @@
 		49BCC2B315C6F3C100E90CB4 /* Snapable */ = {
 			isa = PBXGroup;
 			children = (
+				9802184115C98A13000728EA /* images */,
 				498513F015C7966000EB6A77 /* Supporting Files */,
 				498513ED15C7964E00EB6A77 /* Resources */,
 				498513EA15C7963800EB6A77 /* Snapable-Info.plist */,
@@ -292,6 +297,15 @@
 				498513E215C7962600EB6A77 /* Classes */,
 			);
 			path = Snapable;
+			sourceTree = "<group>";
+		};
+		9802184115C98A13000728EA /* images */ = {
+			isa = PBXGroup;
+			children = (
+				9802184415CABC53000728EA /* navigationBarBackgroundImage.png */,
+				9802184215C98A2B000728EA /* screen1.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,6 +416,8 @@
 				490985C415C834FB00EB1969 /* Default.png in Resources */,
 				490985C515C834FB00EB1969 /* Default@2x.png in Resources */,
 				49516A8215C8D34B00B9579A /* MainStoryboard.storyboard in Resources */,
+				9802184315C98A2B000728EA /* screen1.png in Resources */,
+				9802184515CABC53000728EA /* navigationBarBackgroundImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
