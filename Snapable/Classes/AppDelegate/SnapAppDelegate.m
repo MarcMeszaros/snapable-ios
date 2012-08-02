@@ -16,6 +16,9 @@
     // Override point for customization after application launch.
     //self.window.backgroundColor = [UIColor whiteColor];
     //[self.window makeKeyAndVisible];
+    UIImage *image = [UIImage imageNamed:@"navigationBarBackgroundImage.png"];
+    //[[UINavigationBar appearance] setBackgroundImage:navigationBarBackgroundImage.png forBarMetrics:UIBarMetricsDefault];
+    NSLog(@"My image: %@", image);
     return YES;
 }
 

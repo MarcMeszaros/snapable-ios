@@ -34,6 +34,7 @@
 		49BCC2B215C6F3C100E90CB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2B115C6F3C100E90CB4 /* CoreGraphics.framework */; };
 		9802184315C98A2B000728EA /* screen1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9802184215C98A2B000728EA /* screen1.png */; };
 		9802184515CABC53000728EA /* navigationBarBackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9802184415CABC53000728EA /* navigationBarBackgroundImage.png */; };
+		98571AAD15CAC92B0076BE97 /* SnapNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,8 @@
 		49BCC2B115C6F3C100E90CB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9802184215C98A2B000728EA /* screen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen1.png; sourceTree = "<group>"; };
 		9802184415CABC53000728EA /* navigationBarBackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackgroundImage.png; sourceTree = "<group>"; };
+		98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapNavigationBar.h; sourceTree = "<group>"; };
+		98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapNavigationBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,8 @@
 			children = (
 				4925163E15C8E1AF00A776C7 /* MainViewController.h */,
 				4925163F15C8E1AF00A776C7 /* MainViewController.m */,
+				98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */,
+				98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 				498513F515C7966000EB6A77 /* main.m in Sources */,
 				4925163D15C8E14400A776C7 /* SnapAppDelegate.m in Sources */,
 				4925164015C8E1AF00A776C7 /* MainViewController.m in Sources */,
+				98571AAD15CAC92B0076BE97 /* SnapNavigationBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
