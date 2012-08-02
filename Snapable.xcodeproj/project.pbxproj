@@ -10,7 +10,6 @@
 		490985C415C834FB00EB1969 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 490985C215C834FB00EB1969 /* Default.png */; };
 		490985C515C834FB00EB1969 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 490985C315C834FB00EB1969 /* Default@2x.png */; };
 		4925163D15C8E14400A776C7 /* SnapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925163C15C8E14400A776C7 /* SnapAppDelegate.m */; };
-		4925164015C8E1AF00A776C7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925163F15C8E1AF00A776C7 /* MainViewController.m */; };
 		494912E815CB150D006BBE8B /* arrowBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912DD15CB150D006BBE8B /* arrowBlue.png */; };
 		494912E915CB150D006BBE8B /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912DE15CB150D006BBE8B /* background.png */; };
 		494912EA15CB150D006BBE8B /* backgroundPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912DF15CB150D006BBE8B /* backgroundPhoto.png */; };
@@ -108,8 +107,6 @@
 		490985C315C834FB00EB1969 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4925163B15C8E14400A776C7 /* SnapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapAppDelegate.h; sourceTree = "<group>"; };
 		4925163C15C8E14400A776C7 /* SnapAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapAppDelegate.m; sourceTree = "<group>"; };
-		4925163E15C8E1AF00A776C7 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		4925163F15C8E1AF00A776C7 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		494912DD15CB150D006BBE8B /* arrowBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowBlue.png; sourceTree = "<group>"; };
 		494912DE15CB150D006BBE8B /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		494912DF15CB150D006BBE8B /* backgroundPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundPhoto.png; sourceTree = "<group>"; };
@@ -235,8 +232,6 @@
 		498513E615C7962600EB6A77 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4925163E15C8E1AF00A776C7 /* MainViewController.h */,
-				4925163F15C8E1AF00A776C7 /* MainViewController.m */,
 				98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */,
 				98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */,
 			);
@@ -324,13 +319,6 @@
 		49BCC29E15C6F3C100E90CB4 = {
 			isa = PBXGroup;
 			children = (
-				49516A7515C84BA300B9579A /* CoreData.framework */,
-				49516A7615C84BA300B9579A /* libxml2.dylib */,
-				49516A7715C84BA300B9579A /* MobileCoreServices.framework */,
-				49516A7815C84BA300B9579A /* QuartzCore.framework */,
-				49516A7915C84BA300B9579A /* Security.framework */,
-				49516A7A15C84BA300B9579A /* SystemConfiguration.framework */,
-				49516A7215C84B2700B9579A /* CFNetwork.framework */,
 				49516A5015C8495300B9579A /* RestKit.xcodeproj */,
 				49BCC2B315C6F3C100E90CB4 /* Snapable */,
 				49BCC2AC15C6F3C100E90CB4 /* Frameworks */,
@@ -349,6 +337,13 @@
 		49BCC2AC15C6F3C100E90CB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49516A7515C84BA300B9579A /* CoreData.framework */,
+				49516A7615C84BA300B9579A /* libxml2.dylib */,
+				49516A7715C84BA300B9579A /* MobileCoreServices.framework */,
+				49516A7815C84BA300B9579A /* QuartzCore.framework */,
+				49516A7915C84BA300B9579A /* Security.framework */,
+				49516A7A15C84BA300B9579A /* SystemConfiguration.framework */,
+				49516A7215C84B2700B9579A /* CFNetwork.framework */,
 				49BCC2AD15C6F3C100E90CB4 /* UIKit.framework */,
 				49BCC2AF15C6F3C100E90CB4 /* Foundation.framework */,
 				49BCC2B115C6F3C100E90CB4 /* CoreGraphics.framework */,
@@ -511,7 +506,6 @@
 			files = (
 				498513F515C7966000EB6A77 /* main.m in Sources */,
 				4925163D15C8E14400A776C7 /* SnapAppDelegate.m in Sources */,
-				4925164015C8E1AF00A776C7 /* MainViewController.m in Sources */,
 				98571AAD15CAC92B0076BE97 /* SnapNavigationBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
