@@ -12,10 +12,10 @@
 #define SnapAPIKey @"abc123"
 #define SnapAPISecret @"123"
 
-#include <CommonCrypto/CommonHMAC.h>
-
 #import "AFJSONRequestOperation.h"
 #import "SnapApiClient.h"
+
+#import "SnapCrypto.h"
 
 @implementation SnapApiClient
 
@@ -47,8 +47,8 @@
     // build the request normally in the parent class
     NSMutableURLRequest* request = [super requestWithMethod:method path:path parameters:parameters];
 
-    // TODO generate a nonce
-    NSString* nonce = @"asdfiuyasb";
+    // TODO generate a pseudo-random nonce
+    NSString* nonce = @"asd23eas";
     // add the nonce to the header
     [request setValue:nonce forHTTPHeaderField:@"x-SNAP-nonce"];
 
@@ -65,8 +65,8 @@
     // raw_signature = secret + verb + path + nonce + date
     NSString* raw_signature = [NSString stringWithFormat:@"%@%@%@%@%@", SnapAPIKey, request.HTTPMethod, [request.URL.absoluteString substringFromIndex:(SnapAPIBaseURL.length-1)], nonce, dateString];
 
-    // TODO generate the signature
-    NSString* hash_signature = raw_signature;
+    // generate the hashed signature
+    NSString* hash_signature = [SnapCrypto rawSignatureHMACSHA1:raw_signature apiSecret:SnapAPISecret];
 
     // set the authorization header
     [request setValue:[NSString stringWithFormat:@"SNAP %@:%@", SnapAPIKey, hash_signature] forHTTPHeaderField:@"Authorization"];

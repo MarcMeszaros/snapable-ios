@@ -12,6 +12,7 @@
 		4925163D15C8E14400A776C7 /* SnapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925163C15C8E14400A776C7 /* SnapAppDelegate.m */; };
 		4938BB5A15CDF68300BCA68E /* SnapApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4938BB5915CDF68300BCA68E /* SnapApiClient.m */; };
 		4938BB6115CDF76700BCA68E /* SnapUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4938BB6015CDF76700BCA68E /* SnapUser.m */; };
+		4938BB6415CE324E00BCA68E /* SnapCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4938BB6315CE324E00BCA68E /* SnapCrypto.m */; };
 		494912E815CB150D006BBE8B /* arrowBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912DD15CB150D006BBE8B /* arrowBlue.png */; };
 		494912E915CB150D006BBE8B /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912DE15CB150D006BBE8B /* background.png */; };
 		494912EA15CB150D006BBE8B /* backgroundPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912DF15CB150D006BBE8B /* backgroundPhoto.png */; };
@@ -78,6 +79,8 @@
 		4938BB5915CDF68300BCA68E /* SnapApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapApiClient.m; sourceTree = "<group>"; };
 		4938BB5F15CDF76700BCA68E /* SnapUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapUser.h; sourceTree = "<group>"; };
 		4938BB6015CDF76700BCA68E /* SnapUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapUser.m; sourceTree = "<group>"; };
+		4938BB6215CE324E00BCA68E /* SnapCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapCrypto.h; sourceTree = "<group>"; };
+		4938BB6315CE324E00BCA68E /* SnapCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapCrypto.m; sourceTree = "<group>"; };
 		494912DD15CB150D006BBE8B /* arrowBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowBlue.png; sourceTree = "<group>"; };
 		494912DE15CB150D006BBE8B /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		494912DF15CB150D006BBE8B /* backgroundPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundPhoto.png; sourceTree = "<group>"; };
@@ -223,6 +226,8 @@
 			children = (
 				4938BB5815CDF68300BCA68E /* SnapApiClient.h */,
 				4938BB5915CDF68300BCA68E /* SnapApiClient.m */,
+				4938BB6215CE324E00BCA68E /* SnapCrypto.h */,
+				4938BB6315CE324E00BCA68E /* SnapCrypto.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -488,6 +493,7 @@
 				49BDA28015CDF21D00C49B19 /* UIImageView+AFNetworking.m in Sources */,
 				4938BB5A15CDF68300BCA68E /* SnapApiClient.m in Sources */,
 				4938BB6115CDF76700BCA68E /* SnapUser.m in Sources */,
+				4938BB6415CE324E00BCA68E /* SnapCrypto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,7 +25,6 @@
     
     [[SnapApiClient sharedInstance] getPath:@"user/" parameters:nil
         success:^(AFHTTPRequestOperation *operation, id response) {
-            NSLog(@"Response: %@", response);
             // hydrate the response into objects
             NSMutableArray* results = [NSMutableArray array];
             for (id userDictionary in [response valueForKeyPath:@"objects"]) {
