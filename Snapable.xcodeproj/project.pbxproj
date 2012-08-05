@@ -33,7 +33,6 @@
 		4949130815CB152A006BBE8B /* navigationBarBackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130515CB152A006BBE8B /* navigationBarBackgroundImage.png */; };
 		4949130915CB152A006BBE8B /* screen1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130615CB152A006BBE8B /* screen1.png */; };
 		4949130A15CB152A006BBE8B /* teardrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130715CB152A006BBE8B /* teardrop.png */; };
-		49516A6915C84A6B00B9579A /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A5C15C8495300B9579A /* libRestKit.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		49516A7415C84BA300B9579A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7215C84B2700B9579A /* CFNetwork.framework */; };
 		49516A7B15C84BA300B9579A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7515C84BA300B9579A /* CoreData.framework */; };
 		49516A7C15C84BA300B9579A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7615C84BA300B9579A /* libxml2.dylib */; };
@@ -57,51 +56,6 @@
 		98571AAD15CAC92B0076BE97 /* SnapNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */; };
 		985AE1D915CBFCFD0083DB2B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985AE1D815CBFCFD0083DB2B /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		49516A5B15C8495300B9579A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160D1614564E810060A5C5;
-			remoteInfo = RestKit;
-		};
-		49516A5D15C8495300B9579A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160D2614564E820060A5C5;
-			remoteInfo = RestKitTests;
-		};
-		49516A5F15C8495300B9579A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160E62145651060060A5C5;
-			remoteInfo = RestKitFramework;
-		};
-		49516A6115C8495300B9579A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160E78145651060060A5C5;
-			remoteInfo = RestKitFrameworkTests;
-		};
-		49516A6315C8495300B9579A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 259C301615128079003066A2;
-			remoteInfo = RestKitResources;
-		};
-		49516A6715C84A4600B9579A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 25160D1514564E810060A5C5;
-			remoteInfo = RestKit;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		490985C215C834FB00EB1969 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -131,7 +85,6 @@
 		4949130515CB152A006BBE8B /* navigationBarBackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackgroundImage.png; sourceTree = "<group>"; };
 		4949130615CB152A006BBE8B /* screen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen1.png; sourceTree = "<group>"; };
 		4949130715CB152A006BBE8B /* teardrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teardrop.png; sourceTree = "<group>"; };
-		49516A5015C8495300B9579A /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		49516A7215C84B2700B9579A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		49516A7515C84BA300B9579A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		49516A7615C84BA300B9579A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -172,7 +125,6 @@
 				49516A7F15C84BA300B9579A /* Security.framework in Frameworks */,
 				49516A8015C84BA300B9579A /* SystemConfiguration.framework in Frameworks */,
 				49516A7415C84BA300B9579A /* CFNetwork.framework in Frameworks */,
-				49516A6915C84A6B00B9579A /* libRestKit.a in Frameworks */,
 				49BCC2AE15C6F3C100E90CB4 /* UIKit.framework in Frameworks */,
 				49BCC2B015C6F3C100E90CB4 /* Foundation.framework in Frameworks */,
 				49BCC2B215C6F3C100E90CB4 /* CoreGraphics.framework in Frameworks */,
@@ -196,18 +148,6 @@
 				49516A8115C8D34B00B9579A /* MainStoryboard.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		49516A5115C8495300B9579A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				49516A5C15C8495300B9579A /* libRestKit.a */,
-				49516A5E15C8495300B9579A /* RestKitTests.octest */,
-				49516A6015C8495300B9579A /* RestKit.framework */,
-				49516A6215C8495300B9579A /* RestKitFrameworkTests.octest */,
-				49516A6415C8495300B9579A /* RestKitResources.bundle */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		498513E215C7962600EB6A77 /* Classes */ = {
@@ -322,7 +262,6 @@
 		49BCC29E15C6F3C100E90CB4 = {
 			isa = PBXGroup;
 			children = (
-				49516A5015C8495300B9579A /* RestKit.xcodeproj */,
 				49BCC2B315C6F3C100E90CB4 /* Snapable */,
 				49BCC2AC15C6F3C100E90CB4 /* Frameworks */,
 				49BCC2AA15C6F3C100E90CB4 /* Products */,
@@ -381,7 +320,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				49516A6815C84A4600B9579A /* PBXTargetDependency */,
 			);
 			name = "Snapable-dev";
 			productName = Snapable;
@@ -408,56 +346,12 @@
 			mainGroup = 49BCC29E15C6F3C100E90CB4;
 			productRefGroup = 49BCC2AA15C6F3C100E90CB4 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 49516A5115C8495300B9579A /* Products */;
-					ProjectRef = 49516A5015C8495300B9579A /* RestKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				49BCC2A815C6F3C100E90CB4 /* Snapable-dev */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		49516A5C15C8495300B9579A /* libRestKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKit.a;
-			remoteRef = 49516A5B15C8495300B9579A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		49516A5E15C8495300B9579A /* RestKitTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RestKitTests.octest;
-			remoteRef = 49516A5D15C8495300B9579A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		49516A6015C8495300B9579A /* RestKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RestKit.framework;
-			remoteRef = 49516A5F15C8495300B9579A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		49516A6215C8495300B9579A /* RestKitFrameworkTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RestKitFrameworkTests.octest;
-			remoteRef = 49516A6115C8495300B9579A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		49516A6415C8495300B9579A /* RestKitResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RestKitResources.bundle;
-			remoteRef = 49516A6315C8495300B9579A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		49BCC2A715C6F3C100E90CB4 /* Resources */ = {
@@ -515,14 +409,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		49516A6815C84A4600B9579A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RestKit;
-			targetProxy = 49516A6715C84A4600B9579A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		498513F115C7966000EB6A77 /* InfoPlist.strings */ = {
@@ -596,13 +482,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snapable/Snapable-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Snapable/Snapable-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -619,13 +502,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snapable/Snapable-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Snapable/Snapable-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
