@@ -6,7 +6,13 @@
 //  Copyright (c) 2012 Snapable. All rights reserved.
 //
 
+
 #import "SnapAppDelegate.h"
+
+#import "AFNetworking.h"
+
+#import "SnapApiClient.h"
+#import "SnapUser.h"
 
 @implementation SnapAppDelegate
 
@@ -16,6 +22,30 @@
     // Override point for customization after application launch.
     //self.window.backgroundColor = [UIColor whiteColor];
     //[self.window makeKeyAndVisible];
+    
+    [[SnapApiClient sharedInstance] getPath:@"user/" parameters:nil
+        success:^(AFHTTPRequestOperation *operation, id response) {
+            NSLog(@"Response: %@", response);
+            // hydrate the response into objects
+            NSMutableArray* results = [NSMutableArray array];
+            for (id userDictionary in [response valueForKeyPath:@"objects"]) {
+                SnapUser *user = [[SnapUser alloc] initWithDictionary:userDictionary];
+                [results addObject:user];
+            }
+            
+            // display the results in the console
+            NSLog(@"user count: %d", results.count);
+            
+            // print some values using 2 different object access methods
+            SnapUser* item = [results objectAtIndex:0];
+            NSLog(@"email: %@", item.email); // using dot notation
+            NSLog(@"first_name: %@", [[results objectAtIndex:0] first_name]); // using message notation
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error fetching users!");
+            NSLog(@"%@", error);
+        }];
+    
     return YES;
 }
 
