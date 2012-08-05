@@ -31,14 +31,13 @@
                 SnapUser *user = [[SnapUser alloc] initWithDictionary:userDictionary];
                 [results addObject:user];
             }
-            
-            // display the results in the console
-            NSLog(@"user count: %d", results.count);
-            
+
             // print some values using 2 different object access methods
             SnapUser* item = [results objectAtIndex:0];
             NSLog(@"email: %@", item.email); // using dot notation
-            NSLog(@"first_name: %@", [[results objectAtIndex:0] first_name]); // using message notation
+            NSLog(@"first_name: %@", item.first_name); // using dot notation
+            NSLog(@"last_name: %@", item.last_name); // using dot notation
+            NSLog(@"terms: %i", item.terms); // using dot notation
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error fetching users!");

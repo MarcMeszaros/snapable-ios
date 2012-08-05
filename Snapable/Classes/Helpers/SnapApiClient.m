@@ -48,35 +48,28 @@
     NSMutableURLRequest* request = [super requestWithMethod:method path:path parameters:parameters];
 
     // TODO generate a pseudo-random nonce
-    NSString* nonce = @"asd23eas";
+    NSString *nonce = @"asd23eas";
     // add the nonce to the header
     [request setValue:nonce forHTTPHeaderField:@"x-SNAP-nonce"];
 
     // get the date
-    NSDate* now = [[NSDate alloc] init];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    NSDate *now = [[NSDate alloc] init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     [dateFormatter setTimeZone:timeZone];
     [dateFormatter setDateFormat:@"yyyyMMdd'T'HHmmss'Z'"];
-    NSString* dateString = [dateFormatter stringFromDate:now];
+    NSString *dateString = [dateFormatter stringFromDate:now];
     // add the date to the header
     [request setValue:dateString forHTTPHeaderField:@"x-SNAP-Date"];
 
     // raw_signature = secret + verb + path + nonce + date
-    NSString* raw_signature = [NSString stringWithFormat:@"%@%@%@%@%@", SnapAPIKey, request.HTTPMethod, [request.URL.absoluteString substringFromIndex:(SnapAPIBaseURL.length-1)], nonce, dateString];
+    NSString *raw_signature = [NSString stringWithFormat:@"%@%@%@%@%@", SnapAPIKey, request.HTTPMethod, [request.URL.absoluteString substringFromIndex:(SnapAPIBaseURL.length-1)], nonce, dateString];
 
     // generate the hashed signature
-    NSString* hash_signature = [SnapCrypto rawSignatureHMACSHA1:raw_signature apiSecret:SnapAPISecret];
+    NSString *hash_signature = [SnapCrypto rawSignatureHMACSHA1:raw_signature apiSecret:SnapAPISecret];
 
     // set the authorization header
     [request setValue:[NSString stringWithFormat:@"SNAP %@:%@", SnapAPIKey, hash_signature] forHTTPHeaderField:@"Authorization"];
-
-    // print out some data
-    NSLog(@"raw_signature: %@", raw_signature);
-    NSLog(@"hash_signature: %@", hash_signature);
-    NSLog(@"x-snap-nonce: %@", [request valueForHTTPHeaderField:@"x-SNAP-nonce"]);
-    NSLog(@"x-snap-date: %@", [request valueForHTTPHeaderField:@"x-SNAP-Date"]);
-    NSLog(@"authorization: %@", [request valueForHTTPHeaderField:@"Authorization"]);
 
     return request;
 }
