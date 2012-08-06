@@ -53,6 +53,7 @@
 
 - (void)locationUpdate:(CLLocation *)location {
 	//locationLabel.text = [location description];
+    loadingLabel.text = [NSString stringWithFormat:@"%f, %f", location.coordinate.latitude, location.coordinate.longitude];
     NSLog(@"loc: %@", [location description]);
 }
 

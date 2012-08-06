@@ -11,6 +11,7 @@
 
 @interface SnapLoadingViewController : UIViewController <SnapCLControllerDelegate> {
     SnapCL *locationController;
+    IBOutlet UILabel *loadingLabel;
 }
 
 - (void)locationUpdate:(CLLocation *)location;
