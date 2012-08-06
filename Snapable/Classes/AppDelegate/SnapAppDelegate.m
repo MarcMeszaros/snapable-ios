@@ -18,11 +18,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    //self.window.backgroundColor = [UIColor whiteColor];
-    //[self.window makeKeyAndVisible];
-    
     [[SnapApiClient sharedInstance] getPath:@"user/" parameters:nil
         success:^(AFHTTPRequestOperation *operation, id response) {
             // hydrate the response into objects
@@ -42,7 +37,8 @@
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error fetching users!");
             NSLog(@"%@", error);
-        }];
+        }
+     ];
     
     return YES;
 }

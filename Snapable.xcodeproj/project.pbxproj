@@ -10,6 +10,8 @@
 		490985C415C834FB00EB1969 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 490985C215C834FB00EB1969 /* Default.png */; };
 		490985C515C834FB00EB1969 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 490985C315C834FB00EB1969 /* Default@2x.png */; };
 		4925163D15C8E14400A776C7 /* SnapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925163C15C8E14400A776C7 /* SnapAppDelegate.m */; };
+		4929161115CF853F00589CC1 /* SnapLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929161015CF853F00589CC1 /* SnapLoadingViewController.m */; };
+		4929161B15D0340600589CC1 /* SnapCL.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929161A15D0340600589CC1 /* SnapCL.m */; };
 		4938BB5A15CDF68300BCA68E /* SnapApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4938BB5915CDF68300BCA68E /* SnapApiClient.m */; };
 		4938BB6115CDF76700BCA68E /* SnapUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4938BB6015CDF76700BCA68E /* SnapUser.m */; };
 		4938BB6415CE324E00BCA68E /* SnapCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4938BB6315CE324E00BCA68E /* SnapCrypto.m */; };
@@ -77,6 +79,10 @@
 		490985C315C834FB00EB1969 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4925163B15C8E14400A776C7 /* SnapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapAppDelegate.h; sourceTree = "<group>"; };
 		4925163C15C8E14400A776C7 /* SnapAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapAppDelegate.m; sourceTree = "<group>"; };
+		4929160F15CF853F00589CC1 /* SnapLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapLoadingViewController.h; sourceTree = "<group>"; };
+		4929161015CF853F00589CC1 /* SnapLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapLoadingViewController.m; sourceTree = "<group>"; };
+		4929161915D0340600589CC1 /* SnapCL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapCL.h; sourceTree = "<group>"; };
+		4929161A15D0340600589CC1 /* SnapCL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapCL.m; sourceTree = "<group>"; };
 		4938BB5815CDF68300BCA68E /* SnapApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapApiClient.h; sourceTree = "<group>"; };
 		4938BB5915CDF68300BCA68E /* SnapApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapApiClient.m; sourceTree = "<group>"; };
 		4938BB5F15CDF76700BCA68E /* SnapUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapUser.h; sourceTree = "<group>"; };
@@ -223,6 +229,8 @@
 			children = (
 				98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */,
 				98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */,
+				4929160F15CF853F00589CC1 /* SnapLoadingViewController.h */,
+				4929161015CF853F00589CC1 /* SnapLoadingViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -230,6 +238,8 @@
 		498513E715C7962600EB6A77 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4929161915D0340600589CC1 /* SnapCL.h */,
+				4929161A15D0340600589CC1 /* SnapCL.m */,
 				4938BB5815CDF68300BCA68E /* SnapApiClient.h */,
 				4938BB5915CDF68300BCA68E /* SnapApiClient.m */,
 				4938BB6215CE324E00BCA68E /* SnapCrypto.h */,
@@ -506,6 +516,8 @@
 				4938BB6415CE324E00BCA68E /* SnapCrypto.m in Sources */,
 				4938BB6715CEFBE300BCA68E /* SnapEvent.m in Sources */,
 				4938BB6A15CEFBF700BCA68E /* SnapPhoto.m in Sources */,
+				4929161115CF853F00589CC1 /* SnapLoadingViewController.m in Sources */,
+				4929161B15D0340600589CC1 /* SnapCL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
