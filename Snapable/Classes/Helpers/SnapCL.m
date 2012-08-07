@@ -14,12 +14,13 @@
 //@synthesize delegate;
 
 - (id) init {
-	self = [super init];
-	if (self != nil) {
-		self.locationManager = [[CLLocationManager alloc] init];
-		self.locationManager.delegate = self; // send loc updates to myself
-	}
-	return self;
+    self = [super init];
+    if (self != nil) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self; // send loc updates to myself
+        self.locationManager.purpose = @"Snapable uses geofencing to list nearby events.";
+    }
+    return self;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
