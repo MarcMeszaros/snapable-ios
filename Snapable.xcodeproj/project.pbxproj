@@ -57,6 +57,8 @@
 		4985140115C7977900EB6A77 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 498513FA15C7977900EB6A77 /* Icon.png */; };
 		4985140215C7977900EB6A77 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498513FB15C7977900EB6A77 /* Icon@2x.png */; };
 		4985140315C7977900EB6A77 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 498513FC15C7977900EB6A77 /* iTunesArtwork */; };
+		49B8663915D187680089AEE0 /* SnapCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8663815D187680089AEE0 /* SnapCameraController.m */; };
+		49B8663C15D190850089AEE0 /* SnapCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8663B15D190850089AEE0 /* SnapCamera.m */; };
 		49BCC2AE15C6F3C100E90CB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2AD15C6F3C100E90CB4 /* UIKit.framework */; };
 		49BCC2B015C6F3C100E90CB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2AF15C6F3C100E90CB4 /* Foundation.framework */; };
 		49BCC2B215C6F3C100E90CB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2B115C6F3C100E90CB4 /* CoreGraphics.framework */; };
@@ -135,6 +137,10 @@
 		498513FA15C7977900EB6A77 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		498513FB15C7977900EB6A77 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		498513FC15C7977900EB6A77 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		49B8663715D187680089AEE0 /* SnapCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapCameraController.h; sourceTree = "<group>"; };
+		49B8663815D187680089AEE0 /* SnapCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapCameraController.m; sourceTree = "<group>"; };
+		49B8663A15D190850089AEE0 /* SnapCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapCamera.h; sourceTree = "<group>"; };
+		49B8663B15D190850089AEE0 /* SnapCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapCamera.m; sourceTree = "<group>"; };
 		49BCC2A915C6F3C100E90CB4 /* Snapable-dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snapable-dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BCC2AD15C6F3C100E90CB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BCC2AF15C6F3C100E90CB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -227,6 +233,8 @@
 		498513E615C7962600EB6A77 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				49B8663715D187680089AEE0 /* SnapCameraController.h */,
+				49B8663815D187680089AEE0 /* SnapCameraController.m */,
 				98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */,
 				98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */,
 				4929160F15CF853F00589CC1 /* SnapLoadingViewController.h */,
@@ -244,6 +252,8 @@
 				4938BB5915CDF68300BCA68E /* SnapApiClient.m */,
 				4938BB6215CE324E00BCA68E /* SnapCrypto.h */,
 				4938BB6315CE324E00BCA68E /* SnapCrypto.m */,
+				49B8663A15D190850089AEE0 /* SnapCamera.h */,
+				49B8663B15D190850089AEE0 /* SnapCamera.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -518,6 +528,8 @@
 				4938BB6A15CEFBF700BCA68E /* SnapPhoto.m in Sources */,
 				4929161115CF853F00589CC1 /* SnapLoadingViewController.m in Sources */,
 				4929161B15D0340600589CC1 /* SnapCL.m in Sources */,
+				49B8663915D187680089AEE0 /* SnapCameraController.m in Sources */,
+				49B8663C15D190850089AEE0 /* SnapCamera.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
