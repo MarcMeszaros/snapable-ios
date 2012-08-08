@@ -62,8 +62,18 @@
     // add the date to the header
     [request setValue:dateString forHTTPHeaderField:@"x-SNAP-Date"];
 
-    // raw_signature = secret + verb + path + nonce + date
-    NSString *raw_signature = [NSString stringWithFormat:@"%@%@%@%@%@", SnapAPIKey, request.HTTPMethod, [request.URL.absoluteString substringFromIndex:(SnapAPIBaseURL.length-1)], nonce, dateString];
+    // get the correct signature path
+    NSRange endRange = [request.URL.absoluteString rangeOfString:@"?"];
+    NSString *sign_path;
+    if (endRange.length > 0) {
+        NSRange substringRange = NSMakeRange(SnapAPIBaseURL.length-1, endRange.location-(SnapAPIBaseURL.length-1));
+        sign_path = [request.URL.absoluteString substringWithRange:substringRange];
+    } else {
+        sign_path = [request.URL.absoluteString substringFromIndex:(SnapAPIBaseURL.length-1)];
+    }
+
+    // raw_signature = key + verb + path + nonce + date
+    NSString *raw_signature = [NSString stringWithFormat:@"%@%@%@%@%@", SnapAPIKey, request.HTTPMethod, sign_path, nonce, dateString];
 
     // generate the hashed signature
     NSString *hash_signature = [SnapCrypto rawSignatureHMACSHA1:raw_signature apiSecret:SnapAPISecret];
