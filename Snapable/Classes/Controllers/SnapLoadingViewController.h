@@ -14,6 +14,8 @@
     IBOutlet UILabel *loadingLabel;
 }
 
+@property (nonatomic, strong) SnapCL *locationController;
+
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
 

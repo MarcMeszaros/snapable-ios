@@ -8,12 +8,16 @@
 
 #import "SnapLoadingViewController.h"
 
+#import "SnapApiClient.h"
+#import "SnapEvent.h"
+
 @interface SnapLoadingViewController ()
 
 @end
 
 @implementation SnapLoadingViewController
 
+@synthesize locationController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,9 +32,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    locationController = [[SnapCL alloc] init];
-	locationController.delegate = self;
-	[locationController.locationManager startUpdatingLocation];
+    self.locationController = [[SnapCL alloc] init];
+	self.locationController.delegate = self;
 }
 
 - (void)viewDidUnload
@@ -44,7 +47,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Hide navigation bar
+#pragma mark - View loading & unloading
 
 - (void) viewWillAppear:(BOOL)animated
 {
@@ -58,6 +61,22 @@
     [super viewWillDisappear:animated];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    // if the location controller isn't nil, look for new locations
+    if (self.locationController != nil) {
+        [self.locationController.locationManager startUpdatingLocation];
+    }
+}
+
+- (void) viewDidDisappear:(BOOL)animated
+{
+    // if the location controller isn't nil, look for new locations
+    if (self.locationController != nil) {
+        [self.locationController.locationManager stopUpdatingLocation];
+    }
+}
+
 #pragma mark - Location
 
 - (void)didReceiveMemoryWarning {
@@ -67,8 +86,35 @@
 
 - (void)locationUpdate:(CLLocation *)location {
 	//locationLabel.text = [location description];
-    loadingLabel.text = [NSString stringWithFormat:@"%f, %f", location.coordinate.latitude, location.coordinate.longitude];
     NSLog(@"loc: %@", [location description]);
+    [self.locationController.locationManager stopUpdatingLocation];
+    
+    // get the events
+    NSString *request_string = [NSString stringWithFormat:@"event/?lat=%f&lng=%f", location.coordinate.latitude, location.coordinate.longitude];
+    [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
+        success:^(AFHTTPRequestOperation *operation, id response) {
+            // hydrate the response into objects
+            NSMutableArray* results = [NSMutableArray array];
+            for (id events in [response valueForKeyPath:@"objects"]) {
+                SnapEvent *event = [[SnapEvent alloc] initWithDictionary:events];
+                [results addObject:event];
+                NSLog(@"event: %@", event.title);
+            }
+            
+            // start the correct screen depending on number of events
+            if (results.count == 1) {
+                // start the segue for a single event
+                [self performSegueWithIdentifier:@"eventListSegue" sender:self];
+            } else if (results.count > 1) {
+                // start the segue for multiple events
+                [self performSegueWithIdentifier:@"multiEventListSegue" sender:self];
+            }
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error fetching events!");
+            NSLog(@"%@", error);
+        }
+     ];
 }
 
 - (void)locationError:(NSError *)error {

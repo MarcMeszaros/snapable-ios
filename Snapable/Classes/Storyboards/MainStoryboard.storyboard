@@ -60,7 +60,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="DjO-pg-rDJ" kind="push" id="Tfj-Be-Qc1"/>
+                                    <segue destination="DjO-pg-rDJ" kind="push" identifier="eventListSegue" id="Tfj-Be-Qc1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hwQ-yH-Xpa">
@@ -75,7 +75,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="r9a-qO-ouC" kind="push" id="WlD-ee-9qT"/>
+                                    <segue destination="r9a-qO-ouC" kind="push" identifier="multiEventListSegue" id="WlD-ee-9qT"/>
                                 </connections>
                             </button>
                         </subviews>
