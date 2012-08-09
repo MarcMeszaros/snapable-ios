@@ -12,6 +12,7 @@
 @interface SnapLoadingViewController : UIViewController <SnapCLControllerDelegate> {
     SnapCL *locationController;
     IBOutlet UILabel *loadingLabel;
+    IBOutlet UIActivityIndicatorView *loadingSpinner;
 }
 
 @property (nonatomic, strong) SnapCL *locationController;

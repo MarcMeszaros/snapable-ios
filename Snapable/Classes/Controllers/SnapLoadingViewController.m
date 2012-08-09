@@ -90,6 +90,7 @@
     [self.locationController.locationManager stopUpdatingLocation];
     
     // get the events
+    [loadingSpinner startAnimating];
     NSString *request_string = [NSString stringWithFormat:@"event/?lat=%f&lng=%f", location.coordinate.latitude, location.coordinate.longitude];
     [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
         success:^(AFHTTPRequestOperation *operation, id response) {
@@ -104,10 +105,14 @@
             // start the correct screen depending on number of events
             if (results.count == 1) {
                 // start the segue for a single event
+                [loadingSpinner stopAnimating];
                 [self performSegueWithIdentifier:@"eventListSegue" sender:self];
             } else if (results.count > 1) {
                 // start the segue for multiple events
+                [loadingSpinner stopAnimating];
                 [self performSegueWithIdentifier:@"multiEventListSegue" sender:self];
+            } else {
+                [loadingSpinner stopAnimating];
             }
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {

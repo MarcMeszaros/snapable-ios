@@ -44,40 +44,10 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" id="RA7-vh-agl">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="gray" id="RA7-vh-agl">
                                 <rect key="frame" x="150" y="353" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UP7-QB-P2S">
-                                <rect key="frame" x="20" y="308" width="110" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="One Event">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="DjO-pg-rDJ" kind="push" identifier="eventListSegue" id="Tfj-Be-Qc1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hwQ-yH-Xpa">
-                                <rect key="frame" x="190" y="308" width="110" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Multi Events">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="r9a-qO-ouC" kind="push" identifier="multiEventListSegue" id="WlD-ee-9qT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -85,6 +55,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="loadingLabel" destination="Ht4-x8-6TD" id="2OF-Wt-0op"/>
+                        <outlet property="loadingSpinner" destination="RA7-vh-agl" id="tJ6-vb-jBK"/>
+                        <segue destination="DjO-pg-rDJ" kind="push" identifier="eventListSegue" id="bMQ-CJ-YLJ"/>
+                        <segue destination="r9a-qO-ouC" kind="push" identifier="multiEventListSegue" id="p0P-KB-ZR9"/>
                     </connections>
                 </viewController>
             </objects>
@@ -730,6 +703,7 @@ Ceremony &amp; Dinner</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapLoadingViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loadingSpinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
         </class>
         <class className="SnapNavigationBar" superclassName="UINavigationBar">
