@@ -91,7 +91,7 @@
     
     // get the events
     [loadingSpinner startAnimating];
-    NSString *request_string = [NSString stringWithFormat:@"event/?lat=%f&lng=%f", location.coordinate.latitude, location.coordinate.longitude];
+    NSString *request_string = [NSString stringWithFormat:@"event/?lat=%f&lng=%f&enabled=true", location.coordinate.latitude, location.coordinate.longitude];
     [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
         success:^(AFHTTPRequestOperation *operation, id response) {
             // hydrate the response into objects
@@ -113,6 +113,7 @@
                 [self performSegueWithIdentifier:@"multiEventListSegue" sender:self];
             } else {
                 [loadingSpinner stopAnimating];
+                [loadingButton setHidden:NO];
             }
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -126,6 +127,18 @@
 	//locationLabel.text = [error description];
     NSLog(@"An error occured while getting location.");
     NSLog(@"Error: %@", error);
+}
+
+# pragma mark UIButton
+
+- (IBAction)searchForEvents:(id)sender {
+    // if the location controller isn't nil, look for new locations
+    if (self.locationController != nil) {
+        [loadingButton setHidden:YES];
+        [loadingSpinner startAnimating];
+        [self.locationController.locationManager startUpdatingLocation];
+    }
+    
 }
 
 @end
