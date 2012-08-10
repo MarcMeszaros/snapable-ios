@@ -7,7 +7,7 @@
 //
 
 // define some API constants
-#define SnapAPIBaseURL @"http://devapi.snapable.com/"
+#define SnapAPIBaseURL @"https://devapi.snapable.com/"
 #define SnapAPIVersion @"private_v1"
 #define SnapAPIKey @"abc123"
 #define SnapAPISecret @"123"

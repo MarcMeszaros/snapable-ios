@@ -51,30 +51,38 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    NSLog(@"viewWillAppear");
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
+    NSLog(@"viewWillDisappear");
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    NSLog(@"viewDidAppear");
     // if the location controller isn't nil, look for new locations
-    if (self.locationController != nil) {
+    if (self.locationController.locationManager != nil) {
         [self.locationController.locationManager startUpdatingLocation];
+        [loadingSpinner startAnimating];
     }
+    [super viewDidAppear:animated];
 }
 
 - (void) viewDidDisappear:(BOOL)animated
 {
+    NSLog(@"viewDidDisappear");
     // if the location controller isn't nil, look for new locations
-    if (self.locationController != nil) {
+    if (self.locationController.locationManager != nil) {
         [self.locationController.locationManager stopUpdatingLocation];
+        [loadingSpinner stopAnimating];
     }
+    [super viewDidDisappear:animated];
 }
 
 #pragma mark - Location
@@ -83,10 +91,10 @@
     [super didReceiveMemoryWarning];
 }
 
-
 - (void)locationUpdate:(CLLocation *)location {
-	//locationLabel.text = [location description];
-    NSLog(@"loc: %@", [location description]);
+    NSLog(@"before segue");
+    
+	// stop updating the location
     [self.locationController.locationManager stopUpdatingLocation];
     
     // get the events
@@ -101,6 +109,8 @@
                 [results addObject:event];
                 NSLog(@"event: %@", event.title);
             }
+            
+            NSLog(@"results count: %d", results.count);
             
             // start the correct screen depending on number of events
             if (results.count == 1) {

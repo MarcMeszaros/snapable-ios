@@ -17,11 +17,12 @@
 
 @interface SnapCL : NSObject <CLLocationManagerDelegate> {
     CLLocationManager *locationManager;
-	id delegate;
+    int updateCount;
 }
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, assign) id <SnapCLControllerDelegate> delegate;
+@property (nonatomic, assign) int updateCount;
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation;
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error;

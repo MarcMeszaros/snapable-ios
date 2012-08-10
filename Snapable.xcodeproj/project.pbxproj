@@ -275,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				498513EE15C7964E00EB6A77 /* Images */,
-				498513EF15C7964E00EB6A77 /* NIBs */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -317,13 +316,6 @@
 				498513FC15C7977900EB6A77 /* iTunesArtwork */,
 			);
 			path = Images;
-			sourceTree = "<group>";
-		};
-		498513EF15C7964E00EB6A77 /* NIBs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NIBs;
 			sourceTree = "<group>";
 		};
 		498513F015C7966000EB6A77 /* Supporting Files */ = {
