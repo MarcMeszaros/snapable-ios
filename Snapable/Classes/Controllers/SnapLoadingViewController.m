@@ -10,6 +10,7 @@
 
 #import "SnapApiClient.h"
 #import "SnapEvent.h"
+#import "SnapEventListViewController.h"
 
 @interface SnapLoadingViewController ()
 
@@ -18,6 +19,7 @@
 @implementation SnapLoadingViewController
 
 @synthesize locationController;
+@synthesize results;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -103,21 +105,21 @@
     [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
         success:^(AFHTTPRequestOperation *operation, id response) {
             // hydrate the response into objects
-            NSMutableArray* results = [NSMutableArray array];
+            self.results = [NSMutableArray array];
             for (id events in [response valueForKeyPath:@"objects"]) {
                 SnapEvent *event = [[SnapEvent alloc] initWithDictionary:events];
-                [results addObject:event];
+                [self.results addObject:event];
                 NSLog(@"event: %@", event.title);
             }
-            
+
             NSLog(@"results count: %d", results.count);
             
             // start the correct screen depending on number of events
-            if (results.count == 1) {
+            if (self.results.count == 1) {
                 // start the segue for a single event
                 [loadingSpinner stopAnimating];
                 [self performSegueWithIdentifier:@"eventListSegue" sender:self];
-            } else if (results.count > 1) {
+            } else if (self.results.count > 1) {
                 // start the segue for multiple events
                 [loadingSpinner stopAnimating];
                 [self performSegueWithIdentifier:@"multiEventListSegue" sender:self];
@@ -139,7 +141,7 @@
     NSLog(@"Error: %@", error);
 }
 
-# pragma mark UIButton
+#pragma mark Force Reload Events
 
 - (IBAction)searchForEvents:(id)sender {
     // if the location controller isn't nil, look for new locations
@@ -148,7 +150,24 @@
         [loadingSpinner startAnimating];
         [self.locationController.locationManager startUpdatingLocation];
     }
-    
 }
+
+#pragma mark Pass data to next scnene
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"eventListSegue"]) {
+        NSLog(@"in prepare for segue");
+        // Get destination view
+        SnapEventListViewController *vc = [segue destinationViewController];
+
+        SnapEvent *ev = [self.results objectAtIndex:0];
+        NSLog(@"event title before segue: %@", ev.title);
+        
+        // Set the selected button in the new view
+        vc.event = [self.results objectAtIndex:0];
+    }
+}
+
 
 @end

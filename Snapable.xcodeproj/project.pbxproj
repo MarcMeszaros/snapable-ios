@@ -48,6 +48,7 @@
 		49516A7F15C84BA300B9579A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7915C84BA300B9579A /* Security.framework */; };
 		49516A8015C84BA300B9579A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7A15C84BA300B9579A /* SystemConfiguration.framework */; };
 		49516A8215C8D34B00B9579A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49516A8115C8D34B00B9579A /* MainStoryboard.storyboard */; };
+		495B07A715D6E67E00E1CEB5 /* SnapEventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495B07A615D6E67E00E1CEB5 /* SnapEventListViewController.m */; };
 		498513F415C7966000EB6A77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 498513F115C7966000EB6A77 /* InfoPlist.strings */; };
 		498513F515C7966000EB6A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513F315C7966000EB6A77 /* main.m */; };
 		498513FD15C7977900EB6A77 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 498513F615C7977900EB6A77 /* Icon-72.png */; };
@@ -126,6 +127,8 @@
 		49516A7915C84BA300B9579A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		49516A7A15C84BA300B9579A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		49516A8115C8D34B00B9579A /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		495B07A515D6E67E00E1CEB5 /* SnapEventListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapEventListViewController.h; sourceTree = "<group>"; };
+		495B07A615D6E67E00E1CEB5 /* SnapEventListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapEventListViewController.m; sourceTree = "<group>"; };
 		498513EA15C7963800EB6A77 /* Snapable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Snapable-Info.plist"; sourceTree = "<group>"; };
 		498513EB15C7963800EB6A77 /* Snapable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snapable-Prefix.pch"; sourceTree = "<group>"; };
 		498513F215C7966000EB6A77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -233,6 +236,8 @@
 		498513E615C7962600EB6A77 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				495B07A515D6E67E00E1CEB5 /* SnapEventListViewController.h */,
+				495B07A615D6E67E00E1CEB5 /* SnapEventListViewController.m */,
 				49B8663715D187680089AEE0 /* SnapCameraController.h */,
 				49B8663815D187680089AEE0 /* SnapCameraController.m */,
 				98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */,
@@ -522,6 +527,7 @@
 				4929161B15D0340600589CC1 /* SnapCL.m in Sources */,
 				49B8663915D187680089AEE0 /* SnapCameraController.m in Sources */,
 				49B8663C15D190850089AEE0 /* SnapCamera.m in Sources */,
+				495B07A715D6E67E00E1CEB5 /* SnapEventListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -542,11 +542,11 @@ Ceremony &amp; Dinner</string>
             </objects>
             <point key="canvasLocation" x="125" y="225"/>
         </scene>
-        <!--View Controller - Event List-->
+        <!--Snap Event List View Controller - Event List-->
         <scene sceneID="VjJ-gh-5xa">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekd-Oh-dwy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="eventList" title="Event List" id="DjO-pg-rDJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="eventList" title="Event List" id="DjO-pg-rDJ" customClass="SnapEventListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lbV-vB-A3d">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -609,6 +609,9 @@ Ceremony &amp; Dinner</string>
                     </view>
                     <navigationItem key="navigationItem" id="AVr-tN-pDd"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="eventTitle" destination="AF7-mm-4AG" id="cUz-lg-phL"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="125" y="-386"/>
@@ -716,32 +719,12 @@ Ceremony &amp; Dinner</string>
         <image name="screen1.png" width="640" height="920"/>
         <image name="teardrop.png" width="391" height="444"/>
     </resources>
-    <classes>
-        <class className="SnapCameraController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapCameraController.h"/>
-            <relationships>
-                <relationship kind="action" name="takePicture:" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SnapLoadingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapLoadingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="searchForEvents:"/>
-                <relationship kind="outlet" name="loadingButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="loadingSpinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="SnapNavigationBar" superclassName="UINavigationBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapNavigationBar.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="iuf-PM-ye9"/>
+        <segue reference="ina-gi-lAn"/>
     </inferredMetricsTieBreakers>
 </document>

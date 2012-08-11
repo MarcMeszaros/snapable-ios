@@ -14,9 +14,11 @@
     IBOutlet UILabel *loadingLabel;
     IBOutlet UIActivityIndicatorView *loadingSpinner;
     IBOutlet UIButton *loadingButton;
+    NSMutableArray *results;
 }
 
 @property (nonatomic, strong) SnapCL *locationController;
+@property (nonatomic, strong) NSMutableArray *results;
 
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
