@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uwi-4K-nYa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uwi-4K-nYa">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
@@ -36,6 +35,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="screen1.png" id="Lbw-C4-uxG">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92549019607843142" green="0.90980392156862744" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Finding Location..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Ht4-x8-6TD">
                                 <rect key="frame" x="0.0" y="378" width="318" height="21"/>
@@ -273,6 +273,65 @@ Ceremony &amp; Dinner</string>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="576" y="-58"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="n85-jD-kN7">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dLc-h1-pHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="XBT-hS-zJZ" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="PQO-gM-MWK">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="120" id="QKg-ca-I2b">
+                                <rect key="frame" x="0.0" y="22" width="320" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="eventListEventBackground.png" id="sXM-4e-QCt">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="FPOeventListPhoto.jpg" id="qBA-ZD-vJc">
+                                            <rect key="frame" x="14" y="9" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="EHc-hi-wGT">
+                                            <rect key="frame" x="122" y="6" width="167" height="58"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <string key="text">Draper/Lussier WeddingCeremony &amp; Dinner</string>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="0.0" height="1"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sat Jul 7, 7-9 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="D5T-iw-oec">
+                                            <rect key="frame" x="122" y="60" width="173" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
+                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="blueArrow.png" id="nRH-Mv-hTn">
+                                            <rect key="frame" x="291" y="48" width="16" height="23"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XBT-hS-zJZ" id="Qdq-1b-1sh"/>
+                            <outlet property="delegate" destination="XBT-hS-zJZ" id="qNH-8N-TyC"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-341" y="496"/>
         </scene>
         <!--View Controller - Multiple Events-->
         <scene sceneID="lnC-aP-hye">
@@ -697,6 +756,7 @@ Ceremony &amp; Dinner</string>
         </scene>
     </scenes>
     <resources>
+        <image name="FPOeventListPhoto.jpg" width="200" height="200"/>
         <image name="FPOeventLrgPhoto.png" width="640" height="640"/>
         <image name="FPOeventLrgPhoto2.png" width="315" height="315"/>
         <image name="FPOeventLrgPhoto3.png" width="315" height="315"/>
@@ -711,14 +771,42 @@ Ceremony &amp; Dinner</string>
         <image name="background.png" width="642" height="920"/>
         <image name="backgroundPhoto.png" width="640" height="920"/>
         <image name="bigArrowCircle.png" width="285" height="290"/>
+        <image name="blueArrow.png" width="32" height="46"/>
         <image name="buttonCamera.png" width="162" height="162"/>
         <image name="buttonTransparent.png" width="151" height="151"/>
         <image name="eventListBackgroundImage.png" width="642" height="920"/>
+        <image name="eventListEventBackground.png" width="640" height="240"/>
         <image name="eventLrgPhotoHolder.png" width="640" height="640"/>
         <image name="eventLrgPhotoTxtOverlay.png" width="640" height="640"/>
         <image name="screen1.png" width="640" height="920"/>
         <image name="teardrop.png" width="391" height="444"/>
     </resources>
+    <classes>
+        <class className="SnapCameraController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapCameraController.h"/>
+            <relationships>
+                <relationship kind="action" name="takePicture:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="SnapEventListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="eventTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SnapLoadingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapLoadingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="searchForEvents:"/>
+                <relationship kind="outlet" name="loadingButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loadingSpinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="SnapNavigationBar" superclassName="UINavigationBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapNavigationBar.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

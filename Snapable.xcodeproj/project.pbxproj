@@ -75,6 +75,9 @@
 		49BDA28015CDF21D00C49B19 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BDA27615CDF21D00C49B19 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		49BDA28415CDF4FC00C49B19 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BDA28315CDF4FC00C49B19 /* CoreLocation.framework */; };
 		98571AAD15CAC92B0076BE97 /* SnapNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */; };
+		98C57F7915D7F97C00F11558 /* eventListEventBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7815D7F97C00F11558 /* eventListEventBackground.png */; };
+		98C57F7C15D7FA3F00F11558 /* FPOeventListPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */; };
+		98C57F7E15D7FD3900F11558 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7D15D7FD3900F11558 /* blueArrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,6 +175,9 @@
 		49BDA28315CDF4FC00C49B19 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapNavigationBar.h; sourceTree = "<group>"; };
 		98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapNavigationBar.m; sourceTree = "<group>"; };
+		98C57F7815D7F97C00F11558 /* eventListEventBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventListEventBackground.png; sourceTree = "<group>"; };
+		98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FPOeventListPhoto.jpg; sourceTree = "<group>"; };
+		98C57F7D15D7FD3900F11558 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +293,9 @@
 		498513EE15C7964E00EB6A77 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				98C57F7D15D7FD3900F11558 /* blueArrow.png */,
+				98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */,
+				98C57F7815D7F97C00F11558 /* eventListEventBackground.png */,
 				4949130515CB152A006BBE8B /* navigationBarBackgroundImage.png */,
 				4949130615CB152A006BBE8B /* screen1.png */,
 				4949130715CB152A006BBE8B /* teardrop.png */,
@@ -495,6 +504,9 @@
 				4949130815CB152A006BBE8B /* navigationBarBackgroundImage.png in Resources */,
 				4949130915CB152A006BBE8B /* screen1.png in Resources */,
 				4949130A15CB152A006BBE8B /* teardrop.png in Resources */,
+				98C57F7915D7F97C00F11558 /* eventListEventBackground.png in Resources */,
+				98C57F7C15D7FA3F00F11558 /* FPOeventListPhoto.jpg in Resources */,
+				98C57F7E15D7FD3900F11558 /* blueArrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
