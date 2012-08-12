@@ -74,6 +74,7 @@
 		49BDA27F15CDF21D00C49B19 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BDA27415CDF21D00C49B19 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		49BDA28015CDF21D00C49B19 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BDA27615CDF21D00C49B19 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		49BDA28415CDF4FC00C49B19 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BDA28315CDF4FC00C49B19 /* CoreLocation.framework */; };
+		9840E1B415D8751F009B5C54 /* eventListEventBackgroundHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */; };
 		98571AAD15CAC92B0076BE97 /* SnapNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */; };
 		98C57F7915D7F97C00F11558 /* eventListEventBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7815D7F97C00F11558 /* eventListEventBackground.png */; };
 		98C57F7C15D7FA3F00F11558 /* FPOeventListPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */; };
@@ -173,6 +174,7 @@
 		49BDA27515CDF21D00C49B19 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		49BDA27615CDF21D00C49B19 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		49BDA28315CDF4FC00C49B19 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventListEventBackgroundHighlight.png; sourceTree = "<group>"; };
 		98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapNavigationBar.h; sourceTree = "<group>"; };
 		98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapNavigationBar.m; sourceTree = "<group>"; };
 		98C57F7815D7F97C00F11558 /* eventListEventBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventListEventBackground.png; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 		498513EE15C7964E00EB6A77 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */,
 				98C57F7D15D7FD3900F11558 /* blueArrow.png */,
 				98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */,
 				98C57F7815D7F97C00F11558 /* eventListEventBackground.png */,
@@ -507,6 +510,7 @@
 				98C57F7915D7F97C00F11558 /* eventListEventBackground.png in Resources */,
 				98C57F7C15D7FA3F00F11558 /* FPOeventListPhoto.jpg in Resources */,
 				98C57F7E15D7FD3900F11558 /* blueArrow.png in Resources */,
+				9840E1B415D8751F009B5C54 /* eventListEventBackgroundHighlight.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
