@@ -161,11 +161,8 @@
         // Get destination view
         SnapEventListViewController *vc = [segue destinationViewController];
 
-        SnapEvent *ev = [self.results objectAtIndex:0];
-        NSLog(@"event title before segue: %@", ev.title);
-        
         // Set the selected button in the new view
-        vc.event = [self.results objectAtIndex:0];
+        vc.events = self.results;
     }
 }
 

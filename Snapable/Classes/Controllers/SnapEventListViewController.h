@@ -2,7 +2,7 @@
 //  SnapEventListViewController.h
 //  Snapable
 //
-//  Created by Marc Meszaros on 12-08-09.
+//  Created by Marc Meszaros on 12-08-12.
 //  Copyright (c) 2012 Snapable. All rights reserved.
 //
 
@@ -10,11 +10,11 @@
 
 #import "SnapEvent.h"
 
-@interface SnapEventListViewController : UIViewController {
-    SnapEvent *event;
+@interface SnapEventListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
+    NSArray *events;
     IBOutlet UILabel *eventTitle;
 }
 
-@property (nonatomic, strong) SnapEvent *event;
+@property (nonatomic, retain) NSArray *events;
 
 @end
