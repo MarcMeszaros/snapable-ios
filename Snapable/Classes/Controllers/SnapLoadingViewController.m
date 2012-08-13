@@ -115,14 +115,10 @@
             NSLog(@"results count: %d", results.count);
             
             // start the correct screen depending on number of events
-            if (self.results.count == 1) {
+            if (self.results.count >= 1) {
                 // start the segue for a single event
                 [loadingSpinner stopAnimating];
                 [self performSegueWithIdentifier:@"eventListSegue" sender:self];
-            } else if (self.results.count > 1) {
-                // start the segue for multiple events
-                [loadingSpinner stopAnimating];
-                [self performSegueWithIdentifier:@"multiEventListSegue" sender:self];
             } else {
                 [loadingSpinner stopAnimating];
                 [loadingButton setHidden:NO];
