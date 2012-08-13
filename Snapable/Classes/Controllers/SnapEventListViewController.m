@@ -7,6 +7,7 @@
 //
 
 #import "SnapEventListViewController.h"
+#import "SnapEventListCell.h"
 
 @interface SnapEventListViewController ()
 
@@ -65,25 +66,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"eventListCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-
-    NSLog(@"cell height: %f", cell.frame.size.height);
-    
-    // a HACK!!!
-    // SHOULD OVERRIDE METHOD: - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-    [tableView setRowHeight:320.0];
-
-
-    //[tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
-    //[tableView c]
-    //[UITableViewCell ];
+    SnapEventListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     // get the event
-    //SnapEvent *event = [self.events objectAtIndex:indexPath.row];
+    SnapEvent *event = [self.events objectAtIndex:indexPath.row];
+
+    if (cell == nil) {
+        cell = [[SnapEventListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
     
     // Configure the cell...
-    //cell.textLabel.text = event.title;
+    cell.uiEventTitle.text = event.title;
+    cell.uiEventDate.text = event.start;
 
     return cell;
 }
