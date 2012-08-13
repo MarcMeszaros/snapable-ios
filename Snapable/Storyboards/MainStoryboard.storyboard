@@ -216,15 +216,14 @@ Ceremony &amp; Dinner</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.89019607840000003" green="0.90980392160000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="YEk-QB-a0s">
-                            <rect key="frame" x="0.0" y="334" width="320" height="73"/>
+                            <rect key="frame" x="0.0" y="334" width="320" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KBb-Ib-Rul">
-                                    <rect key="frame" x="73" y="20" width="175" height="33"/>
+                                    <rect key="frame" x="72" y="20" width="177" height="42"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.48627450980392156" green="0.69411764705882351" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Load More">
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                    <state key="normal" title="Load More" backgroundImage="backgroundBlueButton.png">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -373,6 +372,7 @@ Ceremony &amp; Dinner</string>
         <image name="FPOeventPhoto.jpg" width="500" height="500"/>
         <image name="FPOeventPhoto2.png" width="315" height="315"/>
         <image name="background.png" width="642" height="920"/>
+        <image name="backgroundBlueButton.png" width="354" height="84"/>
         <image name="backgroundPhoto.png" width="640" height="920"/>
         <image name="blueArrow.png" width="32" height="46"/>
         <image name="buttonCamera.png" width="162" height="162"/>
