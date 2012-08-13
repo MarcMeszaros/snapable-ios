@@ -24,6 +24,7 @@
     self = [super init];
     if (self) {
         self.enabled = [[dictionary objectForKey:@"enabled"] boolValue];
+        self.photo_count = [[dictionary objectForKey:@"photo_count"] integerValue];
         self.start = [dictionary objectForKey:@"start"];
         self.end = [dictionary objectForKey:@"end"];
         self.title = [dictionary objectForKey:@"title"];

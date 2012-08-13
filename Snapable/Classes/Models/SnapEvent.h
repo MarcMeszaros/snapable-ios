@@ -10,6 +10,7 @@
 
 @interface SnapEvent : NSObject {
     BOOL enabled;
+    int photo_count;
     NSString *start;
     NSString *end;
     NSString *title;
@@ -23,6 +24,7 @@
 }
 
 @property (assign, nonatomic) BOOL enabled;
+@property (assign, nonatomic) int photo_count;
 @property (copy, nonatomic) NSString *start;
 @property (copy, nonatomic) NSString *end;
 @property (copy, nonatomic) NSString *title;
