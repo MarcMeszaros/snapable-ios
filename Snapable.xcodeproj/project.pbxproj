@@ -76,6 +76,7 @@
 		49BDA27F15CDF21D00C49B19 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BDA27415CDF21D00C49B19 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		49BDA28015CDF21D00C49B19 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BDA27615CDF21D00C49B19 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		49BDA28415CDF4FC00C49B19 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BDA28315CDF4FC00C49B19 /* CoreLocation.framework */; };
+		49E3298715D9600D001FF6A0 /* SnapEventPhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E3298615D9600D001FF6A0 /* SnapEventPhotoListViewController.m */; };
 		9840031015D954DF00A58ED2 /* eventPhotoBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */; };
 		9840031115D954DF00A58ED2 /* FPOeventPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9840030F15D954DF00A58ED2 /* FPOeventPhoto.jpg */; };
 		9840E1B415D8751F009B5C54 /* eventListEventBackgroundHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */; };
@@ -182,6 +183,8 @@
 		49BDA27515CDF21D00C49B19 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		49BDA27615CDF21D00C49B19 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		49BDA28315CDF4FC00C49B19 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		49E3298515D9600D001FF6A0 /* SnapEventPhotoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapEventPhotoListViewController.h; sourceTree = "<group>"; };
+		49E3298615D9600D001FF6A0 /* SnapEventPhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapEventPhotoListViewController.m; sourceTree = "<group>"; };
 		9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventPhotoBorder.png; sourceTree = "<group>"; };
 		9840030F15D954DF00A58ED2 /* FPOeventPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FPOeventPhoto.jpg; sourceTree = "<group>"; };
 		9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventListEventBackgroundHighlight.png; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */,
 				4929160F15CF853F00589CC1 /* SnapLoadingViewController.h */,
 				4929161015CF853F00589CC1 /* SnapLoadingViewController.m */,
+				49E3298515D9600D001FF6A0 /* SnapEventPhotoListViewController.h */,
+				49E3298615D9600D001FF6A0 /* SnapEventPhotoListViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -572,6 +577,7 @@
 				4903234115D828EB0043C179 /* SnapEventListViewController.m in Sources */,
 				4903234715D890310043C179 /* SnapEventListCell.m in Sources */,
 				4903235C15D89F0F0043C179 /* ISO8601DateFormatter.m in Sources */,
+				49E3298715D9600D001FF6A0 /* SnapEventPhotoListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

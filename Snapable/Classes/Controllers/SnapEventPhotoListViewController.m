@@ -1,25 +1,20 @@
 //
-//  SnapEventListViewController.m
+//  SnapEventPhotoListViewController.m
 //  Snapable
 //
-//  Created by Marc Meszaros on 12-08-12.
+//  Created by Marc Meszaros on 12-08-13.
 //  Copyright (c) 2012 Snapable. All rights reserved.
 //
 
-#import "SnapEventListViewController.h"
-#import "SnapEventListCell.h"
+#import "SnapEventPhotoListViewController.h"
 
-#import "ISO8601DateFormatter.h"
-
-@interface SnapEventListViewController ()
+@interface SnapEventPhotoListViewController ()
 
 @end
 
-@implementation SnapEventListViewController
+@implementation SnapEventPhotoListViewController
 
-static NSString *cellIdentifier = @"eventListCell";
-
-@synthesize events;
+static NSString *cellIdentifier = @"eventPhotoListCell";
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -58,35 +53,22 @@ static NSString *cellIdentifier = @"eventListCell";
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1; // only 1 section (ie. all events)
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return self.events.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SnapEventListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    // get the event
-    SnapEvent *event = [self.events objectAtIndex:indexPath.row];
-
-    if (cell == nil) {
-        cell = [[SnapEventListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
-    // Convert string to date object
-    ISO8601DateFormatter *dateFormat = [[ISO8601DateFormatter alloc] init];
-    NSDate *startDate = [dateFormat dateFromString:event.start];
-    //NSDate *endDate = [dateFormat dateFromString:event.end];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     // Configure the cell...
-    cell.uiEventTitle.text = event.title;
-    cell.uiEventDate.text = [startDate descriptionWithLocale:[NSLocale currentLocale]];
-
+    
     return cell;
 }
 
@@ -134,9 +116,6 @@ static NSString *cellIdentifier = @"eventListCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
-    
-    
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
