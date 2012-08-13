@@ -15,6 +15,8 @@
 @implementation SnapEventPhotoListViewController
 
 static NSString *cellIdentifier = @"eventPhotoListCell";
+@synthesize event;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -61,6 +63,15 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+
+    if(section == 0) {
+        return self.event.title;
+    } else {
+        return @"";
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

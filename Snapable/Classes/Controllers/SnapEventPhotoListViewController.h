@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SnapEventPhotoListViewController : UITableViewController
+#import "SnapEvent.h"
+
+@interface SnapEventPhotoListViewController : UITableViewController {
+    SnapEvent *event;
+}
+
+@property (nonatomic, strong) SnapEvent *event;
 
 @end

@@ -9,6 +9,8 @@
 #import "SnapEventListViewController.h"
 #import "SnapEventListCell.h"
 
+#import "SnapEventPhotoListViewController.h"
+
 #import "ISO8601DateFormatter.h"
 
 @interface SnapEventListViewController ()
@@ -143,6 +145,17 @@ static NSString *cellIdentifier = @"eventListCell";
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"eventListPhotoSegue"]) {
+        // Get destination view
+        SnapEventPhotoListViewController *vc = [segue destinationViewController];
+        
+        // Set the selected button in the new view
+        vc.event = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    }
 }
 
 #pragma mark - Row modifications
