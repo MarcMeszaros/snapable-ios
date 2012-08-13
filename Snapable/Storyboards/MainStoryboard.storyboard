@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uwi-4K-nYa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uwi-4K-nYa">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
@@ -352,6 +351,61 @@ Ceremony &amp; Dinner</string>
             </objects>
             <point key="canvasLocation" x="129" y="-82"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="tG9-CK-gHy">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6P8-In-Vub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="lVB-SL-fYp" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qDH-KE-vqM">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.88235294119999996" green="0.90588235289999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleAspectFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="312" id="VnF-cI-IGx">
+                                <rect key="frame" x="0.0" y="22" width="320" height="312"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="311"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="FPOeventPhoto.jpg" id="hWO-z3-7ag">
+                                            <rect key="frame" x="35" y="9" width="250" height="250"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="eventPhotoBorder.png" id="acx-Dt-p63">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="312"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&quot;Uncle Bob dancing up a storm.&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="4ms-pa-J6F">
+                                            <rect key="frame" x="35" y="263" width="250" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="11"/>
+                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Andrew D." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="cfv-9i-OZb">
+                                            <rect key="frame" x="35" y="279" width="250" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="11"/>
+                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.88235294117647056" green="0.90588235294117647" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lVB-SL-fYp" id="G66-oK-Mj8"/>
+                            <outlet property="delegate" destination="lVB-SL-fYp" id="2Ra-OP-6Lx"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="129" y="538"/>
+        </scene>
         <!--Snap Camera Controller-->
         <scene sceneID="XCF-Ln-7cv">
             <objects>
@@ -435,6 +489,7 @@ Ceremony &amp; Dinner</string>
     <resources>
         <image name="FPOeventListPhoto.jpg" width="200" height="200"/>
         <image name="FPOeventLrgPhoto.png" width="640" height="640"/>
+        <image name="FPOeventPhoto.jpg" width="500" height="500"/>
         <image name="FPOeventPhoto2.png" width="315" height="315"/>
         <image name="FPOeventPhoto3.png" width="315" height="315"/>
         <image name="FPOeventPhoto4.png" width="315" height="315"/>
@@ -448,6 +503,7 @@ Ceremony &amp; Dinner</string>
         <image name="eventListEventBackground.png" width="640" height="240"/>
         <image name="eventListEventBackgroundHighlight.png" width="640" height="240"/>
         <image name="eventLrgPhotoHolder.png" width="640" height="640"/>
+        <image name="eventPhotoBorder.png" width="640" height="624"/>
         <image name="screen1.png" width="640" height="920"/>
         <image name="teardrop.png" width="391" height="444"/>
     </resources>
