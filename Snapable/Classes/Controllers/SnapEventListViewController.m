@@ -9,6 +9,8 @@
 #import "SnapEventListViewController.h"
 #import "SnapEventListCell.h"
 
+#import "ISO8601DateFormatter.h"
+
 @interface SnapEventListViewController ()
 
 @end
@@ -75,9 +77,14 @@
         cell = [[SnapEventListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
+    // Convert string to date object
+    ISO8601DateFormatter *dateFormat = [[ISO8601DateFormatter alloc] init];
+    NSDate *startDate = [dateFormat dateFromString:event.start];
+    NSDate *endDate = [dateFormat dateFromString:event.end];
+    
     // Configure the cell...
     cell.uiEventTitle.text = event.title;
-    cell.uiEventDate.text = event.start;
+    cell.uiEventDate.text = [startDate descriptionWithLocale:[NSLocale currentLocale]];
 
     return cell;
 }
