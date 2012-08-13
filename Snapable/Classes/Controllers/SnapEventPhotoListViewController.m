@@ -36,6 +36,16 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // load up the nib file
+    UIView *header = [[UIView alloc] init];
+    header = [[[NSBundle mainBundle] loadNibNamed:@"EventPhotoListHeader" owner:self options:nil] objectAtIndex:0];
+    // get a reference to the title label and set the text
+    UILabel *title = [header.subviews objectAtIndex:0];
+    title.text = self.event.title;
+    
+    // set the nib as the tableview's header
+    self.tableView.tableHeaderView = header;
 }
 
 - (void)viewDidUnload
@@ -63,15 +73,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 1;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-
-    if(section == 0) {
-        return self.event.title;
-    } else {
-        return @"";
-    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
