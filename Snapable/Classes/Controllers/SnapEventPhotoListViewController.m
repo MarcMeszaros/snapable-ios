@@ -16,6 +16,7 @@
 
 static NSString *cellIdentifier = @"eventPhotoListCell";
 @synthesize event;
+@synthesize uiLoadMore;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -46,6 +47,12 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     
     // set the nib as the tableview's header
     self.tableView.tableHeaderView = header;
+    
+    // hide the load more button if there are no photos
+    if (self.event.photo_count <= 0) {
+        self.uiLoadMore.hidden = YES;
+    }
+    
 }
 
 - (void)viewDidUnload
@@ -140,6 +147,13 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // this shouldn't be hard
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     return cell.frame.size.height;
+}
+
+#pragma mark - Load more photos
+- (IBAction) loadMore: (UIButton*) sender
+{
+    // TODO load more photos
+    NSLog(@"load more button press");
 }
 
 @end
