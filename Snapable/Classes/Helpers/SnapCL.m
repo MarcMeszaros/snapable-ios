@@ -33,14 +33,14 @@
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     if (abs(howRecent) < 15.0)
     {
-        NSLog(@"how recent (<15): %f", howRecent);
-        NSLog(@"old: %@", oldLocation);
-        NSLog(@"new: %@", newLocation);
+        DLog(@"how recent (<15): %f", howRecent);
+        DLog(@"old: %@", oldLocation);
+        DLog(@"new: %@", newLocation);
         self.updateCount++; // increment the updateLocation count
         // only send the event if we have an old & new location
         if (oldLocation != nil && newLocation != nil) {
             double distance = [newLocation distanceFromLocation:oldLocation];
-            NSLog(@"diff: %f", distance);
+            DLog(@"diff: %f", distance);
             
             // make sure the distance has stabilized (ie. a variance less than 100m)
             // and we have an update count of 2+ (ie. should be stable by 2nd update)
@@ -51,7 +51,7 @@
         }
     } else {
         // else skip the event and process the next one.
-        NSLog(@"how recent (>15): %f", howRecent);
+        DLog(@"how recent (>15): %f", howRecent);
     }
 }
 

@@ -119,7 +119,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 - (IBAction) loadMore: (UIButton*) sender
 {
     // TODO load more photos
-    NSLog(@"load more button press");
+    DLog(@"load more button press");
 }
 
 - (IBAction) takePhoto: (UIButton*) sender

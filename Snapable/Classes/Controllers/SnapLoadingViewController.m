@@ -53,21 +53,21 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    NSLog(@"viewWillAppear");
+    DLog(@"viewWillAppear");
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
-    NSLog(@"viewWillDisappear");
+    DLog(@"viewWillDisappear");
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    NSLog(@"viewDidAppear");
+    DLog(@"viewDidAppear");
     // if the location controller isn't nil, look for new locations
     if (self.locationController.locationManager != nil) {
         [self.locationController.locationManager startUpdatingLocation];
@@ -78,7 +78,7 @@
 
 - (void) viewDidDisappear:(BOOL)animated
 {
-    NSLog(@"viewDidDisappear");
+    DLog(@"viewDidDisappear");
     // if the location controller isn't nil, look for new locations
     if (self.locationController.locationManager != nil) {
         [self.locationController.locationManager stopUpdatingLocation];
@@ -94,7 +94,7 @@
 }
 
 - (void)locationUpdate:(CLLocation *)location {
-    NSLog(@"before segue");
+    DLog(@"before segue");
     
 	// stop updating the location
     [self.locationController.locationManager stopUpdatingLocation];
@@ -109,10 +109,10 @@
             for (id events in [response valueForKeyPath:@"objects"]) {
                 SnapEvent *event = [[SnapEvent alloc] initWithDictionary:events];
                 [self.results addObject:event];
-                NSLog(@"event: %@", event.title);
+                DLog(@"event: %@", event.title);
             }
 
-            NSLog(@"results count: %d", results.count);
+            DLog(@"results count: %d", results.count);
             
             // start the correct screen depending on number of events
             if (self.results.count >= 1) {
@@ -125,16 +125,16 @@
             }
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error fetching events!");
-            NSLog(@"%@", error);
+            DLog(@"Error fetching events!");
+            DLog(@"%@", error);
         }
      ];
 }
 
 - (void)locationError:(NSError *)error {
 	//locationLabel.text = [error description];
-    NSLog(@"An error occured while getting location.");
-    NSLog(@"Error: %@", error);
+    DLog(@"An error occured while getting location.");
+    DLog(@"Error: %@", error);
 }
 
 #pragma mark Force Reload Events
@@ -153,7 +153,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"eventListSegue"]) {
-        NSLog(@"in prepare for segue");
+        DLog(@"in prepare for segue");
         // Get destination view
         SnapEventListViewController *vc = [segue destinationViewController];
 
