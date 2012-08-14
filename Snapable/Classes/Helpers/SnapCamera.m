@@ -10,13 +10,16 @@
 
 @implementation SnapCamera
 
+@synthesize cameraUI;
+
 + (id)sharedInstance {
     static SnapCamera *_sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedInstance = [[SnapCamera alloc] init];
+        _sharedInstance = [[SnapCamera alloc] init]; // init the object
+        _sharedInstance.cameraUI = [[UIImagePickerController alloc] init]; // init the camera ui
     });
-    
+
     return _sharedInstance;
 }
 
@@ -30,19 +33,19 @@
         || (controller == nil))
         return NO;
     
-    UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
-    cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
+    // make the source time the camera
+    self.cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
     
     // only allow images
-    cameraUI.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
+    self.cameraUI.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeImage, nil];
 
     // Hides the controls for moving & scaling pictures, or for
     // trimming movies. To instead show the controls, use YES.
-    cameraUI.allowsEditing = NO;
+    self.cameraUI.allowsEditing = NO;
 
-    cameraUI.delegate = delegate;
+    self.cameraUI.delegate = delegate;
 
-    [controller presentModalViewController: cameraUI animated: YES];
+    [controller presentModalViewController:self.cameraUI animated:YES];
     return YES;
 }
 

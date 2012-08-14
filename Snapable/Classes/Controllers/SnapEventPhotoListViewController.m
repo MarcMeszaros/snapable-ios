@@ -14,8 +14,10 @@
 
 @implementation SnapEventPhotoListViewController
 
+// declare & synthesize some class properties
 static NSString *cellIdentifier = @"eventPhotoListCell";
 @synthesize event;
+@synthesize camera;
 @synthesize uiNoPhotos;
 @synthesize uiLoadMore;
 @synthesize tableView;
@@ -55,6 +57,14 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+// this loads the camera after the view appeared (a trick to hide the loading)
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // initialize the camera
+    self.camera = [SnapCamera sharedInstance];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -114,8 +124,11 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 
 - (IBAction) takePhoto: (UIButton*) sender
 {
-    // TODO load more photos
-    NSLog(@"take photo button press");
+    // launch the camera
+    [self.camera startCameraControllerFromViewController:self usingDelegate:self.camera];
 }
+
+#pragma mark - Camera delegate
+// TODO camera delegate code here
 
 @end

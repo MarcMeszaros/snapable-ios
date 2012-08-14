@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@interface SnapCamera : NSObject <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface SnapCamera : NSObject <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
+    UIImagePickerController *cameraUI;
+}
+
+@property (nonatomic, retain) UIImagePickerController *cameraUI;
 
 + (id)sharedInstance;
 
