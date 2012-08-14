@@ -125,7 +125,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1060" y="-326"/>
+            <point key="canvasLocation" x="1024" y="-82"/>
         </scene>
         <!--Snap Event List View Controller-->
         <scene sceneID="n85-jD-kN7">
@@ -206,101 +206,6 @@ Ceremony &amp; Dinner</string>
             <point key="canvasLocation" x="129" y="-82"/>
         </scene>
         <!--Snap Event Photo List View Controller-->
-        <scene sceneID="tG9-CK-gHy">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6P8-In-Vub" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="lVB-SL-fYp" customClass="SnapEventPhotoListViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="7mm-Ip-yTG"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </tableViewController>
-                <view contentMode="scaleToFill" id="dCc-5V-qDq">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.48627450979999998" green="0.69411764710000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
-            </objects>
-            <point key="canvasLocation" x="605" y="-326"/>
-        </scene>
-        <!--Snap Camera Controller-->
-        <scene sceneID="XCF-Ln-7cv">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b4g-Mv-dv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="Rw0-2f-hrs" customClass="SnapCameraController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DAO-lG-LyM">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="16O-bK-s71">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dWI-hG-2RI" userLabel="SnapSingleEventTimeDate">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Draper/Lussier Wedding
-Ceremony &amp; Dinner</string>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="-1" height="-1"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Lr-e2-h7m">
-                                <rect key="frame" x="124" y="321" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="buttonCamera.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="takePicture:" destination="Rw0-2f-hrs" eventType="touchDown" id="O5I-Za-Mdo"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="teardrop.png" id="sfT-Gz-5HI">
-                                <rect key="frame" x="67" y="78" width="195" height="222"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="OMG!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="11M-3B-mhG">
-                                <rect key="frame" x="109" y="63" width="110" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="96"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No one’s shared a photo yet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="gBF-eJ-5y3">
-                                <rect key="frame" x="92" y="144" width="145" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Quick, be first!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="5Nw-gW-Y9R">
-                                <rect key="frame" x="122" y="202" width="88" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="U46-zx-PfP"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="605" y="240"/>
-        </scene>
-        <!--Snap Event Photo List View Controller-->
         <scene sceneID="Lyh-iO-OXF">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVP-4X-y8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -377,6 +282,44 @@ Ceremony &amp; Dinner</string>
                                     <outlet property="delegate" destination="lvs-my-LUM" id="ZQ4-Gb-bC9"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" id="mDB-vQ-SxR">
+                                <rect key="frame" x="62" y="97" width="195" height="222"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="teardrop.png" id="sfT-Gz-5HI">
+                                        <rect key="frame" x="0.0" y="0.0" width="195" height="222"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="OMG!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="11M-3B-mhG">
+                                        <rect key="frame" x="42" y="-11" width="110" height="94"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="96"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="No one’s shared a photo yet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="gBF-eJ-5y3">
+                                        <rect key="frame" x="25" y="79" width="145" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Quick, be first!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="5Nw-gW-Y9R">
+                                        <rect key="frame" x="53" y="123" width="88" height="71"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fYY-aM-RCE">
                                 <rect key="frame" x="120" y="330" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -400,17 +343,17 @@ Ceremony &amp; Dinner</string>
                     <connections>
                         <outlet property="tableView" destination="qDH-KE-vqM" id="GX8-at-OUG"/>
                         <outlet property="uiLoadMore" destination="KBb-Ib-Rul" id="oiu-aS-NsL"/>
+                        <outlet property="uiNoPhotos" destination="mDB-vQ-SxR" id="eVJ-Cx-Pti"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="135" y="512"/>
+            <point key="canvasLocation" x="579" y="-82"/>
         </scene>
     </scenes>
     <resources>
         <image name="FPOeventListPhoto.jpg" width="200" height="200"/>
         <image name="FPOeventPhoto.jpg" width="500" height="500"/>
         <image name="FPOeventPhoto2.png" width="315" height="315"/>
-        <image name="background.png" width="642" height="920"/>
         <image name="backgroundBlueButton.png" width="354" height="84"/>
         <image name="backgroundPhoto.png" width="640" height="920"/>
         <image name="blueArrow.png" width="32" height="46"/>
@@ -423,12 +366,6 @@ Ceremony &amp; Dinner</string>
         <image name="teardrop.png" width="391" height="444"/>
     </resources>
     <classes>
-        <class className="SnapCameraController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapCameraController.h"/>
-            <relationships>
-                <relationship kind="action" name="takePicture:" candidateClass="UIButton"/>
-            </relationships>
-        </class>
         <class className="SnapEventListCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventListCell.h"/>
             <relationships>
@@ -446,10 +383,9 @@ Ceremony &amp; Dinner</string>
         <class className="SnapEventPhotoListViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventPhotoListViewController.h"/>
             <relationships>
-                <relationship kind="action" name="loadMore:" candidateClass="UIButton"/>
-                <relationship kind="action" name="takePhoto:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="uiLoadMore" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="uiNoPhotos" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="SnapLoadingViewController" superclassName="UIViewController">

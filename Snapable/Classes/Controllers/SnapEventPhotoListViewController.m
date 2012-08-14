@@ -16,6 +16,7 @@
 
 static NSString *cellIdentifier = @"eventPhotoListCell";
 @synthesize event;
+@synthesize uiNoPhotos;
 @synthesize uiLoadMore;
 @synthesize tableView;
 
@@ -46,6 +47,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // hide the load more button if there are no photos
     if (self.event.photo_count <= 0) {
         self.uiLoadMore.hidden = YES;
+        self.uiNoPhotos.hidden = NO;
     }
 }
 

@@ -12,11 +12,13 @@
 
 @interface SnapEventPhotoListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     SnapEvent *event;
+    IBOutlet UIView *uiNoPhotos;
     IBOutlet UIButton *uiLoadMore;
     IBOutlet UITableView *tableView;
 }
 
 @property (nonatomic, strong) SnapEvent *event;
+@property (nonatomic, retain) UIView *uiNoPhotos;
 @property (nonatomic, retain) UIButton *uiLoadMore;
 @property (nonatomic, strong) UITableView *tableView;
 
