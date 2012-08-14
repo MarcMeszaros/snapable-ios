@@ -242,7 +242,7 @@ Ceremony &amp; Dinner</string>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleAspectFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="eventPhotoListCell" rowHeight="312" id="VnF-cI-IGx">
+                                    <tableViewCell contentMode="scaleAspectFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="eventPhotoListCell" rowHeight="312" id="VnF-cI-IGx" customClass="SnapEventPhotoListCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="312"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -275,6 +275,11 @@ Ceremony &amp; Dinner</string>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="0.88235294119999996" green="0.90588235289999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="uiPhoto" destination="hWO-z3-7ag" id="2xT-0f-ZJr"/>
+                                            <outlet property="uiPhotoAuthor" destination="cfv-9i-OZb" id="Gsz-50-fdZ"/>
+                                            <outlet property="uiPhotoCaption" destination="4ms-pa-J6F" id="Kd6-HJ-I6M"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

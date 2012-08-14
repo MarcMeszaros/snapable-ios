@@ -7,6 +7,7 @@
 //
 
 #import "SnapEventPhotoListViewController.h"
+#import "SnapEventPhotoListCell.h"
 
 @interface SnapEventPhotoListViewController ()
 
@@ -62,33 +63,35 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         self.uiNoPhotos.hidden = NO;
     }
     
-    // get the event photos
-    NSInteger event_id = [SnapApiClient getIdFromResourceUri:self.event.resource_uri];
-    NSString *request_string = [NSString stringWithFormat:@"photo/?event=%d", event_id];
-    [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
-        success:^(AFHTTPRequestOperation *operation, id response) {
-            // hydrate the response into objects
-            for (id photos in [response valueForKeyPath:@"objects"]) {
-                SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:photos];
-                [self.api_photos addObject:photo];
-            }
+    // get the event photos, if they haven't been loaded yet
+    if (self.api_photos.count <= 0) {
+        NSInteger event_id = [SnapApiClient getIdFromResourceUri:self.event.resource_uri];
+        NSString *request_string = [NSString stringWithFormat:@"photo/?event=%d", event_id];
+        [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
+            success:^(AFHTTPRequestOperation *operation, id response) {
+                // hydrate the response into objects
+                for (id photos in [response valueForKeyPath:@"objects"]) {
+                    SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:photos];
+                    [self.api_photos addObject:photo];
+                }
 
-            // display the first 5 photos
-            if (self.api_photos.count > 0) {
-                NSInteger limit = (self.api_photos.count <= 5) ? (self.api_photos.count):5;
-                for (int i=0; i<(limit-1); i++) {
-                    NSInteger nextIndex = (self.photos.count > 0) ? (self.photos.count-1):0;
-                    [self.photos addObject:[self.api_photos objectAtIndex:nextIndex]];
-                    NSArray *paths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:nextIndex inSection:0]];
-                    [self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
+                // display the first 5 photos
+                if (self.api_photos.count > 0) {
+                    NSInteger limit = (self.api_photos.count <= 5) ? (self.api_photos.count):5;
+                    for (int i=0; i<limit; i++) {
+                        NSInteger nextIndex = self.photos.count;
+                        [self.photos addObject:[self.api_photos objectAtIndex:nextIndex]];
+                        NSArray *paths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:nextIndex inSection:0]];
+                        [self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
+                    }
                 }
             }
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            DLog(@"Error fetching photos!");
-            DLog(@"%@", error);
-        }
-     ];
+            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                DLog(@"Error fetching photos!");
+                DLog(@"%@", error);
+            }
+         ];
+    }
     
 }
 
@@ -127,9 +130,19 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    SnapEventPhotoListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    // Configure the cell...
+    // get the photo
+    SnapPhoto *photo = [self.photos objectAtIndex:indexPath.row];
+    
+    // initialize if null
+    if (cell == nil) {
+        cell = [[SnapEventPhotoListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    // set the data
+    cell.uiPhotoCaption.text = photo.caption;
+    //cell.uiPhotoAuthor.text = @"some author";
     
     return cell;
 }

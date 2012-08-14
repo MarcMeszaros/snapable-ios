@@ -25,8 +25,8 @@
 
 @property (nonatomic, strong) SnapEvent *event;
 @property (nonatomic, retain) SnapCamera *camera;
-@property (nonatomic, strong) NSMutableArray *api_photos;
-@property (nonatomic, strong) NSMutableArray *photos;
+@property (nonatomic, retain) NSMutableArray *api_photos;
+@property (nonatomic, retain) NSMutableArray *photos;
 @property (nonatomic, retain) UIView *uiNoPhotos;
 @property (nonatomic, retain) UIButton *uiLoadMore;
 @property (nonatomic, strong) UITableView *tableView;
