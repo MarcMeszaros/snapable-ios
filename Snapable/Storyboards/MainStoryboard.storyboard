@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uwi-4K-nYa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uwi-4K-nYa">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
@@ -199,8 +199,7 @@ Ceremony &amp; Dinner</string>
                     <navigationItem key="navigationItem" id="O9w-Kg-A5c"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <segue destination="lVB-SL-fYp" kind="push" identifier="eventListPhotoSegue" id="Dgk-Ov-K6m"/>
-                        <segue destination="Rw0-2f-hrs" kind="push" identifier="eventListNoPhotoSegue" id="jaQ-Xj-F3v"/>
+                        <segue destination="lvs-my-LUM" kind="push" identifier="eventListPhotoSegue" id="THn-CU-Txn"/>
                     </connections>
                 </tableViewController>
             </objects>
@@ -211,80 +210,14 @@ Ceremony &amp; Dinner</string>
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6P8-In-Vub" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="lVB-SL-fYp" customClass="SnapEventPhotoListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qDH-KE-vqM">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.89019607840000003" green="0.90980392160000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="YEk-QB-a0s">
-                            <rect key="frame" x="0.0" y="334" width="320" height="180"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KBb-Ib-Rul">
-                                    <rect key="frame" x="72" y="20" width="177" height="42"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                    <size key="titleShadowOffset" width="0.0" height="1"/>
-                                    <state key="normal" title="Load More" backgroundImage="backgroundBlueButton.png">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="highlighted">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="loadMore:" destination="lVB-SL-fYp" eventType="touchDown" id="zoa-zr-Xgh"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleAspectFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="eventPhotoListCell" rowHeight="312" id="VnF-cI-IGx">
-                                <rect key="frame" x="0.0" y="22" width="320" height="312"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="311"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="FPOeventPhoto.jpg" id="hWO-z3-7ag">
-                                            <rect key="frame" x="35" y="9" width="250" height="250"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="eventPhotoBorder.png" id="acx-Dt-p63">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="312"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&quot;Uncle Bob dancing up a storm.&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="4ms-pa-J6F">
-                                            <rect key="frame" x="35" y="263" width="250" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="11"/>
-                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Andrew D." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="cfv-9i-OZb">
-                                            <rect key="frame" x="35" y="279" width="250" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="11"/>
-                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" red="0.88235294119999996" green="0.90588235289999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="lVB-SL-fYp" id="G66-oK-Mj8"/>
-                            <outlet property="delegate" destination="lVB-SL-fYp" id="2Ra-OP-6Lx"/>
-                        </connections>
-                    </tableView>
                     <navigationItem key="navigationItem" id="7mm-Ip-yTG"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="uiLoadMore" destination="KBb-Ib-Rul" id="ryR-nq-slH"/>
-                    </connections>
                 </tableViewController>
+                <view contentMode="scaleToFill" id="dCc-5V-qDq">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.48627450979999998" green="0.69411764710000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="605" y="-326"/>
         </scene>
@@ -367,6 +300,111 @@ Ceremony &amp; Dinner</string>
             </objects>
             <point key="canvasLocation" x="605" y="240"/>
         </scene>
+        <!--Snap Event Photo List View Controller-->
+        <scene sceneID="Lyh-iO-OXF">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AVP-4X-y8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="lvs-my-LUM" customClass="SnapEventPhotoListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k3Q-j4-E2Q">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qDH-KE-vqM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.89019607840000003" green="0.90980392160000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="YEk-QB-a0s">
+                                    <rect key="frame" x="0.0" y="334" width="320" height="180"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KBb-Ib-Rul">
+                                            <rect key="frame" x="72" y="20" width="177" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <size key="titleShadowOffset" width="0.0" height="1"/>
+                                            <state key="normal" title="Load More" backgroundImage="backgroundBlueButton.png">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="loadMore:" destination="lvs-my-LUM" eventType="touchDown" id="rfH-m4-lgX"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleAspectFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="eventPhotoListCell" rowHeight="312" id="VnF-cI-IGx">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="312"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="311"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="FPOeventPhoto.jpg" id="hWO-z3-7ag">
+                                                    <rect key="frame" x="35" y="9" width="250" height="250"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="eventPhotoBorder.png" id="acx-Dt-p63">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="312"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&quot;Uncle Bob dancing up a storm.&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="4ms-pa-J6F">
+                                                    <rect key="frame" x="35" y="263" width="250" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="11"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Andrew D." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="cfv-9i-OZb">
+                                                    <rect key="frame" x="35" y="279" width="250" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="11"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.88235294119999996" green="0.90588235289999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lvs-my-LUM" id="f7N-aY-opC"/>
+                                    <outlet property="delegate" destination="lvs-my-LUM" id="ZQ4-Gb-bC9"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fYY-aM-RCE">
+                                <rect key="frame" x="120" y="330" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="buttonCamera.png">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto:" destination="lvs-my-LUM" eventType="touchDown" id="cEu-Uw-NEa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RKi-7C-3LG"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="qDH-KE-vqM" id="GX8-at-OUG"/>
+                        <outlet property="uiLoadMore" destination="KBb-Ib-Rul" id="oiu-aS-NsL"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="135" y="512"/>
+        </scene>
     </scenes>
     <resources>
         <image name="FPOeventListPhoto.jpg" width="200" height="200"/>
@@ -387,6 +425,9 @@ Ceremony &amp; Dinner</string>
     <classes>
         <class className="SnapCameraController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapCameraController.h"/>
+            <relationships>
+                <relationship kind="action" name="takePicture:" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="SnapEventListCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventListCell.h"/>
@@ -402,9 +443,12 @@ Ceremony &amp; Dinner</string>
                 <relationship kind="outlet" name="eventTitle" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="SnapEventPhotoListViewController" superclassName="UITableViewController">
+        <class className="SnapEventPhotoListViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventPhotoListViewController.h"/>
             <relationships>
+                <relationship kind="action" name="loadMore:" candidateClass="UIButton"/>
+                <relationship kind="action" name="takePhoto:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="uiLoadMore" candidateClass="UIButton"/>
             </relationships>
         </class>

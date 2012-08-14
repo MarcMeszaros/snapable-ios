@@ -10,12 +10,14 @@
 
 #import "SnapEvent.h"
 
-@interface SnapEventPhotoListViewController : UITableViewController {
+@interface SnapEventPhotoListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     SnapEvent *event;
     IBOutlet UIButton *uiLoadMore;
+    IBOutlet UITableView *tableView;
 }
 
 @property (nonatomic, strong) SnapEvent *event;
 @property (nonatomic, retain) UIButton *uiLoadMore;
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
