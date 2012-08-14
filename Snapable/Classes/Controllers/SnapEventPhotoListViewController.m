@@ -18,6 +18,8 @@
 static NSString *cellIdentifier = @"eventPhotoListCell";
 @synthesize event;
 @synthesize camera;
+@synthesize api_photos;
+@synthesize photos;
 @synthesize uiNoPhotos;
 @synthesize uiLoadMore;
 @synthesize tableView;
@@ -36,6 +38,14 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    // init the arrays if they are null
+    if (self.api_photos == nil) {
+        self.api_photos = [NSMutableArray array];
+    }
+    if (self.photos == nil) {
+        self.photos = [NSMutableArray array];
+    }
+
     // load up the nib file
     UIView *header = [[UIView alloc] init];
     header = [[[NSBundle mainBundle] loadNibNamed:@"EventPhotoListHeader" owner:self options:nil] objectAtIndex:0];
@@ -51,6 +61,35 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         self.uiLoadMore.hidden = YES;
         self.uiNoPhotos.hidden = NO;
     }
+    
+    // get the event photos
+    NSInteger event_id = [SnapApiClient getIdFromResourceUri:self.event.resource_uri];
+    NSString *request_string = [NSString stringWithFormat:@"photo/?event=%d", event_id];
+    [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
+        success:^(AFHTTPRequestOperation *operation, id response) {
+            // hydrate the response into objects
+            for (id photos in [response valueForKeyPath:@"objects"]) {
+                SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:photos];
+                [self.api_photos addObject:photo];
+            }
+
+            // display the first 5 photos
+            if (self.api_photos.count > 0) {
+                NSInteger limit = (self.api_photos.count <= 5) ? (self.api_photos.count):5;
+                for (int i=0; i<(limit-1); i++) {
+                    NSInteger nextIndex = (self.photos.count > 0) ? (self.photos.count-1):0;
+                    [self.photos addObject:[self.api_photos objectAtIndex:nextIndex]];
+                    NSArray *paths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:nextIndex inSection:0]];
+                    [self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
+                }
+            }
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            DLog(@"Error fetching photos!");
+            DLog(@"%@", error);
+        }
+     ];
+    
 }
 
 - (void)viewDidUnload
@@ -83,7 +122,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.event.photo_count;
+    return self.photos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -130,5 +169,11 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 
 #pragma mark - Camera delegate
 // TODO camera delegate code here
+
+
+#pragma mark - UI Manipulation
+- (void)loadMoreImages:(NSInteger*)count {
+    // TODO implementent loading more images
+}
 
 @end

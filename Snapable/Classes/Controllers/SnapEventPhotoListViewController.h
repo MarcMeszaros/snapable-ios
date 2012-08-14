@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SnapApiClient.h"
 #import "SnapCamera.h"
 #import "SnapEvent.h"
+#import "SnapPhoto.h"
 
 @interface SnapEventPhotoListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     SnapEvent *event;
     SnapCamera *camera;
+    NSMutableArray *api_photos;
+    NSMutableArray *photos;
     IBOutlet UIView *uiNoPhotos;
     IBOutlet UIButton *uiLoadMore;
     IBOutlet UITableView *tableView;
@@ -21,8 +25,12 @@
 
 @property (nonatomic, strong) SnapEvent *event;
 @property (nonatomic, retain) SnapCamera *camera;
+@property (nonatomic, strong) NSMutableArray *api_photos;
+@property (nonatomic, strong) NSMutableArray *photos;
 @property (nonatomic, retain) UIView *uiNoPhotos;
 @property (nonatomic, retain) UIButton *uiLoadMore;
 @property (nonatomic, strong) UITableView *tableView;
+
+- (void)loadMoreImages:(NSInteger*)count;
 
 @end
