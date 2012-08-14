@@ -11,6 +11,7 @@
 @interface SnapPhoto : NSObject {
     BOOL streamable;
     NSString *caption;
+    NSString *author_name;
     NSString *metrics;
     NSString *timestamp;
     
@@ -22,6 +23,7 @@
 
 @property (assign, nonatomic) BOOL steamable;
 @property (copy, nonatomic) NSString *caption;
+@property (copy, nonatomic) NSString *author_name;
 @property (copy, nonatomic) NSString *metrics;
 @property (copy, nonatomic) NSString *timestamp;
 @property (copy, nonatomic) NSString *event;

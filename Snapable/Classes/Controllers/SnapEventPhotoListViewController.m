@@ -142,7 +142,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     
     // set the data
     cell.uiPhotoCaption.text = photo.caption;
-    //cell.uiPhotoAuthor.text = @"some author";
+    cell.uiPhotoAuthor.text = photo.author_name;
     
     return cell;
 }

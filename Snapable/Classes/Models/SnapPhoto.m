@@ -11,6 +11,7 @@
 @implementation SnapPhoto
 
 @synthesize caption;
+@synthesize author_name;
 @synthesize metrics;
 @synthesize timestamp;
 @synthesize event;
@@ -23,6 +24,7 @@
     if (self) {
         self.steamable = [[dictionary objectForKey:@"enabled"] boolValue];
         self.caption = [dictionary objectForKey:@"caption"];
+        self.author_name = [dictionary objectForKey:@"author_name"];
         self.metrics = [dictionary objectForKey:@"metrics"];
         self.timestamp = [dictionary objectForKey:@"timestamp"];
         self.event = [dictionary objectForKey:@"event"];
