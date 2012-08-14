@@ -30,6 +30,12 @@
     return _sharedInstance;
 }
 
+// small helper function to return the resource id in a string
++ (NSInteger)getIdFromResourceUri:(NSString *)uri {
+    NSArray *parts = [uri componentsSeparatedByString:@"/"];
+    return [[parts objectAtIndex:(parts.count - 2)] integerValue];
+}
+
 - (id)initWithBaseURL:(NSURL *)url {
     self = [super initWithBaseURL:url];
     if (self) {

@@ -11,5 +11,6 @@
 @interface SnapApiClient : AFHTTPClient
 
 + (id)sharedInstance;
++ (NSInteger)getIdFromResourceUri:(NSString *)uri;
 
 @end
