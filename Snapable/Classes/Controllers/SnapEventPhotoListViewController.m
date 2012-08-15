@@ -8,6 +8,7 @@
 
 #import "SnapEventPhotoListViewController.h"
 #import "SnapEventPhotoListCell.h"
+#import "SnapApiClient.h"
 
 @interface SnapEventPhotoListViewController ()
 
@@ -62,11 +63,12 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         self.uiLoadMore.hidden = YES;
         self.uiNoPhotos.hidden = NO;
     }
-    
+
     // get the event photos, if they haven't been loaded yet
     if (self.api_photos.count <= 0) {
         NSInteger event_id = [SnapApiClient getIdFromResourceUri:self.event.resource_uri];
         NSString *request_string = [NSString stringWithFormat:@"photo/?event=%d", event_id];
+        
         [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
             success:^(AFHTTPRequestOperation *operation, id response) {
                 // hydrate the response into objects
@@ -143,6 +145,12 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // set the data
     cell.uiPhotoCaption.text = photo.caption;
     cell.uiPhotoAuthor.text = photo.author_name;
+    
+    // set the image string
+    NSString *photoAbsolutePath = [NSString stringWithFormat:@"%@%@", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri];
+    
+    // set the image to be auto loaded
+    [cell.uiPhoto setImageWithURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"FPOeventPhoto.jpg"]];
     
     return cell;
 }
