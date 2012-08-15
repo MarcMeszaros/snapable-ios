@@ -21,15 +21,15 @@
     NSString *resource_uri;
 }
 
-@property (assign, nonatomic) BOOL steamable;
-@property (copy, nonatomic) NSString *caption;
-@property (copy, nonatomic) NSString *author_name;
-@property (copy, nonatomic) NSString *metrics;
-@property (copy, nonatomic) NSString *timestamp;
-@property (copy, nonatomic) NSString *event;
-@property (copy, nonatomic) NSString *guest;
-@property (copy, nonatomic) NSString *type;
-@property (copy, nonatomic) NSString *resource_uri;
+@property (nonatomic) BOOL steamable;
+@property (nonatomic, copy) NSString *caption;
+@property (nonatomic, copy) NSString *author_name;
+@property (nonatomic, copy) NSString *metrics;
+@property (nonatomic, copy) NSString *timestamp;
+@property (nonatomic, copy) NSString *event;
+@property (nonatomic, copy) NSString *guest;
+@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSString *resource_uri;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

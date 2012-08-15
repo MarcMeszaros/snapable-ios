@@ -41,6 +41,7 @@
 		49516A7F15C84BA300B9579A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7915C84BA300B9579A /* Security.framework */; };
 		49516A8015C84BA300B9579A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7A15C84BA300B9579A /* SystemConfiguration.framework */; };
 		495A06ED15DAAF9700E2A4CC /* SnapEventPhotoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495A06EC15DAAF9700E2A4CC /* SnapEventPhotoListCell.m */; };
+		495A06F915DC455500E2A4CC /* SnapGuest.m in Sources */ = {isa = PBXBuildFile; fileRef = 495A06F815DC455400E2A4CC /* SnapGuest.m */; };
 		498513F415C7966000EB6A77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 498513F115C7966000EB6A77 /* InfoPlist.strings */; };
 		498513F515C7966000EB6A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513F315C7966000EB6A77 /* main.m */; };
 		498513FD15C7977900EB6A77 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 498513F615C7977900EB6A77 /* Icon-72.png */; };
@@ -124,6 +125,8 @@
 		49516A7A15C84BA300B9579A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		495A06EB15DAAF9700E2A4CC /* SnapEventPhotoListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SnapEventPhotoListCell.h; path = Views/SnapEventPhotoListCell.h; sourceTree = "<group>"; };
 		495A06EC15DAAF9700E2A4CC /* SnapEventPhotoListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SnapEventPhotoListCell.m; path = Views/SnapEventPhotoListCell.m; sourceTree = "<group>"; };
+		495A06F715DC455400E2A4CC /* SnapGuest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapGuest.h; sourceTree = "<group>"; };
+		495A06F815DC455400E2A4CC /* SnapGuest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapGuest.m; sourceTree = "<group>"; };
 		498513EA15C7963800EB6A77 /* Snapable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Snapable-Info.plist"; sourceTree = "<group>"; };
 		498513EB15C7963800EB6A77 /* Snapable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snapable-Prefix.pch"; sourceTree = "<group>"; };
 		498513F215C7966000EB6A77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 		498513E815C7962600EB6A77 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				495A06F715DC455400E2A4CC /* SnapGuest.h */,
+				495A06F815DC455400E2A4CC /* SnapGuest.m */,
 				4938BB5F15CDF76700BCA68E /* SnapUser.h */,
 				4938BB6015CDF76700BCA68E /* SnapUser.m */,
 				4938BB6515CEFBE300BCA68E /* SnapEvent.h */,
@@ -550,6 +555,7 @@
 				4903235C15D89F0F0043C179 /* ISO8601DateFormatter.m in Sources */,
 				49B90A7115D9EB530011A252 /* SnapEventPhotoListViewController.m in Sources */,
 				495A06ED15DAAF9700E2A4CC /* SnapEventPhotoListCell.m in Sources */,
+				495A06F915DC455500E2A4CC /* SnapGuest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

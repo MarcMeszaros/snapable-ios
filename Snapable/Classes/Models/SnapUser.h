@@ -20,15 +20,15 @@
     NSString *resource_uri;
 }
 
-@property (assign, nonatomic) BOOL terms;
-@property (copy, nonatomic) NSString *email;
-@property (copy, nonatomic) NSString *first_name;
-@property (copy, nonatomic) NSString *last_name;
-@property (copy, nonatomic) NSString *billing_zip;
-@property (copy, nonatomic) NSString *password_algorithm;
-@property (copy, nonatomic) NSString *password_iterations;
-@property (copy, nonatomic) NSString *password_salt;
-@property (copy, nonatomic) NSString *resource_uri;
+@property (nonatomic) BOOL terms;
+@property (nonatomic, copy) NSString *email;
+@property (nonatomic, copy) NSString *first_name;
+@property (nonatomic, copy) NSString *last_name;
+@property (nonatomic, copy) NSString *billing_zip;
+@property (nonatomic, copy) NSString *password_algorithm;
+@property (nonatomic, copy) NSString *password_iterations;
+@property (nonatomic, copy) NSString *password_salt;
+@property (nonatomic, copy) NSString *resource_uri;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

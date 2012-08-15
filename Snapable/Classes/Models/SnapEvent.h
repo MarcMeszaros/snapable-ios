@@ -23,17 +23,17 @@
     NSString *resource_uri;
 }
 
-@property (assign, nonatomic) BOOL enabled;
-@property (assign, nonatomic) int photo_count;
-@property (copy, nonatomic) NSString *start;
-@property (copy, nonatomic) NSString *end;
-@property (copy, nonatomic) NSString *title;
-@property (copy, nonatomic) NSString *url;
-@property (copy, nonatomic) NSString *pin;
-@property (copy, nonatomic) NSString *creation_date;
-@property (copy, nonatomic) NSString *package;
-@property (copy, nonatomic) NSString *user;
-@property (copy, nonatomic) NSString *resource_uri;
+@property (nonatomic) BOOL enabled;
+@property (nonatomic) int photo_count;
+@property (nonatomic, copy) NSString *start;
+@property (nonatomic, copy) NSString *end;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString *pin;
+@property (nonatomic, copy) NSString *creation_date;
+@property (nonatomic, copy) NSString *package;
+@property (nonatomic, copy) NSString *user;
+@property (nonatomic, copy) NSString *resource_uri;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
