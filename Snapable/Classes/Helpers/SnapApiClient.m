@@ -42,16 +42,14 @@
     return self;
 }
 
-- (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
-
-    // build the request normally in the parent class
-    NSMutableURLRequest* request = [super requestWithMethod:method path:path parameters:parameters];
+// sign the request with the Snapable signature requirements
+- (NSMutableURLRequest *)signRequest:(NSMutableURLRequest *)request {
 
     // TODO generate a pseudo-random nonce
     NSString *nonce = @"asd23eas";
     // add the nonce to the header
     [request setValue:nonce forHTTPHeaderField:@"x-SNAP-nonce"];
-
+    
     // get the date
     NSDate *now = [[NSDate alloc] init];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -61,7 +59,7 @@
     NSString *dateString = [dateFormatter stringFromDate:now];
     // add the date to the header
     [request setValue:dateString forHTTPHeaderField:@"x-SNAP-Date"];
-
+    
     // get the correct signature path
     NSRange endRange = [request.URL.absoluteString rangeOfString:@"?"];
     NSString *sign_path;
@@ -71,17 +69,47 @@
     } else {
         sign_path = [request.URL.absoluteString substringFromIndex:(SnapAPIBaseURL.length-1)];
     }
-
+    
     // raw_signature = key + verb + path + nonce + date
     NSString *raw_signature = [NSString stringWithFormat:@"%@%@%@%@%@", SnapAPIKey, request.HTTPMethod, sign_path, nonce, dateString];
-
+    
     // generate the hashed signature
     NSString *hash_signature = [SnapCrypto rawSignatureHMACSHA1:raw_signature apiSecret:SnapAPISecret];
-
+    
     // set the authorization header
     [request setValue:[NSString stringWithFormat:@"SNAP %@:%@", SnapAPIKey, hash_signature] forHTTPHeaderField:@"Authorization"];
-
+    
     return request;
+}
+
+// sign all request methods
+- (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
+
+    // build the request normally in the parent class
+    NSMutableURLRequest* request = [super requestWithMethod:method path:path parameters:parameters];
+    
+    return [self signRequest:request];
+}
+
+@end
+
+#pragma mark - UIImage Snapable override
+
+@implementation UIImageView (Snapable)
+
+// override the AFNetworking image loading to sign the request
+// SUGGESTION: create a fork/patch for a new method that takes a request instead of a URL
+// (ie. then you can sign the request before passing it to AFNetworking)
+//
+// ex: - (void)setImageWithRequest:(NSMutableURLRequest *)request placeholderImage:(UIImage *)placeholderImage;
+//
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage {
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPShouldHandleCookies:NO];
+    [request setHTTPShouldUsePipelining:YES];
+    [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
+    
+    [self setImageWithURLRequest:[[SnapApiClient sharedInstance] signRequest:request] placeholderImage:placeholderImage success:nil failure:nil];
 }
 
 @end

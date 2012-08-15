@@ -7,9 +7,10 @@
 //
 
 #import "AFHTTPClient.h"
+#import "UIImageView+AFNetworking.h"
 
 // define some API constants
-#define SnapAPIBaseURL @"http://devapi.snapable.com/"
+#define SnapAPIBaseURL @"https://devapi.snapable.com/"
 #define SnapAPIVersion @"private_v1"
 #define SnapAPIKey @"abc123"
 #define SnapAPISecret @"123"
@@ -18,5 +19,14 @@
 
 + (id)sharedInstance;
 + (NSInteger)getIdFromResourceUri:(NSString *)uri;
+
+- (NSMutableURLRequest *)signRequest:(NSMutableURLRequest *)request;
+
+@end
+
+@interface UIImageView (Snapable)
+
+- (void)setImageWithURL:(NSURL *)url
+       placeholderImage:(UIImage *)placeholderImage;
 
 @end
