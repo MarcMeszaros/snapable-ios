@@ -143,7 +143,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     NSString *photoAbsolutePath = [NSString stringWithFormat:@"%@%@", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri];
     
     // set the image to be auto loaded
-    [cell.uiPhoto setImageWithURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"FPOeventPhoto.jpg"]];
+    [cell.uiPhoto setImageWithURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
     
     return cell;
 }
