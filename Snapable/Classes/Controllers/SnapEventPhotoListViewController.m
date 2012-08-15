@@ -181,11 +181,40 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 {
     // launch the camera
     DLog(@"'take photo' button press");
-    [self.camera startCameraControllerFromViewController:self usingDelegate:self.camera];
+    [self.camera startCameraControllerFromViewController:self usingDelegate:self];
 }
 
 #pragma mark - Camera delegate
-// TODO camera delegate code here
+// For responding to the user tapping Cancel.
+- (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker {
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
+// For responding to the user accepting a newly-captured picture or movie
+- (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info {
+
+    NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
+    UIImage *originalImage, *editedImage, *imageToSave;
+
+    // Handle a still image capture
+    if (CFStringCompare ((__bridge CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
+
+        editedImage = (UIImage *) [info objectForKey:UIImagePickerControllerEditedImage];
+        originalImage = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
+
+        if (editedImage) {
+            imageToSave = editedImage;
+        } else {
+            imageToSave = originalImage;
+        }
+
+        // Save the new image (original or edited) to the Camera Roll
+        UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
+    }
+
+    //[[picker parentViewController] dismissModalViewControllerAnimated: YES];
+    [picker dismissModalViewControllerAnimated:YES];
+}
 
 
 #pragma mark - UI Manipulation
