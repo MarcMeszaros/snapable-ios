@@ -78,15 +78,8 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
                 }
 
                 // display the first 5 photos
-                if (self.api_photos.count > 0) {
-                    NSInteger limit = (self.api_photos.count <= 5) ? (self.api_photos.count):5;
-                    for (int i=0; i<limit; i++) {
-                        NSInteger nextIndex = self.photos.count;
-                        [self.photos addObject:[self.api_photos objectAtIndex:nextIndex]];
-                        NSArray *paths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:nextIndex inSection:0]];
-                        [self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
-                    }
-                }
+                NSInteger count = 5;
+                [self loadMoreImages:&count];
             }
             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 DLog(@"Error fetching photos!");
@@ -178,13 +171,16 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 #pragma mark - IBActions
 - (IBAction) loadMore: (UIButton*) sender
 {
-    // TODO load more photos
-    DLog(@"load more button press");
+    // load more photos
+    DLog(@"'load more' button press");
+    NSInteger count = 10;
+    [self loadMoreImages:&count];
 }
 
 - (IBAction) takePhoto: (UIButton*) sender
 {
     // launch the camera
+    DLog(@"'take photo' button press");
     [self.camera startCameraControllerFromViewController:self usingDelegate:self.camera];
 }
 
@@ -193,8 +189,22 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 
 
 #pragma mark - UI Manipulation
-- (void)loadMoreImages:(NSInteger*)count {
-    // TODO implementent loading more images
+- (void)loadMoreImages:(NSInteger *)count {
+    // load more images
+    if (self.api_photos.count > 0) {
+        NSInteger limit = ((self.api_photos.count - self.photos.count) <= abs(*count)) ? (self.api_photos.count - self.photos.count):abs(*count);
+        for (int i=0; i<limit; i++) {
+            NSInteger nextIndex = self.photos.count;
+            [self.photos addObject:[self.api_photos objectAtIndex:nextIndex]];
+            NSArray *paths = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:nextIndex inSection:0]];
+            [self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
+        }
+        
+        // hide the load more button if we can't display any more
+        if (self.api_photos.count == self.photos.count) {
+            self.uiLoadMore.hidden = YES;
+        }
+    }
 }
 
 @end
