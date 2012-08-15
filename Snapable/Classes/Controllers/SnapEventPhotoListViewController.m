@@ -236,4 +236,16 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     }
 }
 
+// handle touch events
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    
+    if ([touch view] == [[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier] uiPhoto]) {
+        //add your code for image touch here
+        DLog(@"uiPhoto touched");
+    }
+    
+}
+
 @end
