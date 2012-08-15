@@ -53,21 +53,18 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    DLog(@"viewWillAppear");
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
-    DLog(@"viewWillDisappear");
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    DLog(@"viewDidAppear");
     // if the location controller isn't nil, look for new locations
     if (self.locationController.locationManager != nil) {
         [self.locationController.locationManager startUpdatingLocation];
@@ -78,7 +75,6 @@
 
 - (void) viewDidDisappear:(BOOL)animated
 {
-    DLog(@"viewDidDisappear");
     // if the location controller isn't nil, look for new locations
     if (self.locationController.locationManager != nil) {
         [self.locationController.locationManager stopUpdatingLocation];
@@ -94,8 +90,6 @@
 }
 
 - (void)locationUpdate:(CLLocation *)location {
-    DLog(@"before segue");
-    
 	// stop updating the location
     [self.locationController.locationManager stopUpdatingLocation];
     
