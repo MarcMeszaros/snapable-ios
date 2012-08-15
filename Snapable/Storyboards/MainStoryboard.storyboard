@@ -152,8 +152,8 @@
                                             <rect key="frame" x="14" y="9" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="EHc-hi-wGT">
-                                            <rect key="frame" x="122" y="6" width="167" height="58"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="EHc-hi-wGT">
+                                            <rect key="frame" x="122" y="17" width="167" height="54"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <string key="text">Draper/Lussier Wedding
 Ceremony &amp; Dinner</string>
@@ -162,8 +162,8 @@ Ceremony &amp; Dinner</string>
                                             <nil key="highlightedColor"/>
                                             <size key="shadowOffset" width="0.0" height="1"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sat Jul 7, 7-9 pm" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="D5T-iw-oec">
-                                            <rect key="frame" x="122" y="60" width="167" height="39"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sat Jul 7, 7-9 pm" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="D5T-iw-oec">
+                                            <rect key="frame" x="122" y="73" width="167" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
                                             <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -357,7 +357,7 @@ Ceremony &amp; Dinner</string>
     </scenes>
     <resources>
         <image name="FPOeventListPhoto.jpg" width="200" height="200"/>
-        <image name="FPOeventPhoto2.png" width="315" height="315"/>
+        <image name="FPOeventPhoto2.png" width="16" height="16"/>
         <image name="backgroundBlueButton.png" width="354" height="84"/>
         <image name="backgroundPhoto.png" width="640" height="920"/>
         <image name="blueArrow.png" width="32" height="46"/>
