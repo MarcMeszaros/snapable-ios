@@ -20,6 +20,7 @@
     NSString *creation_date;
     NSString *package;
     NSString *user;
+    NSString *type;
     NSString *resource_uri;
 }
 
@@ -33,6 +34,7 @@
 @property (nonatomic, copy) NSString *creation_date;
 @property (nonatomic, copy) NSString *package;
 @property (nonatomic, copy) NSString *user;
+@property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *resource_uri;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
