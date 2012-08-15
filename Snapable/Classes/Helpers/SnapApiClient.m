@@ -6,12 +6,6 @@
 //  Copyright (c) 2012 Snapable. All rights reserved.
 //
 
-// define some API constants
-#define SnapAPIBaseURL @"https://devapi.snapable.com/"
-#define SnapAPIVersion @"private_v1"
-#define SnapAPIKey @"abc123"
-#define SnapAPISecret @"123"
-
 #import "AFJSONRequestOperation.h"
 #import "SnapApiClient.h"
 
