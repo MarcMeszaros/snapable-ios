@@ -30,17 +30,6 @@
 		494912EE15CB150D006BBE8B /* eventListBackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912E315CB150D006BBE8B /* eventListBackgroundImage.png */; };
 		494912EF15CB150D006BBE8B /* eventLrgPhotoHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912E415CB150D006BBE8B /* eventLrgPhotoHolder.png */; };
 		494912F015CB150D006BBE8B /* eventLrgPhotoTxtOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912E515CB150D006BBE8B /* eventLrgPhotoTxtOverlay.png */; };
-		494912F115CB150D006BBE8B /* FPOeventLrgPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912E615CB150D006BBE8B /* FPOeventLrgPhoto.png */; };
-		494912F215CB150D006BBE8B /* FPOeventLrgPhoto2.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912E715CB150D006BBE8B /* FPOeventLrgPhoto2.png */; };
-		494912FC15CB151C006BBE8B /* FPOeventLrgPhoto3.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912F315CB151C006BBE8B /* FPOeventLrgPhoto3.png */; };
-		494912FD15CB151C006BBE8B /* FPOeventLrgPhoto4.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912F415CB151C006BBE8B /* FPOeventLrgPhoto4.png */; };
-		494912FE15CB151C006BBE8B /* FPOeventLrgPhoto5.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912F515CB151C006BBE8B /* FPOeventLrgPhoto5.png */; };
-		494912FF15CB151C006BBE8B /* FPOeventLrgPhoto6.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912F615CB151C006BBE8B /* FPOeventLrgPhoto6.png */; };
-		4949130015CB151C006BBE8B /* FPOeventPhoto2.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912F715CB151C006BBE8B /* FPOeventPhoto2.png */; };
-		4949130115CB151C006BBE8B /* FPOeventPhoto3.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912F815CB151C006BBE8B /* FPOeventPhoto3.png */; };
-		4949130215CB151C006BBE8B /* FPOeventPhoto4.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912F915CB151C006BBE8B /* FPOeventPhoto4.png */; };
-		4949130315CB151C006BBE8B /* FPOeventPhoto5.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912FA15CB151C006BBE8B /* FPOeventPhoto5.png */; };
-		4949130415CB151C006BBE8B /* FPOeventPhoto6.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912FB15CB151C006BBE8B /* FPOeventPhoto6.png */; };
 		4949130815CB152A006BBE8B /* navigationBarBackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130515CB152A006BBE8B /* navigationBarBackgroundImage.png */; };
 		4949130915CB152A006BBE8B /* screen1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130615CB152A006BBE8B /* screen1.png */; };
 		4949130A15CB152A006BBE8B /* teardrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130715CB152A006BBE8B /* teardrop.png */; };
@@ -80,7 +69,6 @@
 		49E3298F15D98C75001FF6A0 /* EventPhotoListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */; };
 		49E3299115D9A794001FF6A0 /* backgroundBlueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */; };
 		9840031015D954DF00A58ED2 /* eventPhotoBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */; };
-		9840031115D954DF00A58ED2 /* FPOeventPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9840030F15D954DF00A58ED2 /* FPOeventPhoto.jpg */; };
 		9840E1B415D8751F009B5C54 /* eventListEventBackgroundHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */; };
 		98571AAD15CAC92B0076BE97 /* SnapNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */; };
 		985C0FC915DBF8720000F8F5 /* photoDefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 985C0FC815DBF8720000F8F5 /* photoDefault.jpg */; };
@@ -124,17 +112,6 @@
 		494912E315CB150D006BBE8B /* eventListBackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventListBackgroundImage.png; sourceTree = "<group>"; };
 		494912E415CB150D006BBE8B /* eventLrgPhotoHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventLrgPhotoHolder.png; sourceTree = "<group>"; };
 		494912E515CB150D006BBE8B /* eventLrgPhotoTxtOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventLrgPhotoTxtOverlay.png; sourceTree = "<group>"; };
-		494912E615CB150D006BBE8B /* FPOeventLrgPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FPOeventLrgPhoto.png; sourceTree = "<group>"; };
-		494912E715CB150D006BBE8B /* FPOeventLrgPhoto2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FPOeventLrgPhoto2.png; sourceTree = "<group>"; };
-		494912F315CB151C006BBE8B /* FPOeventLrgPhoto3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FPOeventLrgPhoto3.png; sourceTree = "<group>"; };
-		494912F415CB151C006BBE8B /* FPOeventLrgPhoto4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FPOeventLrgPhoto4.png; sourceTree = "<group>"; };
-		494912F515CB151C006BBE8B /* FPOeventLrgPhoto5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FPOeventLrgPhoto5.png; sourceTree = "<group>"; };
-		494912F615CB151C006BBE8B /* FPOeventLrgPhoto6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FPOeventLrgPhoto6.png; sourceTree = "<group>"; };
-		494912F715CB151C006BBE8B /* FPOeventPhoto2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FPOeventPhoto2.png; sourceTree = "<group>"; };
-		494912F815CB151C006BBE8B /* FPOeventPhoto3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FPOeventPhoto3.png; sourceTree = "<group>"; };
-		494912F915CB151C006BBE8B /* FPOeventPhoto4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FPOeventPhoto4.png; sourceTree = "<group>"; };
-		494912FA15CB151C006BBE8B /* FPOeventPhoto5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FPOeventPhoto5.png; sourceTree = "<group>"; };
-		494912FB15CB151C006BBE8B /* FPOeventPhoto6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FPOeventPhoto6.png; sourceTree = "<group>"; };
 		4949130515CB152A006BBE8B /* navigationBarBackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackgroundImage.png; sourceTree = "<group>"; };
 		4949130615CB152A006BBE8B /* screen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen1.png; sourceTree = "<group>"; };
 		4949130715CB152A006BBE8B /* teardrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teardrop.png; sourceTree = "<group>"; };
@@ -191,7 +168,6 @@
 		49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventPhotoListHeader.xib; path = NIBs/EventPhotoListHeader.xib; sourceTree = "<group>"; };
 		49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundBlueButton.png; sourceTree = "<group>"; };
 		9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventPhotoBorder.png; sourceTree = "<group>"; };
-		9840030F15D954DF00A58ED2 /* FPOeventPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FPOeventPhoto.jpg; sourceTree = "<group>"; };
 		9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventListEventBackgroundHighlight.png; sourceTree = "<group>"; };
 		98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapNavigationBar.h; sourceTree = "<group>"; };
 		98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapNavigationBar.m; sourceTree = "<group>"; };
@@ -330,7 +306,6 @@
 				985C0FC815DBF8720000F8F5 /* photoDefault.jpg */,
 				49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */,
 				9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */,
-				9840030F15D954DF00A58ED2 /* FPOeventPhoto.jpg */,
 				9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */,
 				98C57F7D15D7FD3900F11558 /* blueArrow.png */,
 				98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */,
@@ -338,15 +313,6 @@
 				4949130515CB152A006BBE8B /* navigationBarBackgroundImage.png */,
 				4949130615CB152A006BBE8B /* screen1.png */,
 				4949130715CB152A006BBE8B /* teardrop.png */,
-				494912F315CB151C006BBE8B /* FPOeventLrgPhoto3.png */,
-				494912F415CB151C006BBE8B /* FPOeventLrgPhoto4.png */,
-				494912F515CB151C006BBE8B /* FPOeventLrgPhoto5.png */,
-				494912F615CB151C006BBE8B /* FPOeventLrgPhoto6.png */,
-				494912F715CB151C006BBE8B /* FPOeventPhoto2.png */,
-				494912F815CB151C006BBE8B /* FPOeventPhoto3.png */,
-				494912F915CB151C006BBE8B /* FPOeventPhoto4.png */,
-				494912FA15CB151C006BBE8B /* FPOeventPhoto5.png */,
-				494912FB15CB151C006BBE8B /* FPOeventPhoto6.png */,
 				494912DD15CB150D006BBE8B /* arrowBlue.png */,
 				494912DE15CB150D006BBE8B /* background.png */,
 				494912DF15CB150D006BBE8B /* backgroundPhoto.png */,
@@ -356,8 +322,6 @@
 				494912E315CB150D006BBE8B /* eventListBackgroundImage.png */,
 				494912E415CB150D006BBE8B /* eventLrgPhotoHolder.png */,
 				494912E515CB150D006BBE8B /* eventLrgPhotoTxtOverlay.png */,
-				494912E615CB150D006BBE8B /* FPOeventLrgPhoto.png */,
-				494912E715CB150D006BBE8B /* FPOeventLrgPhoto2.png */,
 				490985C215C834FB00EB1969 /* Default.png */,
 				490985C315C834FB00EB1969 /* Default@2x.png */,
 				498513F615C7977900EB6A77 /* Icon-72.png */,
@@ -538,17 +502,6 @@
 				494912EE15CB150D006BBE8B /* eventListBackgroundImage.png in Resources */,
 				494912EF15CB150D006BBE8B /* eventLrgPhotoHolder.png in Resources */,
 				494912F015CB150D006BBE8B /* eventLrgPhotoTxtOverlay.png in Resources */,
-				494912F115CB150D006BBE8B /* FPOeventLrgPhoto.png in Resources */,
-				494912F215CB150D006BBE8B /* FPOeventLrgPhoto2.png in Resources */,
-				494912FC15CB151C006BBE8B /* FPOeventLrgPhoto3.png in Resources */,
-				494912FD15CB151C006BBE8B /* FPOeventLrgPhoto4.png in Resources */,
-				494912FE15CB151C006BBE8B /* FPOeventLrgPhoto5.png in Resources */,
-				494912FF15CB151C006BBE8B /* FPOeventLrgPhoto6.png in Resources */,
-				4949130015CB151C006BBE8B /* FPOeventPhoto2.png in Resources */,
-				4949130115CB151C006BBE8B /* FPOeventPhoto3.png in Resources */,
-				4949130215CB151C006BBE8B /* FPOeventPhoto4.png in Resources */,
-				4949130315CB151C006BBE8B /* FPOeventPhoto5.png in Resources */,
-				4949130415CB151C006BBE8B /* FPOeventPhoto6.png in Resources */,
 				4949130815CB152A006BBE8B /* navigationBarBackgroundImage.png in Resources */,
 				4949130915CB152A006BBE8B /* screen1.png in Resources */,
 				4949130A15CB152A006BBE8B /* teardrop.png in Resources */,
@@ -558,7 +511,6 @@
 				9840E1B415D8751F009B5C54 /* eventListEventBackgroundHighlight.png in Resources */,
 				4903235F15D8A6010043C179 /* MainStoryboard.storyboard in Resources */,
 				9840031015D954DF00A58ED2 /* eventPhotoBorder.png in Resources */,
-				9840031115D954DF00A58ED2 /* FPOeventPhoto.jpg in Resources */,
 				49E3298F15D98C75001FF6A0 /* EventPhotoListHeader.xib in Resources */,
 				49E3299115D9A794001FF6A0 /* backgroundBlueButton.png in Resources */,
 				985C0FC915DBF8720000F8F5 /* photoDefault.jpg in Resources */,
