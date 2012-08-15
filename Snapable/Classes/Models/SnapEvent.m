@@ -34,7 +34,7 @@
         self.creation_date = [dictionary objectForKey:@"creation_date"];
         self.package = [dictionary objectForKey:@"package"];
         self.user = [dictionary objectForKey:@"user"];
-        self.typeg = [dictionary objectForKey:@"type"];
+        self.type = [dictionary objectForKey:@"type"];
         self.resource_uri = [dictionary objectForKey:@"resource_uri"];
     }
     
