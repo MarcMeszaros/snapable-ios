@@ -385,7 +385,7 @@ Ceremony &amp; Dinner</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fYY-aM-RCE">
-                                <rect key="frame" x="120" y="330" width="80" height="80"/>
+                                <rect key="frame" x="120" y="336" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="buttonCamera.png">
@@ -427,50 +427,6 @@ Ceremony &amp; Dinner</string>
         <image name="screen1.png" width="640" height="920"/>
         <image name="teardrop.png" width="391" height="444"/>
     </resources>
-    <classes>
-        <class className="SnapEventListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="uiEventDate" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="uiEventTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="uiPhoto" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="SnapEventListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="eventTitle" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SnapEventPhotoListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventPhotoListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="uiPhoto" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="uiPhotoAuthor" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="uiPhotoCaption" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SnapEventPhotoListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventPhotoListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="uiLoadMore" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="uiNoPhotos" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="SnapLoadingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapLoadingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="searchForEvents:"/>
-                <relationship kind="outlet" name="loadingButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="loadingSpinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="SnapNavigationBar" superclassName="UINavigationBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapNavigationBar.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

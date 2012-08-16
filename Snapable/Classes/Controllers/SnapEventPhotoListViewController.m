@@ -80,6 +80,12 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
                 // display the first 5 photos
                 NSInteger count = 5;
                 [self loadMoreImages:&count];
+
+                // scroll to first photo if there is at least one row
+                if ([self.tableView numberOfRowsInSection:0] > 0) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                }
             }
             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 DLog(@"Error fetching photos!");
@@ -234,18 +240,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
             self.uiLoadMore.hidden = YES;
         }
     }
-}
-
-// handle touch events
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    UITouch *touch = [touches anyObject];
-    
-    if ([touch view] == [[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier] uiPhoto]) {
-        //add your code for image touch here
-        DLog(@"uiPhoto touched");
-    }
-    
 }
 
 @end
