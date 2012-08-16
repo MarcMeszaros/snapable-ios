@@ -12,7 +12,8 @@
 @implementation SnapAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
+{
+    [TestFlight takeOff:@"121ded9a748e09c3647168b72ee14e48_MTIyMDUzMjAxMi0wOC0xNiAxMzoyNjowMi44Nzk2MTQ"];
     return YES;
 }
 

@@ -11,6 +11,9 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+    // TestFlight import
+    #import "TestFlight.h"
 #endif
 
 // http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/
