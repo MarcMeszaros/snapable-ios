@@ -58,12 +58,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // set the nib as the tableview's header
     self.tableView.tableHeaderView = header;
 
-    // hide the load more button if there are no photos
-    if (self.event.photo_count <= 0) {
-        self.uiLoadMore.hidden = YES;
-        self.uiNoPhotos.hidden = NO;
-    }
-
     // get the event photos
     NSInteger event_id = [SnapApiClient getIdFromResourceUri:self.event.resource_uri];
     NSString *request_string = [NSString stringWithFormat:@"photo/?event=%d", event_id];
@@ -76,14 +70,22 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
                 [self.api_photos addObject:photo];
             }
 
-            // display the first 5 photos
-            NSInteger count = 5;
-            [self loadMoreImages:&count];
-
-            // scroll to first photo if there is at least one row
-            if ([self.tableView numberOfRowsInSection:0] > 0) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-                [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            // hide the load more button if there are no photos
+            if (self.api_photos.count <= 0) {
+                self.uiLoadMore.hidden = YES;
+                self.uiNoPhotos.hidden = NO;
+            }
+            // there is a photo
+            else {
+                // display the first 5 photos
+                NSInteger count = 5;
+                [self loadMoreImages:&count];
+                
+                // scroll to first photo if there is at least one row
+                if ([self.tableView numberOfRowsInSection:0] > 0) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                }
             }
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
