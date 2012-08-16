@@ -64,36 +64,33 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         self.uiNoPhotos.hidden = NO;
     }
 
-    // get the event photos, if they haven't been loaded yet
-    if (self.api_photos.count <= 0) {
-        NSInteger event_id = [SnapApiClient getIdFromResourceUri:self.event.resource_uri];
-        NSString *request_string = [NSString stringWithFormat:@"photo/?event=%d", event_id];
+    // get the event photos
+    NSInteger event_id = [SnapApiClient getIdFromResourceUri:self.event.resource_uri];
+    NSString *request_string = [NSString stringWithFormat:@"photo/?event=%d", event_id];
         
-        [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
-            success:^(AFHTTPRequestOperation *operation, id response) {
-                // hydrate the response into objects
-                for (id photos in [response valueForKeyPath:@"objects"]) {
-                    SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:photos];
-                    [self.api_photos addObject:photo];
-                }
-
-                // display the first 5 photos
-                NSInteger count = 5;
-                [self loadMoreImages:&count];
-
-                // scroll to first photo if there is at least one row
-                if ([self.tableView numberOfRowsInSection:0] > 0) {
-                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-                    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-                }
+    [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
+        success:^(AFHTTPRequestOperation *operation, id response) {
+            // hydrate the response into objects
+            for (id photos in [response valueForKeyPath:@"objects"]) {
+                SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:photos];
+                [self.api_photos addObject:photo];
             }
-            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                DLog(@"Error fetching photos!");
-                DLog(@"%@", error);
+
+            // display the first 5 photos
+            NSInteger count = 5;
+            [self loadMoreImages:&count];
+
+            // scroll to first photo if there is at least one row
+            if ([self.tableView numberOfRowsInSection:0] > 0) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
             }
-         ];
-    }
-    
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            DLog(@"Error fetching photos!");
+            DLog(@"%@", error);
+        }
+     ];
 }
 
 - (void)viewDidUnload
@@ -216,10 +213,37 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 
         // Save the new image (original or edited) to the Camera Roll
         UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
-    }
+    
+        // parameters
+        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+         event.resource_uri, @"event",
+         @"/private_v1/guest/2/", @"guest", // TODO make this not manual or required...
+         event.type, @"type",
+         nil];
+        
+        // upload the image
+        SnapApiClient *httpClient = [SnapApiClient sharedInstance];
+        NSData *imageData = UIImageJPEGRepresentation(imageToSave, 0.5);
+        NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"photo/" parameters:params constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+            [formData appendPartWithFileData:imageData name:@"image" fileName:@"img" mimeType:@"image/jpeg"];
+        }];
+        
+        // sign the request
+        request = [httpClient signRequest:request];
 
-    //[[picker parentViewController] dismissModalViewControllerAnimated: YES];
+        // setup the upload
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        [operation setUploadProgressBlock:^(NSInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+            NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
+        }];
+        // upload the image
+        [operation start];
+    }
+    
+    // close the photo taking screen
     [picker dismissModalViewControllerAnimated:YES];
+    
+    // TODO reload images
 }
 
 
