@@ -7,6 +7,7 @@
 //
 
 #import "SnapEventPhotoListViewController.h"
+#import "SnapPhotoShareViewController.h"
 #import "SnapEventPhotoListCell.h"
 #import "SnapApiClient.h"
 
@@ -58,41 +59,8 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // set the nib as the tableview's header
     self.tableView.tableHeaderView = header;
 
-    // get the event photos
-    NSInteger event_id = [SnapApiClient getIdFromResourceUri:self.event.resource_uri];
-    NSString *request_string = [NSString stringWithFormat:@"photo/?event=%d", event_id];
-        
-    [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
-        success:^(AFHTTPRequestOperation *operation, id response) {
-            // hydrate the response into objects
-            for (id photos in [response valueForKeyPath:@"objects"]) {
-                SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:photos];
-                [self.api_photos addObject:photo];
-            }
-
-            // hide the load more button if there are no photos
-            if (self.api_photos.count <= 0) {
-                self.uiLoadMore.hidden = YES;
-                self.uiNoPhotos.hidden = NO;
-            }
-            // there is a photo
-            else {
-                // display the first 5 photos
-                NSInteger count = 5;
-                [self loadMoreImages:&count];
-                
-                // scroll to first photo if there is at least one row
-                if ([self.tableView numberOfRowsInSection:0] > 0) {
-                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-                    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-                }
-            }
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            DLog(@"Error fetching photos!");
-            DLog(@"%@", error);
-        }
-     ];
+    // load the images from API
+    [self loadImagesFromApi];
 }
 
 - (void)viewDidUnload
@@ -151,6 +119,45 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     [cell.uiPhoto setImageWithURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
     
     return cell;
+}
+
+// load the images from api
+-(void)loadImagesFromApi {
+    // get the event photos
+    NSInteger event_id = [SnapApiClient getIdFromResourceUri:self.event.resource_uri];
+    NSString *request_string = [NSString stringWithFormat:@"photo/?event=%d", event_id];
+    
+    [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
+        success:^(AFHTTPRequestOperation *operation, id response) {
+            // hydrate the response into objects
+            for (id photos in [response valueForKeyPath:@"objects"]) {
+                SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:photos];
+                [self.api_photos addObject:photo];
+            }
+                                        
+            // hide the load more button if there are no photos
+            if (self.api_photos.count <= 0) {
+                self.uiLoadMore.hidden = YES;
+                self.uiNoPhotos.hidden = NO;
+            }
+            // there is a photo
+            else {
+                // display the first 5 photos
+                NSInteger count = 5;
+                [self loadMoreImages:&count];
+                                            
+                // scroll to first photo if there is at least one row
+                if ([self.tableView numberOfRowsInSection:0] > 0) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                }
+            }
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            DLog(@"Error fetching photos!");
+            DLog(@"%@", error);
+        }
+     ];
 }
 
 #pragma mark - Table view delegate
@@ -219,7 +226,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         // parameters
         NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
          event.resource_uri, @"event",
-         @"/private_v1/guest/2/", @"guest", // TODO make this not manual or required...
+         //@"/private_v1/guest/2/", @"guest", // TODO make this not manual or required...
          event.type, @"type",
          nil];
         
@@ -242,10 +249,10 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         [operation start];
     }
     
-    // close the photo taking screen
-    [picker dismissModalViewControllerAnimated:YES];
-    
-    // TODO reload images
+    // start the share screen
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    SnapPhotoShareViewController *snapPhotoVC = (SnapPhotoShareViewController *)[storyboard instantiateViewControllerWithIdentifier:@"photoShareController"];
+    [picker presentViewController:snapPhotoVC animated:YES completion:nil];
 }
 
 

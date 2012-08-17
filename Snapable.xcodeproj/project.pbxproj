@@ -69,6 +69,7 @@
 		49BDA28415CDF4FC00C49B19 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BDA28315CDF4FC00C49B19 /* CoreLocation.framework */; };
 		49D2B79015DD659400921F84 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D2B78E15DD659400921F84 /* libTestFlight.a */; };
 		49D2B79215DD65E400921F84 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D2B79115DD65E400921F84 /* libz.dylib */; };
+		49D2B79515DD818D00921F84 /* SnapPhotoShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B79415DD818D00921F84 /* SnapPhotoShareViewController.m */; };
 		49E3298F15D98C75001FF6A0 /* EventPhotoListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */; };
 		49E3299115D9A794001FF6A0 /* backgroundBlueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */; };
 		9840031015D954DF00A58ED2 /* eventPhotoBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */; };
@@ -173,6 +174,8 @@
 		49D2B78E15DD659400921F84 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = TestFlightSDK1.0/libTestFlight.a; sourceTree = "<group>"; };
 		49D2B78F15DD659400921F84 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = TestFlightSDK1.0/TestFlight.h; sourceTree = "<group>"; };
 		49D2B79115DD65E400921F84 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		49D2B79315DD818D00921F84 /* SnapPhotoShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapPhotoShareViewController.h; sourceTree = "<group>"; };
+		49D2B79415DD818D00921F84 /* SnapPhotoShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapPhotoShareViewController.m; sourceTree = "<group>"; };
 		49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventPhotoListHeader.xib; path = NIBs/EventPhotoListHeader.xib; sourceTree = "<group>"; };
 		49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundBlueButton.png; sourceTree = "<group>"; };
 		9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventPhotoBorder.png; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 				98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */,
 				4929160F15CF853F00589CC1 /* SnapLoadingViewController.h */,
 				4929161015CF853F00589CC1 /* SnapLoadingViewController.m */,
+				49D2B79315DD818D00921F84 /* SnapPhotoShareViewController.h */,
+				49D2B79415DD818D00921F84 /* SnapPhotoShareViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -574,6 +579,7 @@
 				49B90A7115D9EB530011A252 /* SnapEventPhotoListViewController.m in Sources */,
 				495A06ED15DAAF9700E2A4CC /* SnapEventPhotoListCell.m in Sources */,
 				495A06F915DC455500E2A4CC /* SnapGuest.m in Sources */,
+				49D2B79515DD818D00921F84 /* SnapPhotoShareViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

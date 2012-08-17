@@ -79,13 +79,13 @@
             </objects>
             <point key="canvasLocation" x="-337" y="-82"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="DqX-Ri-ToW">
+        <!--Snap Photo Share View Controller-->
+        <scene sceneID="JUO-cM-B1i">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eRi-hw-QDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="hpq-Fu-8E7" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZHH-xO-Mt6">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6R-d2-LTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="photoShareController" id="CKl-UA-FIR" customClass="SnapPhotoShareViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DdS-DF-9W8">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="backgroundPhoto.png" id="BW0-zX-XZ7">
@@ -97,7 +97,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="0QX-j4-3vx" userLabel="View - Share Group">
-                                <rect key="frame" x="20" y="182" width="280" height="157"/>
+                                <rect key="frame" x="20" y="152" width="280" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ovE-tN-6ug">
@@ -144,13 +144,16 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Caption" minimumFontSize="17" clearButtonMode="whileEditing" id="6yt-s3-dr0">
-                                <rect key="frame" x="20" y="111" width="280" height="31"/>
+                                <rect key="frame" x="20" y="102" width="280" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="CKl-UA-FIR" id="rMV-uf-XZQ"/>
+                                </connections>
                             </textField>
-                            <view contentMode="scaleToFill" id="qrb-0q-Qi3">
-                                <rect key="frame" x="9" y="6" width="303" height="65"/>
+                            <view contentMode="scaleToFill" id="qrb-0q-Qi3" userLabel="View - Upload Group">
+                                <rect key="frame" x="9" y="9" width="303" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <progressView opaque="NO" contentMode="scaleToFill" progress="0.5" id="lrI-Q3-AZZ">
@@ -176,14 +179,27 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qcs-lC-7Zy">
+                                <rect key="frame" x="118" y="398" width="72" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="CKl-UA-FIR" eventType="touchDown" id="kmp-u7-a2Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="m7s-TI-BDV"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1024" y="-82"/>
+            <point key="canvasLocation" x="987" y="-82"/>
         </scene>
         <!--Snap Event List View Controller-->
         <scene sceneID="n85-jD-kN7">
@@ -337,7 +353,6 @@ Ceremony &amp; Dinner</string>
                                             <outlet property="uiPhoto" destination="hWO-z3-7ag" id="2xT-0f-ZJr"/>
                                             <outlet property="uiPhotoAuthor" destination="cfv-9i-OZb" id="Gsz-50-fdZ"/>
                                             <outlet property="uiPhotoCaption" destination="4ms-pa-J6F" id="Kd6-HJ-I6M"/>
-                                            <segue destination="hpq-Fu-8E7" kind="modal" id="Hoc-ya-Kac"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
