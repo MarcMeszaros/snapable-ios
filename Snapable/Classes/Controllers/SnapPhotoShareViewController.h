@@ -8,10 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SnapApiClient.h"
+#import "SnapEvent.h"
+#import "SnapPhoto.h"
+
+
 @interface SnapPhotoShareViewController : UIViewController <UITextFieldDelegate> {
-    IBOutlet UITextField *uiImageCaption;
+    SnapEvent *event;
+    SnapPhoto *photo;
+    UIImage *photoImage;
+    
+    IBOutlet UIImageView *uiPhotoPreview;
+    IBOutlet UITextField *uiPhotoCaption;
+    IBOutlet UIProgressView *uiPhotoUploadProgress;
 }
 
-@property (nonatomic, strong) UITextField *uiImageCaption;
+@property (nonatomic, strong) SnapEvent *event;
+@property (nonatomic, strong) SnapPhoto *photo;
+@property (nonatomic, strong) UIImage *photoImage;
+@property (nonatomic, strong) UIImageView *uiPhotoPreview;
+@property (nonatomic, strong) UITextField *uiPhotoCaption;
+@property (nonatomic, strong) UIProgressView *uiPhotoUploadProgress;
 
 @end

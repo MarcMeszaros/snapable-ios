@@ -156,11 +156,11 @@
                                 <rect key="frame" x="9" y="9" width="303" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <progressView opaque="NO" contentMode="scaleToFill" progress="0.5" id="lrI-Q3-AZZ">
+                                    <progressView opaque="NO" contentMode="scaleToFill" id="lrI-Q3-AZZ">
                                         <rect key="frame" x="87" y="36" width="180" height="9"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </progressView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="co5-JL-K7Q">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="photoDefault.jpg" id="co5-JL-K7Q">
                                         <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -177,7 +177,7 @@
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qcs-lC-7Zy">
                                 <rect key="frame" x="118" y="398" width="72" height="37"/>
@@ -197,6 +197,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="uiPhotoPreview" destination="co5-JL-K7Q" id="2xz-km-gBu"/>
+                        <outlet property="uiPhotoUploadProgress" destination="lrI-Q3-AZZ" id="hiQ-fk-zcR"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="987" y="-82"/>
@@ -439,6 +443,7 @@ Ceremony &amp; Dinner</string>
         <image name="eventListEventBackgroundHighlight.png" width="640" height="240"/>
         <image name="eventLrgPhotoHolder.png" width="640" height="640"/>
         <image name="eventPhotoBorder.png" width="640" height="624"/>
+        <image name="photoDefault.jpg" width="500" height="500"/>
         <image name="screen1.png" width="640" height="920"/>
         <image name="teardrop.png" width="391" height="444"/>
     </resources>

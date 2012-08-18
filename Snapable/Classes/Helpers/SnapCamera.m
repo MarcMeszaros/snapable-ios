@@ -41,7 +41,7 @@
 
     // Hides the controls for moving & scaling pictures, or for
     // trimming movies. To instead show the controls, use YES.
-    self.cameraUI.allowsEditing = YES;
+    self.cameraUI.allowsEditing = NO;
 
     self.cameraUI.delegate = delegate;
 

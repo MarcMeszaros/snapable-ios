@@ -222,37 +222,14 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 
         // Save the new image (original or edited) to the Camera Roll
         UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
-    
-        // parameters
-        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-         event.resource_uri, @"event",
-         //@"/private_v1/guest/2/", @"guest", // TODO make this not manual or required...
-         event.type, @"type",
-         nil];
         
-        // upload the image
-        SnapApiClient *httpClient = [SnapApiClient sharedInstance];
-        NSData *imageData = UIImageJPEGRepresentation(imageToSave, 0.5);
-        NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"photo/" parameters:params constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
-            [formData appendPartWithFileData:imageData name:@"image" fileName:@"img" mimeType:@"image/jpeg"];
-        }];
-        
-        // sign the request
-        request = [httpClient signRequest:request];
-
-        // setup the upload
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-        [operation setUploadProgressBlock:^(NSInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-            NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
-        }];
-        // upload the image
-        [operation start];
+        // start the share screen
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        SnapPhotoShareViewController *snapPhotoVC = (SnapPhotoShareViewController *)[storyboard instantiateViewControllerWithIdentifier:@"photoShareController"];
+        snapPhotoVC.event = self.event;
+        snapPhotoVC.photoImage = imageToSave;
+        [picker presentViewController:snapPhotoVC animated:YES completion:nil];
     }
-    
-    // start the share screen
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    SnapPhotoShareViewController *snapPhotoVC = (SnapPhotoShareViewController *)[storyboard instantiateViewControllerWithIdentifier:@"photoShareController"];
-    [picker presentViewController:snapPhotoVC animated:YES completion:nil];
 }
 
 
