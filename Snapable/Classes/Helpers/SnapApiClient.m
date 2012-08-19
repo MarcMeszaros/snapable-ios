@@ -35,7 +35,7 @@
     if (self) {
         //custom settings
         [self setDefaultHeader:@"Accept" value:@"application/json"];
-        
+        [self setParameterEncoding:AFJSONParameterEncoding];
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
     }
     

@@ -15,8 +15,9 @@
 @implementation SnapPhotoShareViewController
 
 @synthesize event;
-@synthesize photo;
+@synthesize photoId;
 @synthesize photoImage;
+@synthesize photoCaption;
 @synthesize uiPhotoPreview;
 @synthesize uiPhotoCaption;
 @synthesize uiPhotoUploadProgress;
@@ -76,6 +77,7 @@
             // the path to the create photo resource
             NSString *photoResourceLocation = [responseHeaders valueForKey:@"Location"];
             DLog(@"Location: %@", photoResourceLocation);
+            self.photoId = [SnapApiClient getIdFromResourceUri:photoResourceLocation];
             
             // toggle the upload view and done button
             self.uiUploadViewGroup.hidden = YES;
@@ -105,12 +107,35 @@
 
 #pragma mark - UIAction
 
+-(IBAction)doneButton:(id)sender {
+    // update the photo data (ie. caption)
+    
+    // parameters
+    NSString *apiPath = [NSString stringWithFormat:@"photo/%d/", self.photoId];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+        self.photoCaption, @"caption",
+        nil];
+    
+    // call the api
+    [[SnapApiClient sharedInstance] putPath:apiPath parameters:params
+        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            // close the window
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            // just log the failure
+            ALog(@"Error updating photo data!");
+            DLog(@"%@", error);
+        }
+     ];
+}
+
 -(IBAction)backButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    self.photoCaption = textField.text;
     [textField resignFirstResponder];
     return YES;
 }

@@ -149,7 +149,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
-                                    <outlet property="delegate" destination="CKl-UA-FIR" id="rMV-uf-XZQ"/>
+                                    <outlet property="delegate" destination="CKl-UA-FIR" id="zQx-rb-PSd"/>
                                 </connections>
                             </textField>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eLs-pp-6kA">
@@ -164,7 +164,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButton:" destination="CKl-UA-FIR" eventType="touchDown" id="eLr-d0-ZmG"/>
+                                    <action selector="doneButton:" destination="CKl-UA-FIR" eventType="touchDown" id="cVP-iD-hWM"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="qrb-0q-Qi3" userLabel="View - Upload Group">
@@ -214,6 +214,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="uiPhotoCaption" destination="6yt-s3-dr0" id="yhh-6Y-24M"/>
                         <outlet property="uiPhotoPreview" destination="co5-JL-K7Q" id="2xz-km-gBu"/>
                         <outlet property="uiPhotoUploadProgress" destination="lrI-Q3-AZZ" id="hiQ-fk-zcR"/>
                         <outlet property="uiUploadDone" destination="eLs-pp-6kA" id="xlE-Rb-cab"/>

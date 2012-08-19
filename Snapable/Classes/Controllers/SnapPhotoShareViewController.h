@@ -15,8 +15,9 @@
 
 @interface SnapPhotoShareViewController : UIViewController <UITextFieldDelegate> {
     SnapEvent *event;
-    SnapPhoto *photo;
+    NSInteger photoId;
     UIImage *photoImage;
+    NSString *photoCaption;
     
     IBOutlet UIImageView *uiPhotoPreview;
     IBOutlet UITextField *uiPhotoCaption;
@@ -26,8 +27,9 @@
 }
 
 @property (nonatomic, strong) SnapEvent *event;
-@property (nonatomic, strong) SnapPhoto *photo;
+@property (nonatomic) NSInteger photoId;
 @property (nonatomic, strong) UIImage *photoImage;
+@property (nonatomic, strong) NSString *photoCaption;
 @property (nonatomic, strong) UIImageView *uiPhotoPreview;
 @property (nonatomic, strong) UITextField *uiPhotoCaption;
 @property (nonatomic, strong) UIProgressView *uiPhotoUploadProgress;
