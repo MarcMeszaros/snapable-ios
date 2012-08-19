@@ -21,6 +21,8 @@
     IBOutlet UIImageView *uiPhotoPreview;
     IBOutlet UITextField *uiPhotoCaption;
     IBOutlet UIProgressView *uiPhotoUploadProgress;
+    IBOutlet UIButton *uiUploadDone;
+    IBOutlet UIView *uiUploadViewGroup;
 }
 
 @property (nonatomic, strong) SnapEvent *event;
@@ -29,5 +31,7 @@
 @property (nonatomic, strong) UIImageView *uiPhotoPreview;
 @property (nonatomic, strong) UITextField *uiPhotoCaption;
 @property (nonatomic, strong) UIProgressView *uiPhotoUploadProgress;
+@property (nonatomic, strong) UIButton *uiUploadDone;
+@property (nonatomic, strong) UIView *uiUploadViewGroup;
 
 @end

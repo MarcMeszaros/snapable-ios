@@ -20,6 +20,8 @@
 @synthesize uiPhotoPreview;
 @synthesize uiPhotoCaption;
 @synthesize uiPhotoUploadProgress;
+@synthesize uiUploadDone;
+@synthesize uiUploadViewGroup;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,8 +38,6 @@
 	// Do any additional setup after loading the view.
 
     // set the preview image
-    DLog(@"photo: %@", self.photoImage);
-    DLog(@"photo preview: %@", uiPhotoPreview);
     self.uiPhotoPreview.image = self.photoImage;
 
     // parameters
@@ -49,7 +49,7 @@
     
     // upload the image
     SnapApiClient *httpClient = [SnapApiClient sharedInstance];
-    NSData *imageData = UIImageJPEGRepresentation(self.photoImage, 0.8);
+    NSData *imageData = UIImageJPEGRepresentation(self.photoImage, 0.9);
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"photo/" parameters:params constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
         [formData appendPartWithFileData:imageData name:@"image" fileName:@"img" mimeType:@"image/jpeg"];
     }];
@@ -59,11 +59,36 @@
 
     // setup the upload
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    // set the progress update
     [operation setUploadProgressBlock:^(NSInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         DLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
         self.uiPhotoUploadProgress.progress = (float)totalBytesWritten / (float)totalBytesExpectedToWrite;
     }];
-    // upload the image
+    
+    // handle success/failure
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // HTTP success code
+        if (operation.response.statusCode == 201) {
+            // success
+            NSDictionary *responseHeaders = operation.response.allHeaderFields;
+            
+            // the path to the create photo resource
+            NSString *photoResourceLocation = [responseHeaders valueForKey:@"Location"];
+            DLog(@"Location: %@", photoResourceLocation);
+            
+            // toggle the upload view and done button
+            self.uiUploadViewGroup.hidden = YES;
+            self.uiUploadDone.hidden = NO;
+            
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // just log the failure
+        ALog(@"Error fetching events!");
+        DLog(@"%@", error);
+    }];
+
+    // start uploading the image
     [operation start];
 }
 
