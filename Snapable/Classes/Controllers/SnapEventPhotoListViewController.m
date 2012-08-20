@@ -25,7 +25,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 @synthesize photos;
 @synthesize uiNoPhotos;
 @synthesize uiLoadMore;
-@synthesize tableView;
+@synthesize tableView = _tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

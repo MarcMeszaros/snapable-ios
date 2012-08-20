@@ -17,7 +17,6 @@
 @synthesize event;
 @synthesize photoId;
 @synthesize photoImage;
-@synthesize photoCaption;
 @synthesize uiPhotoPreview;
 @synthesize uiPhotoCaption;
 @synthesize uiPhotoUploadProgress;
@@ -113,7 +112,7 @@
     // parameters
     NSString *apiPath = [NSString stringWithFormat:@"photo/%d/", self.photoId];
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-        self.photoCaption, @"caption",
+        self.uiPhotoCaption.text, @"caption",
         nil];
     
     // call the api
@@ -135,7 +134,6 @@
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
-    self.photoCaption = textField.text;
     [textField resignFirstResponder];
     return YES;
 }

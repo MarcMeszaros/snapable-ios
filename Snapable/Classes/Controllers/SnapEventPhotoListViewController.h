@@ -20,7 +20,7 @@
     NSMutableArray *photos;
     IBOutlet UIView *uiNoPhotos;
     IBOutlet UIButton *uiLoadMore;
-    IBOutlet UITableView *tableView;
+    IBOutlet UITableView *_tableView;
 }
 
 @property (nonatomic, strong) SnapEvent *event;
