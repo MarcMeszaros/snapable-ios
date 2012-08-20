@@ -106,7 +106,7 @@
                 DLog(@"event: %@", event.title);
             }
 
-            DLog(@"results count: %d", results.count);
+            DLog(@"event count: %d", results.count);
             
             // start the correct screen depending on number of events
             if (self.results.count >= 1) {
@@ -147,7 +147,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"eventListSegue"]) {
-        DLog(@"in prepare for segue");
         // Get destination view
         SnapEventListViewController *vc = [segue destinationViewController];
 
