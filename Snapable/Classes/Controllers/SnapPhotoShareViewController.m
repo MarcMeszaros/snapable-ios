@@ -50,7 +50,7 @@
     
     // upload the image
     SnapApiClient *httpClient = [SnapApiClient sharedInstance];
-    NSData *imageData = UIImageJPEGRepresentation(self.photoImage, 0.9);
+    NSData *imageData = UIImageJPEGRepresentation(self.photoImage, 0.95);
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"photo/" parameters:params constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
         [formData appendPartWithFileData:imageData name:@"image" fileName:@"img" mimeType:@"image/jpeg"];
     }];
