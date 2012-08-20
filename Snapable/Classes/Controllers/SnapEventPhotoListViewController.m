@@ -110,7 +110,9 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     
     // set the data
     cell.uiPhotoCaption.text = photo.caption;
-    cell.uiPhotoAuthor.text = photo.author_name;
+    if (photo.author_name.length > 0) {
+        cell.uiPhotoAuthor.text = photo.author_name;
+    }
     
     // set the image string
     NSString *photoAbsolutePath = [NSString stringWithFormat:@"%@%@", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri];
