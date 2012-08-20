@@ -31,7 +31,7 @@
 @property (nonatomic, strong) UIButton *uiLoadMore;
 @property (nonatomic, strong) UITableView *tableView;
 
-- (void)loadMoreImages:(NSInteger*)count;
+- (void)loadMoreImages:(NSInteger)count;
 - (void)loadImagesFromApi;
 
 @end
