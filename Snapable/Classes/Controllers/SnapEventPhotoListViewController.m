@@ -57,7 +57,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     title.text = self.event.title;
     
     // set the nib as the tableview's header
-    self.tableView.tableHeaderView = header;
+    //self.tableView.tableHeaderView = header;
 
     // load the images from API
     [self loadImagesFromApi];
@@ -115,7 +115,16 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     }
     
     // set the image string
-    NSString *photoAbsolutePath = [NSString stringWithFormat:@"%@%@", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri];
+    NSString *photoAbsolutePath;
+    
+    // if it's the original screen resolution
+    if([[UIScreen mainScreen] scale] == 1.0f){
+       photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=250x250", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri];
+    }
+    // else retina
+    else {
+        photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=500x500", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri];
+    }
     
     // set the image to be auto loaded
     [cell.uiPhoto setImageWithURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
@@ -145,14 +154,13 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
             // there is a photo
             else {
                 // display the first 5 photos
-                NSInteger count = 5;
-                [self loadMoreImages:&count];
+                [self loadMoreImages:5];
                                             
                 // scroll to first photo if there is at least one row
-                if ([self.tableView numberOfRowsInSection:0] > 0) {
-                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-                    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-                }
+                //if ([self.tableView numberOfRowsInSection:0] > 0) {
+                //    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                //    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                //}
             }
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
