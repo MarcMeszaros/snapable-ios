@@ -129,6 +129,7 @@ static NSString *cellIdentifier = @"eventListCell";
         alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
         UITextField *textField = [alert textFieldAtIndex:0];
         textField.keyboardType = UIKeyboardTypeASCIICapable;
+        textField.textAlignment = UITextAlignmentCenter;
         textField.placeholder = @"Event PIN";
         
         // add the second text field
