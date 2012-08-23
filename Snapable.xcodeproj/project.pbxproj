@@ -42,6 +42,7 @@
 		49516A8015C84BA300B9579A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7A15C84BA300B9579A /* SystemConfiguration.framework */; };
 		495A06ED15DAAF9700E2A4CC /* SnapEventPhotoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495A06EC15DAAF9700E2A4CC /* SnapEventPhotoListCell.m */; };
 		495A06F915DC455500E2A4CC /* SnapGuest.m in Sources */ = {isa = PBXBuildFile; fileRef = 495A06F815DC455400E2A4CC /* SnapGuest.m */; };
+		496B164B15E6C6F500F08B3D /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B164A15E6C6F500F08B3D /* Toast+UIView.m */; };
 		498513F415C7966000EB6A77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 498513F115C7966000EB6A77 /* InfoPlist.strings */; };
 		498513F515C7966000EB6A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513F315C7966000EB6A77 /* main.m */; };
 		498513FD15C7977900EB6A77 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 498513F615C7977900EB6A77 /* Icon-72.png */; };
@@ -130,6 +131,8 @@
 		495A06EC15DAAF9700E2A4CC /* SnapEventPhotoListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SnapEventPhotoListCell.m; path = Views/SnapEventPhotoListCell.m; sourceTree = "<group>"; };
 		495A06F715DC455400E2A4CC /* SnapGuest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapGuest.h; sourceTree = "<group>"; };
 		495A06F815DC455400E2A4CC /* SnapGuest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapGuest.m; sourceTree = "<group>"; };
+		496B164915E6C6ED00F08B3D /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Toast+UIView.h"; path = "Toast/Toast+UIView.h"; sourceTree = "<group>"; };
+		496B164A15E6C6F500F08B3D /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Toast+UIView.m"; path = "Toast/Toast+UIView.m"; sourceTree = "<group>"; };
 		498513EA15C7963800EB6A77 /* Snapable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Snapable-Info.plist"; sourceTree = "<group>"; };
 		498513EB15C7963800EB6A77 /* Snapable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snapable-Prefix.pch"; sourceTree = "<group>"; };
 		498513F215C7966000EB6A77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -193,12 +196,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49516A7E15C84BA300B9579A /* QuartzCore.framework in Frameworks */,
 				49D2B79215DD65E400921F84 /* libz.dylib in Frameworks */,
 				49BDA28415CDF4FC00C49B19 /* CoreLocation.framework in Frameworks */,
 				49516A7B15C84BA300B9579A /* CoreData.framework in Frameworks */,
 				49516A7C15C84BA300B9579A /* libxml2.dylib in Frameworks */,
 				49516A7D15C84BA300B9579A /* MobileCoreServices.framework in Frameworks */,
-				49516A7E15C84BA300B9579A /* QuartzCore.framework in Frameworks */,
 				49516A7F15C84BA300B9579A /* Security.framework in Frameworks */,
 				49516A8015C84BA300B9579A /* SystemConfiguration.framework in Frameworks */,
 				49516A7415C84BA300B9579A /* CFNetwork.framework in Frameworks */,
@@ -238,6 +241,15 @@
 				495A06EC15DAAF9700E2A4CC /* SnapEventPhotoListCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		496B164515E6C49F00F08B3D /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				496B164A15E6C6F500F08B3D /* Toast+UIView.m */,
+				496B164915E6C6ED00F08B3D /* Toast+UIView.h */,
+			);
+			name = Toast;
 			sourceTree = "<group>";
 		};
 		498513E215C7962600EB6A77 /* Classes */ = {
@@ -364,6 +376,7 @@
 		49BCC29E15C6F3C100E90CB4 = {
 			isa = PBXGroup;
 			children = (
+				496B164515E6C49F00F08B3D /* Toast */,
 				49D2B79115DD65E400921F84 /* libz.dylib */,
 				49D2B78C15DD654000921F84 /* TestFlightSDK1.0 */,
 				4903235815D89EEA0043C179 /* ISO8601DateFormatter */,
@@ -597,6 +610,7 @@
 				495A06ED15DAAF9700E2A4CC /* SnapEventPhotoListCell.m in Sources */,
 				495A06F915DC455500E2A4CC /* SnapGuest.m in Sources */,
 				49D2B79515DD818D00921F84 /* SnapPhotoShareViewController.m in Sources */,
+				496B164B15E6C6F500F08B3D /* Toast+UIView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

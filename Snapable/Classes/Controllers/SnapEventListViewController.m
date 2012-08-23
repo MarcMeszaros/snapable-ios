@@ -12,6 +12,7 @@
 #import "SnapEventPhotoListViewController.h"
 
 #import "ISO8601DateFormatter.h"
+#import "Toast+UIView.h"
 
 @interface SnapEventListViewController ()
 
@@ -115,16 +116,35 @@ static NSString *cellIdentifier = @"eventListCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
+    // get the event selected
+    SnapEvent *event = [self.events objectAtIndex:indexPath.row];
+    NSInteger privacyNumber = [SnapApiClient getIdFromResourceUri:event.type];
     
+    DLog(@"privacy number: %d", privacyNumber);
     
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    // if the privacy number is less than 6 prompt for the pin
+    if (privacyNumber < 6) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Event PIN" message:@"This event is private. Please enter the event pin." delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        // setup the input field
+        alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
+        UITextField *textField = [alert textFieldAtIndex:0];
+        textField.keyboardType = UIKeyboardTypeASCIICapable;
+        textField.placeholder = @"Event PIN";
+        
+        // add the second text field
+        UITextField *pin = [[UITextField alloc] init];
+        pin.hidden = YES;
+        pin.text = event.pin;
+        pin.tag = -1;
+        [alert addSubview:pin];
+        
+        // show the alert window
+        [alert show];
+    }
+    else {
+        // Navigation logic may go here. Create and push another view controller.
+        [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -135,6 +155,22 @@ static NSString *cellIdentifier = @"eventListCell";
         
         // Set the selected button in the new view
         vc.event = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    }
+}
+
+// handle alert views
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    DLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
+    UITextField *pin = (UITextField *)[alertView viewWithTag:-1];
+    DLog(@"PIN: %@",pin.text);
+    
+    // if the values match, go to the event
+    if ([[[alertView textFieldAtIndex:0] text] compare:pin.text] == NSOrderedSame) {
+        [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
+    }
+    // the pin is invalid show a toast notification
+    else {
+        [self.view makeToast:@"The pin was invalid." duration:3.0 position:@"center"];
     }
 }
 
