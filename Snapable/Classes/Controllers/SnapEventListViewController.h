@@ -12,7 +12,6 @@
 
 @interface SnapEventListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *events;
-    IBOutlet UILabel *eventTitle;
 }
 
 @property (nonatomic, retain) NSArray *events;

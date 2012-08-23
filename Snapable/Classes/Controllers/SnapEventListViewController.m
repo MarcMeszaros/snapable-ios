@@ -92,7 +92,22 @@ static NSString *cellIdentifier = @"eventListCell";
     
     cell.uiEventDate.text = [eventDateFormat stringFromDate:startDate];
     //cell.uiEventDate.text = [startDate descriptionWithLocale:[NSLocale currentLocale]];
+    
+    // set the image string
+    NSString *photoAbsolutePath;
+    
+    // if it's the original screen resolution
+    if([[UIScreen mainScreen] scale] == 1.0f){
+        photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=100x100", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], event.resource_uri];
+    }
+    // else retina
+    else {
+        photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=200x200", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], event.resource_uri];
+    }
 
+    // set the image to be auto loaded
+    [cell.uiPhoto setImageWithURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
+    
     return cell;
 }
 
