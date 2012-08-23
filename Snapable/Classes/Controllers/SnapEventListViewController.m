@@ -124,7 +124,7 @@ static NSString *cellIdentifier = @"eventListCell";
     
     // if the privacy number is less than 6 prompt for the pin
     if (privacyNumber < 6) {
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Event PIN" message:@"This event is private. Please enter the event pin." delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Event PIN" message:@"This event is private. Please enter the event PIN." delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
         // setup the input field
         alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
         UITextField *textField = [alert textFieldAtIndex:0];
@@ -171,7 +171,7 @@ static NSString *cellIdentifier = @"eventListCell";
     }
     // the pin is invalid show a toast notification
     else {
-        [self.view makeToast:@"The pin was invalid." duration:3.0 position:@"center"];
+        [self.view makeToast:@"The PIN entered was invalid." duration:3.0 position:@"center"];
     }
 }
 
