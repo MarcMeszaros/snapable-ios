@@ -98,11 +98,6 @@
 @implementation UIImageView (Snapable)
 
 // override the AFNetworking image loading to sign the request
-// SUGGESTION: create a fork/patch for a new method that takes a request instead of a URL
-// (ie. then you can sign the request before passing it to AFNetworking)
-//
-// ex: - (void)setImageWithRequest:(NSMutableURLRequest *)request placeholderImage:(UIImage *)placeholderImage;
-//
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPShouldHandleCookies:NO];
@@ -110,6 +105,16 @@
     [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
     
     [self setImageWithURLRequest:[[SnapApiClient sharedInstance] signRequest:request] placeholderImage:placeholderImage success:nil failure:nil];
+}
+
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure {
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPShouldHandleCookies:NO];
+    [request setHTTPShouldUsePipelining:YES];
+    [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
+    
+    [self setImageWithURLRequest:[[SnapApiClient sharedInstance] signRequest:request] placeholderImage:placeholderImage success:success failure:failure];
 }
 
 @end
