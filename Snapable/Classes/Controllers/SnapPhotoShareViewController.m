@@ -21,7 +21,10 @@
 @synthesize uiPhotoCaption;
 @synthesize uiPhotoUploadProgress;
 @synthesize uiUploadDone;
+@synthesize uiUploadRetry;
 @synthesize uiUploadViewGroup;
+@synthesize uiUploadProgressViewGroup;
+@synthesize uploadOperation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,23 +43,87 @@
     // set the preview image
     self.uiPhotoPreview.image = self.photoImage;
 
+    // start uploading the photo
+    [self uploadPhotoStart];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - UIAction
+
+- (IBAction)doneButton:(id)sender {
+    // update the photo data (ie. caption)
+    
+    // parameters
+    NSString *apiPath = [NSString stringWithFormat:@"photo/%d/", self.photoId];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+        self.uiPhotoCaption.text, @"caption",
+        nil];
+    
+    // call the api
+    [[SnapApiClient sharedInstance] putPath:apiPath parameters:params
+        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            // close the window
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            // just log the failure
+            ALog(@"Error updating photo data!");
+            DLog(@"%@", error);
+        }
+     ];
+}
+
+- (IBAction)backButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)cancelUploadButton:(id)sender {
+    [self uploadPhotoCancel];
+    self.uiUploadProgressViewGroup.hidden = YES;
+    self.uiUploadRetry.hidden = NO;
+}
+
+- (IBAction)retryUploadButton:(id)sender {
+    self.uiUploadRetry.hidden = YES;
+    self.uiUploadProgressViewGroup.hidden = NO;
+    [self uploadPhotoStart];
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+#pragma mark - Uploading
+
+- (void)uploadPhotoStart {
     // parameters
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-        self.event.resource_uri, @"event",
-        //@"/private_v1/guest/2/", @"guest", // TODO make this not manual or required...
-        self.event.type, @"type",
-        nil];
+                            self.event.resource_uri, @"event",
+                            //@"/private_v1/guest/2/", @"guest", // TODO make this not manual or required...
+                            self.event.type, @"type",
+                            nil];
     
     // upload the image
     SnapApiClient *httpClient = [SnapApiClient sharedInstance];
-    NSData *imageData = UIImageJPEGRepresentation(self.photoImage, 0.5);
+    NSData *imageData = UIImageJPEGRepresentation(self.photoImage, 0.9);
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"photo/" parameters:params constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
         [formData appendPartWithFileData:imageData name:@"image" fileName:@"img" mimeType:@"image/jpeg"];
     }];
-
+    
     // sign the request
     request = [httpClient signRequest:request];
-
+    
     // setup the upload
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
@@ -85,57 +152,18 @@
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // just log the failure
-        ALog(@"Error fetching events!");
+        ALog(@"Error uploading photo!");
         DLog(@"%@", error);
     }];
-
+    
     // start uploading the image
-    [operation start];
+    self.uploadOperation = operation;
+    [self.uploadOperation start];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma mark - UIAction
-
--(IBAction)doneButton:(id)sender {
-    // update the photo data (ie. caption)
-    
-    // parameters
-    NSString *apiPath = [NSString stringWithFormat:@"photo/%d/", self.photoId];
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-        self.uiPhotoCaption.text, @"caption",
-        nil];
-    
-    // call the api
-    [[SnapApiClient sharedInstance] putPath:apiPath parameters:params
-        success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            // close the window
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            // just log the failure
-            ALog(@"Error updating photo data!");
-            DLog(@"%@", error);
-        }
-     ];
-}
-
--(IBAction)backButton:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
--(BOOL) textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
+- (void)uploadPhotoCancel {
+    [self.uploadOperation cancel];
+    self.uploadOperation = nil;
 }
 
 @end

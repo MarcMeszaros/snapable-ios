@@ -22,7 +22,11 @@
     IBOutlet UITextField *uiPhotoCaption;
     IBOutlet UIProgressView *uiPhotoUploadProgress;
     IBOutlet UIButton *uiUploadDone;
+    IBOutlet UIButton *uiUploadRetry;
     IBOutlet UIView *uiUploadViewGroup;
+    IBOutlet UIView *uiUploadProgressViewGroup;
+    
+    AFHTTPRequestOperation *uploadOperation;
 }
 
 @property (nonatomic, strong) SnapEvent *event;
@@ -32,6 +36,12 @@
 @property (nonatomic, strong) UITextField *uiPhotoCaption;
 @property (nonatomic, strong) UIProgressView *uiPhotoUploadProgress;
 @property (nonatomic, strong) UIButton *uiUploadDone;
+@property (nonatomic, strong) UIButton *uiUploadRetry;
 @property (nonatomic, strong) UIView *uiUploadViewGroup;
+@property (nonatomic, strong) UIView *uiUploadProgressViewGroup;
+@property (nonatomic, strong) AFHTTPRequestOperation *uploadOperation;
+
+- (void)uploadPhotoStart;
+- (void)uploadPhotoCancel;
 
 @end
