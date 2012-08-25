@@ -27,7 +27,7 @@
     // Drawing code
     UIImage *image = [UIImage imageNamed:@"navigationBarBackgroundImage.png"];
     [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    self.tintColor = [UIColor colorWithRed:124/255.0 green:177/255.0 blue:55/255.0 alpha:1.0];
+    self.tintColor = [UIColor colorWithRed:119/255.0 green:186/255.0 blue:220/255.0 alpha:1.0];
 }
 
 

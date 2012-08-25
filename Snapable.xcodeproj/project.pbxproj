@@ -74,6 +74,13 @@
 		49E3298F15D98C75001FF6A0 /* EventPhotoListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */; };
 		49E3299115D9A794001FF6A0 /* backgroundBlueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */; };
 		9840031015D954DF00A58ED2 /* eventPhotoBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */; };
+		98403B3515E90B3C0049434F /* shareBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 98403B3415E90B3C0049434F /* shareBackground.png */; };
+		98403B3715E90D8B0049434F /* shareBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 98403B3615E90D8B0049434F /* shareBackground.png */; };
+		98403B3915E90F0F0049434F /* uploadCancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 98403B3815E90F0F0049434F /* uploadCancelButton.png */; };
+		98403B3B15E9116D0049434F /* done.png in Resources */ = {isa = PBXBuildFile; fileRef = 98403B3A15E9116D0049434F /* done.png */; };
+		98403B3D15E9125F0049434F /* retry.png in Resources */ = {isa = PBXBuildFile; fileRef = 98403B3C15E9125F0049434F /* retry.png */; };
+		98403B3F15E914030049434F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 98403B3E15E914030049434F /* back.png */; };
+		98403B4115E915950049434F /* shareUploadImageBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 98403B4015E915950049434F /* shareUploadImageBG.png */; };
 		9840E1B415D8751F009B5C54 /* eventListEventBackgroundHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */; };
 		98571AAD15CAC92B0076BE97 /* SnapNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */; };
 		985C0FC915DBF8720000F8F5 /* photoDefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 985C0FC815DBF8720000F8F5 /* photoDefault.jpg */; };
@@ -148,7 +155,7 @@
 		49B8663B15D190850089AEE0 /* SnapCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapCamera.m; sourceTree = "<group>"; };
 		49B90A6F15D9EB530011A252 /* SnapEventPhotoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapEventPhotoListViewController.h; sourceTree = "<group>"; };
 		49B90A7015D9EB530011A252 /* SnapEventPhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapEventPhotoListViewController.m; sourceTree = "<group>"; };
-		49BCC2A915C6F3C100E90CB4 /* Snapable-dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snapable-dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49BCC2A915C6F3C100E90CB4 /* Snapable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snapable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BCC2AD15C6F3C100E90CB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BCC2AF15C6F3C100E90CB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		49BCC2B115C6F3C100E90CB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -182,6 +189,13 @@
 		49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventPhotoListHeader.xib; path = NIBs/EventPhotoListHeader.xib; sourceTree = "<group>"; };
 		49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundBlueButton.png; sourceTree = "<group>"; };
 		9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventPhotoBorder.png; sourceTree = "<group>"; };
+		98403B3415E90B3C0049434F /* shareBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shareBackground.png; path = ../../../../../../PSDs/iPhone/images/shareBackground.png; sourceTree = "<group>"; };
+		98403B3615E90D8B0049434F /* shareBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shareBackground.png; path = ../../../../../../PSDs/iPhone/images/shareBackground.png; sourceTree = "<group>"; };
+		98403B3815E90F0F0049434F /* uploadCancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uploadCancelButton.png; path = ../../../../../../PSDs/iPhone/images/uploadCancelButton.png; sourceTree = "<group>"; };
+		98403B3A15E9116D0049434F /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = done.png; path = ../../../../../../PSDs/iPhone/images/done.png; sourceTree = "<group>"; };
+		98403B3C15E9125F0049434F /* retry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = retry.png; path = ../../../../../../PSDs/iPhone/images/retry.png; sourceTree = "<group>"; };
+		98403B3E15E914030049434F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../../../../../PSDs/iPhone/images/back.png; sourceTree = "<group>"; };
+		98403B4015E915950049434F /* shareUploadImageBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shareUploadImageBG.png; path = ../../../../../../PSDs/iPhone/images/shareUploadImageBG.png; sourceTree = "<group>"; };
 		9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventListEventBackgroundHighlight.png; sourceTree = "<group>"; };
 		98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapNavigationBar.h; sourceTree = "<group>"; };
 		98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapNavigationBar.m; sourceTree = "<group>"; };
@@ -332,6 +346,13 @@
 		498513EE15C7964E00EB6A77 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				98403B4015E915950049434F /* shareUploadImageBG.png */,
+				98403B3E15E914030049434F /* back.png */,
+				98403B3C15E9125F0049434F /* retry.png */,
+				98403B3A15E9116D0049434F /* done.png */,
+				98403B3815E90F0F0049434F /* uploadCancelButton.png */,
+				98403B3615E90D8B0049434F /* shareBackground.png */,
+				98403B3415E90B3C0049434F /* shareBackground.png */,
 				985C0FC815DBF8720000F8F5 /* photoDefault.jpg */,
 				49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */,
 				9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */,
@@ -390,7 +411,7 @@
 		49BCC2AA15C6F3C100E90CB4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49BCC2A915C6F3C100E90CB4 /* Snapable-dev.app */,
+				49BCC2A915C6F3C100E90CB4 /* Snapable.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -490,7 +511,7 @@
 			);
 			name = Snapable;
 			productName = Snapable;
-			productReference = 49BCC2A915C6F3C100E90CB4 /* Snapable-dev.app */;
+			productReference = 49BCC2A915C6F3C100E90CB4 /* Snapable.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -556,6 +577,13 @@
 				49E3298F15D98C75001FF6A0 /* EventPhotoListHeader.xib in Resources */,
 				49E3299115D9A794001FF6A0 /* backgroundBlueButton.png in Resources */,
 				985C0FC915DBF8720000F8F5 /* photoDefault.jpg in Resources */,
+				98403B3515E90B3C0049434F /* shareBackground.png in Resources */,
+				98403B3715E90D8B0049434F /* shareBackground.png in Resources */,
+				98403B3915E90F0F0049434F /* uploadCancelButton.png in Resources */,
+				98403B3B15E9116D0049434F /* done.png in Resources */,
+				98403B3D15E9125F0049434F /* retry.png in Resources */,
+				98403B3F15E914030049434F /* back.png in Resources */,
+				98403B4115E915950049434F /* shareUploadImageBG.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
