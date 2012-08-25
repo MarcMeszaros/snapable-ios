@@ -11,6 +11,8 @@
 #import "SnapEventPhotoListCell.h"
 #import "SnapApiClient.h"
 
+static inline double radians (double degrees) {return degrees * M_PI/180;}
+
 @interface SnapEventPhotoListViewController ()
 
 @end
@@ -288,6 +290,8 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 // For responding to the user accepting a newly-captured picture or movie
 - (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info {
 
+    DLog(@"photo info: %@", info);
+    
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
     UIImage *originalImage, *editedImage, *imageToSave;
 
@@ -297,8 +301,84 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         editedImage = (UIImage *) [info objectForKey:UIImagePickerControllerEditedImage];
         originalImage = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
 
+        DLog(@"size: [%f,%f]", originalImage.size.width, originalImage.size.height);
+        
         if (editedImage) {
-            imageToSave = editedImage;
+            // crop coordinates
+            CGRect rect = [[info objectForKey:UIImagePickerControllerCropRect] CGRectValue];
+            DLog(@"crop dimensions: %@", NSStringFromCGRect(rect));
+        
+            //////
+            //CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], bounds);
+            //UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
+            //CGImageRelease(imageRef);
+            ///////
+            
+            
+            // get the original, and crop it
+            // Create bitmap image from original image data,
+            // using rectangle to specify desired crop area
+            CGFloat targetWidth = originalImage.size.width;
+            CGFloat targetHeight = originalImage.size.height;
+            
+            CGImageRef imageRef = [originalImage CGImage];
+            CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
+            CGColorSpaceRef colorSpaceInfo = CGImageGetColorSpace(imageRef);
+            
+            if (bitmapInfo == kCGImageAlphaNone) {
+                bitmapInfo = kCGImageAlphaNoneSkipLast;
+            }
+            
+            CGContextRef bitmap;
+            
+            if (originalImage.imageOrientation == UIImageOrientationUp || originalImage.imageOrientation == UIImageOrientationDown) {
+                bitmap = CGBitmapContextCreate(NULL, targetWidth, targetHeight, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
+                
+            } else {
+                bitmap = CGBitmapContextCreate(NULL, targetHeight, targetWidth, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
+                
+            }
+            
+            if (originalImage.imageOrientation == UIImageOrientationLeft) {
+                CGContextRotateCTM (bitmap, radians(90));
+                CGContextTranslateCTM (bitmap, 0, -targetHeight);
+                
+            } else if (originalImage.imageOrientation == UIImageOrientationRight) {
+                CGContextRotateCTM (bitmap, radians(-90));
+                CGContextTranslateCTM (bitmap, -targetWidth, 0);
+                
+            } else if (originalImage.imageOrientation == UIImageOrientationUp) {
+                // NOTHING
+            } else if (originalImage.imageOrientation == UIImageOrientationDown) {
+                CGContextTranslateCTM (bitmap, targetWidth, targetHeight);
+                CGContextRotateCTM (bitmap, radians(-180.));
+            }
+            
+            CGContextDrawImage(bitmap, CGRectMake(0, 0, targetWidth, targetHeight), imageRef);
+            CGImageRef ref = CGBitmapContextCreateImage(bitmap);
+            
+            //UIImage* newImage = [UIImage imageWithCGImage:ref];
+            
+            //CGContextRelease(bitmap);
+            //CGImageRelease(ref);
+            
+            //CGImageRef imageRef2 = CGImageCreateWithImageInRect([newImage CGImage], rect);
+            //UIImage *croppedImage = [UIImage imageWithCGImage:imageRef2];
+            //CGImageRelease(imageRef2);
+            
+            ////////
+            
+            CGImageRef ref2 = CGImageCreateWithImageInRect(ref, rect);
+            UIImage *croppedImage = [UIImage imageWithCGImage:ref2];
+            CGImageRelease(ref);
+            CGImageRelease(ref2);
+            
+            DLog(@"original orientation: %d", originalImage.imageOrientation);
+            DLog(@"edited orientation: %d", editedImage.imageOrientation);
+
+            imageToSave = croppedImage;
+            DLog(@"image to save orientation: %d", imageToSave.imageOrientation);
+            DLog(@"image to save size: [%f,%f]", imageToSave.size.width, imageToSave.size.height);
         } else {
             imageToSave = originalImage;
         }
