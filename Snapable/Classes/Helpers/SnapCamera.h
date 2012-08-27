@@ -27,6 +27,6 @@
 - (BOOL)startCameraControllerFromViewController: (UIViewController*) controller
                                    usingDelegate: (id <UIImagePickerControllerDelegate,
                                                    UINavigationControllerDelegate>) delegate;
-- (void)changeFlashMode;
+- (void)changeFlashMode:(id)sender;
 
 @end

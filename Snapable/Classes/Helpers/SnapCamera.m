@@ -81,7 +81,7 @@
         }
         
         // enable button switching
-        [self.uiFlash addTarget:self action:@selector(changeFlashMode) forControlEvents:UIControlEventAllTouchEvents];
+        [self.uiFlash addTarget:self action:@selector(changeFlashMode:) forControlEvents:UIControlEventAllTouchEvents];
 
         // unhide the flash button
         self.uiFlash.hidden = NO;
@@ -92,7 +92,7 @@
     return YES;
 }
 
--(void)changeFlashMode {
+- (void)changeFlashMode:(id)sender {
     // set the image based on the flash mode
     switch (self.cameraUI.cameraFlashMode) {
         case UIImagePickerControllerCameraFlashModeOff:
