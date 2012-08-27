@@ -87,6 +87,7 @@
 		98C57F7915D7F97C00F11558 /* eventListEventBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7815D7F97C00F11558 /* eventListEventBackground.png */; };
 		98C57F7C15D7FA3F00F11558 /* FPOeventListPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */; };
 		98C57F7E15D7FD3900F11558 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7D15D7FD3900F11558 /* blueArrow.png */; };
+		98D1A4A915EBC6F400732BCA /* cameraOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 98D1A4A815EBC6F400732BCA /* cameraOverlay.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,6 +204,7 @@
 		98C57F7815D7F97C00F11558 /* eventListEventBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventListEventBackground.png; sourceTree = "<group>"; };
 		98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FPOeventListPhoto.jpg; sourceTree = "<group>"; };
 		98C57F7D15D7FD3900F11558 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		98D1A4A815EBC6F400732BCA /* cameraOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraOverlay.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +348,7 @@
 		498513EE15C7964E00EB6A77 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				98D1A4A815EBC6F400732BCA /* cameraOverlay.png */,
 				49E2316715EAE150005FE7B4 /* back.png */,
 				49E2316815EAE150005FE7B4 /* done.png */,
 				49E2316915EAE150005FE7B4 /* retry.png */,
@@ -584,6 +587,7 @@
 				49E2317115EAE150005FE7B4 /* shareUploadImageBG.png in Resources */,
 				49E2317215EAE150005FE7B4 /* uploadCancelButton.png in Resources */,
 				49C5189D15EBC2B700822163 /* CameraOverlay.xib in Resources */,
+				98D1A4A915EBC6F400732BCA /* cameraOverlay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
