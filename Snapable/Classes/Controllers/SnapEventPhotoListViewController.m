@@ -331,7 +331,41 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
             imageToSave = [UIImage imageWithCGImage:imageRef scale:originalImage.scale orientation:originalImage.imageOrientation];
             CGImageRelease(imageRef);
         } else {
-            imageToSave = originalImage;
+            // get the original images width and height
+            CGFloat originalWidth = originalImage.size.width;
+            CGFloat originalHeight = originalImage.size.height;
+            
+            // crop coordinates
+            CGFloat squareLength = 0.0f;
+            if (originalWidth > originalHeight) {
+                squareLength = originalHeight;
+            } else {
+                squareLength = originalWidth;
+            }
+            CGRect crop; // this will hold our orientation corrected crop values
+            
+            // modify the crop rectangle based on EXIF data in the original image regarding orientation
+            if (originalImage.imageOrientation == UIImageOrientationUp) {
+                // NOTHING, the sensor is in the upright position
+                crop = CGRectMake((originalWidth - squareLength) / 2.0, 0, squareLength, squareLength);
+            } else if (originalImage.imageOrientation == UIImageOrientationDown) {
+                // the sensor was rotated 180 degrees CW/CCW
+                crop = CGRectMake((originalWidth - squareLength) / 2.0, 0, squareLength, squareLength);
+            }
+            else if (originalImage.imageOrientation == UIImageOrientationLeft) {
+                // the sersor was rotated 90 degrees CCW
+                crop = CGRectMake((originalHeight - squareLength) / 2.0, 0, squareLength, squareLength);
+                
+            } else if (originalImage.imageOrientation == UIImageOrientationRight) {
+                // the sensor wa rotated 90 degrees CW
+                crop = CGRectMake((originalHeight - squareLength) / 2.0, 0, squareLength, squareLength);
+            }
+            
+            // apply the cropping to the image and get a reference to the transformation
+            CGImageRef imageRef = CGImageCreateWithImageInRect([originalImage CGImage], crop);
+            // rasterize the image and free up the image reference
+            imageToSave = [UIImage imageWithCGImage:imageRef scale:originalImage.scale orientation:originalImage.imageOrientation];
+            CGImageRelease(imageRef);
         }
 
         // Save the new image (original or edited) to the Camera Roll
