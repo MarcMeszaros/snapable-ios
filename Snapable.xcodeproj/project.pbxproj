@@ -80,6 +80,10 @@
 		49E2317215EAE150005FE7B4 /* uploadCancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E2316C15EAE150005FE7B4 /* uploadCancelButton.png */; };
 		49E3298F15D98C75001FF6A0 /* EventPhotoListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */; };
 		49E3299115D9A794001FF6A0 /* backgroundBlueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */; };
+		98111A2B15EBE4450058F4DC /* buttonFlashAuto.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2715EBE4450058F4DC /* buttonFlashAuto.png */; };
+		98111A2C15EBE4450058F4DC /* buttonFlashOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2815EBE4450058F4DC /* buttonFlashOff.png */; };
+		98111A2D15EBE4450058F4DC /* buttonFlashOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2915EBE4450058F4DC /* buttonFlashOn.png */; };
+		98111A2E15EBE4450058F4DC /* buttonSwitchCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2A15EBE4450058F4DC /* buttonSwitchCamera.png */; };
 		9840031015D954DF00A58ED2 /* eventPhotoBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */; };
 		9840E1B415D8751F009B5C54 /* eventListEventBackgroundHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */; };
 		98571AAD15CAC92B0076BE97 /* SnapNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */; };
@@ -196,6 +200,10 @@
 		49E2316C15EAE150005FE7B4 /* uploadCancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadCancelButton.png; sourceTree = "<group>"; };
 		49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventPhotoListHeader.xib; path = NIBs/EventPhotoListHeader.xib; sourceTree = "<group>"; };
 		49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundBlueButton.png; sourceTree = "<group>"; };
+		98111A2715EBE4450058F4DC /* buttonFlashAuto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonFlashAuto.png; sourceTree = "<group>"; };
+		98111A2815EBE4450058F4DC /* buttonFlashOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonFlashOff.png; sourceTree = "<group>"; };
+		98111A2915EBE4450058F4DC /* buttonFlashOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonFlashOn.png; sourceTree = "<group>"; };
+		98111A2A15EBE4450058F4DC /* buttonSwitchCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonSwitchCamera.png; sourceTree = "<group>"; };
 		9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventPhotoBorder.png; sourceTree = "<group>"; };
 		9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventListEventBackgroundHighlight.png; sourceTree = "<group>"; };
 		98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapNavigationBar.h; sourceTree = "<group>"; };
@@ -348,6 +356,10 @@
 		498513EE15C7964E00EB6A77 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				98111A2715EBE4450058F4DC /* buttonFlashAuto.png */,
+				98111A2815EBE4450058F4DC /* buttonFlashOff.png */,
+				98111A2915EBE4450058F4DC /* buttonFlashOn.png */,
+				98111A2A15EBE4450058F4DC /* buttonSwitchCamera.png */,
 				98D1A4A815EBC6F400732BCA /* cameraOverlay.png */,
 				49E2316715EAE150005FE7B4 /* back.png */,
 				49E2316815EAE150005FE7B4 /* done.png */,
@@ -588,6 +600,10 @@
 				49E2317215EAE150005FE7B4 /* uploadCancelButton.png in Resources */,
 				49C5189D15EBC2B700822163 /* CameraOverlay.xib in Resources */,
 				98D1A4A915EBC6F400732BCA /* cameraOverlay.png in Resources */,
+				98111A2B15EBE4450058F4DC /* buttonFlashAuto.png in Resources */,
+				98111A2C15EBE4450058F4DC /* buttonFlashOff.png in Resources */,
+				98111A2D15EBE4450058F4DC /* buttonFlashOn.png in Resources */,
+				98111A2E15EBE4450058F4DC /* buttonSwitchCamera.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
