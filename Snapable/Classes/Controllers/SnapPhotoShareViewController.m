@@ -84,7 +84,7 @@
 }
 
 - (IBAction)backButton:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)cancelUploadButton:(id)sender {

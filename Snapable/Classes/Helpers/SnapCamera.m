@@ -45,7 +45,7 @@
 
     self.cameraUI.delegate = delegate;
 
-    [controller presentModalViewController:self.cameraUI animated:YES];
+    [controller presentViewController:self.cameraUI animated:YES completion:nil];
     return YES;
 }
 

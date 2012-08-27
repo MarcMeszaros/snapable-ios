@@ -211,7 +211,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 // For responding to the user tapping Cancel.
 - (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker {
     DLog(@"dismiss the imagePicker");
-    [picker dismissModalViewControllerAnimated:YES];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 
     NSInteger event_id = [SnapApiClient getIdFromResourceUri:self.event.resource_uri];
     NSString *request_string = [NSString stringWithFormat:@"photo/?event=%d", event_id];
@@ -391,7 +391,9 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         SnapPhotoShareViewController *snapPhotoVC = (SnapPhotoShareViewController *)[storyboard instantiateViewControllerWithIdentifier:@"photoShareController"];
         snapPhotoVC.event = self.event;
         snapPhotoVC.photoImage = imageToSave;
-        [picker presentViewController:snapPhotoVC animated:YES completion:nil];
+        [picker dismissViewControllerAnimated:YES completion:^{
+            [self presentModalViewController:snapPhotoVC animated:YES];
+        }];
     }
 }
 
