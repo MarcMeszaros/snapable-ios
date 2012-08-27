@@ -68,7 +68,7 @@
 		49BDA27F15CDF21D00C49B19 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BDA27415CDF21D00C49B19 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		49BDA28015CDF21D00C49B19 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BDA27615CDF21D00C49B19 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		49BDA28415CDF4FC00C49B19 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BDA28315CDF4FC00C49B19 /* CoreLocation.framework */; };
-		49C5189D15EBC2B700822163 /* CameraOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C5189C15EBC2B700822163 /* CameraOverlay.xib */; };
+		49C518C315EBF4D900822163 /* CameraOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C518C215EBF4D900822163 /* CameraOverlay.xib */; };
 		49D2B79015DD659400921F84 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D2B78E15DD659400921F84 /* libTestFlight.a */; };
 		49D2B79215DD65E400921F84 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D2B79115DD65E400921F84 /* libz.dylib */; };
 		49D2B79515DD818D00921F84 /* SnapPhotoShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B79415DD818D00921F84 /* SnapPhotoShareViewController.m */; };
@@ -186,7 +186,7 @@
 		49BDA27515CDF21D00C49B19 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		49BDA27615CDF21D00C49B19 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		49BDA28315CDF4FC00C49B19 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		49C5189C15EBC2B700822163 /* CameraOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CameraOverlay.xib; path = NIBs/CameraOverlay.xib; sourceTree = "<group>"; };
+		49C518C215EBF4D900822163 /* CameraOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CameraOverlay.xib; path = NIBs/CameraOverlay.xib; sourceTree = "<group>"; };
 		49D2B78E15DD659400921F84 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = TestFlightSDK1.0/libTestFlight.a; sourceTree = "<group>"; };
 		49D2B78F15DD659400921F84 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = TestFlightSDK1.0/TestFlight.h; sourceTree = "<group>"; };
 		49D2B79115DD65E400921F84 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -502,7 +502,7 @@
 		49E3298B15D98227001FF6A0 /* NIBs */ = {
 			isa = PBXGroup;
 			children = (
-				49C5189C15EBC2B700822163 /* CameraOverlay.xib */,
+				49C518C215EBF4D900822163 /* CameraOverlay.xib */,
 				49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */,
 			);
 			name = NIBs;
@@ -598,12 +598,12 @@
 				49E2317015EAE150005FE7B4 /* shareBackground.png in Resources */,
 				49E2317115EAE150005FE7B4 /* shareUploadImageBG.png in Resources */,
 				49E2317215EAE150005FE7B4 /* uploadCancelButton.png in Resources */,
-				49C5189D15EBC2B700822163 /* CameraOverlay.xib in Resources */,
 				98D1A4A915EBC6F400732BCA /* cameraOverlay.png in Resources */,
 				98111A2B15EBE4450058F4DC /* buttonFlashAuto.png in Resources */,
 				98111A2C15EBE4450058F4DC /* buttonFlashOff.png in Resources */,
 				98111A2D15EBE4450058F4DC /* buttonFlashOn.png in Resources */,
 				98111A2E15EBE4450058F4DC /* buttonSwitchCamera.png in Resources */,
+				49C518C315EBF4D900822163 /* CameraOverlay.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
