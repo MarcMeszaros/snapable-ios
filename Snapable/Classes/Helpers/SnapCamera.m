@@ -44,6 +44,12 @@
     self.cameraUI.allowsEditing = YES;
 
     self.cameraUI.delegate = delegate;
+    
+    // load up our custom overlay
+    UIView *overlay = [[UIView alloc] init];
+    overlay = [[[NSBundle mainBundle] loadNibNamed:@"CameraOverlay" owner:self options:nil] objectAtIndex:0];
+    // add the custom overlay to the image picker
+    self.cameraUI.cameraOverlayView = [overlay.subviews objectAtIndex:0];
 
     [controller presentViewController:self.cameraUI animated:YES completion:nil];
     return YES;
