@@ -290,8 +290,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 // For responding to the user accepting a newly-captured picture or movie
 - (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info {
 
-    DLog(@"photo info: %@", info);
-    
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
     UIImage *originalImage, *editedImage, *imageToSave;
 
@@ -300,85 +298,38 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 
         editedImage = (UIImage *) [info objectForKey:UIImagePickerControllerEditedImage];
         originalImage = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
-
-        DLog(@"size: [%f,%f]", originalImage.size.width, originalImage.size.height);
         
         if (editedImage) {
             // crop coordinates
             CGRect rect = [[info objectForKey:UIImagePickerControllerCropRect] CGRectValue];
-            DLog(@"crop dimensions: %@", NSStringFromCGRect(rect));
-        
-            //////
-            //CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], bounds);
-            //UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
-            //CGImageRelease(imageRef);
-            ///////
+            CGRect crop; // this will hold our orientation corrected crop values
+
+            // get the original images width and height
+            CGFloat originalWidth = originalImage.size.width;
+            CGFloat originalHeight = originalImage.size.height;
             
-            
-            // get the original, and crop it
-            // Create bitmap image from original image data,
-            // using rectangle to specify desired crop area
-            CGFloat targetWidth = originalImage.size.width;
-            CGFloat targetHeight = originalImage.size.height;
-            
-            CGImageRef imageRef = [originalImage CGImage];
-            CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
-            CGColorSpaceRef colorSpaceInfo = CGImageGetColorSpace(imageRef);
-            
-            if (bitmapInfo == kCGImageAlphaNone) {
-                bitmapInfo = kCGImageAlphaNoneSkipLast;
+            // modify the crop rectangle based on EXIF data in the original image regarding orientation
+            if (originalImage.imageOrientation == UIImageOrientationUp) {
+                // NOTHING, the sensor is in the upright position
+                crop = rect;
+            } else if (originalImage.imageOrientation == UIImageOrientationDown) {
+                // the sensor was rotated 180 degrees CW/CCW
+                crop = CGRectMake(originalWidth - (rect.origin.x + rect.size.width), originalHeight - (rect.origin.y + rect.size.height), rect.size.width, rect.size.height);
             }
-            
-            CGContextRef bitmap;
-            
-            if (originalImage.imageOrientation == UIImageOrientationUp || originalImage.imageOrientation == UIImageOrientationDown) {
-                bitmap = CGBitmapContextCreate(NULL, targetWidth, targetHeight, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
-                
-            } else {
-                bitmap = CGBitmapContextCreate(NULL, targetHeight, targetWidth, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
-                
-            }
-            
-            if (originalImage.imageOrientation == UIImageOrientationLeft) {
-                CGContextRotateCTM (bitmap, radians(90));
-                CGContextTranslateCTM (bitmap, 0, -targetHeight);
+            else if (originalImage.imageOrientation == UIImageOrientationLeft) {
+                // the sersor was rotated 90 degrees CCW
+                crop = CGRectMake(originalHeight - (rect.origin.y + rect.size.height), rect.origin.x, rect.size.height, rect.size.width);
                 
             } else if (originalImage.imageOrientation == UIImageOrientationRight) {
-                CGContextRotateCTM (bitmap, radians(-90));
-                CGContextTranslateCTM (bitmap, -targetWidth, 0);
-                
-            } else if (originalImage.imageOrientation == UIImageOrientationUp) {
-                // NOTHING
-            } else if (originalImage.imageOrientation == UIImageOrientationDown) {
-                CGContextTranslateCTM (bitmap, targetWidth, targetHeight);
-                CGContextRotateCTM (bitmap, radians(-180.));
+                // the sensor wa rotated 90 degrees CW
+                crop = CGRectMake(rect.origin.y, originalWidth - (rect.origin.x + rect.size.height), rect.size.height, rect.size.width);
             }
             
-            CGContextDrawImage(bitmap, CGRectMake(0, 0, targetWidth, targetHeight), imageRef);
-            CGImageRef ref = CGBitmapContextCreateImage(bitmap);
-            
-            //UIImage* newImage = [UIImage imageWithCGImage:ref];
-            
-            //CGContextRelease(bitmap);
-            //CGImageRelease(ref);
-            
-            //CGImageRef imageRef2 = CGImageCreateWithImageInRect([newImage CGImage], rect);
-            //UIImage *croppedImage = [UIImage imageWithCGImage:imageRef2];
-            //CGImageRelease(imageRef2);
-            
-            ////////
-            
-            CGImageRef ref2 = CGImageCreateWithImageInRect(ref, rect);
-            UIImage *croppedImage = [UIImage imageWithCGImage:ref2];
-            CGImageRelease(ref);
-            CGImageRelease(ref2);
-            
-            DLog(@"original orientation: %d", originalImage.imageOrientation);
-            DLog(@"edited orientation: %d", editedImage.imageOrientation);
-
-            imageToSave = croppedImage;
-            DLog(@"image to save orientation: %d", imageToSave.imageOrientation);
-            DLog(@"image to save size: [%f,%f]", imageToSave.size.width, imageToSave.size.height);
+            // apply the cropping to the image and get a reference to the transformation
+            CGImageRef imageRef = CGImageCreateWithImageInRect([originalImage CGImage], crop);
+            // rasterize the image and free up the image reference
+            imageToSave = [UIImage imageWithCGImage:imageRef scale:originalImage.scale orientation:originalImage.imageOrientation];
+            CGImageRelease(imageRef);
         } else {
             imageToSave = originalImage;
         }
