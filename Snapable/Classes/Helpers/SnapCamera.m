@@ -11,6 +11,8 @@
 @implementation SnapCamera
 
 @synthesize cameraUI;
+@synthesize uiFlash;
+@synthesize uiSwitchCamera;
 
 + (id)sharedInstance {
     static SnapCamera *_sharedInstance;
@@ -46,13 +48,72 @@
     self.cameraUI.delegate = delegate;
     
     // load up our custom overlay
-    UIView *overlay = [[UIView alloc] init];
+    UIView *overlay = [UIView alloc];
     overlay = [[[NSBundle mainBundle] loadNibNamed:@"CameraOverlay" owner:self options:nil] objectAtIndex:0];
     // add the custom overlay to the image picker
     self.cameraUI.cameraOverlayView = overlay;
+    self.uiFlash = (UIButton *)[overlay viewWithTag:TAG_uiFlash];
+    self.uiSwitchCamera = (UIButton *)[overlay viewWithTag:TAG_uiSwitchCamera];
+    
+    // check if flash is available
+    BOOL flashAvailable = [UIImagePickerController isFlashAvailableForCameraDevice:self.cameraUI.cameraDevice];
+    DLog(@"flash available: %d", flashAvailable);
+    
+    // show the flash button
+    if (flashAvailable == YES) {
+        // set the image based on the flash mode
+        switch (self.cameraUI.cameraFlashMode) {
+            case UIImagePickerControllerCameraFlashModeOff:
+                // set the "Off" image
+                [self.uiFlash setImage:[UIImage imageNamed:@"buttonFlashOff.png"] forState:UIControlStateNormal];
+                break;
+            case UIImagePickerControllerCameraFlashModeAuto:
+                // set the "Auto" image
+                [self.uiFlash setImage:[UIImage imageNamed:@"buttonFlashAuto.png"] forState:UIControlStateNormal];
+                break;
+            case UIImagePickerControllerCameraFlashModeOn:
+                // set the "On" image
+                [self.uiFlash setImage:[UIImage imageNamed:@"buttonFlashOn.png"] forState:UIControlStateNormal];
+                break;
+                
+            default:
+                break;
+        }
+        
+        // enable button switching
+        [self.uiFlash addTarget:self action:@selector(changeFlashMode) forControlEvents:UIControlEventAllTouchEvents];
+
+        // unhide the flash button
+        self.uiFlash.hidden = NO;
+    }
+    
 
     [controller presentViewController:self.cameraUI animated:YES completion:nil];
     return YES;
+}
+
+-(void)changeFlashMode {
+    // set the image based on the flash mode
+    switch (self.cameraUI.cameraFlashMode) {
+        case UIImagePickerControllerCameraFlashModeOff:
+            // set the "Off" image
+            self.cameraUI.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+            [self.uiFlash setImage:[UIImage imageNamed:@"buttonFlashAuto.png"] forState:UIControlStateNormal];
+            break;
+        case UIImagePickerControllerCameraFlashModeAuto:
+            // set the "Auto" image
+            self.cameraUI.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
+            [self.uiFlash setImage:[UIImage imageNamed:@"buttonFlashOn.png"] forState:UIControlStateNormal];
+            break;
+        case UIImagePickerControllerCameraFlashModeOn:
+            // set the "On" image
+            self.cameraUI.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
+            [self.uiFlash setImage:[UIImage imageNamed:@"buttonFlashOff.png"] forState:UIControlStateNormal];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end
