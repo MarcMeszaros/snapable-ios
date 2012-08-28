@@ -23,6 +23,7 @@
     IBOutlet UIProgressView *uiPhotoUploadProgress;
     IBOutlet UIButton *uiUploadDone;
     IBOutlet UIButton *uiUploadRetry;
+    IBOutlet UIButton *uiBack;
     IBOutlet UIView *uiUploadViewGroup;
     IBOutlet UIView *uiUploadProgressViewGroup;
     
@@ -37,6 +38,7 @@
 @property (nonatomic, strong) UIProgressView *uiPhotoUploadProgress;
 @property (nonatomic, strong) UIButton *uiUploadDone;
 @property (nonatomic, strong) UIButton *uiUploadRetry;
+@property (nonatomic, strong) UIButton *uiBack;
 @property (nonatomic, strong) UIView *uiUploadViewGroup;
 @property (nonatomic, strong) UIView *uiUploadProgressViewGroup;
 @property (nonatomic, strong) AFHTTPRequestOperation *uploadOperation;

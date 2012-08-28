@@ -7,6 +7,7 @@
 //
 
 #import "SnapPhotoShareViewController.h"
+#import "Toast+UIView.h"
 
 @interface SnapPhotoShareViewController ()
 
@@ -22,6 +23,7 @@
 @synthesize uiPhotoUploadProgress;
 @synthesize uiUploadDone;
 @synthesize uiUploadRetry;
+@synthesize uiBack;
 @synthesize uiUploadViewGroup;
 @synthesize uiUploadProgressViewGroup;
 @synthesize uploadOperation;
@@ -42,6 +44,7 @@
 
     // set the preview image
     self.uiPhotoPreview.image = self.photoImage;
+    self.uiBack.enabled = NO;
 
     // start uploading the photo
     [self uploadPhotoStart];
@@ -79,6 +82,8 @@
             // just log the failure
             ALog(@"Error updating photo data!");
             DLog(@"%@", error);
+            [self.view makeToast:@"Failed to update caption." duration:3.0 position:@"center"];
+            self.uiBack.enabled = YES;
         }
      ];
 }
@@ -91,11 +96,13 @@
     [self uploadPhotoCancel];
     self.uiUploadProgressViewGroup.hidden = YES;
     self.uiUploadRetry.hidden = NO;
+    self.uiBack.enabled = YES;
 }
 
 - (IBAction)retryUploadButton:(id)sender {
     self.uiUploadRetry.hidden = YES;
     self.uiUploadProgressViewGroup.hidden = NO;
+    self.uiBack.enabled = NO;
     [self uploadPhotoStart];
 }
 
@@ -154,11 +161,15 @@
         // just log the failure
         ALog(@"Error uploading photo!");
         DLog(@"%@", error);
+        [self.view makeToast:@"Failed to upload photo." duration:3.0 position:@"center"];
+        self.uiUploadProgressViewGroup.hidden = YES;
+        self.uiUploadRetry.hidden = NO;
+        self.uiBack.enabled = YES;
     }];
     
     // start uploading the image
     self.uploadOperation = operation;
-    [self.uploadOperation start];
+    [[httpClient operationQueue] addOperation:operation];
 }
 
 - (void)uploadPhotoCancel {

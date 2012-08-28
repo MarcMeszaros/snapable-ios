@@ -240,6 +240,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="uiBack" destination="Qcs-lC-7Zy" id="b3O-Yf-qQ4"/>
                         <outlet property="uiPhotoCaption" destination="6yt-s3-dr0" id="yhh-6Y-24M"/>
                         <outlet property="uiPhotoPreview" destination="co5-JL-K7Q" id="2xz-km-gBu"/>
                         <outlet property="uiPhotoUploadProgress" destination="lrI-Q3-AZZ" id="hiQ-fk-zcR"/>
@@ -498,65 +499,6 @@ Ceremony &amp; Dinner</string>
         <image name="teardrop.png" width="391" height="444"/>
         <image name="uploadCancelButton.png" width="40" height="40"/>
     </resources>
-    <classes>
-        <class className="SnapEventListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="uiEventDate" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="uiEventTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="uiPhoto" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="SnapEventListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventListViewController.h"/>
-        </class>
-        <class className="SnapEventPhotoListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventPhotoListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="uiPhoto" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="uiPhotoAuthor" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="uiPhotoCaption" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SnapEventPhotoListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventPhotoListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loadMore:" candidateClass="UIButton"/>
-                <relationship kind="action" name="takePhoto:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="uiLoadMore" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="uiNoPhotos" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="SnapLoadingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapLoadingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="searchForEvents:"/>
-                <relationship kind="outlet" name="loadingButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="loadingSpinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="SnapNavigationBar" superclassName="UINavigationBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapNavigationBar.h"/>
-        </class>
-        <class className="SnapPhotoShareViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapPhotoShareViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButton:"/>
-                <relationship kind="action" name="cancelUploadButton:"/>
-                <relationship kind="action" name="doneButton:"/>
-                <relationship kind="action" name="retryUploadButton:"/>
-                <relationship kind="outlet" name="uiPhotoCaption" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="uiPhotoPreview" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="uiPhotoUploadProgress" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="uiUploadDone" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="uiUploadProgressViewGroup" candidateClass="UIView"/>
-                <relationship kind="outlet" name="uiUploadRetry" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="uiUploadViewGroup" candidateClass="UIView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
