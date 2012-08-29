@@ -9,7 +9,6 @@
 #import "SnapEventListAuthViewController.h"
 #import "Toast+UIView.h"
 #import "SnapApiClient.h"
-#import "SnapGuest.h"
 
 @interface SnapEventListAuthViewController ()
 
@@ -85,6 +84,7 @@
                 self.guest = [[SnapGuest alloc] initWithDictionary:[guests objectAtIndex:0]];
                 DLog(@"guest: %@", self.guest.email);
             }
+
             // if we match the email
             if (self.guest != nil && [self.uiEmail.text compare:self.guest.email] == NSOrderedSame) {
                 [self dismissViewControllerAnimated:YES completion:^{
@@ -92,6 +92,7 @@
                     [self.parentVC performSegueWithIdentifier:@"eventListPhotoSegue" sender:self.parentVC];
                 }];
             }
+
             // we don't match show pin stuff
             else {
                 self.uiPinViewGroup.hidden = NO;

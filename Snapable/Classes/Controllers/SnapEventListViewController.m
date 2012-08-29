@@ -119,7 +119,7 @@ static NSString *cellIdentifier = @"eventListCell";
 {
     // get the event selected
     SnapEvent *event = [self.events objectAtIndex:indexPath.row];
-    NSInteger privacyNumber = [SnapApiClient getIdFromResourceUri:event.type];
+    NSInteger privacyNumber = [SnapApiClient getIdAsIntegerFromResourceUri:event.type];
     
     DLog(@"privacy number: %d", privacyNumber);
     

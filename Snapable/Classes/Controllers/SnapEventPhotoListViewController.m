@@ -137,10 +137,11 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 // load the images from api
 -(void)loadImagesFromApi {
     // get the event photos
-    NSInteger event_id = [SnapApiClient getIdFromResourceUri:self.event.resource_uri];
-    NSString *request_string = [NSString stringWithFormat:@"photo/?event=%d", event_id];
-    
-    [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri], @"event",
+                            nil];
+
+    [[SnapApiClient sharedInstance] getPath:@"photo/" parameters:params
         success:^(AFHTTPRequestOperation *operation, id response) {
             // hydrate the response into objects
             for (id photos in [response valueForKeyPath:@"objects"]) {
@@ -213,12 +214,13 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     DLog(@"dismiss the imagePicker");
     [picker dismissViewControllerAnimated:YES completion:nil];
 
-    NSInteger event_id = [SnapApiClient getIdFromResourceUri:self.event.resource_uri];
-    NSString *request_string = [NSString stringWithFormat:@"photo/?event=%d", event_id];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri], @"event",
+                            nil];
     
     // some variables to store data in
     NSMutableArray *tempPhotoArray = [NSMutableArray array];
-    [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
+    [[SnapApiClient sharedInstance] getPath:@"photo/" parameters:params
         success:^(AFHTTPRequestOperation *operation, id response) {
             DLog(@"we got an API response");
             // hydrate the response into objects
@@ -233,7 +235,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
                 DLog(@"we already have some photos");
                 // get the current first API photo and it's id
                 SnapPhoto *firstPhoto = [self.api_photos objectAtIndex:0];
-                NSInteger firstPhotoId = [SnapApiClient getIdFromResourceUri:firstPhoto.resource_uri];
+                NSInteger firstPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:firstPhoto.resource_uri];
                 
                 DLog(@"loop through and merge");
                 // get the new photos
@@ -246,7 +248,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
                 while (i < self.photos.count) {
                     // get the new photo
                     tempPhoto = [tempPhotoArray objectAtIndex:j];
-                    int tempPhotoId = [SnapApiClient getIdFromResourceUri:tempPhoto.resource_uri];
+                    int tempPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:tempPhoto.resource_uri];
                     
                     // if the temp photo isn't in the API array
                     if (tempPhotoId > firstPhotoId) {

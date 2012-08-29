@@ -150,7 +150,7 @@
             // the path to the create photo resource
             NSString *photoResourceLocation = [responseHeaders valueForKey:@"Location"];
             DLog(@"Location: %@", photoResourceLocation);
-            self.photoId = [SnapApiClient getIdFromResourceUri:photoResourceLocation];
+            self.photoId = [SnapApiClient getIdAsIntegerFromResourceUri:photoResourceLocation];
             
             // toggle the upload view and done button
             self.uiUploadViewGroup.hidden = YES;
