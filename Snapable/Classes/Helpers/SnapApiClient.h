@@ -18,7 +18,9 @@
 @interface SnapApiClient : AFHTTPClient
 
 + (id)sharedInstance;
-+ (NSInteger)getIdFromResourceUri:(NSString *)uri;
++ (NSInteger)getIdFromResourceUri:(NSString *)uri __attribute__((deprecated("use method 'getIdAsIntegerFromResourceUri' instead")));
++ (NSString *)getIdAsStringFromResourceUri:(NSString *)uri;
++ (NSInteger)getIdAsIntegerFromResourceUri:(NSString *)uri;
 
 - (NSMutableURLRequest *)signRequest:(NSMutableURLRequest *)request;
 

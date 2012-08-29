@@ -13,6 +13,7 @@
 
 @implementation SnapApiClient
 
+#pragma mark - Static Functions
 + (id)sharedInstance {
     static SnapApiClient *_sharedInstance;
     static dispatch_once_t onceToken;
@@ -24,12 +25,24 @@
     return _sharedInstance;
 }
 
-// small helper function to return the resource id in a string
+// DEPRECATED
 + (NSInteger)getIdFromResourceUri:(NSString *)uri {
+    return [self getIdAsIntegerFromResourceUri:uri];
+}
+
+// small helper function to return the resource id in a string
++ (NSInteger)getIdAsIntegerFromResourceUri:(NSString *)uri {
     NSArray *parts = [uri componentsSeparatedByString:@"/"];
     return [[parts objectAtIndex:(parts.count - 2)] integerValue];
 }
 
+// small helper function to return the resource id in a string
++ (NSString *)getIdAsStringFromResourceUri:(NSString *)uri {
+    NSArray *parts = [uri componentsSeparatedByString:@"/"];
+    return [parts objectAtIndex:(parts.count - 2)];
+}
+
+#pragma mark - Class Functions
 - (id)initWithBaseURL:(NSURL *)url {
     self = [super initWithBaseURL:url];
     if (self) {
