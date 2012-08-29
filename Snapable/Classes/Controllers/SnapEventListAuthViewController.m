@@ -16,6 +16,7 @@
 @implementation SnapEventListAuthViewController
 
 @synthesize event;
+@synthesize parentVC;
 @synthesize uiEmail;
 @synthesize uiPin;
 @synthesize uiPinViewGroup;
@@ -71,7 +72,7 @@
     if ([self.uiEmail.text compare:@"marc"] == NSOrderedSame) {
         [self dismissViewControllerAnimated:YES completion:^{
             DLog(@"try and perform segue");
-            //[self.presentingViewController performSegueWithIdentifier:@"eventListPhotoSegue" sender:self.presentingViewController];
+            [self.parentVC performSegueWithIdentifier:@"eventListPhotoSegue" sender:self.parentVC];
         }];
     }
     // we don't match show pin stuff
@@ -83,7 +84,7 @@
     if ([self.uiPin.text compare:self.event.pin] == NSOrderedSame) {
         [self dismissViewControllerAnimated:YES completion:^{
             DLog(@"try and perform pin segue");
-            //[self.presentingViewController performSegueWithIdentifier:@"eventListPhotoSegue" sender:self.presentingViewController];
+            [self.parentVC performSegueWithIdentifier:@"eventListPhotoSegue" sender:self.parentVC];
         }];
     }
     // we don't match show pin stuff 

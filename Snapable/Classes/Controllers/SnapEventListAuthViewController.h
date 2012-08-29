@@ -11,6 +11,7 @@
 
 @interface SnapEventListAuthViewController : UIViewController <UITextFieldDelegate> {
     SnapEvent *event;
+    UIViewController *parenVC;
     
     IBOutlet UITextField *uiEmail;
     IBOutlet UITextField *uiPin;
@@ -18,6 +19,7 @@
 }
 
 @property (nonatomic, strong) SnapEvent *event;
+@property (nonatomic, strong) UIViewController *parentVC;
 @property (nonatomic, strong) UITextField *uiEmail;
 @property (nonatomic, strong) UITextField *uiPin;
 @property (nonatomic, strong) UIView *uiPinViewGroup;

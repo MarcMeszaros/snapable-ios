@@ -145,6 +145,7 @@ static NSString *cellIdentifier = @"eventListCell";
     else if ([[segue identifier] isEqualToString:@"eventListAuthSegue"]) {
         // Get destination view
         SnapEventListAuthViewController *vc = [segue destinationViewController];
+        vc.parentVC = self;
     
         // Set the selected button in the new view
         vc.event = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
