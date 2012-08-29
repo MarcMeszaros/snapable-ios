@@ -348,17 +348,17 @@ Ceremony &amp; Dinner</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your email" minimumFontSize="17" clearButtonMode="whileEditing" id="do2-Ho-FT7">
-                                <rect key="frame" x="42" y="74" width="220" height="31"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional" minimumFontSize="17" clearButtonMode="always" id="do2-Ho-FT7">
+                                <rect key="frame" x="50" y="175" width="220" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="yk0-LZ-1r4" id="DMP-bI-rRR"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YO7-KY-b1d">
-                                <rect key="frame" x="88" y="269" width="129" height="37"/>
+                                <rect key="frame" x="96" y="335" width="129" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Authenticate">
@@ -373,7 +373,7 @@ Ceremony &amp; Dinner</string>
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" id="lbh-vP-6th" userLabel="View - PIN Group">
-                                <rect key="frame" x="20" y="113" width="280" height="125"/>
+                                <rect key="frame" x="20" y="219" width="280" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="We couldn't find your email on the guest list. Don't worry, just type in the event PIN to get access." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="wfK-dm-UB8">
@@ -387,7 +387,7 @@ Ceremony &amp; Dinner</string>
                                         <rect key="frame" x="46" y="74" width="188" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="yk0-LZ-1r4" id="060-EO-njX"/>
                                         </connections>
@@ -396,7 +396,7 @@ Ceremony &amp; Dinner</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="O0d-uY-4NR">
-                                <rect key="frame" x="112" y="403" width="72" height="37"/>
+                                <rect key="frame" x="124" y="403" width="72" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Back">
@@ -410,6 +410,26 @@ Ceremony &amp; Dinner</string>
                                     <action selector="backButton:" destination="yk0-LZ-1r4" eventType="touchDown" id="dNZ-8G-jfg"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Anonymous" minimumFontSize="17" id="uTn-Gd-eRp">
+                                <rect key="frame" x="50" y="103" width="220" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Photo Attribution" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="KTQ-sz-2cA">
+                                <rect key="frame" x="50" y="74" width="130" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="uBs-0G-lrL">
+                                <rect key="frame" x="50" y="151" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -595,8 +615,6 @@ Ceremony &amp; Dinner</string>
         <class className="SnapEventListAuthViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventListAuthViewController.h"/>
             <relationships>
-                <relationship kind="action" name="authenticateButton:"/>
-                <relationship kind="action" name="backButton:"/>
                 <relationship kind="outlet" name="uiEmail" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="uiPin" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="uiPinViewGroup" candidateClass="UIView"/>
