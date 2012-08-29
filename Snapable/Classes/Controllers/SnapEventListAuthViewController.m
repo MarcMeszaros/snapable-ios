@@ -8,6 +8,8 @@
 
 #import "SnapEventListAuthViewController.h"
 #import "Toast+UIView.h"
+#import "SnapApiClient.h"
+#import "SnapGuest.h"
 
 @interface SnapEventListAuthViewController ()
 
@@ -16,6 +18,7 @@
 @implementation SnapEventListAuthViewController
 
 @synthesize event;
+@synthesize guest;
 @synthesize parentVC;
 @synthesize uiEmail;
 @synthesize uiPin;
@@ -66,19 +69,42 @@
 
 // try and authenticate the user
 - (IBAction)authenticateButton:(id)sender {
-    //try and authenticate
+    // parameters
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri], @"event",
+                            self.uiEmail.text, @"email",
+                            nil];
     
-    // if we match the email
-    if ([self.uiEmail.text compare:@"marc"] == NSOrderedSame) {
-        [self dismissViewControllerAnimated:YES completion:^{
-            DLog(@"try and perform segue");
-            [self.parentVC performSegueWithIdentifier:@"eventListPhotoSegue" sender:self.parentVC];
-        }];
-    }
-    // we don't match show pin stuff
-    else {
-        self.uiPinViewGroup.hidden = NO;
-    }
+    // upload the image
+    SnapApiClient *httpClient = [SnapApiClient sharedInstance];
+    [httpClient getPath:@"guest/" parameters:params
+        success:^(AFHTTPRequestOperation *operation, id response) {
+            // handle a success
+            if ([[response valueForKeyPath:@"meta.total_count"] integerValue] == 1) {
+                NSArray *guests = [response valueForKeyPath:@"objects"];
+                self.guest = [[SnapGuest alloc] initWithDictionary:[guests objectAtIndex:0]];
+                DLog(@"guest: %@", self.guest.email);
+            }
+            // if we match the email
+            if (self.guest != nil && [self.uiEmail.text compare:self.guest.email] == NSOrderedSame) {
+                [self dismissViewControllerAnimated:YES completion:^{
+                    DLog(@"try and perform segue");
+                    [self.parentVC performSegueWithIdentifier:@"eventListPhotoSegue" sender:self.parentVC];
+                }];
+            }
+            // we don't match show pin stuff
+            else {
+                self.uiPinViewGroup.hidden = NO;
+            }
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            // handle failure
+            ALog(@"Error trying to get the guest");
+            DLog(@"Error: %@", error);
+            
+            self.uiPinViewGroup.hidden = NO;
+        }
+     ];
     
     // if we match the pin
     if ([self.uiPin.text compare:self.event.pin] == NSOrderedSame) {

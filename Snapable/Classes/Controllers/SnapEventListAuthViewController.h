@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "SnapEvent.h"
+#import "SnapGuest.h"
 
 @interface SnapEventListAuthViewController : UIViewController <UITextFieldDelegate> {
     SnapEvent *event;
+    SnapGuest *guest;
     UIViewController *parenVC;
     
     IBOutlet UITextField *uiEmail;
@@ -19,6 +21,7 @@
 }
 
 @property (nonatomic, strong) SnapEvent *event;
+@property (nonatomic, strong) SnapGuest *guest;
 @property (nonatomic, strong) UIViewController *parentVC;
 @property (nonatomic, strong) UITextField *uiEmail;
 @property (nonatomic, strong) UITextField *uiPin;
