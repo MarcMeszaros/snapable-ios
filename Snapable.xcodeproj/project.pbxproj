@@ -89,6 +89,10 @@
 		9840E1B415D8751F009B5C54 /* eventListEventBackgroundHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */; };
 		98571AAD15CAC92B0076BE97 /* SnapNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */; };
 		985C0FC915DBF8720000F8F5 /* photoDefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 985C0FC815DBF8720000F8F5 /* photoDefault.jpg */; };
+		98A7C35B15EEC3B7008F9AF4 /* backgroundAuthentication.png in Resources */ = {isa = PBXBuildFile; fileRef = 98A7C35A15EEC3B7008F9AF4 /* backgroundAuthentication.png */; };
+		98A7C35E15EEC72F008F9AF4 /* buttonSignin.png in Resources */ = {isa = PBXBuildFile; fileRef = 98A7C35D15EEC72F008F9AF4 /* buttonSignin.png */; };
+		98A7C36015EECA40008F9AF4 /* backArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 98A7C35F15EECA40008F9AF4 /* backArrow.png */; };
+		98A7C36215EECE0E008F9AF4 /* backgroundAuthenticationPIN.png in Resources */ = {isa = PBXBuildFile; fileRef = 98A7C36115EECE0E008F9AF4 /* backgroundAuthenticationPIN.png */; };
 		98C57F7915D7F97C00F11558 /* eventListEventBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7815D7F97C00F11558 /* eventListEventBackground.png */; };
 		98C57F7C15D7FA3F00F11558 /* FPOeventListPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */; };
 		98C57F7E15D7FD3900F11558 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7D15D7FD3900F11558 /* blueArrow.png */; };
@@ -212,6 +216,10 @@
 		98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapNavigationBar.h; sourceTree = "<group>"; };
 		98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapNavigationBar.m; sourceTree = "<group>"; };
 		985C0FC815DBF8720000F8F5 /* photoDefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photoDefault.jpg; sourceTree = "<group>"; };
+		98A7C35A15EEC3B7008F9AF4 /* backgroundAuthentication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundAuthentication.png; sourceTree = "<group>"; };
+		98A7C35D15EEC72F008F9AF4 /* buttonSignin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonSignin.png; sourceTree = "<group>"; };
+		98A7C35F15EECA40008F9AF4 /* backArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow.png; sourceTree = "<group>"; };
+		98A7C36115EECE0E008F9AF4 /* backgroundAuthenticationPIN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundAuthenticationPIN.png; sourceTree = "<group>"; };
 		98C57F7815D7F97C00F11558 /* eventListEventBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventListEventBackground.png; sourceTree = "<group>"; };
 		98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FPOeventListPhoto.jpg; sourceTree = "<group>"; };
 		98C57F7D15D7FD3900F11558 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
@@ -361,6 +369,10 @@
 		498513EE15C7964E00EB6A77 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				98A7C36115EECE0E008F9AF4 /* backgroundAuthenticationPIN.png */,
+				98A7C35F15EECA40008F9AF4 /* backArrow.png */,
+				98A7C35D15EEC72F008F9AF4 /* buttonSignin.png */,
+				98A7C35A15EEC3B7008F9AF4 /* backgroundAuthentication.png */,
 				98111A2715EBE4450058F4DC /* buttonFlashAuto.png */,
 				98111A2815EBE4450058F4DC /* buttonFlashOff.png */,
 				98111A2915EBE4450058F4DC /* buttonFlashOn.png */,
@@ -609,6 +621,10 @@
 				98111A2D15EBE4450058F4DC /* buttonFlashOn.png in Resources */,
 				98111A2E15EBE4450058F4DC /* buttonSwitchCamera.png in Resources */,
 				49C518C315EBF4D900822163 /* CameraOverlay.xib in Resources */,
+				98A7C35B15EEC3B7008F9AF4 /* backgroundAuthentication.png in Resources */,
+				98A7C35E15EEC72F008F9AF4 /* buttonSignin.png in Resources */,
+				98A7C36015EECA40008F9AF4 /* backArrow.png in Resources */,
+				98A7C36215EECE0E008F9AF4 /* backgroundAuthenticationPIN.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
