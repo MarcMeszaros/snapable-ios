@@ -17,7 +17,7 @@
     SnapEvent *event;
     SnapCamera *camera;
     NSMutableArray *api_photos;
-    NSMutableArray *photos;
+    NSMutableArray *_photos;
     IBOutlet UIView *uiNoPhotos;
     IBOutlet UIButton *uiLoadMore;
     IBOutlet UITableView *_tableView;

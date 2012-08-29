@@ -24,7 +24,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 @synthesize event;
 @synthesize camera;
 @synthesize api_photos;
-@synthesize photos;
+@synthesize photos = _photos;
 @synthesize uiNoPhotos;
 @synthesize uiLoadMore;
 @synthesize tableView = _tableView;
