@@ -10,6 +10,7 @@
 #import "SnapEventListCell.h"
 
 #import "SnapEventPhotoListViewController.h"
+#import "SnapEventListAuthViewController.h"
 
 #import "ISO8601DateFormatter.h"
 #import "Toast+UIView.h"
@@ -124,23 +125,7 @@ static NSString *cellIdentifier = @"eventListCell";
     
     // if the privacy number is less than 6 prompt for the pin
     if (privacyNumber < 6) {
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Event PIN" message:@"This event is private. Please enter the event PIN." delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-        // setup the input field
-        alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
-        UITextField *textField = [alert textFieldAtIndex:0];
-        textField.keyboardType = UIKeyboardTypeASCIICapable;
-        textField.textAlignment = UITextAlignmentCenter;
-        textField.placeholder = @"Event PIN";
-        
-        // add the second text field
-        UITextField *pin = [[UITextField alloc] init];
-        pin.hidden = YES;
-        pin.text = event.pin;
-        pin.tag = -1;
-        [alert addSubview:pin];
-        
-        // show the alert window
-        [alert show];
+        [self performSegueWithIdentifier:@"eventListAuthSegue" sender:self];
     }
     else {
         // Navigation logic may go here. Create and push another view controller.
@@ -154,6 +139,13 @@ static NSString *cellIdentifier = @"eventListCell";
         // Get destination view
         SnapEventPhotoListViewController *vc = [segue destinationViewController];
         
+        // Set the selected button in the new view
+        vc.event = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    }
+    else if ([[segue identifier] isEqualToString:@"eventListAuthSegue"]) {
+        // Get destination view
+        SnapEventListAuthViewController *vc = [segue destinationViewController];
+    
         // Set the selected button in the new view
         vc.event = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     }
