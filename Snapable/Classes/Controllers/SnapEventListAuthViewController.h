@@ -15,6 +15,7 @@
     SnapGuest *guest;
     UIViewController *parenVC;
     
+    IBOutlet UITextField *uiName;
     IBOutlet UITextField *uiEmail;
     IBOutlet UITextField *uiPin;
     IBOutlet UIView *uiPinViewGroup;
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) SnapEvent *event;
 @property (nonatomic, strong) SnapGuest *guest;
 @property (nonatomic, strong) UIViewController *parentVC;
+@property (nonatomic, strong) UITextField *uiName;
 @property (nonatomic, strong) UITextField *uiEmail;
 @property (nonatomic, strong) UITextField *uiPin;
 @property (nonatomic, strong) UIView *uiPinViewGroup;

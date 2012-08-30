@@ -6,8 +6,10 @@
 //  Copyright (c) 2012 Snapable. All rights reserved.
 //
 
+#import "SnapAppDelegate.h"
 #import "SnapEventListViewController.h"
 #import "SnapEventListCell.h"
+#import "FMDatabase.h"
 
 #import "SnapEventPhotoListViewController.h"
 #import "SnapEventListAuthViewController.h"
@@ -125,7 +127,37 @@ static NSString *cellIdentifier = @"eventListCell";
     
     // if the privacy number is less than 6 prompt for the pin
     if (privacyNumber < 6) {
-        [self performSegueWithIdentifier:@"eventListAuthSegue" sender:self];
+        // open local storage
+        SnapAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        [delegate.database open];
+        
+        // create the query to get the data
+        NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", [SnapApiClient getIdAsIntegerFromResourceUri:event.resource_uri]];
+        FMResultSet *results = [delegate.database executeQuery:query];
+        if([results next]) {
+            // parse the sql data results
+            int event_id = [results intForColumn:@"id"];
+            NSString *email = [results stringForColumn:@"email"];
+            NSString *name = [results stringForColumn:@"name"];
+            NSString *pin = [results stringForColumn:@"pin"];
+            DLog(@"Event Credentials: %d - %@, %@ (%@)", event_id, email, name, pin);
+            
+            // pins match
+            if ([event.pin compare:pin] == NSOrderedSame) {
+                [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
+            }
+            // pins don't match
+            else {
+                [self performSegueWithIdentifier:@"eventListAuthSegue" sender:self];
+            }
+        }
+        // no stored event credentials, go to auth screen
+        else {
+            [self performSegueWithIdentifier:@"eventListAuthSegue" sender:self];
+        }
+        
+        // close the database
+        [delegate.database close];
     }
     else {
         // Navigation logic may go here. Create and push another view controller.

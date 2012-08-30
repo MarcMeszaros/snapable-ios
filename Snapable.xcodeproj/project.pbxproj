@@ -463,10 +463,8 @@
 		49BCC29E15C6F3C100E90CB4 = {
 			isa = PBXGroup;
 			children = (
-				491FA2B115EFDD0100D025F8 /* libsqlite3.0.dylib */,
 				491FA2A015EFDCA500D025F8 /* FMDB */,
 				496B164515E6C49F00F08B3D /* Toast */,
-				49D2B79115DD65E400921F84 /* libz.dylib */,
 				49D2B78C15DD654000921F84 /* TestFlightSDK1.0 */,
 				4903235815D89EEA0043C179 /* ISO8601DateFormatter */,
 				49BDA26115CDF21D00C49B19 /* AFNetworking */,
@@ -487,6 +485,8 @@
 		49BCC2AC15C6F3C100E90CB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49D2B79115DD65E400921F84 /* libz.dylib */,
+				491FA2B115EFDD0100D025F8 /* libsqlite3.0.dylib */,
 				49BDA28315CDF4FC00C49B19 /* CoreLocation.framework */,
 				49516A7515C84BA300B9579A /* CoreData.framework */,
 				49516A7615C84BA300B9579A /* libxml2.dylib */,

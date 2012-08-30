@@ -26,6 +26,10 @@
     DLog(@"database path: %@", path);
     self.database = [FMDatabase databaseWithPath:path];
     [self.database open];
+    #ifdef DEBUG
+        // when in debug, compile this in so it drops the table when starting app (easier to test)
+        [self.database executeUpdate:@"DROP TABLE IF EXISTS event_credentials"];
+    #endif
     [self.database executeUpdate:@"CREATE TABLE IF NOT EXISTS event_credentials(id INT PRIMARY KEY, guest_id INT, email TEXT, name TEXT, pin TEXT)"];
     [self.database close];
     return YES;
