@@ -29,4 +29,6 @@
 @property (nonatomic, strong) UITextField *uiPin;
 @property (nonatomic, strong) UIView *uiPinViewGroup;
 
+- (void)updateOrCreateEventCredentials;
+
 @end

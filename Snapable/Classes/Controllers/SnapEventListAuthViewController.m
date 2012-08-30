@@ -91,41 +91,10 @@
             if (self.guest != nil && [self.uiEmail.text compare:self.guest.email] == NSOrderedSame) {
                 [self dismissViewControllerAnimated:YES completion:^{
                     DLog(@"try and perform segue");
-                    
-                    // open local storage
-                    SnapAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-                    [delegate.database open];
-                    
-                    // query the database
-                    NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri]];
-                    FMResultSet *results = [delegate.database executeQuery:query];
-                    
-                    // the event credentials already exists, update it
-                    if ([results next]) {
-                        NSString *query = [NSString stringWithFormat:@"UPDATE event_credentials SET email='%@', name='%@', pin='%@' WHERE id = %d",
-                            self.uiEmail.text,
-                            self.uiName.text,
-                            self.event.pin,
-                            [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri]];
-                        [delegate.database executeUpdate:query];
-                    }
-                    // there is no event credentials, create it
-                    else {
-                        NSString *query = [NSString stringWithFormat:@"INSERT INTO event_credentials(id, email, name, pin) VALUES (%d, '%@', '%@', '%@')",
-                                           [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri],
-                                           self.uiEmail.text,
-                                           self.uiName.text,
-                                           self.event.pin];
-                        [delegate.database executeUpdate:query];
-                    }
-                    
-                    // close the database
-                    [delegate.database close];
-                    
+                    [self updateOrCreateEventCredentials];
                     [self.parentVC performSegueWithIdentifier:@"eventListPhotoSegue" sender:self.parentVC];
                 }];
             }
-
             // we don't match show pin stuff
             else {
                 self.uiPinViewGroup.hidden = NO;
@@ -144,37 +113,7 @@
     if ([self.uiPin.text compare:self.event.pin] == NSOrderedSame) {
         [self dismissViewControllerAnimated:YES completion:^{
             DLog(@"try and perform pin segue");
-            
-            // open local storage
-            SnapAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-            [delegate.database open];
-            
-            // query the database
-            NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri]];
-            FMResultSet *results = [delegate.database executeQuery:query];
-            
-            // the event credentials already exists, update it
-            if ([results next]) {
-                NSString *query = [NSString stringWithFormat:@"UPDATE event_credentials SET email='%@', name='%@', pin='%@' WHERE id = %d",
-                                   self.uiEmail.text,
-                                   self.uiName.text,
-                                   self.event.pin,
-                                   [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri]];
-                [delegate.database executeUpdate:query];
-            }
-            // there is no event credentials, create it
-            else {
-                NSString *query = [NSString stringWithFormat:@"INSERT INTO event_credentials(id, email, name, pin) VALUES (%d, '%@', '%@', '%@')",
-                                   [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri],
-                                   self.uiEmail.text,
-                                   self.uiName.text,
-                                   self.event.pin];
-                [delegate.database executeUpdate:query];
-            }
-            
-            // close the database
-            [delegate.database close];
-            
+            [self updateOrCreateEventCredentials];
             [self.parentVC performSegueWithIdentifier:@"eventListPhotoSegue" sender:self.parentVC];
         }];
     }
@@ -190,6 +129,39 @@
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+// update or create the information cache
+- (void)updateOrCreateEventCredentials {
+    // open local storage
+    SnapAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.database open];
+    
+    // query the database
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri]];
+    FMResultSet *results = [delegate.database executeQuery:query];
+    
+    // the event credentials already exists, update it
+    if ([results next]) {
+        NSString *query = [NSString stringWithFormat:@"UPDATE event_credentials SET email='%@', name='%@', pin='%@' WHERE id = %d",
+                           self.uiEmail.text,
+                           self.uiName.text,
+                           self.event.pin,
+                           [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri]];
+        [delegate.database executeUpdate:query];
+    }
+    // there is no event credentials, create it
+    else {
+        NSString *query = [NSString stringWithFormat:@"INSERT INTO event_credentials(id, email, name, pin) VALUES (%d, '%@', '%@', '%@')",
+                           [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri],
+                           self.uiEmail.text,
+                           self.uiName.text,
+                           self.event.pin];
+        [delegate.database executeUpdate:query];
+    }
+    
+    // close the database
+    [delegate.database close];
 }
 
 @end
