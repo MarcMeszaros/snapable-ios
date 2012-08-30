@@ -10,7 +10,7 @@
 
 #import "SnapEvent.h"
 
-@interface SnapEventListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate> {
+@interface SnapEventListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *events;
 }
 

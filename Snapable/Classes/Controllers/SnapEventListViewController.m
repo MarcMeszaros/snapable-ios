@@ -152,22 +152,6 @@ static NSString *cellIdentifier = @"eventListCell";
     }
 }
 
-// handle alert views
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    DLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
-    UITextField *pin = (UITextField *)[alertView viewWithTag:-1];
-    DLog(@"PIN: %@",pin.text);
-    
-    // if the values match, go to the event
-    if ([[[alertView textFieldAtIndex:0] text] compare:pin.text] == NSOrderedSame) {
-        [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
-    }
-    // the pin is invalid show a toast notification
-    else {
-        [self.view makeToast:@"The PIN entered was invalid." duration:3.0 position:@"center"];
-    }
-}
-
 #pragma mark - Row modifications
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // this shouldn't be hard
