@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FMDatabase.h"
 
-@interface SnapAppDelegate : UIResponder <UIApplicationDelegate>
+@interface SnapAppDelegate : UIResponder <UIApplicationDelegate> {
+    FMDatabase *database;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) FMDatabase *database;
 
 @end

@@ -11,9 +11,23 @@
 
 @implementation SnapAppDelegate
 
+@synthesize database;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // setup TestFlight key
     [TestFlight takeOff:@"121ded9a748e09c3647168b72ee14e48_MTIyMDUzMjAxMi0wOC0xNiAxMzoyNjowMi44Nzk2MTQ"];
+    
+    // setup the sqlite database
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsPath = [paths objectAtIndex:0];
+    NSString *path = [docsPath stringByAppendingPathComponent:@"snapable.sqlite"];
+    
+    DLog(@"database path: %@", path);
+    self.database = [FMDatabase databaseWithPath:path];
+    [self.database open];
+    [self.database executeUpdate:@"CREATE TABLE IF NOT EXISTS event_credentials(id INT PRIMARY KEY, guest_id INT, email TEXT, name TEXT, pin TEXT)"];
+    [self.database close];
     return YES;
 }
 

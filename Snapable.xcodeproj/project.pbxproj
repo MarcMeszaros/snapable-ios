@@ -13,6 +13,12 @@
 		4903235F15D8A6010043C179 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4903235E15D8A6010043C179 /* MainStoryboard.storyboard */; };
 		490985C415C834FB00EB1969 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 490985C215C834FB00EB1969 /* Default.png */; };
 		490985C515C834FB00EB1969 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 490985C315C834FB00EB1969 /* Default@2x.png */; };
+		491FA2AC15EFDCCB00D025F8 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 491FA2A315EFDCCB00D025F8 /* FMDatabase.m */; };
+		491FA2AD15EFDCCB00D025F8 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 491FA2A515EFDCCB00D025F8 /* FMDatabaseAdditions.m */; };
+		491FA2AE15EFDCCB00D025F8 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 491FA2A715EFDCCB00D025F8 /* FMDatabasePool.m */; };
+		491FA2AF15EFDCCB00D025F8 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 491FA2A915EFDCCB00D025F8 /* FMDatabaseQueue.m */; };
+		491FA2B015EFDCCB00D025F8 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 491FA2AB15EFDCCB00D025F8 /* FMResultSet.m */; };
+		491FA2B215EFDD0100D025F8 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 491FA2B115EFDD0100D025F8 /* libsqlite3.0.dylib */; };
 		4925163D15C8E14400A776C7 /* SnapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925163C15C8E14400A776C7 /* SnapAppDelegate.m */; };
 		4929161115CF853F00589CC1 /* SnapLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929161015CF853F00589CC1 /* SnapLoadingViewController.m */; };
 		4929161B15D0340600589CC1 /* SnapCL.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929161A15D0340600589CC1 /* SnapCL.m */; };
@@ -34,7 +40,7 @@
 		4949130915CB152A006BBE8B /* screen1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130615CB152A006BBE8B /* screen1.png */; };
 		4949130A15CB152A006BBE8B /* teardrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130715CB152A006BBE8B /* teardrop.png */; };
 		49516A7415C84BA300B9579A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7215C84B2700B9579A /* CFNetwork.framework */; };
-		49516A7B15C84BA300B9579A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7515C84BA300B9579A /* CoreData.framework */; };
+		49516A7B15C84BA300B9579A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7515C84BA300B9579A /* CoreData.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		49516A7C15C84BA300B9579A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7615C84BA300B9579A /* libxml2.dylib */; };
 		49516A7D15C84BA300B9579A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7715C84BA300B9579A /* MobileCoreServices.framework */; };
 		49516A7E15C84BA300B9579A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7815C84BA300B9579A /* QuartzCore.framework */; };
@@ -109,6 +115,17 @@
 		4903235E15D8A6010043C179 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = Storyboards/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		490985C215C834FB00EB1969 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		490985C315C834FB00EB1969 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		491FA2A215EFDCCB00D025F8 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = FMDB/src/FMDatabase.h; sourceTree = "<group>"; };
+		491FA2A315EFDCCB00D025F8 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = FMDB/src/FMDatabase.m; sourceTree = "<group>"; };
+		491FA2A415EFDCCB00D025F8 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = FMDB/src/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		491FA2A515EFDCCB00D025F8 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = FMDB/src/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		491FA2A615EFDCCB00D025F8 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = FMDB/src/FMDatabasePool.h; sourceTree = "<group>"; };
+		491FA2A715EFDCCB00D025F8 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = FMDB/src/FMDatabasePool.m; sourceTree = "<group>"; };
+		491FA2A815EFDCCB00D025F8 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = FMDB/src/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		491FA2A915EFDCCB00D025F8 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = FMDB/src/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		491FA2AA15EFDCCB00D025F8 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = FMDB/src/FMResultSet.h; sourceTree = "<group>"; };
+		491FA2AB15EFDCCB00D025F8 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/src/FMResultSet.m; sourceTree = "<group>"; };
+		491FA2B115EFDD0100D025F8 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		4925163B15C8E14400A776C7 /* SnapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapAppDelegate.h; sourceTree = "<group>"; };
 		4925163C15C8E14400A776C7 /* SnapAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapAppDelegate.m; sourceTree = "<group>"; };
 		4929160F15CF853F00589CC1 /* SnapLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapLoadingViewController.h; sourceTree = "<group>"; };
@@ -231,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				491FA2B215EFDD0100D025F8 /* libsqlite3.0.dylib in Frameworks */,
 				49516A7E15C84BA300B9579A /* QuartzCore.framework in Frameworks */,
 				49D2B79215DD65E400921F84 /* libz.dylib in Frameworks */,
 				49BDA28415CDF4FC00C49B19 /* CoreLocation.framework in Frameworks */,
@@ -276,6 +294,23 @@
 				495A06EC15DAAF9700E2A4CC /* SnapEventPhotoListCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		491FA2A015EFDCA500D025F8 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				491FA2A215EFDCCB00D025F8 /* FMDatabase.h */,
+				491FA2A315EFDCCB00D025F8 /* FMDatabase.m */,
+				491FA2A415EFDCCB00D025F8 /* FMDatabaseAdditions.h */,
+				491FA2A515EFDCCB00D025F8 /* FMDatabaseAdditions.m */,
+				491FA2A615EFDCCB00D025F8 /* FMDatabasePool.h */,
+				491FA2A715EFDCCB00D025F8 /* FMDatabasePool.m */,
+				491FA2A815EFDCCB00D025F8 /* FMDatabaseQueue.h */,
+				491FA2A915EFDCCB00D025F8 /* FMDatabaseQueue.m */,
+				491FA2AA15EFDCCB00D025F8 /* FMResultSet.h */,
+				491FA2AB15EFDCCB00D025F8 /* FMResultSet.m */,
+			);
+			name = FMDB;
 			sourceTree = "<group>";
 		};
 		496B164515E6C49F00F08B3D /* Toast */ = {
@@ -428,6 +463,8 @@
 		49BCC29E15C6F3C100E90CB4 = {
 			isa = PBXGroup;
 			children = (
+				491FA2B115EFDD0100D025F8 /* libsqlite3.0.dylib */,
+				491FA2A015EFDCA500D025F8 /* FMDB */,
 				496B164515E6C49F00F08B3D /* Toast */,
 				49D2B79115DD65E400921F84 /* libz.dylib */,
 				49D2B78C15DD654000921F84 /* TestFlightSDK1.0 */,
@@ -681,6 +718,11 @@
 				49D2B79515DD818D00921F84 /* SnapPhotoShareViewController.m in Sources */,
 				496B164B15E6C6F500F08B3D /* Toast+UIView.m in Sources */,
 				49C518DC15ED282800822163 /* SnapEventListAuthViewController.m in Sources */,
+				491FA2AC15EFDCCB00D025F8 /* FMDatabase.m in Sources */,
+				491FA2AD15EFDCCB00D025F8 /* FMDatabaseAdditions.m in Sources */,
+				491FA2AE15EFDCCB00D025F8 /* FMDatabasePool.m in Sources */,
+				491FA2AF15EFDCCB00D025F8 /* FMDatabaseQueue.m in Sources */,
+				491FA2B015EFDCCB00D025F8 /* FMResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
