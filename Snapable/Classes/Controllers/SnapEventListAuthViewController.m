@@ -25,6 +25,7 @@
 @synthesize uiPin;
 @synthesize uiPinViewGroup;
 @synthesize uiGuestInfoViewGroup;
+@synthesize uiContinueButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -90,11 +91,15 @@
                                 NSArray *guests = [response valueForKeyPath:@"objects"];
                                 self.guest = [[SnapGuest alloc] initWithDictionary:[guests objectAtIndex:0]];
                                 DLog(@"guest: %@", self.guest.email);
+                                
+                                // if we match the email
+                                if ([self.uiEmail.text compare:self.guest.email] == NSOrderedSame) {
+                                    // TODO save the guest id
+                                }
                             }
-                            
-                            // if we match the email
-                            if (self.guest != nil && [self.uiEmail.text compare:self.guest.email] == NSOrderedSame) {
-                                // TODO save the guest info
+                            // else create the guest info on the API
+                            else if (self.uiEmail.text.length > 0 || self.uiName.text.length > 0) {
+                                // TODO make an API call to create guest
                             }
                         }
                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -126,6 +131,12 @@
 // hide the keyboard
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    // if the pin is still visible
+    if (self.uiPinViewGroup.hidden == NO) {
+        [self authenticateButton:self];
+        self.uiContinueButton.hidden = NO;
+    }
+    
     return YES;
 }
 

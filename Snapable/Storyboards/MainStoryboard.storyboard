@@ -410,7 +410,7 @@ Ceremony &amp; Dinner</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" id="do2-Ho-FT7">
                                         <rect key="frame" x="30" y="75" width="220" height="31"/>
@@ -425,7 +425,7 @@ Ceremony &amp; Dinner</string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YO7-KY-b1d">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YO7-KY-b1d">
                                 <rect key="frame" x="72" y="240" width="177" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -460,6 +460,7 @@ Ceremony &amp; Dinner</string>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="uiContinueButton" destination="YO7-KY-b1d" id="U2P-q6-N2W"/>
                         <outlet property="uiEmail" destination="do2-Ho-FT7" id="ZcM-Ae-ig6"/>
                         <outlet property="uiGuestInfoViewGroup" destination="OzK-qx-St9" id="jF5-td-wuA"/>
                         <outlet property="uiName" destination="uTn-Gd-eRp" id="DKE-b2-7t3"/>
@@ -642,6 +643,79 @@ Ceremony &amp; Dinner</string>
         <image name="teardrop.png" width="391" height="444"/>
         <image name="uploadCancelButton.png" width="40" height="40"/>
     </resources>
+    <classes>
+        <class className="SnapEventListAuthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventListAuthViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="authenticateButton:"/>
+                <relationship kind="action" name="backButton:"/>
+                <relationship kind="outlet" name="uiContinueButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="uiEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="uiGuestInfoViewGroup" candidateClass="UIView"/>
+                <relationship kind="outlet" name="uiName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="uiPin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="uiPinViewGroup" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="SnapEventListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="uiEventDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="uiEventTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="uiPhoto" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="SnapEventListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventListViewController.h"/>
+        </class>
+        <class className="SnapEventPhotoListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventPhotoListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="uiPhoto" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="uiPhotoAuthor" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="uiPhotoCaption" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SnapEventPhotoListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventPhotoListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loadMore:" candidateClass="UIButton"/>
+                <relationship kind="action" name="takePhoto:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="uiLoadMore" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="uiNoPhotos" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="SnapLoadingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapLoadingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="searchForEvents:"/>
+                <relationship kind="outlet" name="loadingButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loadingSpinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="SnapNavigationBar" superclassName="UINavigationBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapNavigationBar.h"/>
+        </class>
+        <class className="SnapPhotoShareViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapPhotoShareViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButton:"/>
+                <relationship kind="action" name="cancelUploadButton:"/>
+                <relationship kind="action" name="doneButton:"/>
+                <relationship kind="action" name="retryUploadButton:"/>
+                <relationship kind="outlet" name="uiBack" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="uiPhotoCaption" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="uiPhotoPreview" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="uiPhotoUploadProgress" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="uiUploadDone" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="uiUploadProgressViewGroup" candidateClass="UIView"/>
+                <relationship kind="outlet" name="uiUploadRetry" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="uiUploadViewGroup" candidateClass="UIView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
