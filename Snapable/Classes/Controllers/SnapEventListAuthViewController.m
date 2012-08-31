@@ -120,6 +120,7 @@
         // hide the pin stuff and show the guest info
         self.uiPinViewGroup.hidden = YES;
         self.uiGuestInfoViewGroup.hidden = NO;
+        self.uiContinueButton.hidden = NO;
     }
     // we don't match show pin stuff
     else if (self.uiPin.text.length > 0) {
@@ -131,12 +132,11 @@
 // hide the keyboard
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    // if the pin is still visible
+    // if the pin is still visible, try and authenticate
     if (self.uiPinViewGroup.hidden == NO) {
         [self authenticateButton:self];
-        self.uiContinueButton.hidden = NO;
     }
-    
+
     return YES;
 }
 

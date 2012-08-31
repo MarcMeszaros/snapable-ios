@@ -137,12 +137,8 @@ static NSString *cellIdentifier = @"eventListCell";
         FMResultSet *results = [delegate.database executeQuery:query];
         if([results next]) {
             // parse the sql data results
-            int event_id = [results intForColumn:@"id"];
-            NSString *email = [results stringForColumn:@"email"];
-            NSString *name = [results stringForColumn:@"name"];
             NSString *pin = [results stringForColumn:@"pin"];
-            DLog(@"Event Credentials: %d - %@, %@ (%@)", event_id, email, name, pin);
-            
+
             // pins match
             if ([self.lastSelectedEvent.pin compare:pin] == NSOrderedSame) {
                 [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
@@ -167,9 +163,7 @@ static NSString *cellIdentifier = @"eventListCell";
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-     DLog(@"select row: %d", self.tableView.indexPathForSelectedRow.row);
-    
+
     if ([[segue identifier] isEqualToString:@"eventListPhotoSegue"]) {
         // Get destination view
         SnapEventPhotoListViewController *vc = [segue destinationViewController];
