@@ -94,23 +94,59 @@
                                 
                                 // if we match the email
                                 if ([self.uiEmail.text compare:self.guest.email] == NSOrderedSame) {
-                                    // TODO save the guest id
+                                    // save the guest id
+                                    [self updateOrCreateEventCredentialsWithEventId:[SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri] withGuestId:self.guest.id];
+                                    
+                                    // update the guest
+                                    NSString *putPath = [NSString stringWithFormat:@"guest/%d/", self.guest.id];
+                                    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            self.uiName.text, @"name",
+                                            nil];
+                                    [httpClient putPath:putPath parameters:params
+                                            success:^(AFHTTPRequestOperation *operation, id response) {
+                                                DLog(@"successfuly updated guest name");
+                                            }
+                                            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                ALog(@"Error updating guest info.");
+                                                DLog(@"Error: %@", error);
+                                            }
+                                     ];
                                 }
                             }
                             // else create the guest info on the API
                             else if (self.uiEmail.text.length > 0 || self.uiName.text.length > 0) {
-                                // TODO make an API call to create guest
+                                // make an API call to create guest
+                                NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        self.event.resource_uri, @"event",
+                                        [NSString stringWithFormat:@"/%@/type/6/", SnapAPIVersion], @"type",
+                                        self.uiName.text, @"name",
+                                        self.uiEmail.text, @"email",
+                                        nil];
+                                [httpClient postPath:@"guest/" parameters:params
+                                    success:^(AFHTTPRequestOperation *operation, id response) {
+                                        NSString *locationHeader = [operation.response.allHeaderFields valueForKey:@"Location"];
+                                        [self updateOrCreateEventCredentialsWithEventId:[SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri] withGuestId:[SnapApiClient getIdAsIntegerFromResourceUri:locationHeader]];
+                                    }
+                                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                        ALog(@"Failed to create new guest.");
+                                        DLog(@"Error: %@", error);
+                                    }
+                                 ];
+                            }
+                            // just save the pin
+                            else {
+                                [self updateOrCreateEventCredentialsWithEventId:[SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri] withGuestId:0];
                             }
                         }
                         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                             // handle failure
                             ALog(@"Error trying to get the guest");
                             DLog(@"Error: %@", error);
+                            [self updateOrCreateEventCredentialsWithEventId:[SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri] withGuestId:0];
                         }
              ];
             
-            // save the credentuals and go to the next sceen
-            [self updateOrCreateEventCredentials];
+            // save the credentials and go to the next sceen
             [self dismissViewControllerAnimated:YES completion:^{
                 DLog(@"try and perform segue");
                 [self.parentVC performSegueWithIdentifier:@"eventListPhotoSegue" sender:self.parentVC];
@@ -141,31 +177,37 @@
 }
 
 // update or create the information cache
-- (void)updateOrCreateEventCredentials {
+- (void)updateOrCreateEventCredentialsWithEventId:(NSInteger)eventId withGuestId:(NSInteger)guestId {
     // open local storage
     SnapAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     [delegate.database open];
     
     // query the database
-    NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri]];
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", eventId];
     FMResultSet *results = [delegate.database executeQuery:query];
     
     // the event credentials already exists, update it
     if ([results next]) {
-        NSString *query = [NSString stringWithFormat:@"UPDATE event_credentials SET email='%@', name='%@', pin='%@' WHERE id = %d",
-                           self.uiEmail.text,
-                           self.uiName.text,
-                           self.event.pin,
-                           [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri]];
+        NSString *query = nil;
+        if (guestId <= 0) {
+            query = [NSString stringWithFormat:@"UPDATE event_credentials SET email='%@', name='%@', pin='%@' WHERE id = %d",
+                self.uiEmail.text, self.uiName.text, self.event.pin, eventId];
+        } else {
+            query = [NSString stringWithFormat:@"UPDATE event_credentials SET guest_id = %d, email='%@', name='%@', pin='%@' WHERE id = %d",
+                guestId, self.uiEmail.text, self.uiName.text, self.event.pin, eventId];
+        }
         [delegate.database executeUpdate:query];
     }
     // there is no event credentials, create it
     else {
-        NSString *query = [NSString stringWithFormat:@"INSERT INTO event_credentials(id, email, name, pin) VALUES (%d, '%@', '%@', '%@')",
-                           [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri],
-                           self.uiEmail.text,
-                           self.uiName.text,
-                           self.event.pin];
+        NSString *query = nil;
+        if (guestId <= 0) {
+            query = [NSString stringWithFormat:@"INSERT INTO event_credentials(id, email, name, pin) VALUES (%d, '%@', '%@', '%@')",
+                eventId, self.uiEmail.text, self.uiName.text, self.event.pin];
+        } else {
+            query = [NSString stringWithFormat:@"INSERT INTO event_credentials(id, guest_id, email, name, pin) VALUES (%d, %d, '%@', '%@', '%@')",
+                eventId, guestId, self.uiEmail.text, self.uiName.text, self.event.pin];
+        }
         [delegate.database executeUpdate:query];
     }
     

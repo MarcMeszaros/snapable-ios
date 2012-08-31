@@ -33,6 +33,6 @@
 @property (nonatomic, strong) UIView *uiGuestInfoViewGroup;
 @property (nonatomic, strong) UIButton *uiContinueButton;
 
-- (void)updateOrCreateEventCredentials;
+- (void)updateOrCreateEventCredentialsWithEventId:(NSInteger)eventId withGuestId:(NSInteger)guestId;
 
 @end

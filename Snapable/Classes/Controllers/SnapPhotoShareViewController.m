@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Snapable. All rights reserved.
 //
 
+#import "SnapAppDelegate.h"
 #import "SnapPhotoShareViewController.h"
 #import "Toast+UIView.h"
 
@@ -114,12 +115,31 @@
 #pragma mark - Uploading
 
 - (void)uploadPhotoStart {
+    // try and get local guest info
+    // open local storage
+    SnapAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.database open];
+    
+    // query the database
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri]];
+    FMResultSet *results = [delegate.database executeQuery:query];
+    
     // parameters
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            self.event.resource_uri, @"event",
-                            //@"/private_v1/guest/2/", @"guest", // TODO make this not manual or required...
-                            self.event.type, @"type",
-                            nil];
+    NSDictionary *params = nil;
+    if ([results next]) {
+        params = [NSDictionary dictionaryWithObjectsAndKeys:
+            self.event.resource_uri, @"event",
+            [NSString stringWithFormat:@"/%@/guest/%d/", SnapAPIVersion, [results intForColumn:@"guest_id"]], @"guest",
+            self.event.type, @"type",
+            nil];
+    } else {
+        params = [NSDictionary dictionaryWithObjectsAndKeys:
+            self.event.resource_uri, @"event",
+            self.event.type, @"type",
+            nil];
+    }
+    // close the database
+    [delegate.database close];
     
     // upload the image
     SnapApiClient *httpClient = [SnapApiClient sharedInstance];
