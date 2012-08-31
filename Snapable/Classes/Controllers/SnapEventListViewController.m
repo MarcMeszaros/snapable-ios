@@ -26,6 +26,7 @@
 static NSString *cellIdentifier = @"eventListCell";
 
 @synthesize events;
+@synthesize lastSelectedEvent;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -120,8 +121,8 @@ static NSString *cellIdentifier = @"eventListCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // get the event selected
-    SnapEvent *event = [self.events objectAtIndex:indexPath.row];
-    NSInteger privacyNumber = [SnapApiClient getIdAsIntegerFromResourceUri:event.type];
+    self.lastSelectedEvent = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    NSInteger privacyNumber = [SnapApiClient getIdAsIntegerFromResourceUri:self.lastSelectedEvent.type];
     
     DLog(@"privacy number: %d", privacyNumber);
     
@@ -132,7 +133,7 @@ static NSString *cellIdentifier = @"eventListCell";
         [delegate.database open];
         
         // create the query to get the data
-        NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", [SnapApiClient getIdAsIntegerFromResourceUri:event.resource_uri]];
+        NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", [SnapApiClient getIdAsIntegerFromResourceUri:self.lastSelectedEvent.resource_uri]];
         FMResultSet *results = [delegate.database executeQuery:query];
         if([results next]) {
             // parse the sql data results
@@ -143,7 +144,7 @@ static NSString *cellIdentifier = @"eventListCell";
             DLog(@"Event Credentials: %d - %@, %@ (%@)", event_id, email, name, pin);
             
             // pins match
-            if ([event.pin compare:pin] == NSOrderedSame) {
+            if ([self.lastSelectedEvent.pin compare:pin] == NSOrderedSame) {
                 [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
             }
             // pins don't match
@@ -167,20 +168,22 @@ static NSString *cellIdentifier = @"eventListCell";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
+     DLog(@"select row: %d", self.tableView.indexPathForSelectedRow.row);
+    
     if ([[segue identifier] isEqualToString:@"eventListPhotoSegue"]) {
         // Get destination view
         SnapEventPhotoListViewController *vc = [segue destinationViewController];
         
         // Set the selected button in the new view
-        vc.event = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        vc.event = self.lastSelectedEvent;
     }
     else if ([[segue identifier] isEqualToString:@"eventListAuthSegue"]) {
         // Get destination view
         SnapEventListAuthViewController *vc = [segue destinationViewController];
         vc.parentVC = self;
-    
+        
         // Set the selected button in the new view
-        vc.event = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        vc.event = self.lastSelectedEvent;
     }
 }
 

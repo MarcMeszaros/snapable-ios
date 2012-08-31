@@ -40,7 +40,6 @@
 		4949130915CB152A006BBE8B /* screen1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130615CB152A006BBE8B /* screen1.png */; };
 		4949130A15CB152A006BBE8B /* teardrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130715CB152A006BBE8B /* teardrop.png */; };
 		49516A7415C84BA300B9579A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7215C84B2700B9579A /* CFNetwork.framework */; };
-		49516A7B15C84BA300B9579A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7515C84BA300B9579A /* CoreData.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		49516A7C15C84BA300B9579A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7615C84BA300B9579A /* libxml2.dylib */; };
 		49516A7D15C84BA300B9579A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7715C84BA300B9579A /* MobileCoreServices.framework */; };
 		49516A7E15C84BA300B9579A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7815C84BA300B9579A /* QuartzCore.framework */; };
@@ -252,7 +251,6 @@
 				49516A7E15C84BA300B9579A /* QuartzCore.framework in Frameworks */,
 				49D2B79215DD65E400921F84 /* libz.dylib in Frameworks */,
 				49BDA28415CDF4FC00C49B19 /* CoreLocation.framework in Frameworks */,
-				49516A7B15C84BA300B9579A /* CoreData.framework in Frameworks */,
 				49516A7C15C84BA300B9579A /* libxml2.dylib in Frameworks */,
 				49516A7D15C84BA300B9579A /* MobileCoreServices.framework in Frameworks */,
 				49516A7F15C84BA300B9579A /* Security.framework in Frameworks */,

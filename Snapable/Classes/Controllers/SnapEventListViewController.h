@@ -12,8 +12,10 @@
 
 @interface SnapEventListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *events;
+    SnapEvent *lastSelectedEvent;
 }
 
 @property (nonatomic, retain) NSArray *events;
+@property (nonatomic, strong) SnapEvent *lastSelectedEvent;
 
 @end
