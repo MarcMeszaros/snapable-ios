@@ -21,6 +21,8 @@
 + (NSInteger)getIdFromResourceUri:(NSString *)uri __attribute__((deprecated("use method 'getIdAsIntegerFromResourceUri' instead")));
 + (NSString *)getIdAsStringFromResourceUri:(NSString *)uri;
 + (NSInteger)getIdAsIntegerFromResourceUri:(NSString *)uri;
++ (NSString *)setIdForResourceUri:(NSString *)uri withString:(NSString *)string;
++ (NSString *)setIdForResourceUri:(NSString *)uri withInteger:(NSInteger)integer;
 
 - (NSMutableURLRequest *)signRequest:(NSMutableURLRequest *)request;
 

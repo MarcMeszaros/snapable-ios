@@ -6,10 +6,12 @@
 //  Copyright (c) 2012 Snapable. All rights reserved.
 //
 
+#import "SnapApiClient.h"
 #import "SnapGuest.h"
 
 @implementation SnapGuest
 
+@synthesize id;
 @synthesize email;
 @synthesize name;
 @synthesize resource_uri;
@@ -23,6 +25,14 @@
     }
     
     return self;
+}
+
+- (NSInteger)getId {
+    return [SnapApiClient getIdAsIntegerFromResourceUri:self.resource_uri];
+}
+
+- (void)setId:(NSInteger)newId {
+    self.resource_uri = [SnapApiClient setIdForResourceUri:self.resource_uri withInteger:newId];
 }
 
 @end

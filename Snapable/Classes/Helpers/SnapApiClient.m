@@ -42,6 +42,22 @@
     return [parts objectAtIndex:(parts.count - 2)];
 }
 
+// small helper function to set the resource id
++ (NSString *)setIdForResourceUri:(NSString *)uri withString:(NSString *)string {
+    NSArray *parts = [uri componentsSeparatedByString:@"/"];
+    NSMutableArray *mutableParts = [uri mutableCopy];
+    [mutableParts replaceObjectAtIndex:(parts.count - 2) withObject:string];
+    return [mutableParts componentsJoinedByString:@""];
+}
+
+// small helper function to set the resource id
++ (NSString *)setIdForResourceUri:(NSString *)uri withInteger:(NSInteger)integer {
+    NSArray *parts = [uri componentsSeparatedByString:@"/"];
+    NSMutableArray *mutableParts = [uri mutableCopy];
+    [mutableParts replaceObjectAtIndex:(parts.count - 2) withObject:[NSString stringWithFormat:@"%d", integer]];
+    return [mutableParts componentsJoinedByString:@""];
+}
+
 #pragma mark - Class Functions
 - (id)initWithBaseURL:(NSURL *)url {
     self = [super initWithBaseURL:url];

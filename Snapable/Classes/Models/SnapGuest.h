@@ -14,10 +14,14 @@
     NSString *resource_uri;
 }
 
+@property (nonatomic, getter = getId, setter = setId:) NSInteger id;
 @property (nonatomic, copy) NSString *email;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *resource_uri;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+
+- (NSInteger)getId;
+- (void)setId:(NSInteger)newId;
 
 @end
