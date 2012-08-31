@@ -19,6 +19,7 @@
     IBOutlet UITextField *uiEmail;
     IBOutlet UITextField *uiPin;
     IBOutlet UIView *uiPinViewGroup;
+    IBOutlet UIView *uiGuestInfoViewGroup;
 }
 
 @property (nonatomic, strong) SnapEvent *event;
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) UITextField *uiEmail;
 @property (nonatomic, strong) UITextField *uiPin;
 @property (nonatomic, strong) UIView *uiPinViewGroup;
+@property (nonatomic, strong) UIView *uiGuestInfoViewGroup;
 
 - (void)updateOrCreateEventCredentials;
 
