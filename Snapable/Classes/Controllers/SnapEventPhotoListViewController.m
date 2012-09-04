@@ -77,6 +77,80 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     
     // initialize the camera
     self.camera = [SnapCamera sharedInstance];
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri], @"event",
+                            nil];
+    
+    // some variables to store data in
+    NSMutableArray *tempPhotoArray = [NSMutableArray array];
+    [[SnapApiClient sharedInstance] getPath:@"photo/" parameters:params
+        success:^(AFHTTPRequestOperation *operation, id response) {
+            DLog(@"we got an API response");
+            // hydrate the response into objects
+            for (id photos in [response valueForKeyPath:@"objects"]) {
+                SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:photos];
+                [tempPhotoArray addObject:photo];
+            }
+            
+            // there already are photos
+            // figure out how many are new and add them to the api array
+            if (self.api_photos.count > 0) {
+                DLog(@"we already have some photos");
+                // get the current first API photo and it's id
+                SnapPhoto *firstPhoto = [self.api_photos objectAtIndex:0];
+                NSInteger firstPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:firstPhoto.resource_uri];
+                
+                DLog(@"loop through and merge");
+                // get the new photos
+                NSMutableArray *newApiPhotoArray = [NSMutableArray array];
+                NSMutableArray *mergedApiPhotoArray = [NSMutableArray array];
+                NSMutableArray *mergedPhotoArray = [NSMutableArray array];
+                SnapPhoto *tempPhoto;
+                int i = 0;
+                int j = 0;
+                while (i < self.photos.count) {
+                    // get the new photo
+                    tempPhoto = [tempPhotoArray objectAtIndex:j];
+                    int tempPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:tempPhoto.resource_uri];
+                    
+                    // if the temp photo isn't in the API array
+                    if (tempPhotoId > firstPhotoId) {
+                        [newApiPhotoArray addObject:tempPhoto];
+                        [mergedApiPhotoArray addObject:tempPhoto];
+                        [mergedPhotoArray addObject:tempPhoto];
+                    }
+                    // add the existing photo
+                    else {
+                        [mergedApiPhotoArray addObject:tempPhoto];
+                        [mergedPhotoArray addObject:tempPhoto];
+                        i++;
+                    }
+                    j++;
+                }
+                
+                // set the api photo array as the merges one
+                self.api_photos = mergedApiPhotoArray;
+                self.photos = mergedPhotoArray;
+                
+                DLog(@"about to update the viewTable");
+                NSMutableArray *paths = [NSMutableArray arrayWithCapacity:newApiPhotoArray.count];
+                for (int i=0; i<newApiPhotoArray.count; i++) {
+                    [paths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+                }
+                [self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
+            }
+            // there are no photos
+            else {
+                self.api_photos = tempPhotoArray;
+                [self loadMoreImages:5];
+            }
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            DLog(@"Error fetching photos!");
+            DLog(@"%@", error);
+        }
+     ];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -213,80 +287,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 - (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker {
     DLog(@"dismiss the imagePicker");
     [picker dismissViewControllerAnimated:YES completion:nil];
-
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri], @"event",
-                            nil];
-    
-    // some variables to store data in
-    NSMutableArray *tempPhotoArray = [NSMutableArray array];
-    [[SnapApiClient sharedInstance] getPath:@"photo/" parameters:params
-        success:^(AFHTTPRequestOperation *operation, id response) {
-            DLog(@"we got an API response");
-            // hydrate the response into objects
-            for (id photos in [response valueForKeyPath:@"objects"]) {
-                SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:photos];
-                [tempPhotoArray addObject:photo];
-            }
-            
-            // there already are photos
-            // figure out how many are new and add them to the api array
-            if (self.api_photos.count > 0) {
-                DLog(@"we already have some photos");
-                // get the current first API photo and it's id
-                SnapPhoto *firstPhoto = [self.api_photos objectAtIndex:0];
-                NSInteger firstPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:firstPhoto.resource_uri];
-                
-                DLog(@"loop through and merge");
-                // get the new photos
-                NSMutableArray *newApiPhotoArray = [NSMutableArray array];
-                NSMutableArray *mergedApiPhotoArray = [NSMutableArray array];
-                NSMutableArray *mergedPhotoArray = [NSMutableArray array];
-                SnapPhoto *tempPhoto;
-                int i = 0;
-                int j = 0;
-                while (i < self.photos.count) {
-                    // get the new photo
-                    tempPhoto = [tempPhotoArray objectAtIndex:j];
-                    int tempPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:tempPhoto.resource_uri];
-                    
-                    // if the temp photo isn't in the API array
-                    if (tempPhotoId > firstPhotoId) {
-                        [newApiPhotoArray addObject:tempPhoto];
-                        [mergedApiPhotoArray addObject:tempPhoto];
-                        [mergedPhotoArray addObject:tempPhoto];
-                    }
-                    // add the existing photo
-                    else {
-                        [mergedApiPhotoArray addObject:tempPhoto];
-                        [mergedPhotoArray addObject:tempPhoto];
-                        i++;
-                    }
-                    j++;
-                }
-
-                // set the api photo array as the merges one
-                self.api_photos = mergedApiPhotoArray;
-                self.photos = mergedPhotoArray;
-                
-                DLog(@"about to update the viewTable");
-                NSMutableArray *paths = [NSMutableArray arrayWithCapacity:newApiPhotoArray.count];
-                for (int i=0; i<newApiPhotoArray.count; i++) {
-                    [paths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-                }
-                [self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
-            }
-            // there are no photos
-            else {
-                self.api_photos = tempPhotoArray;
-                [self loadMoreImages:5];
-            }
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            DLog(@"Error fetching photos!");
-            DLog(@"%@", error);
-        }
-     ];
 }
 
 // For responding to the user accepting a newly-captured picture or movie

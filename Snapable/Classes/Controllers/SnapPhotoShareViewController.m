@@ -126,7 +126,7 @@
     
     // parameters
     NSDictionary *params = nil;
-    if ([results next]) {
+    if ([results next] && [results intForColumn:@"guest_id"] > 0) {
         params = [NSDictionary dictionaryWithObjectsAndKeys:
             self.event.resource_uri, @"event",
             [NSString stringWithFormat:@"/%@/guest/%d/", SnapAPIVersion, [results intForColumn:@"guest_id"]], @"guest",
