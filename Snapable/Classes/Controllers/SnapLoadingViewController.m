@@ -34,8 +34,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.locationController = [[SnapCL alloc] init];
-	self.locationController.delegate = self;
 }
 
 - (void)viewDidUnload
@@ -54,20 +52,22 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    self.locationController = [[SnapCL alloc] initWithDelegate:self];
     [super viewWillAppear:animated];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+    self.locationController = nil;
     [super viewWillDisappear:animated];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     // if the location controller isn't nil, look for new locations
-    if (self.locationController.locationManager != nil) {
-        [self.locationController.locationManager startUpdatingLocation];
+    if (self.locationController != nil) {
+        [self.locationController startUpdatingLocation];
         [loadingSpinner startAnimating];
     }
     [super viewDidAppear:animated];
@@ -76,8 +76,8 @@
 - (void) viewDidDisappear:(BOOL)animated
 {
     // if the location controller isn't nil, look for new locations
-    if (self.locationController.locationManager != nil) {
-        [self.locationController.locationManager stopUpdatingLocation];
+    if (self.locationController != nil) {
+        [self.locationController stopUpdatingLocation];
         [loadingSpinner stopAnimating];
     }
     [super viewDidDisappear:animated];
@@ -91,7 +91,7 @@
 
 - (void)locationUpdate:(CLLocation *)location {
 	// stop updating the location
-    [self.locationController.locationManager stopUpdatingLocation];
+    [self.locationController stopUpdatingLocation];
     
     // get the events
     [loadingSpinner startAnimating];
@@ -138,7 +138,7 @@
     if (self.locationController != nil) {
         [loadingButton setHidden:YES];
         [loadingSpinner startAnimating];
-        [self.locationController.locationManager startUpdatingLocation];
+        [self.locationController startUpdatingLocation];
     }
 }
 

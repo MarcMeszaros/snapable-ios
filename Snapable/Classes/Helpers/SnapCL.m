@@ -11,15 +11,16 @@
 @implementation SnapCL
 
 @synthesize locationManager;
-@synthesize delegate;
+@synthesize delegate = _delegate;
 
-- (id) init {
+- (id)initWithDelegate:(id)delegate {
     self = [super init];
     if (self != nil) {
         self.updateCount = 0;
+        self.delegate = delegate;
         self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.delegate = self; // send loc updates to myself
-        self.locationManager.purpose = @"Snapable uses geofencing to list nearby events.";
+        //self.locationManager.delegate = self; // send loc updates to myself
+        self.locationManager.purpose = @"Use location to list nearby events.";
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest; // desired location accuracy
         //self.locationManager.distanceFilter = 0.01; // only update the location if more than 0.01m has been traveled
     }
@@ -58,6 +59,19 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
 	[self.delegate locationError:error];
+}
+
+#pragma mark - Start/Stop Updating Location
+- (void)startUpdatingLocation {
+    DLog(@"Start updating GPS location.");
+    self.locationManager.delegate = self;
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)stopUpdatingLocation {
+    DLog(@"Stop updating GPS location.");
+    [self.locationManager stopUpdatingLocation];
+    self.locationManager.delegate = nil;
 }
 
 @end
