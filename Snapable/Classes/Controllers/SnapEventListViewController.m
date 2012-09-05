@@ -191,4 +191,10 @@ static NSString *cellIdentifier = @"eventListCell";
     return cell.frame.size.height;
 }
 
+#pragma mark - UIAction
+- (IBAction)goToSnapable:(id)sender {
+    NSString* launchUrl = @"http://snapable.com/";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:launchUrl]];
+}
+
 @end
