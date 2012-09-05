@@ -93,10 +93,28 @@
 	// stop updating the location
     [self.locationController stopUpdatingLocation];
     
+    // get a date formatter
+    NSDate *now = [[NSDate alloc] init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    [dateFormatter setTimeZone:timeZone];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    // setup +/- 48 hours
+    NSDate *twoDaysAgo = [now dateByAddingTimeInterval:-48*60*60];
+    NSDate *twoDaysFromNow = [now dateByAddingTimeInterval:48*60*60];
+
+    // setup the params
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSString stringWithFormat:@"%f", location.coordinate.latitude], @"lat",
+        [NSString stringWithFormat:@"%f", location.coordinate.longitude], @"lng",
+        @"true", @"enabled",
+        [dateFormatter stringFromDate:twoDaysAgo], @"start__gte",
+        [dateFormatter stringFromDate:twoDaysFromNow], @"end__lte",
+        nil];
+
     // get the events
     [loadingSpinner startAnimating];
-    NSString *request_string = [NSString stringWithFormat:@"event/?lat=%f&lng=%f&enabled=true", location.coordinate.latitude, location.coordinate.longitude];
-    [[SnapApiClient sharedInstance] getPath:request_string parameters:nil
+    [[SnapApiClient sharedInstance] getPath:@"event/" parameters:params
         success:^(AFHTTPRequestOperation *operation, id response) {
             // hydrate the response into objects
             self.results = [NSMutableArray array];
