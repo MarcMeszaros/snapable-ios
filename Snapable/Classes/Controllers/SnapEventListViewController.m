@@ -27,6 +27,7 @@ static NSString *cellIdentifier = @"eventListCell";
 
 @synthesize events;
 @synthesize lastSelectedEvent;
+@synthesize uiNoEventViewGroup;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,6 +41,13 @@ static NSString *cellIdentifier = @"eventListCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    // hide the no event message if there is at least one event
+    if (self.events.count > 0) {
+        self.uiNoEventViewGroup.hidden = YES;
+        CGRect rect = CGRectMake(0.0f, 0.0f, 0.0f, 0.0f);
+        [self.uiNoEventViewGroup setFrame:rect];
+    }
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

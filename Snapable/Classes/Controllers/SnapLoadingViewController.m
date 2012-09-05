@@ -127,18 +127,14 @@
             DLog(@"event count: %d", results.count);
             
             // start the correct screen depending on number of events
-            if (self.results.count >= 1) {
-                // start the segue for a single event
-                [loadingSpinner stopAnimating];
-                [self performSegueWithIdentifier:@"eventListSegue" sender:self];
-            } else {
-                [loadingSpinner stopAnimating];
-                [loadingButton setHidden:NO];
-            }
+            [loadingSpinner stopAnimating];
+            [self performSegueWithIdentifier:@"eventListSegue" sender:self];
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             DLog(@"Error fetching events!");
             DLog(@"%@", error);
+            [loadingSpinner stopAnimating];
+            [loadingButton setHidden:NO];
         }
      ];
 }
