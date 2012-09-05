@@ -40,6 +40,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    if ([SnapApiClient getIdAsIntegerFromResourceUri:self.event.type] == 6) {
+        // hide the pin stuff and show the guest info
+        self.uiPinViewGroup.hidden = YES;
+        self.uiGuestInfoViewGroup.hidden = NO;
+        self.uiContinueButton.hidden = NO;
+    }
 }
 
 - (void)viewDidUnload

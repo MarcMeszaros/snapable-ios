@@ -134,40 +134,35 @@ static NSString *cellIdentifier = @"eventListCell";
     
     DLog(@"privacy number: %d", privacyNumber);
     
-    // if the privacy number is less than 6 prompt for the pin
-    if (privacyNumber < 6) {
-        // open local storage
-        SnapAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-        [delegate.database open];
-        
-        // create the query to get the data
-        NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", [SnapApiClient getIdAsIntegerFromResourceUri:self.lastSelectedEvent.resource_uri]];
-        FMResultSet *results = [delegate.database executeQuery:query];
-        if([results next]) {
-            // parse the sql data results
-            NSString *pin = [results stringForColumn:@"pin"];
+    // open local storage
+    SnapAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.database open];
+    
+    // create the query to get the data
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", [SnapApiClient getIdAsIntegerFromResourceUri:self.lastSelectedEvent.resource_uri]];
+    FMResultSet *results = [delegate.database executeQuery:query];
 
-            // pins match
-            if ([self.lastSelectedEvent.pin compare:pin] == NSOrderedSame) {
-                [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
-            }
-            // pins don't match
-            else {
-                [self performSegueWithIdentifier:@"eventListAuthSegue" sender:self];
-            }
+    // we have auth credentials check if they are correct
+    if([results next]) {
+        // parse the sql data results
+        NSString *pin = [results stringForColumn:@"pin"];
+        
+        // pins match or no pin required
+        if ((privacyNumber < 6 && [self.lastSelectedEvent.pin compare:pin] == NSOrderedSame) || privacyNumber == 6) {
+            [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
         }
-        // no stored event credentials, go to auth screen
+        // pins don't match
         else {
             [self performSegueWithIdentifier:@"eventListAuthSegue" sender:self];
         }
-        
-        // close the database
-        [delegate.database close];
     }
+    // no stored event credentials, go to auth screen
     else {
-        // Navigation logic may go here. Create and push another view controller.
-        [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
+        [self performSegueWithIdentifier:@"eventListAuthSegue" sender:self];
     }
+    
+    // close the database
+    [delegate.database close];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
