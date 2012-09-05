@@ -102,6 +102,7 @@
 		98C57F7915D7F97C00F11558 /* eventListEventBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7815D7F97C00F11558 /* eventListEventBackground.png */; };
 		98C57F7C15D7FA3F00F11558 /* FPOeventListPhoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */; };
 		98C57F7E15D7FD3900F11558 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C57F7D15D7FD3900F11558 /* blueArrow.png */; };
+		98C83AED15F7E4B800D05597 /* gotoSnapable.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C83AEC15F7E4B800D05597 /* gotoSnapable.png */; };
 		98D1A4A915EBC6F400732BCA /* cameraOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 98D1A4A815EBC6F400732BCA /* cameraOverlay.png */; };
 /* End PBXBuildFile section */
 
@@ -241,6 +242,7 @@
 		98C57F7815D7F97C00F11558 /* eventListEventBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventListEventBackground.png; sourceTree = "<group>"; };
 		98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FPOeventListPhoto.jpg; sourceTree = "<group>"; };
 		98C57F7D15D7FD3900F11558 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		98C83AEC15F7E4B800D05597 /* gotoSnapable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gotoSnapable.png; sourceTree = "<group>"; };
 		98D1A4A815EBC6F400732BCA /* cameraOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraOverlay.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -406,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				98A7C36115EECE0E008F9AF4 /* backgroundAuthenticationPIN.png */,
+				98C83AEC15F7E4B800D05597 /* gotoSnapable.png */,
 				98A7C35F15EECA40008F9AF4 /* backArrow.png */,
 				98A7C35D15EEC72F008F9AF4 /* buttonSignin.png */,
 				98A7C35A15EEC3B7008F9AF4 /* backgroundAuthentication.png */,
@@ -664,6 +667,7 @@
 				98A7C36015EECA40008F9AF4 /* backArrow.png in Resources */,
 				98A7C36215EECE0E008F9AF4 /* backgroundAuthenticationPIN.png in Resources */,
 				4985763D15F691B50031A2AF /* Location.gpx in Resources */,
+				98C83AED15F7E4B800D05597 /* gotoSnapable.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
