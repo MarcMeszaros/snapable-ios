@@ -32,6 +32,5 @@
 @property (nonatomic, strong) UITableView *tableView;
 
 - (void)loadMoreImages:(NSInteger)count;
-- (void)loadImagesFromApi;
 
 @end

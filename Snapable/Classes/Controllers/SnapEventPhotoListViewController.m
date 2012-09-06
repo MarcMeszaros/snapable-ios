@@ -57,12 +57,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // get a reference to the title label and set the text
     UILabel *title = [header.subviews objectAtIndex:0];
     title.text = self.event.title;
-    
-    // set the nib as the tableview's header
-    //self.tableView.tableHeaderView = header;
-
-    // load the images from API
-    [self loadImagesFromApi];
 }
 
 - (void)viewDidUnload
@@ -103,12 +97,12 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
                 
                 DLog(@"loop through and merge");
                 // get the new photos
-                NSMutableArray *newApiPhotoArray = [NSMutableArray array];
+                NSMutableArray *newPhotoArray = [NSMutableArray array];
                 SnapPhoto *tempPhoto;
                 for (int i=tempPhotoArray.count-1; i>=0; i--) {
                     // get the new photo
                     tempPhoto = [tempPhotoArray objectAtIndex:i];
-                    int tempPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:tempPhoto.resource_uri];
+                    NSInteger tempPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:tempPhoto.resource_uri];
                     
                     // if the temp photo isn't in the API array
                     if (tempPhotoId > firstPhotoId) {
@@ -118,8 +112,8 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
                 }
 
                 DLog(@"about to update the viewTable");
-                NSMutableArray *paths = [NSMutableArray arrayWithCapacity:newApiPhotoArray.count];
-                for (int i=0; i<newApiPhotoArray.count; i++) {
+                NSMutableArray *paths = [NSMutableArray arrayWithCapacity:newPhotoArray.count];
+                for (int i=0; i<newPhotoArray.count; i++) {
                     [paths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
                 }
                 [self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
@@ -190,45 +184,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     [cell.uiPhoto setImageWithURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
     
     return cell;
-}
-
-// load the images from api
--(void)loadImagesFromApi {
-    // get the event photos
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri], @"event",
-                            nil];
-
-    [[SnapApiClient sharedInstance] getPath:@"photo/" parameters:params
-        success:^(AFHTTPRequestOperation *operation, id response) {
-            // hydrate the response into objects
-            for (id photos in [response valueForKeyPath:@"objects"]) {
-                SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:photos];
-                [self.api_photos addObject:photo];
-            }
-                                        
-            // hide the load more button if there are no photos
-            if (self.api_photos.count <= 0) {
-                self.uiLoadMore.hidden = YES;
-                self.uiNoPhotos.hidden = NO;
-            }
-            // there is a photo
-            else {
-                // display the first 5 photos
-                [self loadMoreImages:5];
-                                            
-                // scroll to first photo if there is at least one row
-                //if ([self.tableView numberOfRowsInSection:0] > 0) {
-                //    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-                //    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-                //}
-            }
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            DLog(@"Error fetching photos!");
-            DLog(@"%@", error);
-        }
-     ];
 }
 
 #pragma mark - Table view delegate
