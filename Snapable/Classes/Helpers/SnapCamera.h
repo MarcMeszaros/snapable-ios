@@ -16,11 +16,15 @@
     UIImagePickerController *cameraUI;
     UIButton *uiFlash;
     UIButton *uiSwitchCamera;
+    
+    NSInteger flashMode;
 }
 
 @property (nonatomic, strong) UIImagePickerController *cameraUI;
 @property (nonatomic, strong) UIButton *uiFlash;
 @property (nonatomic, strong) UIButton *uiSwitchCamera;
+@property (nonatomic) NSInteger flashMode;
+
 
 + (id)sharedInstance;
 

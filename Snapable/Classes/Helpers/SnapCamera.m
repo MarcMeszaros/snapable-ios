@@ -13,6 +13,7 @@
 @synthesize cameraUI;
 @synthesize uiFlash;
 @synthesize uiSwitchCamera;
+@synthesize flashMode;
 
 + (id)sharedInstance {
     static SnapCamera *_sharedInstance;
@@ -20,6 +21,7 @@
     dispatch_once(&onceToken, ^{
         _sharedInstance = [[SnapCamera alloc] init]; // init the object
         _sharedInstance.cameraUI = [[UIImagePickerController alloc] init]; // init the camera ui
+        _sharedInstance.flashMode = UIImagePickerControllerCameraFlashModeAuto;
     });
 
     return _sharedInstance;
@@ -37,6 +39,7 @@
     
     // make the source time the camera
     self.cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
+    self.cameraUI.cameraFlashMode = self.flashMode;
     
     // only allow images
     self.cameraUI.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeImage, nil];
@@ -97,17 +100,20 @@
     switch (self.cameraUI.cameraFlashMode) {
         case UIImagePickerControllerCameraFlashModeOff:
             // set the "Off" image
-            self.cameraUI.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+            self.flashMode = UIImagePickerControllerCameraFlashModeAuto;
+            self.cameraUI.cameraFlashMode = self.flashMode;
             [self.uiFlash setImage:[UIImage imageNamed:@"buttonFlashAuto.png"] forState:UIControlStateNormal];
             break;
         case UIImagePickerControllerCameraFlashModeAuto:
             // set the "Auto" image
-            self.cameraUI.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
+            self.flashMode = UIImagePickerControllerCameraFlashModeOn;
+            self.cameraUI.cameraFlashMode = self.flashMode;
             [self.uiFlash setImage:[UIImage imageNamed:@"buttonFlashOn.png"] forState:UIControlStateNormal];
             break;
         case UIImagePickerControllerCameraFlashModeOn:
             // set the "On" image
-            self.cameraUI.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
+            self.flashMode = UIImagePickerControllerCameraFlashModeOff;
+            self.cameraUI.cameraFlashMode = self.flashMode;
             [self.uiFlash setImage:[UIImage imageNamed:@"buttonFlashOff.png"] forState:UIControlStateNormal];
             break;
             
