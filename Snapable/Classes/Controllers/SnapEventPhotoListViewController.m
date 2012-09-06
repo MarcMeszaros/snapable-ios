@@ -104,35 +104,19 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
                 DLog(@"loop through and merge");
                 // get the new photos
                 NSMutableArray *newApiPhotoArray = [NSMutableArray array];
-                NSMutableArray *mergedApiPhotoArray = [NSMutableArray array];
-                NSMutableArray *mergedPhotoArray = [NSMutableArray array];
                 SnapPhoto *tempPhoto;
-                int i = 0;
-                int j = 0;
-                while (i < self.photos.count) {
+                for (int i=tempPhotoArray.count-1; i>=0; i--) {
                     // get the new photo
-                    tempPhoto = [tempPhotoArray objectAtIndex:j];
+                    tempPhoto = [tempPhotoArray objectAtIndex:i];
                     int tempPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:tempPhoto.resource_uri];
                     
                     // if the temp photo isn't in the API array
                     if (tempPhotoId > firstPhotoId) {
-                        [newApiPhotoArray addObject:tempPhoto];
-                        [mergedApiPhotoArray addObject:tempPhoto];
-                        [mergedPhotoArray addObject:tempPhoto];
+                        [self.api_photos insertObject:tempPhoto atIndex:0];
+                        [self.photos insertObject:tempPhoto atIndex:0];
                     }
-                    // add the existing photo
-                    else {
-                        [mergedApiPhotoArray addObject:tempPhoto];
-                        [mergedPhotoArray addObject:tempPhoto];
-                        i++;
-                    }
-                    j++;
                 }
-                
-                // set the api photo array as the merges one
-                self.api_photos = mergedApiPhotoArray;
-                self.photos = mergedPhotoArray;
-                
+
                 DLog(@"about to update the viewTable");
                 NSMutableArray *paths = [NSMutableArray arrayWithCapacity:newApiPhotoArray.count];
                 for (int i=0; i<newApiPhotoArray.count; i++) {
