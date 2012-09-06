@@ -50,13 +50,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     if (self.photos == nil) {
         self.photos = [NSMutableArray array];
     }
-
-    // load up the nib file
-    UIView *header = [[UIView alloc] init];
-    header = [[[NSBundle mainBundle] loadNibNamed:@"EventPhotoListHeader" owner:self options:nil] objectAtIndex:0];
-    // get a reference to the title label and set the text
-    UILabel *title = [header.subviews objectAtIndex:0];
-    title.text = self.event.title;
 }
 
 - (void)viewDidUnload
@@ -82,8 +75,8 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         success:^(AFHTTPRequestOperation *operation, id response) {
             DLog(@"we got an API response");
             // hydrate the response into objects
-            for (id photos in [response valueForKeyPath:@"objects"]) {
-                SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:photos];
+            for (id newphoto in [response valueForKeyPath:@"objects"]) {
+                SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:newphoto];
                 [tempPhotoArray addObject:photo];
             }
             
@@ -99,18 +92,19 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
                 // get the new photos
                 NSMutableArray *newPhotoArray = [NSMutableArray array];
                 SnapPhoto *tempPhoto;
-                for (int i=tempPhotoArray.count-1; i>=0; i--) {
+                for (int i=(tempPhotoArray.count-1); i>=0; i--) {
                     // get the new photo
                     tempPhoto = [tempPhotoArray objectAtIndex:i];
                     NSInteger tempPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:tempPhoto.resource_uri];
                     
                     // if the temp photo isn't in the API array
                     if (tempPhotoId > firstPhotoId) {
+                        [newPhotoArray insertObject:tempPhoto atIndex:0];
                         [self.api_photos insertObject:tempPhoto atIndex:0];
                         [self.photos insertObject:tempPhoto atIndex:0];
                     }
                 }
-
+                
                 DLog(@"about to update the viewTable");
                 NSMutableArray *paths = [NSMutableArray arrayWithCapacity:newPhotoArray.count];
                 for (int i=0; i<newPhotoArray.count; i++) {
@@ -232,7 +226,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 - (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info {
 
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
-    UIImage *originalImage, *editedImage, *imageToSave;
+    UIImage *originalImage, *imageToSave;
 
     // Handle a still image capture
     if (CFStringCompare ((__bridge CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
