@@ -175,24 +175,24 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SnapEventPhotoListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
+
     // get the photo
     SnapPhoto *photo = [self.photos objectAtIndex:indexPath.row];
-    
+
     // initialize if null
     if (cell == nil) {
         cell = [[SnapEventPhotoListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
+
     // set the data
     cell.uiPhotoCaption.text = photo.caption;
     if (photo.author_name.length > 0) {
         cell.uiPhotoAuthor.text = photo.author_name;
     }
-    
+
     // set the image string
     NSString *photoAbsolutePath;
-    
+
     // if it's the original screen resolution
     if([[UIScreen mainScreen] scale] == 1.0f){
        photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=250x250", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri];
@@ -298,77 +298,43 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // Handle a still image capture
     if (CFStringCompare ((__bridge CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
 
-        editedImage = (UIImage *) [info objectForKey:UIImagePickerControllerEditedImage];
         originalImage = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
         
-        if (editedImage) {
-            // crop coordinates
-            CGRect rect = [[info objectForKey:UIImagePickerControllerCropRect] CGRectValue];
-            CGRect crop; // this will hold our orientation corrected crop values
-
-            // get the original images width and height
-            CGFloat originalWidth = originalImage.size.width;
-            CGFloat originalHeight = originalImage.size.height;
-            
-            // modify the crop rectangle based on EXIF data in the original image regarding orientation
-            if (originalImage.imageOrientation == UIImageOrientationUp) {
-                // NOTHING, the sensor is in the upright position
-                crop = rect;
-            } else if (originalImage.imageOrientation == UIImageOrientationDown) {
-                // the sensor was rotated 180 degrees CW/CCW
-                crop = CGRectMake(originalWidth - (rect.origin.x + rect.size.width), originalHeight - (rect.origin.y + rect.size.height), rect.size.width, rect.size.height);
-            }
-            else if (originalImage.imageOrientation == UIImageOrientationLeft) {
-                // the sersor was rotated 90 degrees CCW
-                crop = CGRectMake(originalHeight - (rect.origin.y + rect.size.height), rect.origin.x, rect.size.height, rect.size.width);
-                
-            } else if (originalImage.imageOrientation == UIImageOrientationRight) {
-                // the sensor wa rotated 90 degrees CW
-                crop = CGRectMake(rect.origin.y, originalWidth - (rect.origin.x + rect.size.height), rect.size.height, rect.size.width);
-            }
-            
-            // apply the cropping to the image and get a reference to the transformation
-            CGImageRef imageRef = CGImageCreateWithImageInRect([originalImage CGImage], crop);
-            // rasterize the image and free up the image reference
-            imageToSave = [UIImage imageWithCGImage:imageRef scale:originalImage.scale orientation:originalImage.imageOrientation];
-            CGImageRelease(imageRef);
+        // get the original images width and height
+        CGFloat originalWidth = originalImage.size.width;
+        CGFloat originalHeight = originalImage.size.height;
+        
+        // crop coordinates
+        CGFloat squareLength = 0.0f;
+        if (originalWidth > originalHeight) {
+            squareLength = originalHeight;
         } else {
-            // get the original images width and height
-            CGFloat originalWidth = originalImage.size.width;
-            CGFloat originalHeight = originalImage.size.height;
-            
-            // crop coordinates
-            CGFloat squareLength = 0.0f;
-            if (originalWidth > originalHeight) {
-                squareLength = originalHeight;
-            } else {
-                squareLength = originalWidth;
-            }
-            CGRect crop; // this will hold our orientation corrected crop values
-            
-            // modify the crop rectangle based on EXIF data in the original image regarding orientation
-            if (originalImage.imageOrientation == UIImageOrientationUp) {
-                // NOTHING, the sensor is in the upright position
-                crop = CGRectMake((originalWidth - squareLength) / 2.0, 0, squareLength, squareLength);
-            } else if (originalImage.imageOrientation == UIImageOrientationDown) {
-                // the sensor was rotated 180 degrees CW/CCW
-                crop = CGRectMake((originalWidth - squareLength) / 2.0, 0, squareLength, squareLength);
-            }
-            else if (originalImage.imageOrientation == UIImageOrientationLeft) {
-                // the sersor was rotated 90 degrees CCW
-                crop = CGRectMake((originalHeight - squareLength) / 2.0, 0, squareLength, squareLength);
-                
-            } else if (originalImage.imageOrientation == UIImageOrientationRight) {
-                // the sensor wa rotated 90 degrees CW
-                crop = CGRectMake((originalHeight - squareLength) / 2.0, 0, squareLength, squareLength);
-            }
-            
-            // apply the cropping to the image and get a reference to the transformation
-            CGImageRef imageRef = CGImageCreateWithImageInRect([originalImage CGImage], crop);
-            // rasterize the image and free up the image reference
-            imageToSave = [UIImage imageWithCGImage:imageRef scale:originalImage.scale orientation:originalImage.imageOrientation];
-            CGImageRelease(imageRef);
+            squareLength = originalWidth;
         }
+        CGRect crop; // this will hold our orientation corrected crop values
+        
+        // modify the crop rectangle based on EXIF data in the original image regarding orientation
+        if (originalImage.imageOrientation == UIImageOrientationUp) {
+            // NOTHING, the sensor is in the upright position
+            crop = CGRectMake((originalWidth - squareLength) / 2.0, 0, squareLength, squareLength);
+        } else if (originalImage.imageOrientation == UIImageOrientationDown) {
+            // the sensor was rotated 180 degrees CW/CCW
+            crop = CGRectMake((originalWidth - squareLength) / 2.0, 0, squareLength, squareLength);
+        }
+        else if (originalImage.imageOrientation == UIImageOrientationLeft) {
+            // the sersor was rotated 90 degrees CCW
+            crop = CGRectMake((originalHeight - squareLength) / 2.0, 0, squareLength, squareLength);
+            
+        } else if (originalImage.imageOrientation == UIImageOrientationRight) {
+            // the sensor wa rotated 90 degrees CW
+            crop = CGRectMake((originalHeight - squareLength) / 2.0, 0, squareLength, squareLength);
+        }
+        
+        // apply the cropping to the image and get a reference to the transformation
+        CGImageRef imageRef = CGImageCreateWithImageInRect([originalImage CGImage], crop);
+        // rasterize the image and free up the image reference
+        imageToSave = [UIImage imageWithCGImage:imageRef scale:originalImage.scale orientation:originalImage.imageOrientation];
+        CGImageRelease(imageRef);
 
         // Save the new image (original or edited) to the Camera Roll
         UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
