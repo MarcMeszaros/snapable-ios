@@ -79,7 +79,7 @@
 // try and authenticate the user
 - (IBAction)authenticateButton:(id)sender {
     // if we match the pin
-    if ([self.uiPin.text compare:self.event.pin] == NSOrderedSame) {
+    if ([SnapApiClient getIdAsIntegerFromResourceUri:self.event.type] == 6 || [self.uiPin.text compare:self.event.pin] == NSOrderedSame) {
         // the pin group is hidden, try and process email and name
         if (self.uiPinViewGroup.hidden) {
             // parameters
