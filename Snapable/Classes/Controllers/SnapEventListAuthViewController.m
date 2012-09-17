@@ -121,10 +121,18 @@
                             }
                             // else create the guest info on the API
                             else if (self.uiEmail.text.length > 0 || self.uiName.text.length > 0) {
+                                // guest type
+                                NSString *guestType = nil;
+                                if ([SnapApiClient getIdAsIntegerFromResourceUri:self.event.type] == 6) {
+                                    guestType = [NSString stringWithFormat:@"/%@/type/6/", SnapAPIVersion];
+                                } else {
+                                    guestType = [NSString stringWithFormat:@"/%@/type/5/", SnapAPIVersion];
+                                }
+
                                 // make an API call to create guest
                                 NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                                         self.event.resource_uri, @"event",
-                                        [NSString stringWithFormat:@"/%@/type/6/", SnapAPIVersion], @"type",
+                                        guestType, @"type",
                                         self.uiName.text, @"name",
                                         self.uiEmail.text, @"email",
                                         nil];
