@@ -12,6 +12,7 @@
 
 @synthesize locationManager;
 @synthesize delegate = _delegate;
+@synthesize updateCount = _updateCount;
 
 - (id)initWithDelegate:(id)delegate {
     self = [super init];

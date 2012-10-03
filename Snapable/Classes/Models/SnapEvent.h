@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface SnapEvent : NSObject {
-    BOOL enabled;
-    int photo_count;
+    BOOL _enabled;
+    int _photo_count;
     NSString *start;
     NSString *end;
     NSString *title;

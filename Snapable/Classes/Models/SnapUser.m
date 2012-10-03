@@ -10,6 +10,7 @@
 
 @implementation SnapUser
 
+@synthesize terms = _terms;
 @synthesize email;
 @synthesize first_name;
 @synthesize last_name;

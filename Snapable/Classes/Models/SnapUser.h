@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface SnapUser : NSObject {
-    BOOL terms;
+    BOOL _terms;
     NSString *email;
     NSString *first_name;
     NSString *last_name;

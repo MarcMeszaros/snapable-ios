@@ -10,6 +10,8 @@
 
 @implementation SnapEvent
 
+@synthesize enabled = _enabled;
+@synthesize photo_count = _photo_count;
 @synthesize start;
 @synthesize end;
 @synthesize title;
