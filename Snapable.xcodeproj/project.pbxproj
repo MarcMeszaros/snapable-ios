@@ -47,6 +47,7 @@
 		49516A8015C84BA300B9579A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7A15C84BA300B9579A /* SystemConfiguration.framework */; };
 		495A06ED15DAAF9700E2A4CC /* SnapEventPhotoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 495A06EC15DAAF9700E2A4CC /* SnapEventPhotoListCell.m */; };
 		495A06F915DC455500E2A4CC /* SnapGuest.m in Sources */ = {isa = PBXBuildFile; fileRef = 495A06F815DC455400E2A4CC /* SnapGuest.m */; };
+		495DF9AF161CB9A300584783 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 495DF9AC161CB94B00584783 /* libTestFlight.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		496B164B15E6C6F500F08B3D /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B164A15E6C6F500F08B3D /* Toast+UIView.m */; };
 		498513F415C7966000EB6A77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 498513F115C7966000EB6A77 /* InfoPlist.strings */; };
 		498513F515C7966000EB6A77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 498513F315C7966000EB6A77 /* main.m */; };
@@ -76,7 +77,6 @@
 		49BDA28415CDF4FC00C49B19 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BDA28315CDF4FC00C49B19 /* CoreLocation.framework */; };
 		49C518C315EBF4D900822163 /* CameraOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C518C215EBF4D900822163 /* CameraOverlay.xib */; };
 		49C518DC15ED282800822163 /* SnapEventListAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C518DB15ED282800822163 /* SnapEventListAuthViewController.m */; };
-		49D2B79015DD659400921F84 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D2B78E15DD659400921F84 /* libTestFlight.a */; };
 		49D2B79215DD65E400921F84 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D2B79115DD65E400921F84 /* libz.dylib */; };
 		49D2B79515DD818D00921F84 /* SnapPhotoShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D2B79415DD818D00921F84 /* SnapPhotoShareViewController.m */; };
 		49E2316D15EAE150005FE7B4 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E2316715EAE150005FE7B4 /* back.png */; };
@@ -167,6 +167,8 @@
 		495A06EC15DAAF9700E2A4CC /* SnapEventPhotoListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SnapEventPhotoListCell.m; path = Views/SnapEventPhotoListCell.m; sourceTree = "<group>"; };
 		495A06F715DC455400E2A4CC /* SnapGuest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapGuest.h; sourceTree = "<group>"; };
 		495A06F815DC455400E2A4CC /* SnapGuest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapGuest.m; sourceTree = "<group>"; };
+		495DF9AC161CB94B00584783 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = TestFlightSDK1.1/libTestFlight.a; sourceTree = "<group>"; };
+		495DF9AD161CB94B00584783 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = TestFlightSDK1.1/TestFlight.h; sourceTree = "<group>"; };
 		496B164915E6C6ED00F08B3D /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Toast+UIView.h"; path = "Toast/Toast+UIView.h"; sourceTree = "<group>"; };
 		496B164A15E6C6F500F08B3D /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Toast+UIView.m"; path = "Toast/Toast+UIView.m"; sourceTree = "<group>"; };
 		498513EA15C7963800EB6A77 /* Snapable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Snapable-Info.plist"; sourceTree = "<group>"; };
@@ -214,8 +216,6 @@
 		49C518C215EBF4D900822163 /* CameraOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CameraOverlay.xib; path = NIBs/CameraOverlay.xib; sourceTree = "<group>"; };
 		49C518DA15ED282800822163 /* SnapEventListAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapEventListAuthViewController.h; sourceTree = "<group>"; };
 		49C518DB15ED282800822163 /* SnapEventListAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapEventListAuthViewController.m; sourceTree = "<group>"; };
-		49D2B78E15DD659400921F84 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = TestFlightSDK1.0/libTestFlight.a; sourceTree = "<group>"; };
-		49D2B78F15DD659400921F84 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = TestFlightSDK1.0/TestFlight.h; sourceTree = "<group>"; };
 		49D2B79115DD65E400921F84 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		49D2B79315DD818D00921F84 /* SnapPhotoShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapPhotoShareViewController.h; sourceTree = "<group>"; };
 		49D2B79415DD818D00921F84 /* SnapPhotoShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapPhotoShareViewController.m; sourceTree = "<group>"; };
@@ -253,9 +253,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495DF9AF161CB9A300584783 /* libTestFlight.a in Frameworks */,
+				49D2B79215DD65E400921F84 /* libz.dylib in Frameworks */,
 				491FA2B215EFDD0100D025F8 /* libsqlite3.0.dylib in Frameworks */,
 				49516A7E15C84BA300B9579A /* QuartzCore.framework in Frameworks */,
-				49D2B79215DD65E400921F84 /* libz.dylib in Frameworks */,
 				49BDA28415CDF4FC00C49B19 /* CoreLocation.framework in Frameworks */,
 				49516A7C15C84BA300B9579A /* libxml2.dylib in Frameworks */,
 				49516A7D15C84BA300B9579A /* MobileCoreServices.framework in Frameworks */,
@@ -265,7 +266,6 @@
 				49BCC2AE15C6F3C100E90CB4 /* UIKit.framework in Frameworks */,
 				49BCC2B015C6F3C100E90CB4 /* Foundation.framework in Frameworks */,
 				49BCC2B215C6F3C100E90CB4 /* CoreGraphics.framework in Frameworks */,
-				49D2B79015DD659400921F84 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +472,7 @@
 			children = (
 				491FA2A015EFDCA500D025F8 /* FMDB */,
 				496B164515E6C49F00F08B3D /* Toast */,
-				49D2B78C15DD654000921F84 /* TestFlightSDK1.0 */,
+				49D2B78C15DD654000921F84 /* TestFlightSDK1.1 */,
 				4903235815D89EEA0043C179 /* ISO8601DateFormatter */,
 				49BDA26115CDF21D00C49B19 /* AFNetworking */,
 				49BCC2B315C6F3C100E90CB4 /* Snapable */,
@@ -551,13 +551,13 @@
 			path = AFNetworking/AFNetworking;
 			sourceTree = "<group>";
 		};
-		49D2B78C15DD654000921F84 /* TestFlightSDK1.0 */ = {
+		49D2B78C15DD654000921F84 /* TestFlightSDK1.1 */ = {
 			isa = PBXGroup;
 			children = (
-				49D2B78E15DD659400921F84 /* libTestFlight.a */,
-				49D2B78F15DD659400921F84 /* TestFlight.h */,
+				495DF9AC161CB94B00584783 /* libTestFlight.a */,
+				495DF9AD161CB94B00584783 /* TestFlight.h */,
 			);
-			name = TestFlightSDK1.0;
+			name = TestFlightSDK1.1;
 			sourceTree = "<group>";
 		};
 		49E3298B15D98227001FF6A0 /* NIBs */ = {
@@ -774,7 +774,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "460B290A-C1DE-48D6-B0EF-6E7B9CAC3106";
+				PROVISIONING_PROFILE = "FABE5B2D-A43B-4D76-A697-9AF9EB2D1231";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "460B290A-C1DE-48D6-B0EF-6E7B9CAC3106";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -796,6 +796,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/TestFlightSDK1.0\"",
+					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -813,6 +814,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -828,6 +830,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -874,6 +877,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/TestFlightSDK1.0\"",
+					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -898,6 +902,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/TestFlightSDK1.0\"",
+					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
