@@ -795,7 +795,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlightSDK1.0\"",
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				OTHER_LDFLAGS = "";
@@ -876,7 +875,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlightSDK1.0\"",
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				OTHER_LDFLAGS = "";
@@ -901,7 +899,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlightSDK1.0\"",
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				OTHER_LDFLAGS = "";
