@@ -59,6 +59,16 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // Release any retained subviews of the main view.
 }
 
+// some view tweaks before it's displayed
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // We need to force the status bar for the edge case of the UIImagePickerController changing
+    // the source type while being displayed. Changing the source type while it's being displayed
+    // hides the status bar. This fixes it.
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
+}
+
 // this loads the camera after the view appeared (a trick to hide the loading)
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -270,9 +280,12 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         imageToSave = [UIImage imageWithCGImage:imageRef scale:originalImage.scale orientation:originalImage.imageOrientation];
         CGImageRelease(imageRef);
 
-        // Save the new image (original or edited) to the Camera Roll
-        UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
-        
+        // Save the new image (original or edited) to the camera roll if it wasn't
+        // originally selected from the camera roll
+        if (picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
+            UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
+        }
+
         // start the share screen
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         SnapPhotoShareViewController *snapPhotoVC = (SnapPhotoShareViewController *)[storyboard instantiateViewControllerWithIdentifier:@"photoShareController"];
