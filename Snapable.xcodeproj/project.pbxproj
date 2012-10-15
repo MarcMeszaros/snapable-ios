@@ -58,7 +58,7 @@
 		4985140115C7977900EB6A77 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 498513FA15C7977900EB6A77 /* Icon.png */; };
 		4985140215C7977900EB6A77 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498513FB15C7977900EB6A77 /* Icon@2x.png */; };
 		4985140315C7977900EB6A77 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 498513FC15C7977900EB6A77 /* iTunesArtwork */; };
-		4985763D15F691B50031A2AF /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4985763C15F691B50031A2AF /* Location.gpx */; };
+		49A1AA4C162C8682001160D3 /* Ottawa.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 49A1AA4B162C8682001160D3 /* Ottawa.gpx */; };
 		49B8663C15D190850089AEE0 /* SnapCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8663B15D190850089AEE0 /* SnapCamera.m */; };
 		49B90A7115D9EB530011A252 /* SnapEventPhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B90A7015D9EB530011A252 /* SnapEventPhotoListViewController.m */; };
 		49BCC2AE15C6F3C100E90CB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2AD15C6F3C100E90CB4 /* UIKit.framework */; };
@@ -182,7 +182,7 @@
 		498513FA15C7977900EB6A77 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		498513FB15C7977900EB6A77 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		498513FC15C7977900EB6A77 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
-		4985763C15F691B50031A2AF /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		49A1AA4B162C8682001160D3 /* Ottawa.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Ottawa.gpx; sourceTree = "<group>"; };
 		49B8663A15D190850089AEE0 /* SnapCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapCamera.h; sourceTree = "<group>"; };
 		49B8663B15D190850089AEE0 /* SnapCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapCamera.m; sourceTree = "<group>"; };
 		49B90A6F15D9EB530011A252 /* SnapEventPhotoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapEventPhotoListViewController.h; sourceTree = "<group>"; };
@@ -399,7 +399,7 @@
 		498513ED15C7964E00EB6A77 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4985763C15F691B50031A2AF /* Location.gpx */,
+				49A1AA4B162C8682001160D3 /* Ottawa.gpx */,
 				49E3298B15D98227001FF6A0 /* NIBs */,
 				498513EE15C7964E00EB6A77 /* Images */,
 			);
@@ -669,9 +669,9 @@
 				98A7C35E15EEC72F008F9AF4 /* buttonSignin.png in Resources */,
 				98A7C36015EECA40008F9AF4 /* backArrow.png in Resources */,
 				98A7C36215EECE0E008F9AF4 /* backgroundAuthenticationPIN.png in Resources */,
-				4985763D15F691B50031A2AF /* Location.gpx in Resources */,
 				98C83AED15F7E4B800D05597 /* gotoSnapable.png in Resources */,
 				98FDADF115F7F772001EC2D6 /* shareUploadImageBGlrg.png in Resources */,
+				49A1AA4C162C8682001160D3 /* Ottawa.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

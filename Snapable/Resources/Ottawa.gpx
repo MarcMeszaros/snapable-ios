@@ -4,5 +4,8 @@
     <wpt lat="45.42735709" lon="-75.69136161">
          <name>Ottawa, Canada</name>
 	</wpt>
+    <wpt lat="45.42735709" lon="-75.69136161">
+        <name>Ottawa, Canada</name>
+	</wpt>
 
 </gpx>
