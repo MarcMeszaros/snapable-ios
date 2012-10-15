@@ -13,6 +13,7 @@
 @synthesize cameraUI;
 @synthesize uiFlash;
 @synthesize uiSwitchCamera;
+@synthesize uiCameraRoll;
 @synthesize flashMode;
 
 + (id)sharedInstance {
@@ -57,6 +58,7 @@
     self.cameraUI.cameraOverlayView = overlay;
     self.uiFlash = (UIButton *)[overlay viewWithTag:TAG_uiFlash];
     self.uiSwitchCamera = (UIButton *)[overlay viewWithTag:TAG_uiSwitchCamera];
+    self.uiCameraRoll = (UIButton *)[overlay viewWithTag:TAG_uiCameraRoll];
     
     // check if flash is available
     BOOL flashAvailable = [UIImagePickerController isFlashAvailableForCameraDevice:self.cameraUI.cameraDevice];
@@ -84,12 +86,14 @@
         }
         
         // enable button switching
-        [self.uiFlash addTarget:self action:@selector(changeFlashMode:) forControlEvents:UIControlEventAllTouchEvents];
+        [self.uiFlash addTarget:self action:@selector(changeFlashMode:) forControlEvents:UIControlEventTouchDown];
 
         // unhide the flash button
         self.uiFlash.hidden = NO;
     }
     
+    // setup camera roll button
+    [self.uiCameraRoll addTarget:self action:@selector(cameraRoll:) forControlEvents:UIControlEventTouchDown];
 
     [controller presentViewController:self.cameraUI animated:YES completion:nil];
     return YES;
@@ -120,6 +124,11 @@
         default:
             break;
     }
+}
+
+// change the UI Picker to use the camera roll
+- (void)cameraRoll:(id)sender {
+    self.cameraUI.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
 }
 
 @end
