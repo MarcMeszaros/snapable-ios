@@ -282,7 +282,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 
         // Save the new image (original or edited) to the camera roll if it wasn't
         // originally selected from the camera roll
-        if (picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
+        if (picker.sourceType != UIImagePickerControllerSourceTypePhotoLibrary || picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
             UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
         }
 

@@ -128,7 +128,7 @@
 
 // change the UI Picker to use the camera roll
 - (void)cameraRoll:(id)sender {
-    self.cameraUI.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    self.cameraUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 }
 
 @end
