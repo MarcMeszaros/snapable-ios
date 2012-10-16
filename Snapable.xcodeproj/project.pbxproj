@@ -91,6 +91,7 @@
 		98111A2C15EBE4450058F4DC /* buttonFlashOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2815EBE4450058F4DC /* buttonFlashOff.png */; };
 		98111A2D15EBE4450058F4DC /* buttonFlashOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2915EBE4450058F4DC /* buttonFlashOn.png */; };
 		98111A2E15EBE4450058F4DC /* buttonSwitchCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2A15EBE4450058F4DC /* buttonSwitchCamera.png */; };
+		98135466162DE51D00972393 /* photoPickerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 98135465162DE51D00972393 /* photoPickerButton.png */; };
 		9840031015D954DF00A58ED2 /* eventPhotoBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */; };
 		9840E1B415D8751F009B5C54 /* eventListEventBackgroundHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */; };
 		98571AAD15CAC92B0076BE97 /* SnapNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 98571AAC15CAC92B0076BE97 /* SnapNavigationBar.m */; };
@@ -231,6 +232,7 @@
 		98111A2815EBE4450058F4DC /* buttonFlashOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonFlashOff.png; sourceTree = "<group>"; };
 		98111A2915EBE4450058F4DC /* buttonFlashOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonFlashOn.png; sourceTree = "<group>"; };
 		98111A2A15EBE4450058F4DC /* buttonSwitchCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonSwitchCamera.png; sourceTree = "<group>"; };
+		98135465162DE51D00972393 /* photoPickerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoPickerButton.png; sourceTree = "<group>"; };
 		9840030E15D954DF00A58ED2 /* eventPhotoBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventPhotoBorder.png; sourceTree = "<group>"; };
 		9840E1B315D8751F009B5C54 /* eventListEventBackgroundHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventListEventBackgroundHighlight.png; sourceTree = "<group>"; };
 		98571AAB15CAC92B0076BE97 /* SnapNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapNavigationBar.h; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 		498513EE15C7964E00EB6A77 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				98135465162DE51D00972393 /* photoPickerButton.png */,
 				98A7C36115EECE0E008F9AF4 /* backgroundAuthenticationPIN.png */,
 				98FDADF015F7F772001EC2D6 /* shareUploadImageBGlrg.png */,
 				98C83AEC15F7E4B800D05597 /* gotoSnapable.png */,
@@ -672,6 +675,7 @@
 				98C83AED15F7E4B800D05597 /* gotoSnapable.png in Resources */,
 				98FDADF115F7F772001EC2D6 /* shareUploadImageBGlrg.png in Resources */,
 				49A1AA4C162C8682001160D3 /* Ottawa.gpx in Resources */,
+				98135466162DE51D00972393 /* photoPickerButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
