@@ -59,6 +59,7 @@
 		4985140215C7977900EB6A77 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 498513FB15C7977900EB6A77 /* Icon@2x.png */; };
 		4985140315C7977900EB6A77 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 498513FC15C7977900EB6A77 /* iTunesArtwork */; };
 		49A1AA4C162C8682001160D3 /* Ottawa.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 49A1AA4B162C8682001160D3 /* Ottawa.gpx */; };
+		49A20457162DD85C00818E31 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A20456162DD85C00818E31 /* libGoogleAnalytics.a */; };
 		49B8663C15D190850089AEE0 /* SnapCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B8663B15D190850089AEE0 /* SnapCamera.m */; };
 		49B90A7115D9EB530011A252 /* SnapEventPhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B90A7015D9EB530011A252 /* SnapEventPhotoListViewController.m */; };
 		49BCC2AE15C6F3C100E90CB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BCC2AD15C6F3C100E90CB4 /* UIKit.framework */; };
@@ -184,6 +185,8 @@
 		498513FB15C7977900EB6A77 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		498513FC15C7977900EB6A77 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		49A1AA4B162C8682001160D3 /* Ottawa.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Ottawa.gpx; sourceTree = "<group>"; };
+		49A20455162DD85C00818E31 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GANTracker.h; path = GoogleAnalytics/GANTracker.h; sourceTree = "<group>"; };
+		49A20456162DD85C00818E31 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = GoogleAnalytics/libGoogleAnalytics.a; sourceTree = "<group>"; };
 		49B8663A15D190850089AEE0 /* SnapCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapCamera.h; sourceTree = "<group>"; };
 		49B8663B15D190850089AEE0 /* SnapCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapCamera.m; sourceTree = "<group>"; };
 		49B90A6F15D9EB530011A252 /* SnapEventPhotoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapEventPhotoListViewController.h; sourceTree = "<group>"; };
@@ -268,6 +271,7 @@
 				49BCC2AE15C6F3C100E90CB4 /* UIKit.framework in Frameworks */,
 				49BCC2B015C6F3C100E90CB4 /* Foundation.framework in Frameworks */,
 				49BCC2B215C6F3C100E90CB4 /* CoreGraphics.framework in Frameworks */,
+				49A20457162DD85C00818E31 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,9 +474,19 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		49A20453162DD84700818E31 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				49A20455162DD85C00818E31 /* GANTracker.h */,
+				49A20456162DD85C00818E31 /* libGoogleAnalytics.a */,
+			);
+			name = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
 		49BCC29E15C6F3C100E90CB4 = {
 			isa = PBXGroup;
 			children = (
+				49A20453162DD84700818E31 /* GoogleAnalytics */,
 				491FA2A015EFDCA500D025F8 /* FMDB */,
 				496B164515E6C49F00F08B3D /* Toast */,
 				49D2B78C15DD654000921F84 /* TestFlightSDK1.1 */,
@@ -800,6 +814,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -880,6 +895,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -904,6 +920,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
+					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -114,6 +114,11 @@
 // sign all request methods
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
 
+    #ifndef DEBUG
+        // send latest metrics to Google Analytics
+        [[GANTracker sharedTracker] dispatch];
+    #endif
+    
     // build the request normally in the parent class
     NSMutableURLRequest* request = [super requestWithMethod:method path:path parameters:parameters];
     

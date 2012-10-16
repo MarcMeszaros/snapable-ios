@@ -14,6 +14,9 @@
 
     // TestFlight import
     #import "TestFlight.h"
+
+    // Google Analytics import
+    #import "GANTracker.h"
 #endif
 
 // http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/

@@ -13,11 +13,21 @@
 
 @synthesize database;
 
+// some variables
+static const NSInteger kGANDispatchPeriodSec = 0; // anything <= 0: manual dispatch required
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // setup TestFlight key
     [TestFlight takeOff:@"121ded9a748e09c3647168b72ee14e48_MTIyMDUzMjAxMi0wOC0xNiAxMzoyNjowMi44Nzk2MTQ"];
     
+    // setup the Google Analytics key
+    [[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-295382-39" dispatchPeriod:kGANDispatchPeriodSec delegate:nil];
+    #ifdef DEBUG
+        // don't use google analytics in debug mode
+        [[GANTracker sharedTracker] stopTracker];
+    #endif
+
     // setup the sqlite database
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsPath = [paths objectAtIndex:0];
