@@ -278,6 +278,14 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 
 # pragma mark - API
 - (void)refresh {
+    // setup the refresh spinner
+    UIBarButtonItem *refreshButton = self.navigationItem.rightBarButtonItem;
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
+    activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
+    [activityIndicator startAnimating];
+    self.navigationItem.rightBarButtonItem = barButton;
+
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
         [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri], @"event",
         nil];
@@ -330,10 +338,16 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
                 self.api_photos = tempPhotoArray;
                 [self loadMoreImages:5];
             }
+
+            // add back the refresh button
+            self.navigationItem.rightBarButtonItem = refreshButton;
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             DLog(@"Error fetching photos!");
             DLog(@"%@", error);
+
+            // add back the refresh button
+            self.navigationItem.rightBarButtonItem = refreshButton;
         }
      ];
 }
