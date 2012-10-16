@@ -51,6 +51,13 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     if (self.photos == nil) {
         self.photos = [NSMutableArray array];
     }
+
+    // add refresh button
+    UIBarButtonItem *button = [[UIBarButtonItem alloc]
+                               initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                               target:self
+                               action:@selector(refresh)];
+    self.navigationItem.rightBarButtonItem = button;
 }
 
 - (void)viewDidUnload
@@ -76,64 +83,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // initialize the camera
     self.camera = [SnapCamera sharedInstance];
     
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri], @"event",
-                            nil];
-    
-    // some variables to store data in
-    NSMutableArray *tempPhotoArray = [NSMutableArray array];
-    [[SnapApiClient sharedInstance] getPath:@"photo/" parameters:params
-        success:^(AFHTTPRequestOperation *operation, id response) {
-            DLog(@"we got an API response");
-            // hydrate the response into objects
-            for (id newphoto in [response valueForKeyPath:@"objects"]) {
-                SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:newphoto];
-                [tempPhotoArray addObject:photo];
-            }
-            
-            // there already are photos
-            // figure out how many are new and add them to the api array
-            if (self.api_photos.count > 0) {
-                DLog(@"we already have some photos");
-                // get the current first API photo and it's id
-                SnapPhoto *firstPhoto = [self.api_photos objectAtIndex:0];
-                NSInteger firstPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:firstPhoto.resource_uri];
-                
-                DLog(@"loop through and merge");
-                // get the new photos
-                NSMutableArray *newPhotoArray = [NSMutableArray array];
-                SnapPhoto *tempPhoto;
-                for (int i=(tempPhotoArray.count-1); i>=0; i--) {
-                    // get the new photo
-                    tempPhoto = [tempPhotoArray objectAtIndex:i];
-                    NSInteger tempPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:tempPhoto.resource_uri];
-                    
-                    // if the temp photo isn't in the API array
-                    if (tempPhotoId > firstPhotoId) {
-                        [newPhotoArray insertObject:tempPhoto atIndex:0];
-                        [self.api_photos insertObject:tempPhoto atIndex:0];
-                        [self.photos insertObject:tempPhoto atIndex:0];
-                    }
-                }
-                
-                DLog(@"about to update the viewTable");
-                NSMutableArray *paths = [NSMutableArray arrayWithCapacity:newPhotoArray.count];
-                for (int i=0; i<newPhotoArray.count; i++) {
-                    [paths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-                }
-                [self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
-            }
-            // there are no photos
-            else {
-                self.api_photos = tempPhotoArray;
-                [self loadMoreImages:5];
-            }
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            DLog(@"Error fetching photos!");
-            DLog(@"%@", error);
-        }
-     ];
+    [self refresh];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -324,6 +274,68 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     } else {
         self.uiNoPhotos.hidden = NO;
     }
+}
+
+# pragma mark - API
+- (void)refresh {
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+        [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri], @"event",
+        nil];
+    
+    // some variables to store data in
+    NSMutableArray *tempPhotoArray = [NSMutableArray array];
+    [[SnapApiClient sharedInstance] getPath:@"photo/" parameters:params
+        success:^(AFHTTPRequestOperation *operation, id response) {
+            DLog(@"we got an API response");
+            // hydrate the response into objects
+            for (id newphoto in [response valueForKeyPath:@"objects"]) {
+                SnapPhoto *photo = [[SnapPhoto alloc] initWithDictionary:newphoto];
+                [tempPhotoArray addObject:photo];
+            }
+            
+            // there already are photos
+            // figure out how many are new and add them to the api array
+            if (self.api_photos.count > 0) {
+                DLog(@"we already have some photos");
+                // get the current first API photo and it's id
+                SnapPhoto *firstPhoto = [self.api_photos objectAtIndex:0];
+                NSInteger firstPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:firstPhoto.resource_uri];
+                
+                DLog(@"loop through and merge");
+                // get the new photos
+                NSMutableArray *newPhotoArray = [NSMutableArray array];
+                SnapPhoto *tempPhoto;
+                for (int i=(tempPhotoArray.count-1); i>=0; i--) {
+                    // get the new photo
+                    tempPhoto = [tempPhotoArray objectAtIndex:i];
+                    NSInteger tempPhotoId = [SnapApiClient getIdAsIntegerFromResourceUri:tempPhoto.resource_uri];
+                    
+                    // if the temp photo isn't in the API array
+                    if (tempPhotoId > firstPhotoId) {
+                        [newPhotoArray insertObject:tempPhoto atIndex:0];
+                        [self.api_photos insertObject:tempPhoto atIndex:0];
+                        [self.photos insertObject:tempPhoto atIndex:0];
+                    }
+                }
+                
+                DLog(@"about to update the viewTable");
+                NSMutableArray *paths = [NSMutableArray arrayWithCapacity:newPhotoArray.count];
+                for (int i=0; i<newPhotoArray.count; i++) {
+                    [paths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+                }
+                [self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
+            }
+            // there are no photos
+            else {
+                self.api_photos = tempPhotoArray;
+                [self loadMoreImages:5];
+            }
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            DLog(@"Error fetching photos!");
+            DLog(@"%@", error);
+        }
+     ];
 }
 
 @end
