@@ -79,10 +79,10 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 // this loads the camera after the view appeared (a trick to hide the loading)
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [[GANTracker sharedTracker] trackPageview:@"/eventPhotos" withError:nil];
     
     // initialize the camera
     self.camera = [SnapCamera sharedInstance];
-    
     [self refresh];
 }
 
@@ -174,6 +174,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // launch the camera
     DLog(@"'take photo' button press");
     [self.camera startCameraControllerFromViewController:self usingDelegate:self];
+    [[GANTracker sharedTracker] trackPageview:@"/takePhoto" withError:nil];
 }
 
 #pragma mark - Camera delegate

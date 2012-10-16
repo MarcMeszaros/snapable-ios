@@ -65,6 +65,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    [[GANTracker sharedTracker] trackPageview:@"/splash" withError:nil];
     // if the location controller isn't nil, look for new locations
     if (self.locationController != nil) {
         [self.locationController startUpdatingLocation];
