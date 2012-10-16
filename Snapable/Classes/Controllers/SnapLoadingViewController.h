@@ -13,7 +13,6 @@
     SnapCL *locationController;
     IBOutlet UILabel *loadingLabel;
     IBOutlet UIActivityIndicatorView *loadingSpinner;
-    IBOutlet UIButton *loadingButton;
     NSMutableArray *results;
 }
 
@@ -22,6 +21,5 @@
 
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
-- (IBAction)searchForEvents:(id)sender;
 
 @end

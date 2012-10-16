@@ -123,7 +123,7 @@
             DLog(@"Error fetching events!");
             DLog(@"%@", error);
             [loadingSpinner stopAnimating];
-            [loadingButton setHidden:NO];
+            [self performSegueWithIdentifier:@"eventListSegue" sender:self];
         }
      ];
 }
@@ -132,17 +132,6 @@
 	//locationLabel.text = [error description];
     DLog(@"An error occured while getting location.");
     DLog(@"Error: %@", error);
-}
-
-#pragma mark Force Reload Events
-
-- (IBAction)searchForEvents:(id)sender {
-    // if the location controller isn't nil, look for new locations
-    if (self.locationController != nil) {
-        [loadingButton setHidden:YES];
-        [loadingSpinner startAnimating];
-        [self.locationController startUpdatingLocation];
-    }
 }
 
 #pragma mark Pass data to next scnene
