@@ -22,6 +22,7 @@
 @synthesize uiPhotoPreview;
 @synthesize uiPhotoCaption;
 @synthesize uiPhotoUploadProgress;
+@synthesize uiCaptionUploadSpinner;
 @synthesize uiUploadDone;
 @synthesize uiUploadRetry;
 @synthesize uiBack;
@@ -79,6 +80,10 @@
         self.uiPhotoCaption.text, @"caption",
         nil];
     
+    // start spinner
+    self.uiCaptionUploadSpinner.hidden = NO;
+    self.uiUploadDone.hidden = YES;
+    
     // call the api
     [[SnapApiClient sharedInstance] putPath:apiPath parameters:params
         success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -91,6 +96,8 @@
             DLog(@"%@", error);
             [self.view makeToast:@"Failed to update caption." duration:3.0 position:@"center"];
             self.uiBack.enabled = YES;
+            self.uiCaptionUploadSpinner.hidden = YES;
+            self.uiUploadDone.hidden = NO;
         }
      ];
 }
