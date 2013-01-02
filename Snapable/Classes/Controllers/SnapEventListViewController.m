@@ -212,14 +212,6 @@ static NSString *cellIdentifier = @"eventListCell";
     [self searchForEventsWithQuery:searchBar.text];
 }
 
--(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text
-{
-    if(text.length == 0)
-    {
-        [self searchForEventsWithQuery:@""];
-    }
-}
-
 - (void)searchForEventsWithQuery:(NSString *)query
 {
     // setup the params
