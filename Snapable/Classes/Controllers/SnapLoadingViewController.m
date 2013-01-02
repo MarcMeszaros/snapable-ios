@@ -129,9 +129,11 @@
 }
 
 - (void)locationError:(NSError *)error {
-	//locationLabel.text = [error description];
-    DLog(@"An error occured while getting location.");
+	DLog(@"An error occured while getting location.");
     DLog(@"Error: %@", error);
+    // continue anyway
+    [loadingSpinner stopAnimating];
+    [self performSegueWithIdentifier:@"eventListSegue" sender:self];
 }
 
 #pragma mark Pass data to next scnene
