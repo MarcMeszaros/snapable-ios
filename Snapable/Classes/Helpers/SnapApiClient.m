@@ -74,8 +74,8 @@
 // sign the request with the Snapable signature requirements
 - (NSMutableURLRequest *)signRequest:(NSMutableURLRequest *)request {
 
-    // TODO generate a pseudo-random nonce
-    NSString *nonce = @"asd23eas";
+    // generate a pseudo-random nonce
+    NSString *nonce = [SnapCrypto randomHexStringWithLength:16];
     // add the nonce to the header
     [request setValue:nonce forHTTPHeaderField:@"x-SNAP-nonce"];
     
