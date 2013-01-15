@@ -37,7 +37,6 @@
 		494912EF15CB150D006BBE8B /* eventLrgPhotoHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912E415CB150D006BBE8B /* eventLrgPhotoHolder.png */; };
 		494912F015CB150D006BBE8B /* eventLrgPhotoTxtOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 494912E515CB150D006BBE8B /* eventLrgPhotoTxtOverlay.png */; };
 		4949130815CB152A006BBE8B /* navigationBarBackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130515CB152A006BBE8B /* navigationBarBackgroundImage.png */; };
-		4949130915CB152A006BBE8B /* screen1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130615CB152A006BBE8B /* screen1.png */; };
 		4949130A15CB152A006BBE8B /* teardrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 4949130715CB152A006BBE8B /* teardrop.png */; };
 		49516A7415C84BA300B9579A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7215C84B2700B9579A /* CFNetwork.framework */; };
 		49516A7C15C84BA300B9579A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49516A7615C84BA300B9579A /* libxml2.dylib */; };
@@ -88,6 +87,7 @@
 		49E2317215EAE150005FE7B4 /* uploadCancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E2316C15EAE150005FE7B4 /* uploadCancelButton.png */; };
 		49E3298F15D98C75001FF6A0 /* EventPhotoListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */; };
 		49E3299115D9A794001FF6A0 /* backgroundBlueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */; };
+		49EEE5C516A5EFF9003207E4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EEE5C416A5EFF9003207E4 /* Default-568h@2x.png */; };
 		98111A2B15EBE4450058F4DC /* buttonFlashAuto.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2715EBE4450058F4DC /* buttonFlashAuto.png */; };
 		98111A2C15EBE4450058F4DC /* buttonFlashOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2815EBE4450058F4DC /* buttonFlashOff.png */; };
 		98111A2D15EBE4450058F4DC /* buttonFlashOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2915EBE4450058F4DC /* buttonFlashOn.png */; };
@@ -156,7 +156,6 @@
 		494912E415CB150D006BBE8B /* eventLrgPhotoHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventLrgPhotoHolder.png; sourceTree = "<group>"; };
 		494912E515CB150D006BBE8B /* eventLrgPhotoTxtOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventLrgPhotoTxtOverlay.png; sourceTree = "<group>"; };
 		4949130515CB152A006BBE8B /* navigationBarBackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackgroundImage.png; sourceTree = "<group>"; };
-		4949130615CB152A006BBE8B /* screen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen1.png; sourceTree = "<group>"; };
 		4949130715CB152A006BBE8B /* teardrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teardrop.png; sourceTree = "<group>"; };
 		49516A7215C84B2700B9579A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		49516A7515C84BA300B9579A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -231,6 +230,7 @@
 		49E2316C15EAE150005FE7B4 /* uploadCancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadCancelButton.png; sourceTree = "<group>"; };
 		49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventPhotoListHeader.xib; path = NIBs/EventPhotoListHeader.xib; sourceTree = "<group>"; };
 		49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundBlueButton.png; sourceTree = "<group>"; };
+		49EEE5C416A5EFF9003207E4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		98111A2715EBE4450058F4DC /* buttonFlashAuto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonFlashAuto.png; sourceTree = "<group>"; };
 		98111A2815EBE4450058F4DC /* buttonFlashOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonFlashOff.png; sourceTree = "<group>"; };
 		98111A2915EBE4450058F4DC /* buttonFlashOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonFlashOn.png; sourceTree = "<group>"; };
@@ -415,6 +415,7 @@
 		498513EE15C7964E00EB6A77 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				49EEE5C416A5EFF9003207E4 /* Default-568h@2x.png */,
 				98135465162DE51D00972393 /* photoPickerButton.png */,
 				98A7C36115EECE0E008F9AF4 /* backgroundAuthenticationPIN.png */,
 				98FDADF015F7F772001EC2D6 /* shareUploadImageBGlrg.png */,
@@ -441,7 +442,6 @@
 				98C57F7B15D7FA3F00F11558 /* FPOeventListPhoto.jpg */,
 				98C57F7815D7F97C00F11558 /* eventListEventBackground.png */,
 				4949130515CB152A006BBE8B /* navigationBarBackgroundImage.png */,
-				4949130615CB152A006BBE8B /* screen1.png */,
 				4949130715CB152A006BBE8B /* teardrop.png */,
 				494912DD15CB150D006BBE8B /* arrowBlue.png */,
 				494912DE15CB150D006BBE8B /* background.png */,
@@ -659,7 +659,6 @@
 				494912EF15CB150D006BBE8B /* eventLrgPhotoHolder.png in Resources */,
 				494912F015CB150D006BBE8B /* eventLrgPhotoTxtOverlay.png in Resources */,
 				4949130815CB152A006BBE8B /* navigationBarBackgroundImage.png in Resources */,
-				4949130915CB152A006BBE8B /* screen1.png in Resources */,
 				4949130A15CB152A006BBE8B /* teardrop.png in Resources */,
 				98C57F7915D7F97C00F11558 /* eventListEventBackground.png in Resources */,
 				98C57F7C15D7FA3F00F11558 /* FPOeventListPhoto.jpg in Resources */,
@@ -690,6 +689,7 @@
 				98FDADF115F7F772001EC2D6 /* shareUploadImageBGlrg.png in Resources */,
 				49A1AA4C162C8682001160D3 /* Ottawa.gpx in Resources */,
 				98135466162DE51D00972393 /* photoPickerButton.png in Resources */,
+				49EEE5C516A5EFF9003207E4 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
