@@ -23,7 +23,7 @@
         //self.locationManager.delegate = self; // send loc updates to myself
         self.locationManager.purpose = @"Use location to list nearby events.";
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest; // desired location accuracy
-        self.locationManager.distanceFilter = 0.01; // only update the location if more than 0.01m has been traveled
+        //self.locationManager.distanceFilter = 0.01; // only update the location if more than 0.01m has been traveled
     }
     return self;
 }

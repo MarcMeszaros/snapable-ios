@@ -20,11 +20,11 @@
     NSString *creation_date;
     NSString *package;
     NSString *user;
-    NSString *type;
     NSString *resource_uri;
 }
 
 @property (nonatomic) BOOL enabled;
+@property (nonatomic) BOOL public;
 @property (nonatomic) int photo_count;
 @property (nonatomic, copy) NSString *start;
 @property (nonatomic, copy) NSString *end;
@@ -34,7 +34,6 @@
 @property (nonatomic, copy) NSString *creation_date;
 @property (nonatomic, copy) NSString *package;
 @property (nonatomic, copy) NSString *user;
-@property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *resource_uri;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;

@@ -137,9 +137,6 @@ static NSString *cellIdentifier = @"eventListCell";
 {
     // get the event selected
     self.lastSelectedEvent = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-    NSInteger privacyNumber = [SnapApiClient getIdAsIntegerFromResourceUri:self.lastSelectedEvent.type];
-    
-    DLog(@"privacy number: %d", privacyNumber);
     
     // open local storage
     SnapAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
@@ -155,7 +152,7 @@ static NSString *cellIdentifier = @"eventListCell";
         NSString *pin = [results stringForColumn:@"pin"];
         
         // pins match or no pin required
-        if ((privacyNumber < 6 && [self.lastSelectedEvent.pin compare:pin] == NSOrderedSame) || privacyNumber == 6) {
+        if ((self.lastSelectedEvent.public == false && [self.lastSelectedEvent.pin compare:pin] == NSOrderedSame) || self.lastSelectedEvent.public == true) {
             [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
         }
         // pins don't match
