@@ -82,12 +82,12 @@
 		49E2316D15EAE150005FE7B4 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E2316715EAE150005FE7B4 /* back.png */; };
 		49E2316E15EAE150005FE7B4 /* done.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E2316815EAE150005FE7B4 /* done.png */; };
 		49E2316F15EAE150005FE7B4 /* retry.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E2316915EAE150005FE7B4 /* retry.png */; };
-		49E2317015EAE150005FE7B4 /* shareBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E2316A15EAE150005FE7B4 /* shareBackground.png */; };
 		49E2317115EAE150005FE7B4 /* shareUploadImageBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E2316B15EAE150005FE7B4 /* shareUploadImageBG.png */; };
 		49E2317215EAE150005FE7B4 /* uploadCancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E2316C15EAE150005FE7B4 /* uploadCancelButton.png */; };
 		49E3298F15D98C75001FF6A0 /* EventPhotoListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */; };
 		49E3299115D9A794001FF6A0 /* backgroundBlueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */; };
 		49EEE5C516A5EFF9003207E4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EEE5C416A5EFF9003207E4 /* Default-568h@2x.png */; };
+		49EEE5C816A60463003207E4 /* photoUploadBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EEE5C716A60463003207E4 /* photoUploadBackground.png */; };
 		98111A2B15EBE4450058F4DC /* buttonFlashAuto.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2715EBE4450058F4DC /* buttonFlashAuto.png */; };
 		98111A2C15EBE4450058F4DC /* buttonFlashOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2815EBE4450058F4DC /* buttonFlashOff.png */; };
 		98111A2D15EBE4450058F4DC /* buttonFlashOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 98111A2915EBE4450058F4DC /* buttonFlashOn.png */; };
@@ -225,12 +225,12 @@
 		49E2316715EAE150005FE7B4 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		49E2316815EAE150005FE7B4 /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done.png; sourceTree = "<group>"; };
 		49E2316915EAE150005FE7B4 /* retry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retry.png; sourceTree = "<group>"; };
-		49E2316A15EAE150005FE7B4 /* shareBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareBackground.png; sourceTree = "<group>"; };
 		49E2316B15EAE150005FE7B4 /* shareUploadImageBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareUploadImageBG.png; sourceTree = "<group>"; };
 		49E2316C15EAE150005FE7B4 /* uploadCancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadCancelButton.png; sourceTree = "<group>"; };
 		49E3298E15D98C75001FF6A0 /* EventPhotoListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventPhotoListHeader.xib; path = NIBs/EventPhotoListHeader.xib; sourceTree = "<group>"; };
 		49E3299015D9A794001FF6A0 /* backgroundBlueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundBlueButton.png; sourceTree = "<group>"; };
 		49EEE5C416A5EFF9003207E4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		49EEE5C716A60463003207E4 /* photoUploadBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoUploadBackground.png; sourceTree = "<group>"; };
 		98111A2715EBE4450058F4DC /* buttonFlashAuto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonFlashAuto.png; sourceTree = "<group>"; };
 		98111A2815EBE4450058F4DC /* buttonFlashOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonFlashOff.png; sourceTree = "<group>"; };
 		98111A2915EBE4450058F4DC /* buttonFlashOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonFlashOn.png; sourceTree = "<group>"; };
@@ -415,6 +415,7 @@
 		498513EE15C7964E00EB6A77 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				49EEE5C716A60463003207E4 /* photoUploadBackground.png */,
 				49EEE5C416A5EFF9003207E4 /* Default-568h@2x.png */,
 				98135465162DE51D00972393 /* photoPickerButton.png */,
 				98A7C36115EECE0E008F9AF4 /* backgroundAuthenticationPIN.png */,
@@ -431,7 +432,6 @@
 				49E2316715EAE150005FE7B4 /* back.png */,
 				49E2316815EAE150005FE7B4 /* done.png */,
 				49E2316915EAE150005FE7B4 /* retry.png */,
-				49E2316A15EAE150005FE7B4 /* shareBackground.png */,
 				49E2316B15EAE150005FE7B4 /* shareUploadImageBG.png */,
 				49E2316C15EAE150005FE7B4 /* uploadCancelButton.png */,
 				985C0FC815DBF8720000F8F5 /* photoDefault.jpg */,
@@ -672,7 +672,6 @@
 				49E2316D15EAE150005FE7B4 /* back.png in Resources */,
 				49E2316E15EAE150005FE7B4 /* done.png in Resources */,
 				49E2316F15EAE150005FE7B4 /* retry.png in Resources */,
-				49E2317015EAE150005FE7B4 /* shareBackground.png in Resources */,
 				49E2317115EAE150005FE7B4 /* shareUploadImageBG.png in Resources */,
 				49E2317215EAE150005FE7B4 /* uploadCancelButton.png in Resources */,
 				98D1A4A915EBC6F400732BCA /* cameraOverlay.png in Resources */,
@@ -690,6 +689,7 @@
 				49A1AA4C162C8682001160D3 /* Ottawa.gpx in Resources */,
 				98135466162DE51D00972393 /* photoPickerButton.png in Resources */,
 				49EEE5C516A5EFF9003207E4 /* Default-568h@2x.png in Resources */,
+				49EEE5C816A60463003207E4 /* photoUploadBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
