@@ -215,6 +215,7 @@ static NSString *cellIdentifier = @"eventListCell";
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
         query, @"q",
         @"true", @"enabled",
+        @"end", @"order_by",
         nil];
     
     // get the events
