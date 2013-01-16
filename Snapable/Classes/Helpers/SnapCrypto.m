@@ -35,6 +35,19 @@
     return [hashResult hexadecimalString];
 }
 
++ (NSString*)randomHexStringWithLength:(NSInteger)length {
+
+    int lengthData = length/2;
+    NSMutableData* theData = [NSMutableData dataWithCapacity:lengthData];
+    for( unsigned int i = 0 ; i < lengthData/4 ; ++i )
+    {
+        u_int32_t randomBits = arc4random();
+        [theData appendBytes:(void*)&randomBits length:4];
+    }
+
+    return theData.hexadecimalString;
+}
+
 @end
 
 // from http://stackoverflow.com/questions/1305225/best-way-to-serialize-a-nsdata-into-an-hexadeximal-string

@@ -16,6 +16,7 @@
 @interface SnapCrypto : NSObject
 
 + (NSString*)rawSignatureHMACSHA1:(NSString*)raw_signature apiSecret:(NSString*)secret;
++ (NSString*)randomHexStringWithLength:(NSInteger)length;
 
 @end
 

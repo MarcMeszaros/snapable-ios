@@ -40,7 +40,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    if ([SnapApiClient getIdAsIntegerFromResourceUri:self.event.type] == 6) {
+    if (self.event.public == true) {
         // hide the pin stuff and show the guest info
         self.uiPinViewGroup.hidden = YES;
         self.uiGuestInfoViewGroup.hidden = NO;
@@ -82,7 +82,7 @@
 // try and authenticate the user
 - (IBAction)authenticateButton:(id)sender {
     // if we match the pin
-    if ([SnapApiClient getIdAsIntegerFromResourceUri:self.event.type] == 6 || [self.uiPin.text compare:self.event.pin] == NSOrderedSame) {
+    if (self.event.public == true || [self.uiPin.text compare:self.event.pin] == NSOrderedSame) {
         // the pin group is hidden, try and process email and name
         if (self.uiPinViewGroup.hidden) {
             // parameters
@@ -126,7 +126,7 @@
                             else if (self.uiEmail.text.length > 0 || self.uiName.text.length > 0) {
                                 // guest type
                                 NSString *guestType = nil;
-                                if ([SnapApiClient getIdAsIntegerFromResourceUri:self.event.type] == 6) {
+                                if (self.event.public == true) {
                                     guestType = [NSString stringWithFormat:@"/%@/type/6/", SnapAPIVersion];
                                 } else {
                                     guestType = [NSString stringWithFormat:@"/%@/type/5/", SnapAPIVersion];

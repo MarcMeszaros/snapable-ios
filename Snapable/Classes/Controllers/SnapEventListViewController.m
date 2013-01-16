@@ -28,6 +28,7 @@ static NSString *cellIdentifier = @"eventListCell";
 @synthesize events;
 @synthesize lastSelectedEvent;
 @synthesize uiNoEventViewGroup;
+@synthesize uiSearchBar;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -136,9 +137,6 @@ static NSString *cellIdentifier = @"eventListCell";
 {
     // get the event selected
     self.lastSelectedEvent = [self.events objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-    NSInteger privacyNumber = [SnapApiClient getIdAsIntegerFromResourceUri:self.lastSelectedEvent.type];
-    
-    DLog(@"privacy number: %d", privacyNumber);
     
     // open local storage
     SnapAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
@@ -154,7 +152,7 @@ static NSString *cellIdentifier = @"eventListCell";
         NSString *pin = [results stringForColumn:@"pin"];
         
         // pins match or no pin required
-        if ((privacyNumber < 6 && [self.lastSelectedEvent.pin compare:pin] == NSOrderedSame) || privacyNumber == 6) {
+        if ((self.lastSelectedEvent.public == false && [self.lastSelectedEvent.pin compare:pin] == NSOrderedSame) || self.lastSelectedEvent.public == true) {
             [self performSegueWithIdentifier:@"eventListPhotoSegue" sender:self];
         }
         // pins don't match
@@ -201,6 +199,58 @@ static NSString *cellIdentifier = @"eventListCell";
 - (IBAction)goToSnapable:(id)sender {
     NSString* launchUrl = @"http://snapable.com/";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:launchUrl]];
+}
+
+#pragma mark - Search
+// when the search button is clicked
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    DLog(searchBar.text);
+    [self searchForEventsWithQuery:searchBar.text];
+}
+
+- (void)searchForEventsWithQuery:(NSString *)query
+{
+    // setup the params
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+        query, @"q",
+        @"true", @"enabled",
+        @"end", @"order_by",
+        nil];
+    
+    // get the events
+    [[SnapApiClient sharedInstance] getPath:@"event/search/" parameters:params
+        success:^(AFHTTPRequestOperation *operation, id response) {
+            // hydrate the response into objects
+            NSMutableArray *results = [NSMutableArray array];
+            for (id apiEvent in [response valueForKeyPath:@"objects"]) {
+                SnapEvent *event = [[SnapEvent alloc] initWithDictionary:apiEvent];
+                [results addObject:event];
+                DLog(@"event: %@", event.title);
+            }
+            
+            // start the correct screen depending on number of events
+            self.events = results;
+            [self.tableView reloadData];
+            [self.uiSearchBar resignFirstResponder];
+            
+            // hide the no event message if there is at least one event
+            if (self.events.count > 0) {
+                self.uiNoEventViewGroup.hidden = YES;
+                CGRect rect = CGRectMake(0.0f, 0.0f, 0.0f, 0.0f);
+                [self.uiNoEventViewGroup setFrame:rect];
+            } else {
+                self.uiNoEventViewGroup.hidden = NO;
+                CGRect rect = CGRectMake(0.0f, 0.0f, 320.0f, 480.0f);
+                [self.uiNoEventViewGroup setFrame:rect];
+                
+            }
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            DLog(@"Error fetching events!");
+            DLog(@"%@", error);
+        }
+     ];
 }
 
 @end

@@ -15,10 +15,14 @@
     SnapEvent *lastSelectedEvent;
     
     IBOutlet UIView *uiNoEventViewGroup;
+    IBOutlet UISearchBar *uiSearchBar;
 }
 
 @property (nonatomic, retain) NSArray *events;
 @property (nonatomic, strong) SnapEvent *lastSelectedEvent;
 @property (nonatomic, strong) UIView *uiNoEventViewGroup;
+@property (nonatomic, strong) UISearchBar *uiSearchBar;
+
+- (void)searchForEventsWithQuery:(NSString *)query;
 
 @end
