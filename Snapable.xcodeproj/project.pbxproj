@@ -580,7 +580,6 @@
 			buildPhases = (
 				49BCC2A515C6F3C100E90CB4 /* Sources */,
 				49BCC2A615C6F3C100E90CB4 /* Frameworks */,
-				496B164415E69B3900F08B3D /* ShellScript */,
 				49BCC2A715C6F3C100E90CB4 /* Resources */,
 			);
 			buildRules = (
@@ -674,22 +673,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		496B164415E69B3900F08B3D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nif [ \"${CONFIGURATION}\" = \"TestFlight\" ]; then\n    buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n    buildNumber=$(($buildNumber + 1))\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		49BCC2A515C6F3C100E90CB4 /* Sources */ = {
