@@ -13,8 +13,8 @@
 #ifdef DEBUG
 #   define SnapAPIBaseURL @"https://devapi.snapable.com/"
 #   define SnapAPIVersion @"private_v1"
-#   define SnapAPIKey @"abc123"
-#   define SnapAPISecret @"123"
+#   define SnapAPIKey @"key123"
+#   define SnapAPISecret @"sec123"
 #elif TESTFLIGHT
 #   define SnapAPIBaseURL @"https://api.snapable.com/"
 #   define SnapAPIVersion @"private_v1"
