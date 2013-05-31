@@ -244,7 +244,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         snapPhotoVC.event = self.event;
         snapPhotoVC.photoImage = imageToSave;
         [picker dismissViewControllerAnimated:YES completion:^{
-            [self presentModalViewController:snapPhotoVC animated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }];
     }
 }

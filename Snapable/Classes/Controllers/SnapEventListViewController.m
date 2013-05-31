@@ -207,7 +207,7 @@ static NSString *cellIdentifier = @"eventListCell";
 // when the search button is clicked
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    DLog(searchBar.text);
+    DLog(@"%@", searchBar.text);
     [self searchForEventsWithQuery:searchBar.text];
 }
 

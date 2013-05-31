@@ -74,7 +74,7 @@
 #pragma mark - IBAction
 // dismiss the auth screen
 - (IBAction)backButton:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // try and authenticate the user
