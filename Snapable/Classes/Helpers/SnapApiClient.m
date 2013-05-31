@@ -116,7 +116,7 @@
 
     #ifndef DEBUG
         // send latest metrics to Google Analytics
-        [[GANTracker sharedTracker] dispatch];
+        //[[GANTracker sharedTracker] dispatch];
     #endif
     
     // build the request normally in the parent class

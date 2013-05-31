@@ -78,6 +78,7 @@
 		49E7158B17582F18000442D4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7158A17582F18000442D4 /* MobileCoreServices.framework */; };
 		49E7158D17582F32000442D4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7158C17582F32000442D4 /* SystemConfiguration.framework */; };
 		49E7158F1758313C000442D4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7158E1758313C000442D4 /* CoreLocation.framework */; };
+		49E715911758462E000442D4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E715901758462E000442D4 /* CoreData.framework */; };
 		B7CD800CD51846368E7684AC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A88CA54A4C34E90AD207463 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +176,7 @@
 		49E7158A17582F18000442D4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		49E7158C17582F32000442D4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		49E7158E1758313C000442D4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		49E715901758462E000442D4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6A88CA54A4C34E90AD207463 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -183,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E715911758462E000442D4 /* CoreData.framework in Frameworks */,
 				49E7158F1758313C000442D4 /* CoreLocation.framework in Frameworks */,
 				49E7158D17582F32000442D4 /* SystemConfiguration.framework in Frameworks */,
 				49E7158B17582F18000442D4 /* MobileCoreServices.framework in Frameworks */,
@@ -217,6 +220,7 @@
 		49E7142D17582DA4000442D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49E715901758462E000442D4 /* CoreData.framework */,
 				49E7158E1758313C000442D4 /* CoreLocation.framework */,
 				49E7158C17582F32000442D4 /* SystemConfiguration.framework */,
 				49E7158A17582F18000442D4 /* MobileCoreServices.framework */,

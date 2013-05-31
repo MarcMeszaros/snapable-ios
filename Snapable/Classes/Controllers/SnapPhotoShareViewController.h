@@ -13,7 +13,7 @@
 #import "SnapPhoto.h"
 
 
-@interface SnapPhotoShareViewController : UIViewController <UITextFieldDelegate> {
+@interface SnapPhotoShareViewController : GAITrackedViewController <UITextFieldDelegate> {
     SnapEvent *event;
     NSInteger photoId;
     UIImage *photoImage;

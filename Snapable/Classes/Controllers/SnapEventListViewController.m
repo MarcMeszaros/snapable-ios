@@ -67,7 +67,9 @@ static NSString *cellIdentifier = @"eventListCell";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    //[[GANTracker sharedTracker] trackPageview:@"/eventList" withError:nil];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:kGATrackinId]; // Google Analytics
+    [tracker sendView:@"EventList"];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -39,6 +39,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    self.trackedViewName = @"Loading"; // Google Analytics
     // Release any retained subviews of the main view.
 }
 
@@ -65,7 +66,6 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    //[[GANTracker sharedTracker] trackPageview:@"/splash" withError:nil];
     // if the location controller isn't nil, look for new locations
     if (self.locationController != nil) {
         [self.locationController startUpdatingLocation];

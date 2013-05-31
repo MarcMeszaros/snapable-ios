@@ -10,7 +10,7 @@
 #import "SnapEvent.h"
 #import "SnapGuest.h"
 
-@interface SnapEventListAuthViewController : UIViewController <UITextFieldDelegate> {
+@interface SnapEventListAuthViewController : GAITrackedViewController <UITextFieldDelegate> {
     SnapEvent *event;
     SnapGuest *guest;
     UIViewController *parenVC;
