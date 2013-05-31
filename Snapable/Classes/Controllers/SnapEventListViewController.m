@@ -67,7 +67,7 @@ static NSString *cellIdentifier = @"eventListCell";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [[GANTracker sharedTracker] trackPageview:@"/eventList" withError:nil];
+    //[[GANTracker sharedTracker] trackPageview:@"/eventList" withError:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -126,7 +126,7 @@ static NSString *cellIdentifier = @"eventListCell";
     }
 
     // set the image to be auto loaded
-    [cell.uiPhoto setImageWithURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
+    [cell.uiPhoto setImageWithSignedURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
     
     return cell;
 }

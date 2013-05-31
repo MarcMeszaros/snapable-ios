@@ -1,7 +1,0 @@
-[submodule "AFNetworking"]
-	path = AFNetworking
-	url = git://github.com/AFNetworking/AFNetworking.git
-	ignore = untracked
-[submodule "FMDB"]
-	path = FMDB
-	url = https://github.com/ccgus/fmdb.git

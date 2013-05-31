@@ -45,9 +45,9 @@
         self.uiPinViewGroup.hidden = YES;
         self.uiGuestInfoViewGroup.hidden = NO;
         self.uiContinueButton.hidden = NO;
-        [[GANTracker sharedTracker] trackPageview:@"/guestInfo" withError:nil];
+        //[[GANTracker sharedTracker] trackPageview:@"/guestInfo" withError:nil];
     } else {
-        [[GANTracker sharedTracker] trackPageview:@"/guestPin" withError:nil];
+        //[[GANTracker sharedTracker] trackPageview:@"/guestPin" withError:nil];
     }
 }
 
@@ -174,7 +174,7 @@
         self.uiPinViewGroup.hidden = YES;
         self.uiGuestInfoViewGroup.hidden = NO;
         self.uiContinueButton.hidden = NO;
-        [[GANTracker sharedTracker] trackPageview:@"/guestInfo" withError:nil];
+        //[[GANTracker sharedTracker] trackPageview:@"/guestInfo" withError:nil];
     }
     // we don't match show pin stuff
     else if (self.uiPin.text.length > 0) {
