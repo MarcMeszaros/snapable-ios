@@ -76,18 +76,9 @@
 
     // generate a pseudo-random nonce
     NSString *nonce = [SnapCrypto randomHexStringWithLength:16];
-    // add the nonce to the header
-    [request setValue:nonce forHTTPHeaderField:@"x-SNAP-nonce"];
-    
-    // get the date
-    NSDate *now = [[NSDate alloc] init];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-    [dateFormatter setTimeZone:timeZone];
-    [dateFormatter setDateFormat:@"yyyyMMdd'T'HHmmss'Z'"];
-    NSString *dateString = [dateFormatter stringFromDate:now];
-    // add the date to the header
-    [request setValue:dateString forHTTPHeaderField:@"x-SNAP-Date"];
+
+    // get the timestamp
+    time_t unixTime = (time_t) [[NSDate date] timeIntervalSince1970];
     
     // get the correct signature path
     NSRange endRange = [request.URL.absoluteString rangeOfString:@"?"];
@@ -100,13 +91,13 @@
     }
     
     // raw_signature = key + verb + path + nonce + date
-    NSString *raw_signature = [NSString stringWithFormat:@"%@%@%@%@%@", SnapAPIKey, request.HTTPMethod, sign_path, nonce, dateString];
+    NSString *raw_signature = [NSString stringWithFormat:@"%@%@%@%@%ld", SnapAPIKey, request.HTTPMethod, sign_path, nonce, unixTime];
     
     // generate the hashed signature
     NSString *hash_signature = [SnapCrypto rawSignatureHMACSHA1:raw_signature apiSecret:SnapAPISecret];
     
     // set the authorization header
-    [request setValue:[NSString stringWithFormat:@"SNAP %@:%@", SnapAPIKey, hash_signature] forHTTPHeaderField:@"Authorization"];
+    [request setValue:[NSString stringWithFormat:@"SNAP key=\"%@\",signature=\"%@\",nonce=\"%@\",timestamp=\"%ld\"", SnapAPIKey, hash_signature, nonce, unixTime] forHTTPHeaderField:@"Authorization"];
     
     return request;
 }
