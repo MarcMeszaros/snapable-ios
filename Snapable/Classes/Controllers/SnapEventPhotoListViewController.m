@@ -234,7 +234,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 
         // Save the original image to the camera roll if it wasn't
         // originally selected from the camera roll
-        if (picker.sourceType != UIImagePickerControllerSourceTypePhotoLibrary || picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
+        if (picker.sourceType != UIImagePickerControllerSourceTypePhotoLibrary && picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
             UIImageWriteToSavedPhotosAlbum (originalImage, nil, nil ,nil);
         }
 
