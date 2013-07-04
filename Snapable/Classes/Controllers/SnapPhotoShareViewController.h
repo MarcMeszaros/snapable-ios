@@ -17,6 +17,7 @@
     SnapEvent *event;
     NSInteger photoId;
     UIImage *photoImage;
+    UIImage *previewImage;
 
     IBOutlet UIImageView *uiPhotoPreview;
     IBOutlet UITextField *uiPhotoCaption;
@@ -34,6 +35,7 @@
 @property (nonatomic, strong) SnapEvent *event;
 @property (nonatomic) NSInteger photoId;
 @property (nonatomic, strong) UIImage *photoImage;
+@property (nonatomic, strong) UIImage *previewImage;
 @property (nonatomic, strong) UIImageView *uiPhotoPreview;
 @property (nonatomic, strong) UITextField *uiPhotoCaption;
 @property (nonatomic, strong) UIProgressView *uiPhotoUploadProgress;

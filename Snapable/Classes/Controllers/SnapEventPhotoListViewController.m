@@ -189,7 +189,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 - (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info {
 
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
-    UIImage *originalImage, *imageToSave;
+    UIImage *originalImage, *previewImage;
 
     // Handle a still image capture
     if (CFStringCompare ((__bridge CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
@@ -229,22 +229,23 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         // apply the cropping to the image and get a reference to the transformation
         CGImageRef imageRef = CGImageCreateWithImageInRect([originalImage CGImage], crop);
         // rasterize the image and free up the image reference
-        imageToSave = [UIImage imageWithCGImage:imageRef scale:originalImage.scale orientation:originalImage.imageOrientation];
+        previewImage = [UIImage imageWithCGImage:imageRef scale:originalImage.scale orientation:originalImage.imageOrientation];
         CGImageRelease(imageRef);
 
-        // Save the new image (original or edited) to the camera roll if it wasn't
+        // Save the original image to the camera roll if it wasn't
         // originally selected from the camera roll
         if (picker.sourceType != UIImagePickerControllerSourceTypePhotoLibrary || picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
-            UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
+            UIImageWriteToSavedPhotosAlbum (originalImage, nil, nil ,nil);
         }
 
         // start the share screen
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         SnapPhotoShareViewController *snapPhotoVC = (SnapPhotoShareViewController *)[storyboard instantiateViewControllerWithIdentifier:@"photoShareController"];
         snapPhotoVC.event = self.event;
-        snapPhotoVC.photoImage = imageToSave;
+        snapPhotoVC.photoImage = originalImage;
+        snapPhotoVC.previewImage = previewImage;
         [picker dismissViewControllerAnimated:YES completion:^{
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self presentViewController:snapPhotoVC animated:YES completion:nil];
         }];
     }
 }

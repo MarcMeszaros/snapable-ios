@@ -19,6 +19,7 @@
 @synthesize event;
 @synthesize photoId;
 @synthesize photoImage;
+@synthesize previewImage;
 @synthesize uiPhotoPreview;
 @synthesize uiPhotoCaption;
 @synthesize uiPhotoUploadProgress;
@@ -46,7 +47,7 @@
 	// Do any additional setup after loading the view.
 
     // set the preview image
-    self.uiPhotoPreview.image = self.photoImage;
+    self.uiPhotoPreview.image = self.previewImage;
     self.uiBack.enabled = NO;
 
     // start uploading the photo
@@ -71,16 +72,16 @@
     
     // parameters
     NSString *apiPath = [NSString stringWithFormat:@"photo/%d/", self.photoId];
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-        self.uiPhotoCaption.text, @"caption",
-        nil];
-    
+    NSDictionary *params = @{
+        @"caption": self.uiPhotoCaption.text
+    };
+
     // start spinner
     self.uiCaptionUploadSpinner.hidden = NO;
     self.uiUploadDone.hidden = YES;
     
     // call the api
-    [[SnapApiClient sharedInstance] putPath:apiPath parameters:params
+    [[SnapApiClient sharedInstance] patchPath:apiPath parameters:params
         success:^(AFHTTPRequestOperation *operation, id responseObject) {
             // close the window
             [self dismissViewControllerAnimated:YES completion:nil];
