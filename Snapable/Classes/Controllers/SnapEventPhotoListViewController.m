@@ -127,15 +127,22 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     NSString *photoAbsolutePath;
 
     // if it's the original screen resolution
-    if([[UIScreen mainScreen] scale] == 1.0f){
-       photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=250x250", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri];
-    }
-    // else retina
-    else {
-        photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=500x500", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri];
+    NSString *size = @"crop";
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        if([[UIScreen mainScreen] scale] == 1.0f){
+           size = @"250x250";
+        }
+        // else retina
+        else {
+            size = @"500x500";
+        }
+    } else {
+        // TODO ipad here 
     }
     
     // set the image to be auto loaded
+    photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=%@", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri, size];
     [cell.uiPhoto setImageWithSignedURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
     
     return cell;
@@ -239,7 +246,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         }
 
         // start the share screen
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        UIStoryboard *storyboard = [self.navigationController storyboard];
         SnapPhotoShareViewController *snapPhotoVC = (SnapPhotoShareViewController *)[storyboard instantiateViewControllerWithIdentifier:@"photoShareController"];
         snapPhotoVC.event = self.event;
         snapPhotoVC.photoImage = originalImage;

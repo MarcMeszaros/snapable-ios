@@ -320,6 +320,7 @@ Ceremony &amp; Dinner</string>
                     </tableView>
                     <navigationItem key="navigationItem" id="O9w-Kg-A5c"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="uiNoEventViewGroup" destination="Un0-Bc-6eX" id="bqu-hp-32f"/>
                         <outlet property="uiSearchBar" destination="C4q-S7-hmf" id="hwF-E4-Hl8"/>
@@ -641,6 +642,8 @@ Ceremony &amp; Dinner</string>
         <class className="SnapEventListAuthViewController" superclassName="GAITrackedViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventListAuthViewController.h"/>
             <relationships>
+                <relationship kind="action" name="authenticateButton:"/>
+                <relationship kind="action" name="backButton:"/>
                 <relationship kind="outlet" name="uiContinueButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="uiEmail" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="uiGuestInfoViewGroup" candidateClass="UIView"/>
@@ -676,6 +679,8 @@ Ceremony &amp; Dinner</string>
         <class className="SnapEventPhotoListViewController" superclassName="GAITrackedViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapEventPhotoListViewController.h"/>
             <relationships>
+                <relationship kind="action" name="loadMore:" candidateClass="UIButton"/>
+                <relationship kind="action" name="takePhoto:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="uiLoadMore" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="uiNoPhotos" candidateClass="UIView"/>
@@ -694,6 +699,10 @@ Ceremony &amp; Dinner</string>
         <class className="SnapPhotoShareViewController" superclassName="GAITrackedViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SnapPhotoShareViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backButton:"/>
+                <relationship kind="action" name="cancelUploadButton:"/>
+                <relationship kind="action" name="doneButton:"/>
+                <relationship kind="action" name="retryUploadButton:"/>
                 <relationship kind="outlet" name="uiBack" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="uiCaptionUploadSpinner" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="uiPhotoCaption" candidateClass="UITextField"/>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49CF3C311785D1F20013C5CA /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF3C301785D1F20013C5CA /* iPhoneStoryboard.storyboard */; };
+		49CF3C371785D58E0013C5CA /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF3C361785D58E0013C5CA /* iPadStoryboard.storyboard */; };
 		49E7142F17582DA4000442D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7142E17582DA4000442D4 /* UIKit.framework */; };
 		49E7143117582DA4000442D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7143017582DA4000442D4 /* Foundation.framework */; };
 		49E7143317582DA4000442D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7143217582DA4000442D4 /* CoreGraphics.framework */; };
@@ -72,7 +74,6 @@
 		49E7154F17582E17000442D4 /* uploadCancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 49E7150717582E17000442D4 /* uploadCancelButton.png */; };
 		49E7155017582E17000442D4 /* CameraOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E7150917582E17000442D4 /* CameraOverlay.xib */; };
 		49E7155117582E17000442D4 /* EventPhotoListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E7150A17582E17000442D4 /* EventPhotoListHeader.xib */; };
-		49E7155417582E17000442D4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E7150F17582E17000442D4 /* MainStoryboard.storyboard */; };
 		49E7155517582E17000442D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49E7151117582E17000442D4 /* InfoPlist.strings */; };
 		49E7155617582E17000442D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7151317582E17000442D4 /* main.m */; };
 		49E7158B17582F18000442D4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7158A17582F18000442D4 /* MobileCoreServices.framework */; };
@@ -84,6 +85,8 @@
 
 /* Begin PBXFileReference section */
 		0F75F41D75244D15BF650259 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		49CF3C301785D1F20013C5CA /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
+		49CF3C361785D58E0013C5CA /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
 		49E7142B17582DA4000442D4 /* Snapable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snapable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E7142E17582DA4000442D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49E7143017582DA4000442D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,7 +173,6 @@
 		49E7150B17582E17000442D4 /* Ottawa.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Ottawa.gpx; sourceTree = "<group>"; };
 		49E7150C17582E17000442D4 /* Snapable-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Snapable-Info.plist"; sourceTree = "<group>"; };
 		49E7150D17582E17000442D4 /* Snapable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Snapable-Prefix.pch"; sourceTree = "<group>"; };
-		49E7150F17582E17000442D4 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		49E7151217582E17000442D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		49E7151317582E17000442D4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49E7158A17582F18000442D4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -398,7 +400,8 @@
 		49E7150E17582E17000442D4 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				49E7150F17582E17000442D4 /* MainStoryboard.storyboard */,
+				49CF3C301785D1F20013C5CA /* iPhoneStoryboard.storyboard */,
+				49CF3C361785D58E0013C5CA /* iPadStoryboard.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -511,8 +514,9 @@
 				49E7154F17582E17000442D4 /* uploadCancelButton.png in Resources */,
 				49E7155017582E17000442D4 /* CameraOverlay.xib in Resources */,
 				49E7155117582E17000442D4 /* EventPhotoListHeader.xib in Resources */,
-				49E7155417582E17000442D4 /* MainStoryboard.storyboard in Resources */,
 				49E7155517582E17000442D4 /* InfoPlist.strings in Resources */,
+				49CF3C311785D1F20013C5CA /* iPhoneStoryboard.storyboard in Resources */,
+				49CF3C371785D58E0013C5CA /* iPadStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,8 +656,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snapable/Snapable-Prefix.pch";
 				INFOPLIST_FILE = "Snapable/Snapable-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -665,8 +671,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snapable/Snapable-Prefix.pch";
 				INFOPLIST_FILE = "Snapable/Snapable-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
