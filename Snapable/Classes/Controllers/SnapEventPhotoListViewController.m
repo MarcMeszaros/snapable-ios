@@ -29,15 +29,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 @synthesize uiLoadMore;
 @synthesize tableView = _tableView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -296,10 +287,11 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     [activityIndicator startAnimating];
     self.navigationItem.rightBarButtonItem = barButton;
 
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-        [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri], @"event",
-        nil];
-    
+    NSDictionary *params = @{
+        @"event": [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri],
+        @"streamable": @"true"
+    };
+
     // some variables to store data in
     NSMutableArray *tempPhotoArray = [NSMutableArray array];
     [[SnapApiClient sharedInstance] getPath:@"photo/" parameters:params

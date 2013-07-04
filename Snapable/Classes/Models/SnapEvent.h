@@ -11,6 +11,7 @@
 @interface SnapEvent : NSObject {
     BOOL _enabled;
     int _photo_count;
+    int _tz_offset;
     NSString *start;
     NSString *end;
     NSString *title;
@@ -26,6 +27,7 @@
 @property (nonatomic) BOOL enabled;
 @property (nonatomic) BOOL public;
 @property (nonatomic) int photo_count;
+@property (nonatomic) int tz_offset;
 @property (nonatomic, copy) NSString *start;
 @property (nonatomic, copy) NSString *end;
 @property (nonatomic, copy) NSString *title;

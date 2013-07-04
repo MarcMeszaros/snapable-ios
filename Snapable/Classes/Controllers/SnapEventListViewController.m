@@ -105,6 +105,7 @@ static NSString *cellIdentifier = @"eventListCell";
     // Convert string to date object
     ISO8601DateFormatter *dateFormat = [[ISO8601DateFormatter alloc] init];
     NSDate *startDate = [dateFormat dateFromString:event.start];
+    startDate = [startDate dateByAddingTimeInterval:(event.tz_offset * 60)]; // add the timezone offset
     //NSDate *endDate = [dateFormat dateFromString:event.end];
     
     // Configure the cell...
@@ -114,20 +115,19 @@ static NSString *cellIdentifier = @"eventListCell";
     
     cell.uiEventDate.text = [eventDateFormat stringFromDate:startDate];
     //cell.uiEventDate.text = [startDate descriptionWithLocale:[NSLocale currentLocale]];
-    
-    // set the image string
-    NSString *photoAbsolutePath;
-    
+
     // if it's the original screen resolution
+    NSString *size = @"crop";
     if([[UIScreen mainScreen] scale] == 1.0f){
-        photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=100x100", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], event.resource_uri];
+        size = @"100x100";
     }
     // else retina
     else {
-        photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=200x200", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], event.resource_uri];
+        size = @"200x200";
     }
 
     // set the image to be auto loaded
+    NSString *photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=%@", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], event.resource_uri, size];
     [cell.uiPhoto setImageWithSignedURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
     
     return cell;
