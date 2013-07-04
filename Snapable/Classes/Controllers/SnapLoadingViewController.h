@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SnapCL.h"
 
-@interface SnapLoadingViewController : UIViewController <SnapCLControllerDelegate> {
+@interface SnapLoadingViewController : GAITrackedViewController <SnapCLControllerDelegate> {
     SnapCL *locationController;
     IBOutlet UILabel *loadingLabel;
     IBOutlet UIActivityIndicatorView *loadingSpinner;

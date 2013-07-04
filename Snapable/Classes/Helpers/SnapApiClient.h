@@ -13,13 +13,8 @@
 #ifdef DEBUG
 #   define SnapAPIBaseURL @"https://devapi.snapable.com/"
 #   define SnapAPIVersion @"private_v1"
-#   define SnapAPIKey @"abc123"
-#   define SnapAPISecret @"123"
-#elif TESTFLIGHT
-#   define SnapAPIBaseURL @"https://api.snapable.com/"
-#   define SnapAPIVersion @"private_v1"
-#   define SnapAPIKey @"9e304d4e8df1b74cfa009913198428ab"
-#   define SnapAPISecret @"5230222ab6f0dbd3175c90b327ed2fbf9648b7926aa2f5082e06fe8e5b8313b5"
+#   define SnapAPIKey @"key123"
+#   define SnapAPISecret @"sec123"
 #else
 #   define SnapAPIBaseURL @"https://api.snapable.com/"
 #   define SnapAPIVersion @"private_v1"
@@ -42,8 +37,8 @@
 
 @interface UIImageView (Snapable)
 
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage;
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage
+- (void)setImageWithSignedURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage;
+- (void)setImageWithSignedURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage
     success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image))success
     failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure;
 

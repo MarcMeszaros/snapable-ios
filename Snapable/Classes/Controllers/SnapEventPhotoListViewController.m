@@ -29,18 +29,10 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 @synthesize uiLoadMore;
 @synthesize tableView = _tableView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.trackedViewName = @"EventPhotoList"; // Google Analytics
 	// Do any additional setup after loading the view.
     
     // init the arrays if they are null
@@ -79,7 +71,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 // this loads the camera after the view appeared (a trick to hide the loading)
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[GANTracker sharedTracker] trackPageview:@"/eventPhotos" withError:nil];
     
     // initialize the camera
     self.camera = [SnapCamera sharedInstance];
@@ -127,16 +118,23 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     NSString *photoAbsolutePath;
 
     // if it's the original screen resolution
-    if([[UIScreen mainScreen] scale] == 1.0f){
-       photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=250x250", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri];
-    }
-    // else retina
-    else {
-        photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=500x500", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri];
+    NSString *size = @"crop";
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        if([[UIScreen mainScreen] scale] == 1.0f){
+           size = @"250x250";
+        }
+        // else retina
+        else {
+            size = @"500x500";
+        }
+    } else {
+        // TODO ipad here 
     }
     
     // set the image to be auto loaded
-    [cell.uiPhoto setImageWithURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
+    photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=%@", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri, size];
+    [cell.uiPhoto setImageWithSignedURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
     
     return cell;
 }
@@ -174,7 +172,8 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // launch the camera
     DLog(@"'take photo' button press");
     [self.camera startCameraControllerFromViewController:self usingDelegate:self];
-    [[GANTracker sharedTracker] trackPageview:@"/takePhoto" withError:nil];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:kGATrackinId]; // Google Analytics
+    [tracker sendView:@"Camera"];    
 }
 
 #pragma mark - Camera delegate
@@ -188,7 +187,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 - (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info {
 
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
-    UIImage *originalImage, *imageToSave;
+    UIImage *originalImage, *previewImage;
 
     // Handle a still image capture
     if (CFStringCompare ((__bridge CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
@@ -228,22 +227,23 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         // apply the cropping to the image and get a reference to the transformation
         CGImageRef imageRef = CGImageCreateWithImageInRect([originalImage CGImage], crop);
         // rasterize the image and free up the image reference
-        imageToSave = [UIImage imageWithCGImage:imageRef scale:originalImage.scale orientation:originalImage.imageOrientation];
+        previewImage = [UIImage imageWithCGImage:imageRef scale:originalImage.scale orientation:originalImage.imageOrientation];
         CGImageRelease(imageRef);
 
-        // Save the new image (original or edited) to the camera roll if it wasn't
+        // Save the original image to the camera roll if it wasn't
         // originally selected from the camera roll
-        if (picker.sourceType != UIImagePickerControllerSourceTypePhotoLibrary || picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
-            UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
+        if (picker.sourceType != UIImagePickerControllerSourceTypePhotoLibrary && picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
+            UIImageWriteToSavedPhotosAlbum (originalImage, nil, nil ,nil);
         }
 
         // start the share screen
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        UIStoryboard *storyboard = [self.navigationController storyboard];
         SnapPhotoShareViewController *snapPhotoVC = (SnapPhotoShareViewController *)[storyboard instantiateViewControllerWithIdentifier:@"photoShareController"];
         snapPhotoVC.event = self.event;
-        snapPhotoVC.photoImage = imageToSave;
+        snapPhotoVC.photoImage = originalImage;
+        snapPhotoVC.previewImage = previewImage;
         [picker dismissViewControllerAnimated:YES completion:^{
-            [self presentModalViewController:snapPhotoVC animated:YES];
+            [self presentViewController:snapPhotoVC animated:YES completion:nil];
         }];
     }
 }
@@ -287,10 +287,11 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     [activityIndicator startAnimating];
     self.navigationItem.rightBarButtonItem = barButton;
 
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-        [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri], @"event",
-        nil];
-    
+    NSDictionary *params = @{
+        @"event": [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri],
+        @"streamable": @"true"
+    };
+
     // some variables to store data in
     NSMutableArray *tempPhotoArray = [NSMutableArray array];
     [[SnapApiClient sharedInstance] getPath:@"photo/" parameters:params

@@ -12,17 +12,29 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 
-    // TestFlight import
-    #import "TestFlight.h"
-
-    // Google Analytics import
-    #import "GANTracker.h"
 #endif
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <MobileCoreServices/MobileCoreServices.h>
+#else
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <CoreServices/CoreServices.h>
+#endif
+
+// Google Analytics imports
+#import "GAI.h"
+#import "GAITrackedViewController.h"
+
+// Globally available development only logging
 // http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/
 #ifdef DEBUG
 #    define DLog(...) NSLog(__VA_ARGS__)
 #else
-#    define DLog(...) do {} while (0)
+#    define DLog(...) /* */
 #endif
+// Globally available always logging
 #define ALog(...) NSLog(__VA_ARGS__)
+
+// constants
+#define kGATrackinId @"UA-38299813-1"

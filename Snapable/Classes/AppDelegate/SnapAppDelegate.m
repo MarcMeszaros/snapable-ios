@@ -17,18 +17,15 @@
 static const NSInteger kGANDispatchPeriodSec = 0; // anything <= 0: manual dispatch required
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // setup TestFlight key
-    [TestFlight takeOff:@"121ded9a748e09c3647168b72ee14e48_MTIyMDUzMjAxMi0wOC0xNiAxMzoyNjowMi44Nzk2MTQ"];
-    
-    // setup the Google Analytics key
-    NSString *versionCode = [NSString stringWithFormat:@"ios_%@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]];
-    [[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-295382-39" dispatchPeriod:kGANDispatchPeriodSec delegate:nil];
-    [[GANTracker sharedTracker] setCustomVariableAtIndex:1 name:@"versionCode" value:versionCode scope:kGANVisitorScope withError:nil];
-
-    #ifdef DEBUG
-        // don't use google analytics in debug mode
-        [[GANTracker sharedTracker] stopTracker];
+{    
+    #ifndef DEBUG
+        // setup the Google Analytics key
+        // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+        [GAI sharedInstance].dispatchInterval = 20;
+        // Optional: set debug to YES for extra debugging information.
+        [GAI sharedInstance].debug = YES;
+        // Create tracker instance.
+        id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:kGATrackinId];
     #endif
 
     // setup the sqlite database

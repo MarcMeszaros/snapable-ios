@@ -76,18 +76,9 @@
 
     // generate a pseudo-random nonce
     NSString *nonce = [SnapCrypto randomHexStringWithLength:16];
-    // add the nonce to the header
-    [request setValue:nonce forHTTPHeaderField:@"x-SNAP-nonce"];
-    
-    // get the date
-    NSDate *now = [[NSDate alloc] init];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-    [dateFormatter setTimeZone:timeZone];
-    [dateFormatter setDateFormat:@"yyyyMMdd'T'HHmmss'Z'"];
-    NSString *dateString = [dateFormatter stringFromDate:now];
-    // add the date to the header
-    [request setValue:dateString forHTTPHeaderField:@"x-SNAP-Date"];
+
+    // get the timestamp
+    time_t unixTime = (time_t) [[NSDate date] timeIntervalSince1970];
     
     // get the correct signature path
     NSRange endRange = [request.URL.absoluteString rangeOfString:@"?"];
@@ -100,13 +91,13 @@
     }
     
     // raw_signature = key + verb + path + nonce + date
-    NSString *raw_signature = [NSString stringWithFormat:@"%@%@%@%@%@", SnapAPIKey, request.HTTPMethod, sign_path, nonce, dateString];
+    NSString *raw_signature = [NSString stringWithFormat:@"%@%@%@%@%ld", SnapAPIKey, request.HTTPMethod, sign_path, nonce, unixTime];
     
     // generate the hashed signature
     NSString *hash_signature = [SnapCrypto rawSignatureHMACSHA1:raw_signature apiSecret:SnapAPISecret];
     
     // set the authorization header
-    [request setValue:[NSString stringWithFormat:@"SNAP %@:%@", SnapAPIKey, hash_signature] forHTTPHeaderField:@"Authorization"];
+    [request setValue:[NSString stringWithFormat:@"SNAP key=\"%@\",signature=\"%@\",nonce=\"%@\",timestamp=\"%ld\"", SnapAPIKey, hash_signature, nonce, unixTime] forHTTPHeaderField:@"Authorization"];
     
     return request;
 }
@@ -116,7 +107,7 @@
 
     #ifndef DEBUG
         // send latest metrics to Google Analytics
-        [[GANTracker sharedTracker] dispatch];
+        //[[GANTracker sharedTracker] dispatch];
     #endif
     
     // build the request normally in the parent class
@@ -127,22 +118,20 @@
 
 @end
 
-#pragma mark - UIImage Snapable override
-
+#pragma mark - UIImage Snapable
 @implementation UIImageView (Snapable)
 
 // override the AFNetworking image loading to sign the request
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage {
+- (void)setImageWithSignedURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPShouldHandleCookies:NO];
     [request setHTTPShouldUsePipelining:YES];
     [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
-    
+
     [self setImageWithURLRequest:[[SnapApiClient sharedInstance] signRequest:request] placeholderImage:placeholderImage success:nil failure:nil];
 }
 
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure {
-
+- (void)setImageWithSignedURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPShouldHandleCookies:NO];
     [request setHTTPShouldUsePipelining:YES];

@@ -13,7 +13,7 @@
 #import "SnapEvent.h"
 #import "SnapPhoto.h"
 
-@interface SnapEventPhotoListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface SnapEventPhotoListViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     SnapEvent *event;
     SnapCamera *camera;
     NSMutableArray *api_photos;

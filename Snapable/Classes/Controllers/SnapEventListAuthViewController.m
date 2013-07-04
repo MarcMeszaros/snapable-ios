@@ -39,15 +39,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.trackedViewName = @"EventAuth"; // Google Analytics
 	// Do any additional setup after loading the view.
     if (self.event.public == true) {
         // hide the pin stuff and show the guest info
         self.uiPinViewGroup.hidden = YES;
         self.uiGuestInfoViewGroup.hidden = NO;
         self.uiContinueButton.hidden = NO;
-        [[GANTracker sharedTracker] trackPageview:@"/guestInfo" withError:nil];
-    } else {
-        [[GANTracker sharedTracker] trackPageview:@"/guestPin" withError:nil];
     }
 }
 
@@ -76,7 +74,7 @@
 #pragma mark - IBAction
 // dismiss the auth screen
 - (IBAction)backButton:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // try and authenticate the user
@@ -174,7 +172,6 @@
         self.uiPinViewGroup.hidden = YES;
         self.uiGuestInfoViewGroup.hidden = NO;
         self.uiContinueButton.hidden = NO;
-        [[GANTracker sharedTracker] trackPageview:@"/guestInfo" withError:nil];
     }
     // we don't match show pin stuff
     else if (self.uiPin.text.length > 0) {
