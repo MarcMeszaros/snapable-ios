@@ -16,8 +16,22 @@
 // some variables
 static const NSInteger kGANDispatchPeriodSec = 0; // anything <= 0: manual dispatch required
 
+/**
+ Create a custom uncaught exception handler to print stack traces when in development mode.
+ */
+void uncaughtExceptionHandler(NSException *exception) {
+    DLog(@"CRASH: %@", exception);
+    DLog(@"Stack Trace: %@", [exception callStackSymbols]);
+    // Internal error reporting
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    #ifdef DEBUG
+        // set an uncaught exception handler
+        NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    #endif
+
     #ifndef DEBUG
         // setup the Google Analytics key
         // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.

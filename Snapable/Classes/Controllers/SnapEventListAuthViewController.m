@@ -84,10 +84,12 @@
         // the pin group is hidden, try and process email and name
         if (self.uiPinViewGroup.hidden) {
             // parameters
-            NSDictionary *params = @{
-                @"event": [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri],
-                @"email": self.uiEmail.text
-            };
+            NSMutableDictionary *params = @{
+                @"event": [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri]
+            }.mutableCopy;
+            if (self.uiEmail.text != nil && [self.uiEmail.text length] > 0) {
+                [params setObject:self.uiEmail.text forKey:@"email"];
+            }
 
             // upload the image
             SnapApiClient *httpClient = [SnapApiClient sharedInstance];
