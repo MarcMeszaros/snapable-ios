@@ -17,7 +17,7 @@
 static const NSInteger kGANDispatchPeriodSec = 0; // anything <= 0: manual dispatch required
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
+{
     #ifndef DEBUG
         // setup the Google Analytics key
         // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
@@ -26,6 +26,9 @@ static const NSInteger kGANDispatchPeriodSec = 0; // anything <= 0: manual dispa
         [GAI sharedInstance].debug = YES;
         // Create tracker instance.
         id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:kGATrackinId];
+
+        // setup crashlytics
+        [Crashlytics startWithAPIKey:kCrashlyticsId];
     #endif
 
     // setup the sqlite database

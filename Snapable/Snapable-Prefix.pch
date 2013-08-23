@@ -26,6 +26,9 @@
 #import "GAI.h"
 #import "GAITrackedViewController.h"
 
+// Crashlytics
+#import <Crashlytics/Crashlytics.h>
+
 // Globally available development only logging
 // http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/
 #ifdef DEBUG
@@ -37,4 +40,5 @@
 #define ALog(...) NSLog(__VA_ARGS__)
 
 // constants
-#define kGATrackinId @"UA-38299813-1"
+#define kGATrackinId    @"UA-38299813-1"
+#define kCrashlyticsId  @"720497953609e6695431b598443025911fbfa2d7"
