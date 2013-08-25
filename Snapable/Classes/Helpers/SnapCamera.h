@@ -15,25 +15,19 @@
 
 @interface SnapCamera : NSObject <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     UIImagePickerController *cameraUI;
-    UIButton *uiFlash;
-    UIButton *uiSwitchCamera;
     UIButton *uiCameraRoll;
-    
     NSInteger flashMode;
 }
 
 @property (nonatomic, strong) UIImagePickerController *cameraUI;
-@property (nonatomic, strong) UIButton *uiFlash;
-@property (nonatomic, strong) UIButton *uiSwitchCamera;
 @property (nonatomic, strong) UIButton *uiCameraRoll;
 @property (nonatomic) NSInteger flashMode;
 
 
 + (id)sharedInstance;
 
-- (BOOL)startCameraControllerFromViewController: (UIViewController*) controller
-                                   usingDelegate: (id <UIImagePickerControllerDelegate,
-                                                   UINavigationControllerDelegate>) delegate;
-- (void)changeFlashMode:(id)sender;
+- (BOOL)startCameraControllerFromViewController:(UIViewController*)controller
+                                   usingDelegate:(id <UIImagePickerControllerDelegate,
+                                                   UINavigationControllerDelegate>)delegate;
 
 @end
