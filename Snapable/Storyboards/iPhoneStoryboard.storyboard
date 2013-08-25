@@ -76,19 +76,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="shareUploadImageBGlrg.png" id="QZ0-h8-Bup">
-                                <rect key="frame" x="71" y="8" width="176" height="176"/>
+                                <rect key="frame" x="71" y="20" width="176" height="176"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="photoDefault.jpg" id="co5-JL-K7Q">
-                                <rect key="frame" x="79" y="14" width="160" height="160"/>
+                                <rect key="frame" x="79" y="26" width="160" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="qrb-0q-Qi3" userLabel="View - Upload Group">
-                                <rect key="frame" x="9" y="160" width="303" height="187"/>
+                                <rect key="frame" x="9" y="207" width="303" height="177"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="csU-n2-4db" userLabel="View - Progress Group">
-                                        <rect key="frame" x="4" y="1" width="292" height="65"/>
+                                        <rect key="frame" x="4" y="1" width="292" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" progressViewStyle="bar" id="lrI-Q3-AZZ">
@@ -98,7 +98,7 @@
                                                 <color key="trackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </progressView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EOg-tg-uh0">
-                                                <rect key="frame" x="260" y="16" width="24" height="24"/>
+                                                <rect key="frame" x="260" y="14" width="24" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" image="uploadCancelButton.png">
@@ -115,26 +115,26 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Pzn-nU-D69" userLabel="Button - Retry">
-                                        <rect key="frame" x="61" y="129" width="179" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="Retry" backgroundImage="backgroundOrangeButton.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="retryUploadButton:" destination="CKl-UA-FIR" eventType="touchDown" id="alF-52-Xpu"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Pzn-nU-D69" userLabel="Button - Retry">
+                                <rect key="frame" x="71" y="312" width="179" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Retry" backgroundImage="backgroundOrangeButton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="retryUploadButton:" destination="CKl-UA-FIR" eventType="touchDown" id="alF-52-Xpu"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Caption" minimumFontSize="16" clearButtonMode="whileEditing" id="6yt-s3-dr0">
-                                <rect key="frame" x="14" y="236" width="292" height="31"/>
+                                <rect key="frame" x="14" y="255" width="292" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -143,11 +143,11 @@
                                 </connections>
                             </textField>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" id="Dcc-h3-qAj">
-                                <rect key="frame" x="150" y="301" width="20" height="20"/>
+                                <rect key="frame" x="150" y="324" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eLs-pp-6kA" userLabel="Button - Done">
-                                <rect key="frame" x="71" y="289" width="179" height="44"/>
+                                <rect key="frame" x="71" y="312" width="179" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="Done" backgroundImage="backgroundGreenButton.png">
@@ -398,7 +398,7 @@ Ceremony &amp; Dinner</string>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" id="do2-Ho-FT7">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email (optional)" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" id="do2-Ho-FT7">
                                         <rect key="frame" x="30" y="80" width="220" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -605,6 +605,11 @@ Ceremony &amp; Dinner</string>
         <image name="Default-568h.png" width="640" height="1136"/>
         <image name="backgroundAuthentication.png" width="640" height="1136"/>
         <image name="backgroundAuthenticationPIN.png" width="560" height="200"/>
+        <image name="backgroundAuthenticationPIN.png" width="560" height="200"/>
+        <image name="backgroundBlueButton.png" width="354" height="84"/>
+        <image name="backgroundBlueButton.png" width="354" height="84"/>
+        <image name="backgroundBlueButton.png" width="354" height="84"/>
+        <image name="backgroundBlueButton.png" width="354" height="84"/>
         <image name="backgroundBlueButton.png" width="354" height="84"/>
         <image name="backgroundGreenButton.png" width="358" height="88"/>
         <image name="backgroundOrangeButton.png" width="358" height="88"/>
@@ -613,6 +618,7 @@ Ceremony &amp; Dinner</string>
         <image name="eventListEventBackground.png" width="640" height="240"/>
         <image name="eventListEventBackgroundHighlight.png" width="640" height="240"/>
         <image name="eventPhotoBorder.png" width="640" height="624"/>
+        <image name="photoDefault.jpg" width="500" height="500"/>
         <image name="photoDefault.jpg" width="500" height="500"/>
         <image name="photoUploadBackground.png" width="640" height="1136"/>
         <image name="shareUploadImageBGlrg.png" width="270" height="270"/>
