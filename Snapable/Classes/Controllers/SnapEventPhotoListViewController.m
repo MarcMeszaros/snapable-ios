@@ -270,6 +270,14 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 
 # pragma mark - API
 - (void)refresh:(UIRefreshControl *)sender {
+    // setup the refresh spinner
+    if (!sender.refreshing) {
+        UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
+        [activityIndicator startAnimating];
+        self.navigationItem.rightBarButtonItem = barButton;
+    }
     // start the refresh control
     [sender beginRefreshing];
     
@@ -328,6 +336,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
             }
 
             // end refresh
+            self.navigationItem.rightBarButtonItem = nil;
             [sender endRefreshing];
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -335,6 +344,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
             DLog(@"%@", error);
 
             // end refresh
+            self.navigationItem.rightBarButtonItem = nil;
             [sender endRefreshing];
         }
      ];
