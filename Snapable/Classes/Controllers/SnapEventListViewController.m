@@ -214,12 +214,12 @@ static NSString *cellIdentifier = @"eventListCell";
 - (void)searchForEventsWithQuery:(NSString *)query
 {
     // setup the params
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-        query, @"q",
-        @"true", @"enabled",
-        @"end", @"order_by",
-        nil];
-    
+    NSDictionary *params = @{
+        @"q": query,
+        @"enabled": @"true",
+        @"order_by": @"end"
+    };
+
     // get the events
     [[SnapApiClient sharedInstance] getPath:@"event/search/" parameters:params
         success:^(AFHTTPRequestOperation *operation, id response) {

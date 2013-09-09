@@ -13,25 +13,18 @@
 #import "SnapEvent.h"
 #import "SnapPhoto.h"
 
-@interface SnapEventPhotoListViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
-    SnapEvent *event;
-    SnapCamera *camera;
-    NSMutableArray *api_photos;
-    NSMutableArray *_photos;
-    IBOutlet UIView *uiNoPhotos;
-    IBOutlet UIButton *uiLoadMore;
-    IBOutlet UITableView *_tableView;
-}
+@interface SnapEventPhotoListViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) SnapEvent *event;
 @property (nonatomic, strong) SnapCamera *camera;
 @property (nonatomic, strong) NSMutableArray *api_photos;
 @property (nonatomic, strong) NSMutableArray *photos;
-@property (nonatomic, strong) UIView *uiNoPhotos;
-@property (nonatomic, strong) UIButton *uiLoadMore;
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UIView *uiNoPhotos;
+@property (nonatomic, strong) IBOutlet UIButton *uiLoadMore;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UIRefreshControl *refreshControl;
 
 - (void)loadMoreImages:(NSInteger)count;
-- (void)refresh;
+- (void)refresh:(UIRefreshControl *)sender;
 
 @end

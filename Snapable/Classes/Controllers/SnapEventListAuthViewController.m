@@ -84,11 +84,13 @@
         // the pin group is hidden, try and process email and name
         if (self.uiPinViewGroup.hidden) {
             // parameters
-            NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri], @"event",
-                                    self.uiEmail.text, @"email",
-                                    nil];
-            
+            NSMutableDictionary *params = @{
+                @"event": [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri]
+            }.mutableCopy;
+            if (self.uiEmail.text != nil && [self.uiEmail.text length] > 0) {
+                [params setObject:self.uiEmail.text forKey:@"email"];
+            }
+
             // upload the image
             SnapApiClient *httpClient = [SnapApiClient sharedInstance];
             [httpClient getPath:@"guest/" parameters:params
@@ -106,9 +108,9 @@
                                     
                                     // update the guest
                                     NSString *putPath = [NSString stringWithFormat:@"guest/%d/", self.guest.id];
-                                    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                                            self.uiName.text, @"name",
-                                            nil];
+                                    NSDictionary *params = @{
+                                        @"name": self.uiName.text
+                                    };
                                     [httpClient putPath:putPath parameters:params
                                             success:^(AFHTTPRequestOperation *operation, id response) {
                                                 DLog(@"successfuly updated guest name");
@@ -122,21 +124,13 @@
                             }
                             // else create the guest info on the API
                             else if (self.uiEmail.text.length > 0 || self.uiName.text.length > 0) {
-                                // guest type
-                                NSString *guestType = nil;
-                                if (self.event.public == true) {
-                                    guestType = [NSString stringWithFormat:@"/%@/type/6/", SnapAPIVersion];
-                                } else {
-                                    guestType = [NSString stringWithFormat:@"/%@/type/5/", SnapAPIVersion];
-                                }
-
                                 // make an API call to create guest
-                                NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        self.event.resource_uri, @"event",
-                                        guestType, @"type",
-                                        self.uiName.text, @"name",
-                                        self.uiEmail.text, @"email",
-                                        nil];
+                                NSDictionary *params = @{
+                                    @"event": self.event.resource_uri,
+                                    @"name": self.uiName.text,
+                                    @"email": self.uiEmail.text
+                                };
+
                                 [httpClient postPath:@"guest/" parameters:params
                                     success:^(AFHTTPRequestOperation *operation, id response) {
                                         NSString *locationHeader = [operation.response.allHeaderFields valueForKey:@"Location"];

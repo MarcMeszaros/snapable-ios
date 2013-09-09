@@ -95,11 +95,11 @@
     [self.locationController stopUpdatingLocation];
 
     // setup the params
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSString stringWithFormat:@"%f", location.coordinate.latitude], @"lat",
-        [NSString stringWithFormat:@"%f", location.coordinate.longitude], @"lng",
-        @"true", @"enabled",
-        nil];
+    NSDictionary *params = @{
+        @"lat": [NSString stringWithFormat:@"%f", location.coordinate.latitude],
+        @"lng": [NSString stringWithFormat:@"%f", location.coordinate.longitude],
+        @"enabled": @"true"
+    };
 
     // get the events
     [loadingSpinner startAnimating];

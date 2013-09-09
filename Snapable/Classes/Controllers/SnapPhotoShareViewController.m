@@ -133,26 +133,17 @@
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", [SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri]];
     FMResultSet *results = [delegate.database executeQuery:query];
 
-    NSString *type = nil;
-    if (self.event.public == true) {
-        type = @"/private_v1/type/6/";
-    } else {
-        type = @"/private_v1/type/5/";
-    }
-
     // parameters
     NSDictionary *params = nil;
     if ([results next] && [results intForColumn:@"guest_id"] > 0) {
-        params = [NSDictionary dictionaryWithObjectsAndKeys:
-            self.event.resource_uri, @"event",
-            [NSString stringWithFormat:@"/%@/guest/%d/", SnapAPIVersion, [results intForColumn:@"guest_id"]], @"guest",
-            type, @"type",
-            nil];
+        params = @{
+            @"event": self.event.resource_uri,
+            @"guest": [NSString stringWithFormat:@"/%@/guest/%d/", SnapAPIVersion, [results intForColumn:@"guest_id"]]
+        };
     } else {
-        params = [NSDictionary dictionaryWithObjectsAndKeys:
-            self.event.resource_uri, @"event",
-            type, @"type",
-            nil];
+        params = @{
+            @"event": self.event.resource_uri
+        };
     }
     // close the database
     [delegate.database close];

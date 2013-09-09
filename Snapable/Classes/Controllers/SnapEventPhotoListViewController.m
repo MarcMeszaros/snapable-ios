@@ -21,13 +21,6 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
 
 // declare & synthesize some class properties
 static NSString *cellIdentifier = @"eventPhotoListCell";
-@synthesize event;
-@synthesize camera;
-@synthesize api_photos;
-@synthesize photos = _photos;
-@synthesize uiNoPhotos;
-@synthesize uiLoadMore;
-@synthesize tableView = _tableView;
 
 - (void)viewDidLoad
 {
@@ -43,13 +36,11 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     if (self.photos == nil) {
         self.photos = [NSMutableArray array];
     }
-
-    // add refresh button
-    UIBarButtonItem *button = [[UIBarButtonItem alloc]
-                               initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                               target:self
-                               action:@selector(refresh)];
-    self.navigationItem.rightBarButtonItem = button;
+   
+    // add iOS pull to refresh
+    _refreshControl = [[UIRefreshControl alloc] init];
+    [_refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:_refreshControl];
 }
 
 - (void)viewDidUnload
@@ -74,7 +65,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     
     // initialize the camera
     self.camera = [SnapCamera sharedInstance];
-    [self refresh];
+    [self refresh:_refreshControl];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -160,14 +151,14 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 }
 
 #pragma mark - IBActions
-- (IBAction) loadMore: (UIButton*) sender
+- (IBAction)loadMore:(UIButton*)sender
 {
     // load more photos
     DLog(@"'load more' button press");
     [self loadMoreImages:10];
 }
 
-- (IBAction) takePhoto: (UIButton*) sender
+- (IBAction)takePhoto:(UIButton*)sender
 {
     // launch the camera
     DLog(@"'take photo' button press");
@@ -278,15 +269,18 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 }
 
 # pragma mark - API
-- (void)refresh {
+- (void)refresh:(UIRefreshControl *)sender {
     // setup the refresh spinner
-    UIBarButtonItem *refreshButton = self.navigationItem.rightBarButtonItem;
-    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
-    activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
-    [activityIndicator startAnimating];
-    self.navigationItem.rightBarButtonItem = barButton;
-
+    if (!sender.refreshing) {
+        UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
+        [activityIndicator startAnimating];
+        self.navigationItem.rightBarButtonItem = barButton;
+    }
+    // start the refresh control
+    [sender beginRefreshing];
+    
     NSDictionary *params = @{
         @"event": [SnapApiClient getIdAsStringFromResourceUri:self.event.resource_uri],
         @"streamable": @"true"
@@ -341,15 +335,17 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
                 [self loadMoreImages:5];
             }
 
-            // add back the refresh button
-            self.navigationItem.rightBarButtonItem = refreshButton;
+            // end refresh
+            self.navigationItem.rightBarButtonItem = nil;
+            [sender endRefreshing];
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             DLog(@"Error fetching photos!");
             DLog(@"%@", error);
 
-            // add back the refresh button
-            self.navigationItem.rightBarButtonItem = refreshButton;
+            // end refresh
+            self.navigationItem.rightBarButtonItem = nil;
+            [sender endRefreshing];
         }
      ];
 }
