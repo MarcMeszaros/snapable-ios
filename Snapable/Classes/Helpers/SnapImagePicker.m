@@ -16,7 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNeedsStatusBarAppearanceUpdate];
+    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate:)]) {
+        [self setNeedsStatusBarAppearanceUpdate];
+    }
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
