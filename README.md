@@ -1,6 +1,6 @@
 # Requirements #
 
-* Xcode 4.6
+* Xcode 5.0+
 * [Cocoapods](https://github.com/CocoaPods/CocoaPods)
 * [Crashlytics](http://crashlytics.com/)
 
@@ -9,9 +9,3 @@
 * `pod install`
 * `open Snapable.xcworkspace`
 * Build & Run
-
-## Git Submodules ##
-
-Currently still required, but will eventually be deprecated.
-
-    git submodule init && git submodule update

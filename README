@@ -1,3 +1,0 @@
-When checking out the source code, make sure to execute:
-
-	git submodule init && git submodule update
