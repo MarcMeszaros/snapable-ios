@@ -10,35 +10,7 @@
 #import "SnapPhotoShareViewController.h"
 #import "Toast+UIView.h"
 
-@interface SnapPhotoShareViewController ()
-
-@end
-
 @implementation SnapPhotoShareViewController
-
-@synthesize event;
-@synthesize photoId;
-@synthesize photoImage;
-@synthesize previewImage;
-@synthesize uiPhotoPreview;
-@synthesize uiPhotoCaption;
-@synthesize uiPhotoUploadProgress;
-@synthesize uiCaptionUploadSpinner;
-@synthesize uiUploadDone;
-@synthesize uiUploadRetry;
-@synthesize uiBack;
-@synthesize uiUploadViewGroup;
-@synthesize uiUploadProgressViewGroup;
-@synthesize uploadOperation;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -52,12 +24,6 @@
 
     // start uploading the photo
     [self uploadPhotoStart];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

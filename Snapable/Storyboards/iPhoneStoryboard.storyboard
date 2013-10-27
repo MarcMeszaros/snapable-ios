@@ -8,7 +8,7 @@
         <!--Navigation Controller-->
         <scene sceneID="rah-fo-q5M">
             <objects>
-                <navigationController definesPresentationContext="YES" id="uwi-4K-nYa" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="uwi-4K-nYa" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleAspectFit" id="2W8-X1-8uK" customClass="SnapNavigationBar">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -581,6 +581,10 @@ Ceremony &amp; Dinner</string>
         <image name="LoadingBackground" width="320" height="480"/>
         <image name="backgroundAuthentication.png" width="640" height="1136"/>
         <image name="backgroundAuthenticationPIN.png" width="560" height="200"/>
+        <image name="backgroundAuthenticationPIN.png" width="560" height="200"/>
+        <image name="backgroundBlueButton.png" width="354" height="84"/>
+        <image name="backgroundBlueButton.png" width="354" height="84"/>
+        <image name="backgroundBlueButton.png" width="354" height="84"/>
         <image name="backgroundBlueButton.png" width="354" height="84"/>
         <image name="backgroundGreenButton.png" width="358" height="88"/>
         <image name="backgroundOrangeButton.png" width="358" height="88"/>
@@ -589,6 +593,7 @@ Ceremony &amp; Dinner</string>
         <image name="eventListEventBackground.png" width="640" height="240"/>
         <image name="eventListEventBackgroundHighlight.png" width="640" height="240"/>
         <image name="eventPhotoBorder.png" width="640" height="624"/>
+        <image name="photoDefault.jpg" width="500" height="500"/>
         <image name="photoDefault.jpg" width="500" height="500"/>
         <image name="photoUploadBackground.png" width="640" height="1136"/>
         <image name="shareUploadImageBGlrg.png" width="270" height="270"/>

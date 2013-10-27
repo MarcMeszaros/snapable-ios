@@ -45,12 +45,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     [self.tableView addSubview:_refreshControl];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
 // some view tweaks before it's displayed
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

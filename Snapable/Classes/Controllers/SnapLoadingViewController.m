@@ -12,14 +12,7 @@
 #import "SnapEvent.h"
 #import "SnapEventListViewController.h"
 
-@interface SnapLoadingViewController ()
-
-@end
-
 @implementation SnapLoadingViewController
-
-@synthesize locationController;
-@synthesize results;
 
 - (void)viewDidUnload
 {
@@ -54,7 +47,7 @@
     // if the location controller isn't nil, look for new locations
     if (self.locationController != nil) {
         [self.locationController startUpdatingLocation];
-        [loadingSpinner startAnimating];
+        [self.loadingSpinner startAnimating];
     }
     [super viewDidAppear:animated];
 }
@@ -64,7 +57,7 @@
     // if the location controller isn't nil, look for new locations
     if (self.locationController != nil) {
         [self.locationController stopUpdatingLocation];
-        [loadingSpinner stopAnimating];
+        [self.loadingSpinner stopAnimating];
     }
     [super viewDidDisappear:animated];
 }
@@ -87,7 +80,7 @@
     };
 
     // get the events
-    [loadingSpinner startAnimating];
+    [self.loadingSpinner startAnimating];
     [[SnapApiClient sharedInstance] getPath:@"event/" parameters:params
         success:^(AFHTTPRequestOperation *operation, id response) {
             // hydrate the response into objects
@@ -98,16 +91,16 @@
                 DLog(@"event: %@", event.title);
             }
 
-            DLog(@"event count: %d", results.count);
+            DLog(@"event count: %d", self.results.count);
             
             // start the correct screen depending on number of events
-            [loadingSpinner stopAnimating];
+            [self.loadingSpinner stopAnimating];
             [self performSegueWithIdentifier:@"eventListSegue" sender:self];
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             DLog(@"Error fetching events!");
             DLog(@"%@", error);
-            [loadingSpinner stopAnimating];
+            [self.loadingSpinner stopAnimating];
             [self performSegueWithIdentifier:@"eventListSegue" sender:self];
         }
      ];
@@ -117,7 +110,7 @@
 	DLog(@"An error occured while getting location.");
     DLog(@"Error: %@", error);
     // continue anyway
-    [loadingSpinner stopAnimating];
+    [self.loadingSpinner stopAnimating];
     [self performSegueWithIdentifier:@"eventListSegue" sender:self];
 }
 

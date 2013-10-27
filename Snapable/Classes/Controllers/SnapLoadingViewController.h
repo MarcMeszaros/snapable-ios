@@ -10,14 +10,13 @@
 #import "SnapCL.h"
 
 @interface SnapLoadingViewController : GAITrackedViewController <SnapCLControllerDelegate> {
-    SnapCL *locationController;
-    IBOutlet UILabel *loadingLabel;
-    IBOutlet UIActivityIndicatorView *loadingSpinner;
-    NSMutableArray *results;
+    
 }
 
 @property (nonatomic, strong) SnapCL *locationController;
 @property (nonatomic, strong) NSMutableArray *results;
+@property (nonatomic, strong) IBOutlet UILabel *loadingLabel;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *loadingSpinner;
 
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;

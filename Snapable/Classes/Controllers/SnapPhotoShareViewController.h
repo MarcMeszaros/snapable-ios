@@ -13,24 +13,7 @@
 #import "SnapPhoto.h"
 
 
-@interface SnapPhotoShareViewController : GAITrackedViewController <UITextFieldDelegate> {
-    SnapEvent *event;
-    NSInteger photoId;
-    UIImage *photoImage;
-    UIImage *previewImage;
-
-    IBOutlet UIImageView *uiPhotoPreview;
-    IBOutlet UITextField *uiPhotoCaption;
-    IBOutlet UIProgressView *uiPhotoUploadProgress;
-    IBOutlet UIActivityIndicatorView *uiCaptionUploadSpinner;
-    IBOutlet UIButton *uiUploadDone;
-    IBOutlet UIButton *uiUploadRetry;
-    IBOutlet UIButton *uiBack;
-    IBOutlet UIView *uiUploadViewGroup;
-    IBOutlet UIView *uiUploadProgressViewGroup;
-    
-    AFHTTPRequestOperation *uploadOperation;
-}
+@interface SnapPhotoShareViewController : GAITrackedViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) SnapEvent *event;
 @property (nonatomic) NSInteger photoId;
