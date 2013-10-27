@@ -10,18 +10,7 @@
 #import "SnapEvent.h"
 #import "SnapGuest.h"
 
-@interface SnapEventListAuthViewController : GAITrackedViewController <UITextFieldDelegate> {
-    SnapEvent *event;
-    SnapGuest *guest;
-    UIViewController *parenVC;
-    
-    IBOutlet UITextField *uiName;
-    IBOutlet UITextField *uiEmail;
-    IBOutlet UITextField *uiPin;
-    IBOutlet UIView *uiPinViewGroup;
-    IBOutlet UIView *uiGuestInfoViewGroup;
-    IBOutlet UIButton *uiContinueButton;
-}
+@interface SnapEventListAuthViewController : GAITrackedViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) SnapEvent *event;
 @property (nonatomic, strong) SnapGuest *guest;

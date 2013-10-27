@@ -37,8 +37,8 @@
         [self.delegate locationUpdate:newLocation];
         self.updateCount = 0;
     } else {
-        // give up (ie. should be stable enough by 5th update, we tried...)
-        if(self.updateCount >= 5) {
+        // give up (ie. should be stable enough by 3rd update, we tried...)
+        if(self.updateCount >= 3) {
             [self.delegate locationUpdate:newLocation];
             self.updateCount = 0;
         }

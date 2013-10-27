@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		49059D8E17CA98E70084C15D /* SnapImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 49059D8D17CA98E70084C15D /* SnapImagePicker.m */; };
+		4914FF5D181DD35D00182FCF /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4914FF5B181DD35D00182FCF /* picture.png */; };
+		4914FF5E181DD35D00182FCF /* picture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4914FF5C181DD35D00182FCF /* picture@2x.png */; };
+		49897C7F181D7BFC00F83173 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49897C7E181D7BFC00F83173 /* Images.xcassets */; };
+		49897C88181DAC5300F83173 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 49897C87181DAC5300F83173 /* Analytics.m */; };
+		49897C8A181DAD9100F83173 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49897C89181DAD9100F83173 /* libz.dylib */; };
 		49CF3C311785D1F20013C5CA /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF3C301785D1F20013C5CA /* iPhoneStoryboard.storyboard */; };
 		49CF3C371785D58E0013C5CA /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF3C361785D58E0013C5CA /* iPadStoryboard.storyboard */; };
 		49D7E61E17C71CDF00CA89E9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D7E61D17C71CDF00CA89E9 /* Crashlytics.framework */; };
@@ -39,17 +44,6 @@
 		49E7158D17582F32000442D4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7158C17582F32000442D4 /* SystemConfiguration.framework */; };
 		49E7158F1758313C000442D4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7158E1758313C000442D4 /* CoreLocation.framework */; };
 		49E715911758462E000442D4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E715901758462E000442D4 /* CoreData.framework */; };
-		49F3F71417DD4A9D003A8D76 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6EE17DD4A9D003A8D76 /* Default-568h@2x.png */; };
-		49F3F71517DD4A9D003A8D76 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6EF17DD4A9D003A8D76 /* Default.png */; };
-		49F3F71617DD4A9D003A8D76 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6F017DD4A9D003A8D76 /* Default@2x.png */; };
-		49F3F71717DD4A9D003A8D76 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6F217DD4A9D003A8D76 /* Icon-72.png */; };
-		49F3F71817DD4A9D003A8D76 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6F317DD4A9D003A8D76 /* Icon-72@2x.png */; };
-		49F3F71917DD4A9D003A8D76 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6F417DD4A9D003A8D76 /* Icon-Small-50.png */; };
-		49F3F71A17DD4A9D003A8D76 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6F517DD4A9D003A8D76 /* Icon-Small-50@2x.png */; };
-		49F3F71B17DD4A9D003A8D76 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6F617DD4A9D003A8D76 /* Icon-Small.png */; };
-		49F3F71C17DD4A9D003A8D76 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6F717DD4A9D003A8D76 /* Icon-Small@2x.png */; };
-		49F3F71D17DD4A9D003A8D76 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6F817DD4A9D003A8D76 /* Icon.png */; };
-		49F3F71E17DD4A9D003A8D76 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6F917DD4A9D003A8D76 /* Icon@2x.png */; };
 		49F3F71F17DD4A9D003A8D76 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6FA17DD4A9D003A8D76 /* iTunesArtwork */; };
 		49F3F72017DD4A9D003A8D76 /* arrowBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6FC17DD4A9D003A8D76 /* arrowBlue.png */; };
 		49F3F72117DD4A9D003A8D76 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6FD17DD4A9D003A8D76 /* background.png */; };
@@ -66,7 +60,6 @@
 		49F3F72C17DD4A9D003A8D76 /* eventPhotoBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F70817DD4A9D003A8D76 /* eventPhotoBorder.png */; };
 		49F3F72D17DD4A9D003A8D76 /* navigationBarBackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F70917DD4A9D003A8D76 /* navigationBarBackgroundImage.png */; };
 		49F3F72E17DD4A9D003A8D76 /* photoDefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F70A17DD4A9D003A8D76 /* photoDefault.jpg */; };
-		49F3F72F17DD4A9D003A8D76 /* photoPickerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F70B17DD4A9D003A8D76 /* photoPickerButton.png */; };
 		49F3F73117DD4A9D003A8D76 /* photoUploadBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F70D17DD4A9D003A8D76 /* photoUploadBackground.png */; };
 		49F3F73417DD4A9D003A8D76 /* shareUploadImageBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F71017DD4A9D003A8D76 /* shareUploadImageBG.png */; };
 		49F3F73517DD4A9D003A8D76 /* shareUploadImageBGlrg.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F71117DD4A9D003A8D76 /* shareUploadImageBGlrg.png */; };
@@ -79,6 +72,12 @@
 		0F75F41D75244D15BF650259 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		49059D8C17CA98E70084C15D /* SnapImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapImagePicker.h; sourceTree = "<group>"; };
 		49059D8D17CA98E70084C15D /* SnapImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapImagePicker.m; sourceTree = "<group>"; };
+		4914FF5B181DD35D00182FCF /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture.png; sourceTree = "<group>"; };
+		4914FF5C181DD35D00182FCF /* picture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture@2x.png"; sourceTree = "<group>"; };
+		49897C7E181D7BFC00F83173 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		49897C86181DAC5300F83173 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
+		49897C87181DAC5300F83173 /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Analytics.m; sourceTree = "<group>"; };
+		49897C89181DAD9100F83173 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		49CF3C301785D1F20013C5CA /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 		49CF3C361785D58E0013C5CA /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
 		49D7E61D17C71CDF00CA89E9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -131,17 +130,6 @@
 		49E7158C17582F32000442D4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		49E7158E1758313C000442D4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		49E715901758462E000442D4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		49F3F6EE17DD4A9D003A8D76 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		49F3F6EF17DD4A9D003A8D76 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		49F3F6F017DD4A9D003A8D76 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		49F3F6F217DD4A9D003A8D76 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		49F3F6F317DD4A9D003A8D76 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
-		49F3F6F417DD4A9D003A8D76 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
-		49F3F6F517DD4A9D003A8D76 /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
-		49F3F6F617DD4A9D003A8D76 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
-		49F3F6F717DD4A9D003A8D76 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
-		49F3F6F817DD4A9D003A8D76 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		49F3F6F917DD4A9D003A8D76 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		49F3F6FA17DD4A9D003A8D76 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		49F3F6FC17DD4A9D003A8D76 /* arrowBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowBlue.png; sourceTree = "<group>"; };
 		49F3F6FD17DD4A9D003A8D76 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -158,7 +146,6 @@
 		49F3F70817DD4A9D003A8D76 /* eventPhotoBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventPhotoBorder.png; sourceTree = "<group>"; };
 		49F3F70917DD4A9D003A8D76 /* navigationBarBackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackgroundImage.png; sourceTree = "<group>"; };
 		49F3F70A17DD4A9D003A8D76 /* photoDefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photoDefault.jpg; sourceTree = "<group>"; };
-		49F3F70B17DD4A9D003A8D76 /* photoPickerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoPickerButton.png; sourceTree = "<group>"; };
 		49F3F70D17DD4A9D003A8D76 /* photoUploadBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoUploadBackground.png; sourceTree = "<group>"; };
 		49F3F71017DD4A9D003A8D76 /* shareUploadImageBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareUploadImageBG.png; sourceTree = "<group>"; };
 		49F3F71117DD4A9D003A8D76 /* shareUploadImageBGlrg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareUploadImageBGlrg.png; sourceTree = "<group>"; };
@@ -180,6 +167,7 @@
 				49E7142F17582DA4000442D4 /* UIKit.framework in Frameworks */,
 				49E7143117582DA4000442D4 /* Foundation.framework in Frameworks */,
 				49E7143317582DA4000442D4 /* CoreGraphics.framework in Frameworks */,
+				49897C8A181DAD9100F83173 /* libz.dylib in Frameworks */,
 				B7CD800CD51846368E7684AC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +196,7 @@
 		49E7142D17582DA4000442D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49897C89181DAD9100F83173 /* libz.dylib */,
 				49D7E61D17C71CDF00CA89E9 /* Crashlytics.framework */,
 				49E715901758462E000442D4 /* CoreData.framework */,
 				49E7158E1758313C000442D4 /* CoreLocation.framework */,
@@ -229,6 +218,7 @@
 				49E7150C17582E17000442D4 /* Snapable-Info.plist */,
 				49E7150D17582E17000442D4 /* Snapable-Prefix.pch */,
 				49E7150E17582E17000442D4 /* Storyboards */,
+				49897C7E181D7BFC00F83173 /* Images.xcassets */,
 				49E7151017582E17000442D4 /* Supporting Files */,
 			);
 			path = Snapable;
@@ -287,6 +277,8 @@
 				49E714CC17582E17000442D4 /* SnapCrypto.m */,
 				49059D8C17CA98E70084C15D /* SnapImagePicker.h */,
 				49059D8D17CA98E70084C15D /* SnapImagePicker.m */,
+				49897C86181DAC5300F83173 /* Analytics.h */,
+				49897C87181DAC5300F83173 /* Analytics.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -366,9 +358,6 @@
 		49F3F6ED17DD4A9D003A8D76 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				49F3F6EE17DD4A9D003A8D76 /* Default-568h@2x.png */,
-				49F3F6EF17DD4A9D003A8D76 /* Default.png */,
-				49F3F6F017DD4A9D003A8D76 /* Default@2x.png */,
 				49F3F6F117DD4A9D003A8D76 /* Icon */,
 			);
 			path = App;
@@ -377,14 +366,6 @@
 		49F3F6F117DD4A9D003A8D76 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
-				49F3F6F217DD4A9D003A8D76 /* Icon-72.png */,
-				49F3F6F317DD4A9D003A8D76 /* Icon-72@2x.png */,
-				49F3F6F417DD4A9D003A8D76 /* Icon-Small-50.png */,
-				49F3F6F517DD4A9D003A8D76 /* Icon-Small-50@2x.png */,
-				49F3F6F617DD4A9D003A8D76 /* Icon-Small.png */,
-				49F3F6F717DD4A9D003A8D76 /* Icon-Small@2x.png */,
-				49F3F6F817DD4A9D003A8D76 /* Icon.png */,
-				49F3F6F917DD4A9D003A8D76 /* Icon@2x.png */,
 				49F3F6FA17DD4A9D003A8D76 /* iTunesArtwork */,
 			);
 			path = Icon;
@@ -393,6 +374,8 @@
 		49F3F6FB17DD4A9D003A8D76 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				4914FF5B181DD35D00182FCF /* picture.png */,
+				4914FF5C181DD35D00182FCF /* picture@2x.png */,
 				49F3F6FC17DD4A9D003A8D76 /* arrowBlue.png */,
 				49F3F6FD17DD4A9D003A8D76 /* background.png */,
 				49F3F6FE17DD4A9D003A8D76 /* backgroundAuthentication.png */,
@@ -408,7 +391,6 @@
 				49F3F70817DD4A9D003A8D76 /* eventPhotoBorder.png */,
 				49F3F70917DD4A9D003A8D76 /* navigationBarBackgroundImage.png */,
 				49F3F70A17DD4A9D003A8D76 /* photoDefault.jpg */,
-				49F3F70B17DD4A9D003A8D76 /* photoPickerButton.png */,
 				49F3F70D17DD4A9D003A8D76 /* photoUploadBackground.png */,
 				49F3F71017DD4A9D003A8D76 /* shareUploadImageBG.png */,
 				49F3F71117DD4A9D003A8D76 /* shareUploadImageBGlrg.png */,
@@ -450,6 +432,11 @@
 				CLASSPREFIX = Snap;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Snapable;
+				TargetAttributes = {
+					49E7142A17582DA4000442D4 = {
+						DevelopmentTeam = 25V4M6853G;
+					};
+				};
 			};
 			buildConfigurationList = 49E7142617582DA4000442D4 /* Build configuration list for PBXProject "Snapable" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -474,38 +461,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F3F73617DD4A9D003A8D76 /* teardrop.png in Resources */,
-				49F3F71617DD4A9D003A8D76 /* Default@2x.png in Resources */,
 				49F3F73117DD4A9D003A8D76 /* photoUploadBackground.png in Resources */,
-				49F3F71E17DD4A9D003A8D76 /* Icon@2x.png in Resources */,
+				49897C7F181D7BFC00F83173 /* Images.xcassets in Resources */,
 				49E7155017582E17000442D4 /* CameraOverlay.xib in Resources */,
 				49F3F72217DD4A9D003A8D76 /* backgroundAuthentication.png in Resources */,
 				49F3F73417DD4A9D003A8D76 /* shareUploadImageBG.png in Resources */,
 				49F3F72017DD4A9D003A8D76 /* arrowBlue.png in Resources */,
 				49F3F72917DD4A9D003A8D76 /* buttonCamera.png in Resources */,
-				49F3F71917DD4A9D003A8D76 /* Icon-Small-50.png in Resources */,
 				49F3F72C17DD4A9D003A8D76 /* eventPhotoBorder.png in Resources */,
 				49F3F72A17DD4A9D003A8D76 /* eventListEventBackground.png in Resources */,
-				49F3F71B17DD4A9D003A8D76 /* Icon-Small.png in Resources */,
 				49F3F72417DD4A9D003A8D76 /* backgroundBlueButton.png in Resources */,
-				49F3F71817DD4A9D003A8D76 /* Icon-72@2x.png in Resources */,
-				49F3F71717DD4A9D003A8D76 /* Icon-72.png in Resources */,
 				49E7155117582E17000442D4 /* EventPhotoListHeader.xib in Resources */,
 				49F3F72E17DD4A9D003A8D76 /* photoDefault.jpg in Resources */,
-				49F3F71A17DD4A9D003A8D76 /* Icon-Small-50@2x.png in Resources */,
 				49E7155517582E17000442D4 /* InfoPlist.strings in Resources */,
+				4914FF5E181DD35D00182FCF /* picture@2x.png in Resources */,
 				49F3F72617DD4A9D003A8D76 /* backgroundOrangeButton.png in Resources */,
 				49F3F72117DD4A9D003A8D76 /* background.png in Resources */,
-				49F3F72F17DD4A9D003A8D76 /* photoPickerButton.png in Resources */,
 				49CF3C311785D1F20013C5CA /* iPhoneStoryboard.storyboard in Resources */,
-				49F3F71517DD4A9D003A8D76 /* Default.png in Resources */,
 				49CF3C371785D58E0013C5CA /* iPadStoryboard.storyboard in Resources */,
-				49F3F71D17DD4A9D003A8D76 /* Icon.png in Resources */,
 				49F3F72B17DD4A9D003A8D76 /* eventListEventBackgroundHighlight.png in Resources */,
-				49F3F71417DD4A9D003A8D76 /* Default-568h@2x.png in Resources */,
-				49F3F71C17DD4A9D003A8D76 /* Icon-Small@2x.png in Resources */,
 				49F3F72D17DD4A9D003A8D76 /* navigationBarBackgroundImage.png in Resources */,
 				49F3F73717DD4A9D003A8D76 /* uploadCancelButton.png in Resources */,
 				49F3F72717DD4A9D003A8D76 /* backgroundPhoto.png in Resources */,
+				4914FF5D181DD35D00182FCF /* picture.png in Resources */,
 				49F3F72317DD4A9D003A8D76 /* backgroundAuthenticationPIN.png in Resources */,
 				49F3F72817DD4A9D003A8D76 /* blueArrow.png in Resources */,
 				49F3F73517DD4A9D003A8D76 /* shareUploadImageBGlrg.png in Resources */,
@@ -572,6 +550,7 @@
 				49059D8E17CA98E70084C15D /* SnapImagePicker.m in Sources */,
 				49E7151717582E17000442D4 /* SnapEventPhotoListViewController.m in Sources */,
 				49E7151817582E17000442D4 /* SnapLoadingViewController.m in Sources */,
+				49897C88181DAC5300F83173 /* Analytics.m in Sources */,
 				49E7151917582E17000442D4 /* SnapNavigationBar.m in Sources */,
 				49E7151A17582E17000442D4 /* SnapPhotoShareViewController.m in Sources */,
 				49E7151B17582E17000442D4 /* SnapApiClient.m in Sources */,
@@ -665,6 +644,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0F75F41D75244D15BF650259 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -685,7 +666,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0F75F41D75244D15BF650259 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

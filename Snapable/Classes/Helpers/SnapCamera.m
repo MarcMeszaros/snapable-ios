@@ -11,10 +11,6 @@
 
 @implementation SnapCamera
 
-@synthesize cameraUI;
-@synthesize uiCameraRoll;
-@synthesize flashMode;
-
 + (id)sharedInstance {
     static SnapCamera *_sharedInstance;
     static dispatch_once_t onceToken;
@@ -27,17 +23,18 @@
     return _sharedInstance;
 }
 
-- (BOOL)startCameraControllerFromViewController:(UIViewController*)controller usingDelegate:(id <UIImagePickerControllerDelegate, UINavigationControllerDelegate>)delegate {
+- (BOOL)startCameraControllerFromViewController:(UIViewController*)controller usingDelegate:(id <UIImagePickerControllerDelegate, UINavigationControllerDelegate>)delegate withSourceType:(UIImagePickerControllerSourceType)sourceType {
 
-    // if we fail the runtime check for camera availibility
-    // give up
-    if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO) || (delegate == nil) || (controller == nil)) {
+    // if we fail the runtime check for camera availibility, give up
+    if (([UIImagePickerController isSourceTypeAvailable:sourceType] == NO) || (delegate == nil) || (controller == nil)) {
         return NO;
     }
     
-    // make the source time the camera
-    self.cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
-    self.cameraUI.cameraFlashMode = self.flashMode;
+    // make the source type of the picker
+    self.cameraUI.sourceType = sourceType;
+    if (self.cameraUI.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        self.cameraUI.cameraFlashMode = self.flashMode;
+    }
     
     // only allow images
     self.cameraUI.mediaTypes = @[(NSString *)kUTTypeImage];
@@ -46,25 +43,10 @@
     // trimming movies. To instead show the controls, use YES.
     self.cameraUI.allowsEditing = NO;
     self.cameraUI.delegate = delegate;
-    
-    // load up our custom overlay
-    UIView *overlay = [UIView alloc];
-    overlay = [[[NSBundle mainBundle] loadNibNamed:@"CameraOverlay" owner:self options:nil] objectAtIndex:0];
-    // add the custom overlay to the image picker
-    self.cameraUI.cameraOverlayView = overlay;
-    self.uiCameraRoll = (UIButton *)[overlay viewWithTag:TAG_uiCameraRoll];
     [self.cameraUI setWantsFullScreenLayout:NO];
-
-    // setup camera roll button
-    [self.uiCameraRoll addTarget:self action:@selector(cameraRoll:) forControlEvents:UIControlEventTouchDown];
 
     [controller presentViewController:self.cameraUI animated:YES completion:nil];
     return YES;
-}
-
-// change the UI Picker to use the camera roll
-- (void)cameraRoll:(id)sender {
-    self.cameraUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 }
 
 @end

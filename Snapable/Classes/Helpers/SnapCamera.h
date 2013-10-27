@@ -13,14 +13,9 @@
 #define TAG_uiSwitchCamera 2
 #define TAG_uiCameraRoll 3
 
-@interface SnapCamera : NSObject <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
-    UIImagePickerController *cameraUI;
-    UIButton *uiCameraRoll;
-    NSInteger flashMode;
-}
+@interface SnapCamera : NSObject <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) UIImagePickerController *cameraUI;
-@property (nonatomic, strong) UIButton *uiCameraRoll;
 @property (nonatomic) NSInteger flashMode;
 
 
@@ -28,6 +23,7 @@
 
 - (BOOL)startCameraControllerFromViewController:(UIViewController*)controller
                                    usingDelegate:(id <UIImagePickerControllerDelegate,
-                                                   UINavigationControllerDelegate>)delegate;
+                                                  UINavigationControllerDelegate>)delegate
+                                 withSourceType:(UIImagePickerControllerSourceType)sourceType;
 
 @end

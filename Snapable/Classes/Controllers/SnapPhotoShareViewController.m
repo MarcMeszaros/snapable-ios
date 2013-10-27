@@ -43,7 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.trackedViewName = @"PhotoUpload"; // Google Analytics
+    self.screenName = @"PhotoUpload"; // Google Analytics
 	// Do any additional setup after loading the view.
 
     // set the preview image
@@ -68,34 +68,38 @@
 #pragma mark - UIAction
 
 - (IBAction)doneButton:(id)sender {
-    // update the photo data (ie. caption)
-    
-    // parameters
-    NSString *apiPath = [NSString stringWithFormat:@"photo/%d/", self.photoId];
-    NSDictionary *params = @{
-        @"caption": self.uiPhotoCaption.text
-    };
+    if (self.uiPhotoCaption.text && self.uiPhotoCaption.text.length > 0) {
+        // update the photo data (ie. caption)
+        // parameters
+        NSString *apiPath = [NSString stringWithFormat:@"photo/%d/", self.photoId];
+        NSDictionary *params = @{
+            @"caption": self.uiPhotoCaption.text
+        };
 
-    // start spinner
-    self.uiCaptionUploadSpinner.hidden = NO;
-    self.uiUploadDone.hidden = YES;
-    
-    // call the api
-    [[SnapApiClient sharedInstance] patchPath:apiPath parameters:params
-        success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            // close the window
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            // just log the failure
-            ALog(@"Error updating photo data!");
-            DLog(@"%@", error);
-            [self.view makeToast:@"Failed to update caption." duration:3.0 position:@"center"];
-            self.uiBack.enabled = YES;
-            self.uiCaptionUploadSpinner.hidden = YES;
-            self.uiUploadDone.hidden = NO;
-        }
-     ];
+        // start spinner
+        self.uiCaptionUploadSpinner.hidden = NO;
+        self.uiUploadDone.hidden = YES;
+
+        // call the api
+        [[SnapApiClient sharedInstance] patchPath:apiPath parameters:params
+            success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              // close the window
+              [self dismissViewControllerAnimated:YES completion:nil];
+            }
+            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              // just log the failure
+              ALog(@"Error updating photo data!");
+              DLog(@"%@", error);
+              [self.view makeToast:@"Failed to update caption." duration:3.0 position:@"center"];
+              self.uiBack.enabled = YES;
+              self.uiCaptionUploadSpinner.hidden = YES;
+              self.uiUploadDone.hidden = NO;
+            }
+         ];
+    } else {
+        // close the window
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (IBAction)backButton:(id)sender {
@@ -116,7 +120,7 @@
     [self uploadPhotoStart];
 }
 
-- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }

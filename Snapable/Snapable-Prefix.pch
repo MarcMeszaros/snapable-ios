@@ -25,6 +25,7 @@
 // Google Analytics imports
 #import "GAI.h"
 #import "GAITrackedViewController.h"
+#import "Analytics.h"
 
 // Crashlytics
 #import <Crashlytics/Crashlytics.h>
@@ -40,5 +41,5 @@
 #define ALog(...) NSLog(__VA_ARGS__)
 
 // constants
-#define kGATrackinId    @"UA-38299813-1"
+#define kGAITrackingId  @"UA-38299813-1"
 #define kCrashlyticsId  @"720497953609e6695431b598443025911fbfa2d7"

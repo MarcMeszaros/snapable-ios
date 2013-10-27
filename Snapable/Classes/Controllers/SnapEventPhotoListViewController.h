@@ -20,11 +20,9 @@
 @property (nonatomic, strong) NSMutableArray *api_photos;
 @property (nonatomic, strong) NSMutableArray *photos;
 @property (nonatomic, strong) IBOutlet UIView *uiNoPhotos;
-@property (nonatomic, strong) IBOutlet UIButton *uiLoadMore;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UIRefreshControl *refreshControl;
 
-- (void)loadMoreImages:(NSInteger)count;
 - (void)refresh:(UIRefreshControl *)sender;
 
 @end

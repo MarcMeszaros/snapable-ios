@@ -11,13 +11,9 @@
 #import "SnapEventPhotoListCell.h"
 #import "SnapApiClient.h"
 
-static inline double radians (double degrees) {return degrees * M_PI/180;}
-
-@interface SnapEventPhotoListViewController ()
-
-@end
-
-@implementation SnapEventPhotoListViewController
+@implementation SnapEventPhotoListViewController {
+    UIBarButtonItem *_cameraRoll;
+}
 
 // declare & synthesize some class properties
 static NSString *cellIdentifier = @"eventPhotoListCell";
@@ -25,18 +21,24 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.trackedViewName = @"EventPhotoList"; // Google Analytics
+    self.screenName = @"EventPhotoList"; // Google Analytics
 	// Do any additional setup after loading the view.
     
     // init the arrays if they are null
     if (self.api_photos == nil) {
         self.api_photos = [NSMutableArray array];
-        self.uiLoadMore.hidden = YES;
     }
     if (self.photos == nil) {
         self.photos = [NSMutableArray array];
     }
-   
+
+    // add camera roll icon
+    _cameraRoll = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"picture.png"]
+                                                                   style:UIBarButtonItemStyleBordered
+                                                                  target:self
+                                                                  action:@selector(cameraRoll:)];
+    self.navigationItem.rightBarButtonItems = @[_cameraRoll];
+
     // add iOS pull to refresh
     _refreshControl = [[UIRefreshControl alloc] init];
     [_refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
@@ -162,20 +164,27 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 {
     // launch the camera
     DLog(@"'take photo' button press");
-    [self.camera startCameraControllerFromViewController:self usingDelegate:self];
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:kGATrackinId]; // Google Analytics
-    [tracker sendView:@"Camera"];    
+    [self.camera startCameraControllerFromViewController:self usingDelegate:self withSourceType:UIImagePickerControllerSourceTypeCamera];
+    [Analytics sendScreenName:@"Camera"];
+}
+
+- (IBAction)cameraRoll:(UIButton*)sender
+{
+    // launch the camera
+    DLog(@"'image gallery' button press");
+    [self.camera startCameraControllerFromViewController:self usingDelegate:self withSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [Analytics sendScreenName:@"Gallery"];
 }
 
 #pragma mark - Camera delegate
 // For responding to the user tapping Cancel.
-- (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker {
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     DLog(@"dismiss the imagePicker");
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 // For responding to the user accepting a newly-captured picture or movie
-- (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info {
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
     NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
     UIImage *originalImage, *previewImage;
@@ -256,13 +265,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
             [paths addObject:[NSIndexPath indexPathForRow:nextIndex inSection:0]];
         }
         [self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
-        
-        // hide the load more button if we can't display any more
-        if (self.api_photos.count == self.photos.count) {
-            self.uiLoadMore.hidden = YES;
-        } else if (self.api_photos.count > self.photos.count) {
-            self.uiLoadMore.hidden = NO;
-        }
     } else {
         self.uiNoPhotos.hidden = NO;
     }
@@ -276,7 +278,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
         UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
         [activityIndicator startAnimating];
-        self.navigationItem.rightBarButtonItem = barButton;
+        self.navigationItem.rightBarButtonItems = @[_cameraRoll, barButton];
     }
     // start the refresh control
     [sender beginRefreshing];
@@ -332,11 +334,11 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
             // there are no photos
             else {
                 self.api_photos = tempPhotoArray;
-                [self loadMoreImages:5];
+                [self loadMoreImages:50];
             }
 
             // end refresh
-            self.navigationItem.rightBarButtonItem = nil;
+            self.navigationItem.rightBarButtonItems = @[_cameraRoll];
             [sender endRefreshing];
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -344,7 +346,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
             DLog(@"%@", error);
 
             // end refresh
-            self.navigationItem.rightBarButtonItem = nil;
+            self.navigationItem.rightBarButtonItems = @[_cameraRoll];
             [sender endRefreshing];
         }
      ];
