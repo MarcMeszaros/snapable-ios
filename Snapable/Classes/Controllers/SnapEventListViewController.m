@@ -17,27 +17,9 @@
 #import "ISO8601DateFormatter.h"
 #import "Toast+UIView.h"
 
-@interface SnapEventListViewController ()
-
-@end
-
 @implementation SnapEventListViewController
 
 static NSString *cellIdentifier = @"eventListCell";
-
-@synthesize events;
-@synthesize lastSelectedEvent;
-@synthesize uiNoEventViewGroup;
-@synthesize uiSearchBar;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -49,27 +31,12 @@ static NSString *cellIdentifier = @"eventListCell";
         CGRect rect = CGRectMake(0.0f, 0.0f, 0.0f, 0.0f);
         [self.uiNoEventViewGroup setFrame:rect];
     }
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:kGATrackinId]; // Google Analytics
-    [tracker sendView:@"EventList"];
-    
+    [Analytics sendScreenName:@"EventList"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -201,6 +168,7 @@ static NSString *cellIdentifier = @"eventListCell";
 - (IBAction)goToSnapable:(id)sender {
     NSString* launchUrl = @"http://snapable.com/";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:launchUrl]];
+    [Analytics sendEventWithCategory:AnalyticsCategoryUIAction action:AnalyticsActionButtonPress label:@"snapable_website" value:nil];
 }
 
 #pragma mark - Search

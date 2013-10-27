@@ -1,26 +1,26 @@
 PODS:
-  - AFNetworking (1.2.1)
-  - FMDB (2.0):
+  - AFNetworking (1.3.3)
+  - FMDB (2.1):
     - FMDB/standard
-  - FMDB/common (2.0)
-  - FMDB/standard (2.0):
+  - FMDB/common (2.1)
+  - FMDB/standard (2.1):
     - FMDB/common
-  - GoogleAnalytics-iOS-SDK (2.0beta4)
-  - ISO8601DateFormatter (0.6)
+  - GoogleAnalytics-iOS-SDK (3.0.2)
+  - ISO8601DateFormatter (0.7)
   - Toast (2.0)
 
 DEPENDENCIES:
-  - AFNetworking (~> 1.2.1)
-  - FMDB (~> 2.0)
-  - GoogleAnalytics-iOS-SDK (~> 2.0beta4)
-  - ISO8601DateFormatter (~> 0.6)
+  - AFNetworking (~> 1.3.3)
+  - FMDB (~> 2.1)
+  - GoogleAnalytics-iOS-SDK (~> 3.0.2)
+  - ISO8601DateFormatter (~> 0.7)
   - Toast (~> 2.0)
 
 SPEC CHECKSUMS:
-  AFNetworking: a44069e3c9c89867544f6639482f155c7e5f9b41
-  FMDB: 370eb54b9f057aa4de7cf9c757d103b21ee30ecc
-  GoogleAnalytics-iOS-SDK: acf0f1ac4dcac408d17e7766454918b7e9e2b03a
-  ISO8601DateFormatter: 077ce9d8cfba171bc1ced6cba0d2ae4aefab7619
+  AFNetworking: 0700ec7a58c36ad217173e167f6e4df7270df66b
+  FMDB: 3fd5aaf632ca4ed39e3f101e0398504e6d5b0918
+  GoogleAnalytics-iOS-SDK: 51661781af363bdaac260df244db2539c707311d
+  ISO8601DateFormatter: 00944e437ea647f4244454ce8809d313861d08de
   Toast: 05f46f9d48ddf6e29193f802b038e4fb41f806fa
 
-COCOAPODS: 0.23.0
+COCOAPODS: 0.27.1

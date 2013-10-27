@@ -10,13 +10,7 @@
 
 #import "SnapEvent.h"
 
-@interface SnapEventListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
-    NSArray *events;
-    SnapEvent *lastSelectedEvent;
-    
-    IBOutlet UIView *uiNoEventViewGroup;
-    IBOutlet UISearchBar *uiSearchBar;
-}
+@interface SnapEventListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) NSArray *events;
 @property (nonatomic, strong) SnapEvent *lastSelectedEvent;

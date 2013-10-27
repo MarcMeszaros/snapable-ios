@@ -11,21 +11,7 @@
 #import "Toast+UIView.h"
 #import "SnapApiClient.h"
 
-@interface SnapEventListAuthViewController ()
-
-@end
-
 @implementation SnapEventListAuthViewController
-
-@synthesize event;
-@synthesize guest;
-@synthesize parentVC;
-@synthesize uiName;
-@synthesize uiEmail;
-@synthesize uiPin;
-@synthesize uiPinViewGroup;
-@synthesize uiGuestInfoViewGroup;
-@synthesize uiContinueButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.trackedViewName = @"EventAuth"; // Google Analytics
+    self.screenName = @"EventAuth"; // Google Analytics
 	// Do any additional setup after loading the view.
     if (self.event.public == true) {
         // hide the pin stuff and show the guest info

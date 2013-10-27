@@ -43,7 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.trackedViewName = @"PhotoUpload"; // Google Analytics
+    self.screenName = @"PhotoUpload"; // Google Analytics
 	// Do any additional setup after loading the view.
 
     // set the preview image

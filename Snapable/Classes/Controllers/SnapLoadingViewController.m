@@ -39,7 +39,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    self.trackedViewName = @"Loading"; // Google Analytics
+    self.screenName = @"Loading"; // Google Analytics
     // Release any retained subviews of the main view.
 }
 

@@ -21,7 +21,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.trackedViewName = @"EventPhotoList"; // Google Analytics
+    self.screenName = @"EventPhotoList"; // Google Analytics
 	// Do any additional setup after loading the view.
     
     // init the arrays if they are null
@@ -166,8 +166,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // launch the camera
     DLog(@"'take photo' button press");
     [self.camera startCameraControllerFromViewController:self usingDelegate:self withSourceType:UIImagePickerControllerSourceTypeCamera];
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:kGATrackinId]; // Google Analytics
-    [tracker sendView:@"Camera"];    
+    [Analytics sendScreenName:@"Camera"];
 }
 
 - (IBAction)cameraRoll:(UIButton*)sender
@@ -175,8 +174,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // launch the camera
     DLog(@"'image gallery' button press");
     [self.camera startCameraControllerFromViewController:self usingDelegate:self withSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:kGATrackinId]; // Google Analytics
-    [tracker sendView:@"Gallery"];
+    [Analytics sendScreenName:@"Gallery"];
 }
 
 #pragma mark - Camera delegate
