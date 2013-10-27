@@ -465,29 +465,6 @@ Ceremony &amp; Dinner</string>
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="585"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.89019607840000003" green="0.90980392160000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="YEk-QB-a0s">
-                                    <rect key="frame" x="0.0" y="398" width="320" height="180"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KBb-Ib-Rul">
-                                            <rect key="frame" x="72" y="12" width="177" height="42"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <size key="titleShadowOffset" width="0.0" height="1"/>
-                                            <state key="normal" title="Load More" backgroundImage="backgroundBlueButton.png">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="highlighted">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="loadMore:" destination="lvs-my-LUM" eventType="touchDown" id="rfH-m4-lgX"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleAspectFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="eventPhotoListCell" rowHeight="312" id="VnF-cI-IGx" customClass="SnapEventPhotoListCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="312"/>
@@ -592,7 +569,6 @@ Ceremony &amp; Dinner</string>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="qDH-KE-vqM" id="04S-bS-OqS"/>
-                        <outlet property="uiLoadMore" destination="KBb-Ib-Rul" id="oiu-aS-NsL"/>
                         <outlet property="uiNoPhotos" destination="mDB-vQ-SxR" id="eVJ-Cx-Pti"/>
                     </connections>
                 </viewController>

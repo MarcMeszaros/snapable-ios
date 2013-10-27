@@ -27,7 +27,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     // init the arrays if they are null
     if (self.api_photos == nil) {
         self.api_photos = [NSMutableArray array];
-        self.uiLoadMore.hidden = YES;
     }
     if (self.photos == nil) {
         self.photos = [NSMutableArray array];
@@ -266,13 +265,6 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
             [paths addObject:[NSIndexPath indexPathForRow:nextIndex inSection:0]];
         }
         [self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];
-        
-        // hide the load more button if we can't display any more
-        if (self.api_photos.count == self.photos.count) {
-            self.uiLoadMore.hidden = YES;
-        } else if (self.api_photos.count > self.photos.count) {
-            self.uiLoadMore.hidden = NO;
-        }
     } else {
         self.uiNoPhotos.hidden = NO;
     }
@@ -342,7 +334,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
             // there are no photos
             else {
                 self.api_photos = tempPhotoArray;
-                [self loadMoreImages:5];
+                [self loadMoreImages:50];
             }
 
             // end refresh
