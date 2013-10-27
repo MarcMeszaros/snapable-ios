@@ -459,6 +459,11 @@
 				CLASSPREFIX = Snap;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Snapable;
+				TargetAttributes = {
+					49E7142A17582DA4000442D4 = {
+						DevelopmentTeam = 25V4M6853G;
+					};
+				};
 			};
 			buildConfigurationList = 49E7142617582DA4000442D4 /* Build configuration list for PBXProject "Snapable" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -699,7 +704,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
