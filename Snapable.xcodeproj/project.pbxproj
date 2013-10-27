@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		49059D8E17CA98E70084C15D /* SnapImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 49059D8D17CA98E70084C15D /* SnapImagePicker.m */; };
+		49897C7F181D7BFC00F83173 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49897C7E181D7BFC00F83173 /* Images.xcassets */; };
 		49CF3C311785D1F20013C5CA /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF3C301785D1F20013C5CA /* iPhoneStoryboard.storyboard */; };
 		49CF3C371785D58E0013C5CA /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF3C361785D58E0013C5CA /* iPadStoryboard.storyboard */; };
 		49D7E61E17C71CDF00CA89E9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D7E61D17C71CDF00CA89E9 /* Crashlytics.framework */; };
@@ -79,6 +80,7 @@
 		0F75F41D75244D15BF650259 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		49059D8C17CA98E70084C15D /* SnapImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapImagePicker.h; sourceTree = "<group>"; };
 		49059D8D17CA98E70084C15D /* SnapImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapImagePicker.m; sourceTree = "<group>"; };
+		49897C7E181D7BFC00F83173 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		49CF3C301785D1F20013C5CA /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 		49CF3C361785D58E0013C5CA /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
 		49D7E61D17C71CDF00CA89E9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				49E7150C17582E17000442D4 /* Snapable-Info.plist */,
 				49E7150D17582E17000442D4 /* Snapable-Prefix.pch */,
 				49E7150E17582E17000442D4 /* Storyboards */,
+				49897C7E181D7BFC00F83173 /* Images.xcassets */,
 				49E7151017582E17000442D4 /* Supporting Files */,
 			);
 			path = Snapable;
@@ -476,6 +479,7 @@
 				49F3F73617DD4A9D003A8D76 /* teardrop.png in Resources */,
 				49F3F71617DD4A9D003A8D76 /* Default@2x.png in Resources */,
 				49F3F73117DD4A9D003A8D76 /* photoUploadBackground.png in Resources */,
+				49897C7F181D7BFC00F83173 /* Images.xcassets in Resources */,
 				49F3F71E17DD4A9D003A8D76 /* Icon@2x.png in Resources */,
 				49E7155017582E17000442D4 /* CameraOverlay.xib in Resources */,
 				49F3F72217DD4A9D003A8D76 /* backgroundAuthentication.png in Resources */,
@@ -665,6 +669,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0F75F41D75244D15BF650259 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -685,6 +691,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0F75F41D75244D15BF650259 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
