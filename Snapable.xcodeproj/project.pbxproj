@@ -10,7 +10,6 @@
 		49059D8E17CA98E70084C15D /* SnapImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 49059D8D17CA98E70084C15D /* SnapImagePicker.m */; };
 		4914FF5D181DD35D00182FCF /* picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 4914FF5B181DD35D00182FCF /* picture.png */; };
 		4914FF5E181DD35D00182FCF /* picture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4914FF5C181DD35D00182FCF /* picture@2x.png */; };
-		49897C7F181D7BFC00F83173 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49897C7E181D7BFC00F83173 /* Images.xcassets */; };
 		49897C88181DAC5300F83173 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 49897C87181DAC5300F83173 /* Analytics.m */; };
 		49897C8A181DAD9100F83173 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49897C89181DAD9100F83173 /* libz.dylib */; };
 		49CF3C311785D1F20013C5CA /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF3C301785D1F20013C5CA /* iPhoneStoryboard.storyboard */; };
@@ -44,6 +43,7 @@
 		49E7158D17582F32000442D4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7158C17582F32000442D4 /* SystemConfiguration.framework */; };
 		49E7158F1758313C000442D4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7158E1758313C000442D4 /* CoreLocation.framework */; };
 		49E715911758462E000442D4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E715901758462E000442D4 /* CoreData.framework */; };
+		49F169AA183914AA00237BDB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F169A9183914AA00237BDB /* Images.xcassets */; };
 		49F3F71F17DD4A9D003A8D76 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6FA17DD4A9D003A8D76 /* iTunesArtwork */; };
 		49F3F72017DD4A9D003A8D76 /* arrowBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6FC17DD4A9D003A8D76 /* arrowBlue.png */; };
 		49F3F72117DD4A9D003A8D76 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F3F6FD17DD4A9D003A8D76 /* background.png */; };
@@ -74,7 +74,6 @@
 		49059D8D17CA98E70084C15D /* SnapImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapImagePicker.m; sourceTree = "<group>"; };
 		4914FF5B181DD35D00182FCF /* picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture.png; sourceTree = "<group>"; };
 		4914FF5C181DD35D00182FCF /* picture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture@2x.png"; sourceTree = "<group>"; };
-		49897C7E181D7BFC00F83173 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		49897C86181DAC5300F83173 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
 		49897C87181DAC5300F83173 /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Analytics.m; sourceTree = "<group>"; };
 		49897C89181DAD9100F83173 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -130,6 +129,7 @@
 		49E7158C17582F32000442D4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		49E7158E1758313C000442D4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		49E715901758462E000442D4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		49F169A9183914AA00237BDB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		49F3F6FA17DD4A9D003A8D76 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		49F3F6FC17DD4A9D003A8D76 /* arrowBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowBlue.png; sourceTree = "<group>"; };
 		49F3F6FD17DD4A9D003A8D76 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -218,7 +218,6 @@
 				49E7150C17582E17000442D4 /* Snapable-Info.plist */,
 				49E7150D17582E17000442D4 /* Snapable-Prefix.pch */,
 				49E7150E17582E17000442D4 /* Storyboards */,
-				49897C7E181D7BFC00F83173 /* Images.xcassets */,
 				49E7151017582E17000442D4 /* Supporting Files */,
 			);
 			path = Snapable;
@@ -312,6 +311,7 @@
 		49E714DB17582E17000442D4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				49F169A9183914AA00237BDB /* Images.xcassets */,
 				49E714DC17582E17000442D4 /* Images */,
 				49E7150817582E17000442D4 /* NIBs */,
 				49E7150B17582E17000442D4 /* Ottawa.gpx */,
@@ -462,7 +462,6 @@
 			files = (
 				49F3F73617DD4A9D003A8D76 /* teardrop.png in Resources */,
 				49F3F73117DD4A9D003A8D76 /* photoUploadBackground.png in Resources */,
-				49897C7F181D7BFC00F83173 /* Images.xcassets in Resources */,
 				49E7155017582E17000442D4 /* CameraOverlay.xib in Resources */,
 				49F3F72217DD4A9D003A8D76 /* backgroundAuthentication.png in Resources */,
 				49F3F73417DD4A9D003A8D76 /* shareUploadImageBG.png in Resources */,
@@ -487,6 +486,7 @@
 				49F3F72317DD4A9D003A8D76 /* backgroundAuthenticationPIN.png in Resources */,
 				49F3F72817DD4A9D003A8D76 /* blueArrow.png in Resources */,
 				49F3F73517DD4A9D003A8D76 /* shareUploadImageBGlrg.png in Resources */,
+				49F169AA183914AA00237BDB /* Images.xcassets in Resources */,
 				49F3F72517DD4A9D003A8D76 /* backgroundGreenButton.png in Resources */,
 				49F3F71F17DD4A9D003A8D76 /* iTunesArtwork in Resources */,
 			);
