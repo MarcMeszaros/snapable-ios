@@ -33,7 +33,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     }
 
     // add camera roll icon
-    _cameraRoll = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"picture.png"]
+    _cameraRoll = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Gallery_BTN"]
                                                                    style:UIBarButtonItemStyleBordered
                                                                   target:self
                                                                   action:@selector(cameraRoll:)];
@@ -121,7 +121,7 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
     
     // set the image to be auto loaded
     photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=%@", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], photo.resource_uri, size];
-    [cell.uiPhoto setImageWithSignedURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
+    [cell.uiPhoto setImageWithSignedURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"PlaceholderImage"]];
     
     return cell;
 }

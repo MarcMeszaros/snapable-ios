@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ImageBG.png"
+      "filename" : "photoDefault.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ImageBG@2x.png"
+      "filename" : "photoDefault@2x.png"
     }
   ],
   "info" : {
