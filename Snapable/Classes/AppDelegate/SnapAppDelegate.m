@@ -27,6 +27,9 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSLog(@"+++ BUILD VERSION: %@(%@) [%@] +++", [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"], [bundle objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey], [bundle objectForInfoDictionaryKey:@"HashVersion"]);
+
     #ifdef DEBUG
         // set an uncaught exception handler
         NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);

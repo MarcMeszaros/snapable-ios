@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		49059D8E17CA98E70084C15D /* SnapImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 49059D8D17CA98E70084C15D /* SnapImagePicker.m */; };
+		497C1A9D18DB742400513E0E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497C1A9C18DB742400513E0E /* Crashlytics.framework */; };
 		49897C88181DAC5300F83173 /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 49897C87181DAC5300F83173 /* Analytics.m */; };
 		49897C8A181DAD9100F83173 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49897C89181DAD9100F83173 /* libz.dylib */; };
 		49CF3C311785D1F20013C5CA /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF3C301785D1F20013C5CA /* iPhoneStoryboard.storyboard */; };
 		49CF3C371785D58E0013C5CA /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF3C361785D58E0013C5CA /* iPadStoryboard.storyboard */; };
-		49D7E61E17C71CDF00CA89E9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D7E61D17C71CDF00CA89E9 /* Crashlytics.framework */; };
 		49E7142F17582DA4000442D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7142E17582DA4000442D4 /* UIKit.framework */; };
 		49E7143117582DA4000442D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7143017582DA4000442D4 /* Foundation.framework */; };
 		49E7143317582DA4000442D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E7143217582DA4000442D4 /* CoreGraphics.framework */; };
@@ -67,12 +67,12 @@
 		0F75F41D75244D15BF650259 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		49059D8C17CA98E70084C15D /* SnapImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapImagePicker.h; sourceTree = "<group>"; };
 		49059D8D17CA98E70084C15D /* SnapImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapImagePicker.m; sourceTree = "<group>"; };
+		497C1A9C18DB742400513E0E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		49897C86181DAC5300F83173 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
 		49897C87181DAC5300F83173 /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Analytics.m; sourceTree = "<group>"; };
 		49897C89181DAD9100F83173 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		49CF3C301785D1F20013C5CA /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 		49CF3C361785D58E0013C5CA /* iPadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPadStoryboard.storyboard; sourceTree = "<group>"; };
-		49D7E61D17C71CDF00CA89E9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		49E7142B17582DA4000442D4 /* Snapable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snapable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E7142E17582DA4000442D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49E7143017582DA4000442D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -150,12 +150,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				49E715911758462E000442D4 /* CoreData.framework in Frameworks */,
-				49D7E61E17C71CDF00CA89E9 /* Crashlytics.framework in Frameworks */,
 				49E7158F1758313C000442D4 /* CoreLocation.framework in Frameworks */,
 				49E7158D17582F32000442D4 /* SystemConfiguration.framework in Frameworks */,
 				49E7158B17582F18000442D4 /* MobileCoreServices.framework in Frameworks */,
 				49E7142F17582DA4000442D4 /* UIKit.framework in Frameworks */,
 				49E7143117582DA4000442D4 /* Foundation.framework in Frameworks */,
+				497C1A9D18DB742400513E0E /* Crashlytics.framework in Frameworks */,
 				49E7143317582DA4000442D4 /* CoreGraphics.framework in Frameworks */,
 				49897C8A181DAD9100F83173 /* libz.dylib in Frameworks */,
 				B7CD800CD51846368E7684AC /* libPods.a in Frameworks */,
@@ -186,8 +186,8 @@
 		49E7142D17582DA4000442D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				497C1A9C18DB742400513E0E /* Crashlytics.framework */,
 				49897C89181DAD9100F83173 /* libz.dylib */,
-				49D7E61D17C71CDF00CA89E9 /* Crashlytics.framework */,
 				49E715901758462E000442D4 /* CoreData.framework */,
 				49E7158E1758313C000442D4 /* CoreLocation.framework */,
 				49E7158C17582F32000442D4 /* SystemConfiguration.framework */,
@@ -382,6 +382,7 @@
 				49E7142917582DA4000442D4 /* Resources */,
 				386CFBC16C4843E986A89C73 /* Copy Pods Resources */,
 				49D7E61C17C71C8200CA89E9 /* Crashlytics */,
+				49BB096818DB77A1001BAA61 /* Version */,
 			);
 			buildRules = (
 			);
@@ -486,6 +487,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49BB096818DB77A1001BAA61 /* Version */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Version;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./version.sh;
 		};
 		49D7E61C17C71C8200CA89E9 /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -499,7 +515,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 720497953609e6695431b598443025911fbfa2d7";
+			shellScript = "./Crashlytics.framework/run 720497953609e6695431b598443025911fbfa2d7 10c20d4eaefdabaaeaa7852d1cb0c545533ab60fe1f2658c1a7ec0984f306e9a";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -614,6 +630,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/marc/src/ios,
+					/Users/marc/src/snap_ios,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snapable/Snapable-Prefix.pch";
@@ -637,6 +654,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/marc/src/ios,
+					/Users/marc/src/snap_ios,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snapable/Snapable-Prefix.pch";
