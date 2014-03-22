@@ -278,9 +278,7 @@ static NSString *cellIdentifier = @"eventListCell";
     [_tableView setContentOffset:CGPointMake(0, 0) animated:YES];
     
     // hide the no event message if there is at least one event
-    if (self.events.count <= 0) {
-        self.uiNoEventViewGroup.hidden = NO;
-    }
+    self.uiNoEventViewGroup.hidden = (self.events.count <= 0) ? NO : YES;
 }
 
 #pragma mark - Location
