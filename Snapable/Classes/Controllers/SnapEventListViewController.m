@@ -192,6 +192,18 @@ static NSString *cellIdentifier = @"eventListCell";
     [self searchForEventsWithQuery:searchBar.text];
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length <= 0) {
+        [self performSelector:@selector(hideKeyboardWithSearchBar:) withObject:searchBar afterDelay:0];
+    }
+}
+
+- (void)hideKeyboardWithSearchBar:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+}
+
 - (void)searchForEventsWithQuery:(NSString *)query
 {
     // start the refresh
@@ -305,8 +317,9 @@ static NSString *cellIdentifier = @"eventListCell";
 }
 
 - (void)locationError:(NSError *)error {
-	DLog(@"An error occured while getting location.");
+	NSLog(@"An error occured while getting location.");
     DLog(@"Error: %@", error);
+    [self stopLoading];
 }
 
 @end

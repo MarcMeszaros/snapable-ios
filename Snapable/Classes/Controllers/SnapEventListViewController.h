@@ -11,7 +11,7 @@
 #import "SnapCL.h"
 #import "SnapEvent.h"
 
-@interface SnapEventListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SnapCLControllerDelegate>
+@interface SnapEventListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, SnapCLControllerDelegate>
 
 @property (nonatomic, strong) SnapCL *locationController;
 
