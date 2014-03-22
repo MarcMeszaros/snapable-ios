@@ -176,11 +176,15 @@ static NSString *cellIdentifier = @"eventListCell";
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     DLog(@"%@", searchBar.text);
+    [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
     [self searchForEventsWithQuery:searchBar.text];
 }
 
 - (void)searchForEventsWithQuery:(NSString *)query
 {
+    // start the refresh
+    [self.refreshControl beginRefreshing];
+
     // setup the params
     NSDictionary *params = @{
         @"q": query,
@@ -196,7 +200,6 @@ static NSString *cellIdentifier = @"eventListCell";
             for (id apiEvent in [response valueForKeyPath:@"objects"]) {
                 SnapEvent *event = [[SnapEvent alloc] initWithDictionary:apiEvent];
                 [results addObject:event];
-                DLog(@"event: %@", event.title);
             }
             
             // start the correct screen depending on number of events
@@ -207,29 +210,32 @@ static NSString *cellIdentifier = @"eventListCell";
             // hide the no event message if there is at least one event
             if (self.events.count > 0) {
                 self.uiNoEventViewGroup.hidden = YES;
-                CGRect rect = CGRectMake(0.0f, 0.0f, 0.0f, 0.0f);
-                [self.uiNoEventViewGroup setFrame:rect];
             } else {
                 self.uiNoEventViewGroup.hidden = NO;
-                CGRect rect = CGRectMake(0.0f, 0.0f, 320.0f, 480.0f);
-                [self.uiNoEventViewGroup setFrame:rect];
-                
             }
+
+            // end the refresh
+            [self.refreshControl endRefreshing];
+            [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            DLog(@"Error fetching events!");
+            ALog(@"Error fetching events!");
             DLog(@"%@", error);
+
+            // end the refresh
+            [self.refreshControl endRefreshing];
+            [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
         }
      ];
 }
 
 - (void)refresh:(UIRefreshControl *)sender
 {
-    [sender beginRefreshing];
     if (self.uiSearchBar.text.length > 0) {
         [self searchForEventsWithQuery:self.uiSearchBar.text];
+    } else {
+        [sender endRefreshing];
     }
-    [sender endRefreshing];
 }
 
 @end
