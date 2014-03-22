@@ -10,13 +10,16 @@
 
 #import "SnapEvent.h"
 
-@interface SnapEventListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface SnapEventListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) NSArray *events;
 @property (nonatomic, strong) SnapEvent *lastSelectedEvent;
-@property (nonatomic, strong) UIView *uiNoEventViewGroup;
-@property (nonatomic, strong) UISearchBar *uiSearchBar;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UIView *uiNoEventViewGroup;
+@property (nonatomic, strong) IBOutlet UISearchBar *uiSearchBar;
+@property (nonatomic, strong) IBOutlet UIRefreshControl *refreshControl;
 
 - (void)searchForEventsWithQuery:(NSString *)query;
+- (void)refresh:(UIRefreshControl *)sender;
 
 @end

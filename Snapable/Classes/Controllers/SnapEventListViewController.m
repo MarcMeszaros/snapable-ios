@@ -31,17 +31,17 @@ static NSString *cellIdentifier = @"eventListCell";
         CGRect rect = CGRectMake(0.0f, 0.0f, 0.0f, 0.0f);
         [self.uiNoEventViewGroup setFrame:rect];
     }
+    
+    // add iOS pull to refresh
+    _refreshControl = [[UIRefreshControl alloc] init];
+    [_refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:_refreshControl];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [Analytics sendScreenName:@"EventList"];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - Table view data source
@@ -221,6 +221,15 @@ static NSString *cellIdentifier = @"eventListCell";
             DLog(@"%@", error);
         }
      ];
+}
+
+- (void)refresh:(UIRefreshControl *)sender
+{
+    [sender beginRefreshing];
+    if (self.uiSearchBar.text.length > 0) {
+        [self searchForEventsWithQuery:self.uiSearchBar.text];
+    }
+    [sender endRefreshing];
 }
 
 @end
