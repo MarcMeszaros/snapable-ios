@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SnapCL.h"
 #import "SnapEvent.h"
 
-@interface SnapEventListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface SnapEventListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SnapCLControllerDelegate>
 
-@property (nonatomic, retain) NSArray *events;
+@property (nonatomic, strong) SnapCL *locationController;
+
+@property (nonatomic, retain) NSMutableArray *events;
 @property (nonatomic, strong) SnapEvent *lastSelectedEvent;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UIView *uiNoEventViewGroup;

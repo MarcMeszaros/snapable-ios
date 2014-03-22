@@ -20,7 +20,6 @@
 		49E7151517582E17000442D4 /* SnapEventListAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E714B917582E17000442D4 /* SnapEventListAuthViewController.m */; };
 		49E7151617582E17000442D4 /* SnapEventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E714BB17582E17000442D4 /* SnapEventListViewController.m */; };
 		49E7151717582E17000442D4 /* SnapEventPhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E714BD17582E17000442D4 /* SnapEventPhotoListViewController.m */; };
-		49E7151817582E17000442D4 /* SnapLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E714BF17582E17000442D4 /* SnapLoadingViewController.m */; };
 		49E7151917582E17000442D4 /* SnapNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E714C117582E17000442D4 /* SnapNavigationBar.m */; };
 		49E7151A17582E17000442D4 /* SnapPhotoShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E714C317582E17000442D4 /* SnapPhotoShareViewController.m */; };
 		49E7151B17582E17000442D4 /* SnapApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E714C617582E17000442D4 /* SnapApiClient.m */; };
@@ -85,8 +84,6 @@
 		49E714BB17582E17000442D4 /* SnapEventListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapEventListViewController.m; sourceTree = "<group>"; };
 		49E714BC17582E17000442D4 /* SnapEventPhotoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapEventPhotoListViewController.h; sourceTree = "<group>"; };
 		49E714BD17582E17000442D4 /* SnapEventPhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapEventPhotoListViewController.m; sourceTree = "<group>"; };
-		49E714BE17582E17000442D4 /* SnapLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapLoadingViewController.h; sourceTree = "<group>"; };
-		49E714BF17582E17000442D4 /* SnapLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapLoadingViewController.m; sourceTree = "<group>"; };
 		49E714C017582E17000442D4 /* SnapNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapNavigationBar.h; sourceTree = "<group>"; };
 		49E714C117582E17000442D4 /* SnapNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapNavigationBar.m; sourceTree = "<group>"; };
 		49E714C217582E17000442D4 /* SnapPhotoShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapPhotoShareViewController.h; sourceTree = "<group>"; };
@@ -243,8 +240,6 @@
 				49E714BB17582E17000442D4 /* SnapEventListViewController.m */,
 				49E714BC17582E17000442D4 /* SnapEventPhotoListViewController.h */,
 				49E714BD17582E17000442D4 /* SnapEventPhotoListViewController.m */,
-				49E714BE17582E17000442D4 /* SnapLoadingViewController.h */,
-				49E714BF17582E17000442D4 /* SnapLoadingViewController.m */,
 				49E714C017582E17000442D4 /* SnapNavigationBar.h */,
 				49E714C117582E17000442D4 /* SnapNavigationBar.m */,
 				49E714C217582E17000442D4 /* SnapPhotoShareViewController.h */,
@@ -529,7 +524,6 @@
 				49E7151617582E17000442D4 /* SnapEventListViewController.m in Sources */,
 				49059D8E17CA98E70084C15D /* SnapImagePicker.m in Sources */,
 				49E7151717582E17000442D4 /* SnapEventPhotoListViewController.m in Sources */,
-				49E7151817582E17000442D4 /* SnapLoadingViewController.m in Sources */,
 				49897C88181DAC5300F83173 /* Analytics.m in Sources */,
 				49E7151917582E17000442D4 /* SnapNavigationBar.m in Sources */,
 				49E7151A17582E17000442D4 /* SnapPhotoShareViewController.m in Sources */,
