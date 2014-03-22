@@ -146,6 +146,9 @@ static NSString *cellIdentifier = @"eventListCell";
     
     // close the database
     [delegate.database close];
+    
+    // clear selection
+    [_tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

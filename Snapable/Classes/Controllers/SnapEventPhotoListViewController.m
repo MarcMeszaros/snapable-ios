@@ -106,15 +106,8 @@ static NSString *cellIdentifier = @"eventPhotoListCell";
 
     // if it's the original screen resolution
     NSString *size = @"crop";
-    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        if([[UIScreen mainScreen] scale] == 1.0f){
-           size = @"250x250";
-        }
-        // else retina
-        else {
-            size = @"500x500";
-        }
+        size = @"500x500";
     } else {
         // TODO ipad here 
     }
