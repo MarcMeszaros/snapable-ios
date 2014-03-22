@@ -123,12 +123,7 @@
 
 // override the AFNetworking image loading to sign the request
 - (void)setImageWithSignedURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request setHTTPShouldHandleCookies:NO];
-    [request setHTTPShouldUsePipelining:YES];
-    [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
-
-    [self setImageWithURLRequest:[[SnapApiClient sharedInstance] signRequest:request] placeholderImage:placeholderImage success:nil failure:nil];
+    [self setImageWithSignedURL:url placeholderImage:placeholderImage success:nil failure:nil];
 }
 
 - (void)setImageWithSignedURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure {

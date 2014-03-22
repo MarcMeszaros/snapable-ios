@@ -13,15 +13,6 @@
 
 @implementation SnapEventListAuthViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -33,12 +24,6 @@
         self.uiGuestInfoViewGroup.hidden = NO;
         self.uiContinueButton.hidden = NO;
     }
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -93,7 +78,7 @@
                                     [self updateOrCreateEventCredentialsWithEventId:[SnapApiClient getIdAsIntegerFromResourceUri:self.event.resource_uri] withGuestId:self.guest.id];
                                     
                                     // update the guest
-                                    NSString *putPath = [NSString stringWithFormat:@"guest/%d/", self.guest.id];
+                                    NSString *putPath = [NSString stringWithFormat:@"guest/%ld/", (long)self.guest.id];
                                     NSDictionary *params = @{
                                         @"name": self.uiName.text
                                     };
@@ -178,18 +163,18 @@
     [delegate.database open];
     
     // query the database
-    NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %d", eventId];
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM event_credentials WHERE id = %ld", (long)eventId];
     FMResultSet *results = [delegate.database executeQuery:query];
     
     // the event credentials already exists, update it
     if ([results next]) {
         NSString *query = nil;
         if (guestId <= 0) {
-            query = [NSString stringWithFormat:@"UPDATE event_credentials SET email='%@', name='%@', pin='%@' WHERE id = %d",
-                self.uiEmail.text, self.uiName.text, self.event.pin, eventId];
+            query = [NSString stringWithFormat:@"UPDATE event_credentials SET email='%@', name='%@', pin='%@' WHERE id = %ld",
+                self.uiEmail.text, self.uiName.text, self.event.pin, (long)eventId];
         } else {
-            query = [NSString stringWithFormat:@"UPDATE event_credentials SET guest_id = %d, email='%@', name='%@', pin='%@' WHERE id = %d",
-                guestId, self.uiEmail.text, self.uiName.text, self.event.pin, eventId];
+            query = [NSString stringWithFormat:@"UPDATE event_credentials SET guest_id = %ld, email='%@', name='%@', pin='%@' WHERE id = %ld",
+                (long)guestId, self.uiEmail.text, self.uiName.text, self.event.pin, (long)eventId];
         }
         [delegate.database executeUpdate:query];
     }
@@ -197,11 +182,11 @@
     else {
         NSString *query = nil;
         if (guestId <= 0) {
-            query = [NSString stringWithFormat:@"INSERT INTO event_credentials(id, email, name, pin) VALUES (%d, '%@', '%@', '%@')",
-                eventId, self.uiEmail.text, self.uiName.text, self.event.pin];
+            query = [NSString stringWithFormat:@"INSERT INTO event_credentials(id, email, name, pin) VALUES (%ld, '%@', '%@', '%@')",
+                (long)eventId, self.uiEmail.text, self.uiName.text, self.event.pin];
         } else {
-            query = [NSString stringWithFormat:@"INSERT INTO event_credentials(id, guest_id, email, name, pin) VALUES (%d, %d, '%@', '%@', '%@')",
-                eventId, guestId, self.uiEmail.text, self.uiName.text, self.event.pin];
+            query = [NSString stringWithFormat:@"INSERT INTO event_credentials(id, guest_id, email, name, pin) VALUES (%ld, %ld, '%@', '%@', '%@')",
+                (long)eventId, (long)guestId, self.uiEmail.text, self.uiName.text, self.event.pin];
         }
         [delegate.database executeUpdate:query];
     }

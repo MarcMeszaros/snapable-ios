@@ -24,24 +24,43 @@ static NSString *cellIdentifier = @"eventListCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // add iOS pull to refresh
+    _refreshControl = [[UIRefreshControl alloc] init];
+    [_refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:_refreshControl];
+}
 
-    // hide the no event message if there is at least one event
-    if (self.events.count > 0) {
-        self.uiNoEventViewGroup.hidden = YES;
-        CGRect rect = CGRectMake(0.0f, 0.0f, 0.0f, 0.0f);
-        [self.uiNoEventViewGroup setFrame:rect];
-    }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.locationController = [[SnapCL alloc] initWithDelegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    // if the location controller isn't nil, look for new locations
+    if (self.locationController != nil && self.events.count < 1) {
+        [self.locationController startUpdatingLocation];
+        [self startLoading];
+    }
     [Analytics sendScreenName:@"EventList"];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (void)viewWillDisappear:(BOOL)animated
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    self.locationController = nil;
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    // if the location controller isn't nil, look for new locations
+    if (self.locationController != nil) {
+        [self.locationController stopUpdatingLocation];
+    }
+    [super viewDidDisappear:animated];
 }
 
 #pragma mark - Table view data source
@@ -83,17 +102,8 @@ static NSString *cellIdentifier = @"eventListCell";
     cell.uiEventDate.text = [eventDateFormat stringFromDate:startDate];
     //cell.uiEventDate.text = [startDate descriptionWithLocale:[NSLocale currentLocale]];
 
-    // if it's the original screen resolution
-    NSString *size = @"crop";
-    if([[UIScreen mainScreen] scale] == 1.0f){
-        size = @"100x100";
-    }
-    // else retina
-    else {
-        size = @"200x200";
-    }
-
     // set the image to be auto loaded
+    NSString *size = @"200x200";
     NSString *photoAbsolutePath = [NSString stringWithFormat:@"%@%@?size=%@", [SnapAPIBaseURL substringToIndex:(SnapAPIBaseURL.length - 1)], event.resource_uri, size];
     [cell.uiPhoto setImageWithSignedURL:[NSURL URLWithString:photoAbsolutePath] placeholderImage:[UIImage imageNamed:@"photoDefault.jpg"]];
     
@@ -136,6 +146,9 @@ static NSString *cellIdentifier = @"eventListCell";
     
     // close the database
     [delegate.database close];
+    
+    // clear selection
+    [_tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -179,8 +192,23 @@ static NSString *cellIdentifier = @"eventListCell";
     [self searchForEventsWithQuery:searchBar.text];
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length <= 0) {
+        [self performSelector:@selector(hideKeyboardWithSearchBar:) withObject:searchBar afterDelay:0];
+    }
+}
+
+- (void)hideKeyboardWithSearchBar:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+}
+
 - (void)searchForEventsWithQuery:(NSString *)query
 {
+    // start the refresh
+    [self startLoading];
+
     // setup the params
     NSDictionary *params = @{
         @"q": query,
@@ -196,7 +224,6 @@ static NSString *cellIdentifier = @"eventListCell";
             for (id apiEvent in [response valueForKeyPath:@"objects"]) {
                 SnapEvent *event = [[SnapEvent alloc] initWithDictionary:apiEvent];
                 [results addObject:event];
-                DLog(@"event: %@", event.title);
             }
             
             // start the correct screen depending on number of events
@@ -207,20 +234,90 @@ static NSString *cellIdentifier = @"eventListCell";
             // hide the no event message if there is at least one event
             if (self.events.count > 0) {
                 self.uiNoEventViewGroup.hidden = YES;
-                CGRect rect = CGRectMake(0.0f, 0.0f, 0.0f, 0.0f);
-                [self.uiNoEventViewGroup setFrame:rect];
             } else {
                 self.uiNoEventViewGroup.hidden = NO;
-                CGRect rect = CGRectMake(0.0f, 0.0f, 320.0f, 480.0f);
-                [self.uiNoEventViewGroup setFrame:rect];
-                
             }
+
+            // end the refresh
+            [self stopLoading];
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            DLog(@"Error fetching events!");
+            ALog(@"Error fetching events!");
             DLog(@"%@", error);
+
+            // end the refresh
+            [self stopLoading];
         }
      ];
+}
+
+- (void)refresh:(UIRefreshControl *)sender
+{
+    if (self.uiSearchBar.text.length > 0) {
+        [self searchForEventsWithQuery:self.uiSearchBar.text];
+    } else if (self.locationController != nil) {
+        [self.locationController startUpdatingLocation];
+    } else {
+        [self stopLoading];
+    }
+}
+
+#pragma mark - Loading
+- (void)startLoading
+{
+    [_tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
+    [_refreshControl beginRefreshing];
+    
+    // hide the no event message if there is at least one event
+    self.uiNoEventViewGroup.hidden = YES;
+}
+
+- (void)stopLoading
+{
+    [_refreshControl endRefreshing];
+    [_tableView setContentOffset:CGPointMake(0, 0) animated:YES];
+    
+    // hide the no event message if there is at least one event
+    self.uiNoEventViewGroup.hidden = (self.events.count <= 0) ? NO : YES;
+}
+
+#pragma mark - Location
+- (void)locationUpdate:(CLLocation *)location {
+	// stop updating the location
+    [self.locationController stopUpdatingLocation];
+    
+    // setup the params
+    NSDictionary *params = @{
+         @"lat": [NSString stringWithFormat:@"%f", location.coordinate.latitude],
+         @"lng": [NSString stringWithFormat:@"%f", location.coordinate.longitude],
+         @"enabled": @"true"
+     };
+    
+    // get the events
+    [[SnapApiClient sharedInstance] getPath:@"event/" parameters:params
+            success:^(AFHTTPRequestOperation *operation, id response) {
+                // hydrate the response into objects
+                NSMutableArray *results = [NSMutableArray array];
+                for (id object in [response valueForKeyPath:@"objects"]) {
+                    SnapEvent *event = [[SnapEvent alloc] initWithDictionary:object];
+                    [results addObject:event];
+                }
+                self.events = results;
+                [_tableView reloadData];
+                [self stopLoading];
+            }
+            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                DLog(@"Error fetching events!");
+                DLog(@"%@", error);
+                [self stopLoading];
+            }
+     ];
+}
+
+- (void)locationError:(NSError *)error {
+	NSLog(@"An error occured while getting location.");
+    DLog(@"Error: %@", error);
+    [self stopLoading];
 }
 
 @end

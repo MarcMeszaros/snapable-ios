@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uwi-4K-nYa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uwi-4K-nYa">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -17,51 +17,149 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="PuC-Em-QhQ" kind="relationship" relationship="rootViewController" id="HdD-1d-p7f"/>
+                        <segue destination="pnb-aK-dua" kind="relationship" relationship="rootViewController" id="qaW-yH-Soe"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOv-ot-dQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-857" y="-82"/>
+            <point key="canvasLocation" x="-297" y="-82"/>
         </scene>
-        <!--Snap Loading View Controller-->
-        <scene sceneID="MQp-Sh-nif">
+        <!--Snap Event List View Controller-->
+        <scene sceneID="nEt-nq-2JB">
             <objects>
-                <viewController id="PuC-Em-QhQ" customClass="SnapLoadingViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleAspectFill" id="3SU-Md-yGg">
+                <viewController id="pnb-aK-dua" customClass="SnapEventListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZWX-yi-OyG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="LoadingBackground" id="Lbw-C4-uxG">
-                                <rect key="frame" x="0.0" y="-20" width="320" height="588"/>
-                                <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.66666668653488159" green="0.76078438758850098" blue="0.86274516582489014" alpha="1" colorSpace="deviceRGB"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Finding Events..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Ht4-x8-6TD">
-                                <rect key="frame" x="0.0" y="472" width="318" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="gray" id="RA7-vh-agl">
-                                <rect key="frame" x="150" y="447" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </activityIndicatorView>
+                            <searchBar contentMode="redraw" placeholder="Event Title or URL" id="bIz-sa-BMW">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.89019607840000003" green="0.90980392160000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="pnb-aK-dua" id="Fwy-eu-aaf"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QE3-kt-gJL">
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" hidden="YES" contentMode="scaleAspectFill" id="L6Z-Mc-LqK" userLabel="View - No Events Group">
+                                    <rect key="frame" x="0.0" y="142" width="320" height="162"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2j6-vo-W0M">
+                                            <rect key="frame" x="28" y="20" width="272" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <string key="text">Sorry, we couldn't find a nearby event.
+Try using the search field.</string>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="To register your own event!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="XC7-ln-rw6">
+                                            <rect key="frame" x="28" y="118" width="272" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OHe-n9-ss0">
+                                            <rect key="frame" x="76" y="68" width="177" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <state key="normal" title="Go to snapable.com" backgroundImage="backgroundBlueButton.png">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="goToSnapable:" destination="pnb-aK-dua" eventType="touchDown" id="cFP-0d-AcD"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventListCell" rowHeight="120" id="IRW-C7-Wa6" customClass="SnapEventListCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IRW-C7-Wa6" id="hoR-bM-Iyz">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="eventListEventBackground.png" highlightedImage="eventListEventBackgroundHighlight.png" id="vB5-BY-NZL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="photoDefault.jpg" id="XHf-Bq-dOM">
+                                                    <rect key="frame" x="14" y="9" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="0ZN-V3-C6b">
+                                                    <rect key="frame" x="122" y="17" width="167" height="54"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text">Draper/Lussier Wedding
+Ceremony &amp; Dinner</string>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sat Jul 7, 7-9 pm" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="7HE-Jk-Cac">
+                                                    <rect key="frame" x="122" y="73" width="167" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PKk-jO-4Sm">
+                                                    <rect key="frame" x="291" y="48" width="16" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" image="blueArrow.png">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="uiEventDate" destination="7HE-Jk-Cac" id="Fze-xV-OoH"/>
+                                            <outlet property="uiEventTitle" destination="0ZN-V3-C6b" id="29a-ac-8Pd"/>
+                                            <outlet property="uiPhoto" destination="XHf-Bq-dOM" id="lLn-oW-UOg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="pnb-aK-dua" id="wy2-Ng-Vl3"/>
+                                    <outlet property="delegate" destination="pnb-aK-dua" id="Man-xI-vve"/>
+                                </connections>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.88235294119999996" green="0.90588235289999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DRe-fc-p9S"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="qm4-0B-T5j"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="loadingLabel" destination="Ht4-x8-6TD" id="2OF-Wt-0op"/>
-                        <outlet property="loadingSpinner" destination="RA7-vh-agl" id="tJ6-vb-jBK"/>
-                        <segue destination="XBT-hS-zJZ" kind="push" identifier="eventListSegue" id="36f-5u-Uas"/>
+                        <outlet property="tableView" destination="QE3-kt-gJL" id="aQK-js-Neo"/>
+                        <outlet property="uiNoEventViewGroup" destination="L6Z-Mc-LqK" id="PGt-Au-PRU"/>
+                        <outlet property="uiSearchBar" destination="bIz-sa-BMW" id="5GV-d8-EUU"/>
+                        <segue destination="yk0-LZ-1r4" kind="modal" identifier="eventListAuthSegue" modalTransitionStyle="flipHorizontal" id="AMH-1U-2Mb"/>
+                        <segue destination="lvs-my-LUM" kind="push" identifier="eventListPhotoSegue" id="B9m-wk-Qx1"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3SS-Wf-MRF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ap4-VB-HFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="NRi-Xs-7sS"/>
             </objects>
-            <point key="canvasLocation" x="-337" y="-82"/>
+            <point key="canvasLocation" x="260" y="-82"/>
         </scene>
         <!--Snap Photo Share View Controller-->
         <scene sceneID="JUO-cM-B1i">
@@ -195,139 +293,6 @@
             </objects>
             <point key="canvasLocation" x="1275" y="-82"/>
         </scene>
-        <!--Snap Event List View Controller-->
-        <scene sceneID="n85-jD-kN7">
-            <objects>
-                <tableViewController id="XBT-hS-zJZ" customClass="SnapEventListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PQO-gM-MWK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Event Title or URL" id="C4q-S7-hmf">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" red="0.88235294119999996" green="0.90588235289999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                            <scopeButtonTitles>
-                                <string>Title</string>
-                                <string>Title</string>
-                            </scopeButtonTitles>
-                            <connections>
-                                <outlet property="delegate" destination="XBT-hS-zJZ" id="2bF-6h-MeL"/>
-                            </connections>
-                        </searchBar>
-                        <view key="tableFooterView" contentMode="scaleAspectFill" id="Un0-Bc-6eX" userLabel="View - No Events Group">
-                            <rect key="frame" x="0.0" y="250" width="320" height="460"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" minimumFontSize="10" id="sbg-8H-ODJ">
-                                    <rect key="frame" x="28" y="30" width="272" height="152"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <string key="text">Sorry, we couldn't find a nearby event. 
-Tap the back button to check again or use the search field.</string>
-                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="To register your own event!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="jEp-2M-9fs">
-                                    <rect key="frame" x="28" y="193" width="272" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3qo-xz-beK">
-                                    <rect key="frame" x="76" y="152" width="177" height="42"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                    <state key="normal" title="Go to snapable.com" backgroundImage="backgroundBlueButton.png">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="highlighted">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="goToSnapable:" destination="XBT-hS-zJZ" eventType="touchDown" id="Z5J-fE-l7I"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="0.2196078431372549" green="0.47450980392156861" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <prototypes>
-                            <tableViewCell alpha="0.10000000000000014" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventListCell" rowHeight="120" id="QKg-ca-I2b" customClass="SnapEventListCell">
-                                <rect key="frame" x="0.0" y="130" width="320" height="120"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QKg-ca-I2b" id="Via-SJ-Hfi">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="eventListEventBackground.png" highlightedImage="eventListEventBackgroundHighlight.png" id="sXM-4e-QCt">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="photoDefault.jpg" id="qBA-ZD-vJc">
-                                            <rect key="frame" x="14" y="9" width="100" height="100"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="EHc-hi-wGT">
-                                            <rect key="frame" x="122" y="17" width="167" height="54"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <string key="text">Draper/Lussier Wedding
-Ceremony &amp; Dinner</string>
-                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <size key="shadowOffset" width="0.0" height="1"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sat Jul 7, 7-9 pm" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="D5T-iw-oec">
-                                            <rect key="frame" x="122" y="73" width="167" height="26"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
-                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gp5-Vb-q17">
-                                            <rect key="frame" x="291" y="48" width="16" height="23"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal" image="blueArrow.png">
-                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="highlighted">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="uiEventDate" destination="D5T-iw-oec" id="15K-eV-SRl"/>
-                                    <outlet property="uiEventTitle" destination="EHc-hi-wGT" id="Iwe-00-IDF"/>
-                                    <outlet property="uiPhoto" destination="qBA-ZD-vJc" id="t0Y-hK-Kjy"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="XBT-hS-zJZ" id="Qdq-1b-1sh"/>
-                            <outlet property="delegate" destination="XBT-hS-zJZ" id="qNH-8N-TyC"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="O9w-Kg-A5c"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="uiNoEventViewGroup" destination="Un0-Bc-6eX" id="bqu-hp-32f"/>
-                        <outlet property="uiSearchBar" destination="C4q-S7-hmf" id="hwF-E4-Hl8"/>
-                        <segue destination="lvs-my-LUM" kind="push" identifier="eventListPhotoSegue" id="THn-CU-Txn"/>
-                        <segue destination="yk0-LZ-1r4" kind="modal" identifier="eventListAuthSegue" modalTransitionStyle="flipHorizontal" id="NOx-r5-xgt"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dLc-h1-pHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="129" y="-82"/>
-        </scene>
         <!--Snap Event List Auth View Controller-->
         <scene sceneID="rYF-eZ-64t">
             <objects>
@@ -451,7 +416,7 @@ Ceremony &amp; Dinner</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jpv-hZ-Ry6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="493" y="532"/>
+            <point key="canvasLocation" x="847" y="668"/>
         </scene>
         <!--Snap Event Photo List View Controller-->
         <scene sceneID="Lyh-iO-OXF">
@@ -551,7 +516,7 @@ Ceremony &amp; Dinner</string>
                                 <rect key="frame" x="120" y="484" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="buttonCamera.png">
+                                <state key="normal" backgroundImage="Camera_BTN">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -578,14 +543,13 @@ Ceremony &amp; Dinner</string>
         </scene>
     </scenes>
     <resources>
-        <image name="LoadingBackground" width="320" height="480"/>
+        <image name="Camera_BTN" width="81" height="81"/>
         <image name="backgroundAuthentication.png" width="640" height="1136"/>
         <image name="backgroundAuthenticationPIN.png" width="560" height="200"/>
         <image name="backgroundBlueButton.png" width="354" height="84"/>
         <image name="backgroundGreenButton.png" width="358" height="88"/>
         <image name="backgroundOrangeButton.png" width="358" height="88"/>
         <image name="blueArrow.png" width="32" height="46"/>
-        <image name="buttonCamera.png" width="162" height="162"/>
         <image name="eventListEventBackground.png" width="640" height="240"/>
         <image name="eventListEventBackgroundHighlight.png" width="640" height="240"/>
         <image name="eventPhotoBorder.png" width="640" height="624"/>
